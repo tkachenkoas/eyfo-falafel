@@ -1,0 +1,40 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn
+mwnw
+.mwnw
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+**/.idea/*
+!.idea/runConfigurations
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### Configs ###
+conf/local
+
+### Frontend ###
+node/
+node_modules/
+/web/dist/
+eyfo-frontend/src/main/resources/static/
+environment-local.ts
+package-lock.json

@@ -1,0 +1,10 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.invalid-feedback {
+  color: red;
+}
+
+agm-map {
+  height: 300px;
+}

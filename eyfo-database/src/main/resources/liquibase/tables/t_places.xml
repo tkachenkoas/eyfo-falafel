@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Anton" id="1">
+        <createTable tableName="t_places">
+            <column name="id" type="number(19)"/>
+            <column name="name" type="varchar2(128)"/>
+            <column name="description" type="varchar2(256)"/>
+            <column name="location_id" type="number(19)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="t_places"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

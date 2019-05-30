@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Anton" id="1">
+        <createTable tableName="t_sec_role">
+            <column name="id" type="number(19)"/>
+            <column name="name" type="varchar2(128)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="t_sec_role"></dropTable>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Anton" id="2">
+        <createTable tableName="t_sec_role_authority">
+            <column name="role_id" type="number(19)"/>
+            <column name="authority_id" type="number(19)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="t_sec_role_authorities"></dropTable>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Anton" id="3">
+        <createTable tableName="t_sec_role_user">
+            <column name="role_id" type="number(19)"/>
+            <column name="user_id" type="number(19)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="t_sec_role_user"></dropTable>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Anton" id="4">
+        <createTable tableName="t_sec_authority">
+            <column name="id" type="number(19)"/>
+            <column name="authority" type="varchar2(128)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="t_sec_authority"></dropTable>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>
