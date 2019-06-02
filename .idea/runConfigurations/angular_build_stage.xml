@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="angular build stage" type="js.build_tools.npm" factoryName="npm">
-    <package-json value="$PROJECT_DIR$/eyfo-frontend/src/main/web/package.json" />
+    <package-json value="$PROJECT_DIR$/eyfo-frontend/package.json" />
     <command value="run" />
     <scripts>
       <script value="staging" />
