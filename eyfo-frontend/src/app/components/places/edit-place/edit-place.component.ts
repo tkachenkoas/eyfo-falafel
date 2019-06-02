@@ -19,8 +19,8 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
   addrSearch: FormControl = new FormControl();
 
   private addressSuggestions: string[];
-  private placeForm: FormGroup;
-  private isLoading = false;
+  placeForm: FormGroup;
+  isLoading = false;
 
   constructor(private placesService: PlacesService
     , private locationsService: LocationsService

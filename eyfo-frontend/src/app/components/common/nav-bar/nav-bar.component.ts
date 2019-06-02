@@ -8,7 +8,7 @@ import {LoginService} from '../../../services/login.service';
 })
 export class NavBarComponent implements OnInit, OnDestroy {
 
-  private loggedIn = false;
+  loggedIn = false;
   constructor(private loginService: LoginService) {}
 
   logout() {

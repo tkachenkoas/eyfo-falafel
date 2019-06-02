@@ -10,9 +10,9 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  private loginForm: FormGroup;
-  private loggedIn = false;
-  private errorMessage: string;
+  loginForm: FormGroup;
+  loggedIn = false;
+  errorMessage: string;
   constructor(private loginService: LoginService
             , private router: Router
             , private formBuilder: FormBuilder) {}
