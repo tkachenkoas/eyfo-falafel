@@ -4,6 +4,7 @@ import {LoginService} from '../services/login.service';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {HttpStatus} from "../const/http";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -16,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
     request = this.addAuthToken(request);
     return next.handle(request).pipe(catchError(err => {
-      if (err.status === 401) {
+      if (err.status === HttpStatus.UNAUTHORIZED) {
         this.router.navigate(['/login']);
       }
       return throwError(err);

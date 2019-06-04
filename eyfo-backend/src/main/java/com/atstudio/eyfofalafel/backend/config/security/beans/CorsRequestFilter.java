@@ -17,7 +17,6 @@ public class CorsRequestFilter extends GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
 
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -26,7 +25,7 @@ public class CorsRequestFilter extends GenericFilterBean {
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
-        if (!request.getMethod().equalsIgnoreCase("OPTIONS")) {
+        if (!((HttpServletRequest) req).getMethod().equalsIgnoreCase("OPTIONS")) {
             chain.doFilter(req, resp);
         } else {
             response.setHeader("Access-Control-Allowed-Methods", "POST, GET, DELETE");

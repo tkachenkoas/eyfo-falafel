@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {Observable, Subject} from 'rxjs';
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular/router';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = environment.apiUrl;
   authSubject = new Subject<{ success: boolean; message: string }>();
   private token: string;
 
@@ -16,12 +14,11 @@ export class LoginService {
   }
 
   sendCredentials(username: string, password: string) {
-    const login = this.apiUrl + 'token';
     const headers = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Basic ' + btoa(username + ':' + password)
     });
-    return this.http.get(login, {headers: headers})
+    return this.http.get('token', {headers: headers})
       .subscribe(
         res => {
           localStorage.setItem('xAuthToken', res['token']);
@@ -34,8 +31,7 @@ export class LoginService {
   }
 
   checkSession() {
-    const url = this.apiUrl + 'checkSession';
-    this.http.get(url)
+    this.http.get('checkSession')
       .subscribe(data => {
           this.authSubject.next({success: true, message: ''});
         },
@@ -47,8 +43,7 @@ export class LoginService {
   }
 
   logout() {
-    const url = this.apiUrl + 'user/logout';
-    return this.http.post(url, '');
+    return this.http.post('user/logout', '');
   }
 
   getToken(): string {

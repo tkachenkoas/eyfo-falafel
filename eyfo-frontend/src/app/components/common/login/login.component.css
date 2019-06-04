@@ -1,0 +1,8 @@
+.align-center{
+  width: 20vw;
+  margin: 30px auto 30px;
+}
+
+::ng-deep .mat-form-field .mat-form-field-infix {
+  width:18vw !important
+}

@@ -17,7 +17,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
         this.loggedIn = false;
         window.location.reload();
       }, error => {
-        this.loggedIn = true;
+        console.log(error);
+        this.loginService.checkSession();
       });
   }
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
 import {Location} from '../models/location';
 import {LatLngLiteral} from '@agm/core';
 
@@ -11,13 +10,11 @@ import {LatLngLiteral} from '@agm/core';
 export class LocationsService {
 
   locationSubject: Subject<Coordinates> = new Subject();
-  private position: Position;
-  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) {
   }
 
   getAddressSuggestions(searchStr: string): Observable<string[]> {
-    return this.http.get<string[]>(this.apiUrl + 'location/address-suggestions', {
+    return this.http.get<string[]>('location/address-suggestions', {
       params: {
         searchStr: searchStr
       }
@@ -25,7 +22,7 @@ export class LocationsService {
   }
 
   getAddresByLocation(coords: LatLngLiteral): Observable<string> {
-    return this.http.get<string>(this.apiUrl + 'location/address-by-location', {
+    return this.http.get<string>('location/address-by-location', {
       params: {
         lat: coords.lat.toString(),
         lng: coords.lng.toString()
@@ -34,7 +31,7 @@ export class LocationsService {
   }
 
   getLocationByAddress(address: string): Observable<Location> {
-    return this.http.get<Location>(this.apiUrl + 'location/location-by-address', {
+    return this.http.get<Location>('location/location-by-address', {
       params: {
         address : address
       }

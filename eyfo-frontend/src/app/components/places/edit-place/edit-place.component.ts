@@ -14,7 +14,7 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
   zoom = 8;
   lat: number;
   lng: number;
-  @ViewChild('googleMap') agmMap: AgmMap;
+  @ViewChild('googleMap', {static: true}) agmMap: AgmMap;
 
   addrSearch: FormControl = new FormControl();
 
@@ -23,8 +23,8 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
   isLoading = false;
 
   constructor(private placesService: PlacesService
-    , private locationsService: LocationsService
-    , private fb: FormBuilder) {
+            , private locationsService: LocationsService
+            , private formBuilder: FormBuilder) {
   }
 
   ngOnDestroy(): void {
@@ -32,10 +32,10 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.placeForm = this.fb.group({
+    this.placeForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      location: this.fb.group({
+      location: this.formBuilder.group({
         address: ['', [Validators.required]],
         latitude: ['', [Validators.required]],
         longitude: ['', [Validators.required]],

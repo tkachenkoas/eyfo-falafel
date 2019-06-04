@@ -15,12 +15,6 @@ import org.zalando.logbook.JsonHttpLogFormatter;
 public class Logging {
 
     @Bean
-    @Scope("prototype")
-    public Logger logger(InjectionPoint injectionPoint) {
-        return LoggerFactory.getLogger(injectionPoint.getMethodParameter().getContainingClass());
-    }
-
-    @Bean
     public HttpLogFormatter httpLogFormatter(final ObjectMapper mapper) {
         return new PrincipalHttpLogFormatter(new JsonHttpLogFormatter(mapper));
     }

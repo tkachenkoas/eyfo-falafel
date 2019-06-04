@@ -1,19 +1,10 @@
-<nav class="navbar navbar-default">
-  <a class="navbar-brand" href="#">Admin portal</a>
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li *ngIf="loggedIn" class="nav-item">
-        <a href="" class="nav-link">Places</a>
-      </li>
-      <li *ngIf="loggedIn" class="nav-item">
-        <a href="" class="nav-link">Users</a>
-      </li>
-      <li *ngIf="loggedIn" class="nav-item">
-        <a href="" (click)="logout()" class="nav-link">Logout</a>
-      </li>
-      <li *ngIf="!loggedIn" class="nav-item">
-        <a href="" class="nav-link">Login</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<mat-toolbar color = "primary">
+  <button mat-flat-button color="primary">Admin-portal</button>
+  <span class = "filler"></span>
+
+  <button mat-flat-button color="primary">Places</button>
+  <button mat-flat-button
+          *ngIf="loggedIn"
+          color="primary"
+          (click)="logout()">Logout</button>
+</mat-toolbar>

@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from '../../../services/login.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      login: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      login: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
     });
 
     this.loginService.authSubject.subscribe( (login) => {
@@ -41,6 +41,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginService.authSubject.unsubscribe();
   }
 
-  get f() { return this.loginForm.controls; }
+  public hasErrors  = (controlName: string) : boolean =>{
+    const  control = this.loginForm.controls[controlName];
+    return control.touched && !control.valid;
+  }
 
 }
