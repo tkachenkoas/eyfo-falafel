@@ -2,15 +2,21 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Subject} from 'rxjs';
+import {Router} from "@angular/router";
+
+
+export interface IAuthenticatedResult {
+  authenticated: boolean,
+  message?: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  authSubject = new Subject<{ success: boolean; message: string }>();
-  private token: string;
+  authSubject = new Subject<IAuthenticatedResult>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   sendCredentials(username: string, password: string) {
@@ -18,32 +24,37 @@ export class LoginService {
       'Content-type': 'application/json',
       'Authorization': 'Basic ' + btoa(username + ':' + password)
     });
+
     return this.http.get('token', {headers: headers})
       .subscribe(
         res => {
           localStorage.setItem('xAuthToken', res['token']);
-          this.authSubject.next({success: true, message: ''});
+          this.authSubject.next({authenticated: true});
         },
-            res => {
-          this.authSubject.next({success: false, message: res['error']['message']});
+        err => {
+          this.authSubject.next({authenticated: false});
         }
       );
   }
 
   checkSession() {
     this.http.get('checkSession')
-      .subscribe(data => {
-          this.authSubject.next({success: true, message: ''});
+      .subscribe((response) => {
+          this.authSubject.next({authenticated: true});
         },
-        error => {
-          this.authSubject.next({success: false, message: ''});
-          localStorage.removeItem('xAuthToken');
-        }
+        error => {this.performLogout()}
       );
   }
 
+  private performLogout() {
+    this.authSubject.next({authenticated: false});
+    localStorage.removeItem('xAuthToken');
+    this.router.navigate(['/login'])
+  }
+
   logout() {
-    return this.http.post('user/logout', '');
+    this.http.post('user/logout', '').toPromise()
+      .then(() => {this.performLogout()});
   }
 
   getToken(): string {
@@ -51,8 +62,7 @@ export class LoginService {
   }
 
   isAuthenticated(): boolean {
-    this.checkSession();
-    return this.getToken() != null;
+    return !!this.getToken();
   }
 
 }

@@ -64,14 +64,14 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
   }
 
   onAddressSelection(address: string) {
-    this.loc['address'].patchValue(address);
+    this.location['address'].patchValue(address);
     this.locationsService.getLocationByAddress(address)
       .subscribe(res => {
         console.log(res);
         this.lat = res.latitude;
-        this.loc['latitude'].patchValue(res.latitude);
+        this.location['latitude'].patchValue(res.latitude);
         this.lng = res.longitude;
-        this.loc['longitude'].patchValue(res.longitude);
+        this.location['longitude'].patchValue(res.longitude);
 
         this.zoom = 17;
       });
@@ -82,12 +82,12 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
     console.log('dragEnd', coords);
 
     this.lat = coords.lat;
-    this.loc['latitude'].patchValue(coords.lat);
+    this.location['latitude'].patchValue(coords.lat);
     this.lng = coords.lng;
-    this.loc['longitude'].patchValue(coords.lng);
+    this.location['longitude'].patchValue(coords.lng);
 
-    this.locationsService.getAddresByLocation(coords)
-      .subscribe(addr => this.loc['address'].patchValue(addr));
+    this.locationsService.getAddressByLocation(coords)
+      .subscribe(addr => this.location['address'].patchValue(addr));
   }
 
 
@@ -95,7 +95,7 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
     return this.placeForm.controls;
   }
 
-  get loc(): FormGroup {
+  get location(): FormGroup {
     return this.frm.location['controls'];
   }
 

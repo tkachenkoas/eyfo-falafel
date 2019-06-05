@@ -21,7 +21,7 @@ export class LocationsService {
     });
   }
 
-  getAddresByLocation(coords: LatLngLiteral): Observable<string> {
+  getAddressByLocation(coords: LatLngLiteral): Observable<string> {
     return this.http.get<string>('location/address-by-location', {
       params: {
         lat: coords.lat.toString(),

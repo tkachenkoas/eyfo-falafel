@@ -12,19 +12,12 @@ export class NavBarComponent implements OnInit, OnDestroy {
   constructor(private loginService: LoginService) {}
 
   logout() {
-    this.loginService.logout()
-      .subscribe(res => {
-        this.loggedIn = false;
-        window.location.reload();
-      }, error => {
-        console.log(error);
-        this.loginService.checkSession();
-      });
+    this.loginService.logout();
   }
 
   ngOnInit() {
-    this.loginService.authSubject.subscribe(event => this.loggedIn = event.success);
-    this.loggedIn = this.loginService.isAuthenticated();
+    this.loginService.authSubject
+        .subscribe(event => this.loggedIn = event.authenticated);
   }
 
   ngOnDestroy(): void {
