@@ -19,6 +19,7 @@ import {environment} from '../environments/environment';
 import {MaterialComponentsModule} from "./modules/material-components.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
+import { LocationComponent } from './components/places/edit-place/location/location.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
     LoginComponent,
     PlacesListComponent,
     EditPlaceComponent,
-    PlaceComponent
+    PlaceComponent,
+    LocationComponent
   ],
   imports: [
     MaterialComponentsModule,

@@ -3,7 +3,7 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule, MatInputModule,
+  MatFormFieldModule, MatGridListModule, MatInputModule,
   MatToolbarModule
 } from "@angular/material";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
@@ -16,7 +16,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatAutocompleteModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   exports: [
     MatButtonModule,
@@ -25,7 +26,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatAutocompleteModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ]
 })
 export class MaterialComponentsModule {

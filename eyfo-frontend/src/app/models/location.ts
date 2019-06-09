@@ -1,5 +1,4 @@
-export interface Location {
-  id?: number;
+export interface ILocation {
   address?: string;
   latitude: number;
   longitude: number;

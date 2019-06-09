@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Location} from '../models/location';
+import {ILocation} from '../models/location';
 import {LatLngLiteral} from '@agm/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LocationsService {
+export class LocationService {
 
   locationSubject: Subject<Coordinates> = new Subject();
   constructor(private http: HttpClient) {
@@ -21,24 +21,24 @@ export class LocationsService {
     });
   }
 
-  getAddressByLocation(coords: LatLngLiteral): Observable<string> {
+  getAddressByLocation(coords: LatLngLiteral): Promise<string> {
     return this.http.get<string>('location/address-by-location', {
       params: {
         lat: coords.lat.toString(),
         lng: coords.lng.toString()
       }
-    });
+    }).toPromise();
   }
 
-  getLocationByAddress(address: string): Observable<Location> {
-    return this.http.get<Location>('location/location-by-address', {
+  getLocationByAddress(address: string): Promise<ILocation> {
+    return this.http.get<ILocation>('location/location-by-address', {
       params: {
         address : address
       }
-    });
+    }).toPromise();
   }
 
-  refreshLocation(): Coordinates {
+  refreshLocation(): void {
     if (!window.navigator || !window.navigator.geolocation) {
       console.log('No navigation available');
       return;
@@ -63,6 +63,4 @@ export class LocationsService {
       }
     );
   }
-
-
 }

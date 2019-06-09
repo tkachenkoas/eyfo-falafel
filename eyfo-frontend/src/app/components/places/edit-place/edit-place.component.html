@@ -1,113 +1,22 @@
-<div class="container">
-  <div class="col-md-12">
-    <div class="row">
-      <h3>New place</h3>
-    </div>
-    <form [formGroup]="placeForm">
-      <div class="row">
-        <div  class="col-md-6">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name"
-                   type="text"
-                   formControlName="name"
-                   class="form-control"/>
-            <div *ngIf="frm.name.touched && !frm.name.valid" class="invalid-feedback">
-              Please enter place name
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description"
-                      formControlName="description"
-                      class="form-control">
-            </textarea>
-            <div *ngIf="frm.description.touched && !frm.description.valid" class="invalid-feedback">
-              Please enter place description
-            </div>
-          </div>
-          <h4>Address</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <div class="col-md-1">
-            <h5><label>Search:</label></h5>
-          </div>
-          <div class="col-md-5">
-            <input type="text"
-                   [formControl]="addrSearch"
-                   [matAutocomplete]="auto"
-                   class="form-control"/>
-            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onAddressSelection($event.option.value)">
-              <mat-option *ngIf="isLoading" class="is-loading">
-                <mat-spinner diameter="50"></mat-spinner>
-              </mat-option>
-              <ng-container *ngIf="!isLoading">
-                <mat-option *ngFor="let suggestion of addressSuggestions" [value]="suggestion">
-                  <span>{{ suggestion }}</span>
-                </mat-option>
-              </ng-container>
-            </mat-autocomplete>
-          </div>
-        </div>
-      </div>
-      <div formGroupName="location">
-        <div class="row" >
-          <div>
-            <div *ngIf="location['address'].value" class="form-group">
-              <div class="col-md-2">
-                <label>Selected address:</label>
-              </div>
-              <div class="col-md-4">
-                {{ location['address'].value }}
-              </div>
-            </div>
-            <input type="hidden" formControlName="address"/>
-          </div>
-        </div>
-        <div class="row">
-          <div *ngIf="location['latitude'].value || location['longitude'].value" class="form-group">
-            <div class="col-md-2">
-              <label for="latitude">Latitude:</label>
-            </div>
-            <div class="col-md-1">
-              <span> {{location['latitude'].value | number: '1.3-3'}} </span>
-              <input id="latitude"
-                     type="hidden"
-                     formControlName="latitude"
-                     class="form-control"/>
-            </div>
-            <div class="col-md-2">
-              <label for="longitude">Longitude:</label>
-            </div>
-            <div class="col-md-1">
-              <span> {{location['latitude'].value | number: '1.3-3'}} </span>
-              <input id="longitude"
-                     type="hidden"
-                     formControlName="longitude"
-                     class="form-control"/>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row form-group">
-        <div class="col-md-6">
-          <agm-map #googleMap
-            [latitude]="lat"
-            [longitude]="lng"
-            [zoom]="zoom"
-            [disableDefaultUI]="false"
-            (mapClick)="markerDragEnd($event.coords)">
-            <agm-marker
-              [latitude]="lat"
-              [longitude]="lng"
-              [markerDraggable]="true"
-              (dragEnd)="markerDragEnd($event.coords)">
-            </agm-marker>
-          </agm-map>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
+<form [formGroup]="placeForm">
+  <table cellspacing="0" class="full-width">
+    <tr>
+      <td>
+        <h3>Добавить точку</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Название" formControlName="name">
+          <mat-error *ngIf="hasErrors('name')">Название не должно быть пустым</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <location-picker formControlName="location"></location-picker>
+      </td>
+    </tr>
+  </table>
+</form>

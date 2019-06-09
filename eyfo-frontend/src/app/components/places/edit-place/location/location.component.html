@@ -1,0 +1,44 @@
+<ng-container>
+  <mat-form-field class="full-width">
+    <input matInput
+           placeholder="Адрес"
+           [formControl]="addressSearch"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onAddressSelection($event.option.value)">
+      <mat-option *ngIf="isLoading" class="is-loading">
+        <mat-spinner diameter="50"></mat-spinner>
+      </mat-option>
+      <ng-container *ngIf="!isLoading">
+        <mat-option *ngFor="let suggestion of addressSuggestions" [value]="suggestion">
+          <span>{{ suggestion }}</span>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+  <ng-container>
+    <div *ngIf="formValue('address')" class="form-group">
+      Выбранный адрес: {{ formValue('address') }}
+    </div>
+    <div *ngIf="formValue('latitude') || formValue('longitude')" class="form-group">
+      <div>
+        Локация(широта): {{formValue('latitude') | number: '1.3-3'}}
+      </div>
+      <div>
+        Локация(долгота): {{formValue('longitude') | number: '1.3-3'}}
+      </div>
+    </div>
+  </ng-container>
+  <agm-map #googleMap
+           [latitude]="selectedLocation.latitude"
+           [longitude]="selectedLocation.longitude"
+           [zoom]="zoom"
+           [disableDefaultUI]="false"
+           (mapClick)="markerDragEnd($event.coords)">
+    <agm-marker
+      [latitude]="selectedLocation.latitude"
+      [longitude]="selectedLocation.longitude"
+      [markerDraggable]="true"
+      (dragEnd)="markerDragEnd($event.coords)">
+    </agm-marker>
+  </agm-map>
+</ng-container>
