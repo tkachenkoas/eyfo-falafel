@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PlacesService} from '../../../services/places.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LocationService} from '../../../services/location.service';
+import {Place} from "../../../models/place";
 
 @Component({
   selector: 'app-edit-place',
@@ -23,7 +24,6 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.placeForm = this.formBuilder.group({
       name: ['', Validators.required],
-      description: ['', Validators.required],
       location: new FormControl()
     });
   }
@@ -31,9 +31,16 @@ export class EditPlaceComponent implements OnInit, OnDestroy {
   get frm() {
     return this.placeForm.controls;
   }
-  public hasErrors  = (controlName: string) : boolean =>{
+  hasErrors = (controlName: string) : boolean =>{
     const  control = this.frm[controlName];
     return control.touched && !control.valid;
   }
 
+  submitForm() {
+    if (!this.placeForm.valid) return;
+
+    const place: Place = this.placeForm.value as Place;
+    console.log('create place ' + place);
+    this.placesService.createPlace(place);
+  }
 }

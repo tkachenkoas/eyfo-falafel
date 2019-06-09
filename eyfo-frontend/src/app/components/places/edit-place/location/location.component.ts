@@ -6,7 +6,8 @@ import {
   FormGroup,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
-  Validators
+  Validators,
+  Validator, ValidationErrors
 } from "@angular/forms";
 import {LocationService} from "../../../../services/location.service";
 import {debounceTime, finalize, switchMap, tap} from "rxjs/operators";
@@ -31,7 +32,7 @@ import {ILocation} from "../../../../models/location";
     }
   ]
 })
-export class LocationComponent implements OnInit, ControlValueAccessor {
+export class LocationComponent implements OnInit, ControlValueAccessor, Validator {
 
   zoom = 8;
   public selectedLocation: ILocation = {longitude: 0, latitude: 0};
@@ -125,4 +126,13 @@ export class LocationComponent implements OnInit, ControlValueAccessor {
   writeValue(val: any): void {
     val && this.locationForm.setValue(val, {emitEvent: false});
   }
+
+  validate(control: FormControl): ValidationErrors | null {
+    return this.locationForm.valid ? null : {
+      locationFormError: {
+        valid: false,
+      }
+    };
+  }
+
 }

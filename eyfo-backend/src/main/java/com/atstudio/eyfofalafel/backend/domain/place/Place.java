@@ -1,13 +1,17 @@
 package com.atstudio.eyfofalafel.backend.domain.place;
 
-import javax.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.math.BigDecimal;
+
+@Data
 @Entity
 @Table(name = "t_places")
 public class Place {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -17,41 +21,14 @@ public class Place {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="location_id")
     private Location location;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "price_from")
+    private BigDecimal priceFrom;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
+    @Column(name = "price_to")
+    private BigDecimal priceTo;
 
 }

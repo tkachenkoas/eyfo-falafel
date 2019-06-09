@@ -83,7 +83,7 @@
                                     <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
                                     <resources>
                                         <resource>
-                                            <directory>${project.parent.basedir}/eyfo-frontend/src/main/web/dist/admin-portal/</directory>
+                                            <directory>${project.parent.basedir}/eyfo-frontend/dist/admin-portal/</directory>
                                             <includes>
                                                 <include>**/*.*</include>
                                             </includes>

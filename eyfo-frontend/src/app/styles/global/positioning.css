@@ -2,12 +2,12 @@
   flex: 1 1 auto;
 }
 
-.grid-left {
+.align-left {
   position: absolute;
   left: 10px;
 }
 
-.grid-right {
+.align-right {
   position: absolute;
   right: 10px;
 }

@@ -16,4 +16,15 @@
         </rollback>
     </changeSet>
 
+    <changeSet author="Anton" id="2">
+        <addColumn tableName="t_places">
+            <column name="price_from" type="number(9,2)"/>
+            <column name="price_to" type="number(9,2)"/>
+        </addColumn>
+        <rollback>
+            <dropColumn columnName="price_from" tableName="t_places"/>
+            <dropColumn columnName="price_to" tableName="t_places"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>
