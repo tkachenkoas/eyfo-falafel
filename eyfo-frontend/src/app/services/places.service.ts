@@ -9,6 +9,10 @@ export class PlacesService {
 
   constructor(private http: HttpClient) { }
 
+  public getPlaces(): Promise<Place[]> {
+    return this.http.get('places/').toPromise();
+  }
+
   public createPlace(place: Place) {
     this.http.post('places/new', place).toPromise()
   }

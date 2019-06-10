@@ -1,5 +1,6 @@
 package com.atstudio.eyfofalafel.backend.domain.place;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,10 +9,11 @@ import java.math.BigDecimal;
 @Data
 @Entity
 @Table(name = "t_places")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Place {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -21,7 +23,7 @@ public class Place {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="location_id")
     private Location location;
 

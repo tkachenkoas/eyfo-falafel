@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.service;
+package com.atstudio.eyfofalafel.backend.service.users;
 
 import org.springframework.stereotype.Service;
 

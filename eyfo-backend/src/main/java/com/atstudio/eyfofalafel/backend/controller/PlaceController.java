@@ -1,8 +1,9 @@
-package com.atstudio.eyfofalafel.backend.resource;
+package com.atstudio.eyfofalafel.backend.controller;
 
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
-import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
@@ -10,19 +11,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/places")
-public class PlaceResource {
+@Slf4j
+public class PlaceController {
 
-    private static Logger log;
     private PlaceService placeService;
 
-    public PlaceResource(Logger logger, PlaceService placeService) {
-        this.log = logger;
+    public PlaceController(PlaceService placeService) {
         this.placeService = placeService;
     }
 
     @GetMapping("/")
-    public List<Place> all() {
-        return placeService.findAll();
+    public ResponseEntity<List<Place>> all() {
+        List<Place> places = placeService.findAll();
+        return ResponseEntity.ok(places);
     }
 
     @PostMapping("/new")

@@ -1,9 +1,9 @@
-package com.atstudio.eyfofalafel.backend.resource;
+package com.atstudio.eyfofalafel.backend.controller;
 
 import com.atstudio.eyfofalafel.backend.domain.place.Location;
 import com.atstudio.eyfofalafel.backend.service.location.LocationService;
 import com.google.gson.Gson;
-import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,15 +16,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/location")
-public class LocationResource {
+@Slf4j
+public class LocationController {
 
-    private static Logger log;
     private LocationService locationService;
     @Qualifier("pretty")
     private Gson gson;
 
-    public LocationResource(Logger logger, LocationService locationService, Gson gson) {
-        this.log = logger;
+    public LocationController(LocationService locationService, Gson gson) {
         this.locationService = locationService;
         this.gson = gson;
     }
@@ -45,7 +44,7 @@ public class LocationResource {
 
     @GetMapping(value = "/address-by-location", produces = "application/json")
     public String getAddressByLocation (@RequestParam("lat") Double lat, @RequestParam("lng") Double lng) {
-        return gson.toJson(locationService.getAddressByLocation(new Location(lat,lng)));
+        return gson.toJson(locationService.getAddressByLocation(Location.ofLatLng(lat,lng)));
     }
 
 }

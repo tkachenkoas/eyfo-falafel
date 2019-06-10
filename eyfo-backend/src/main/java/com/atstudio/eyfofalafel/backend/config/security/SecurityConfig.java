@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
              .httpBasic().authenticationEntryPoint(failureHandler)
              .and().authorizeRequests()
              .antMatchers(PUBLIC_RESOURCES).permitAll()
+             .antMatchers("/swagger-*").authenticated()
              .regexMatchers("/api/").authenticated();
         http.addFilterBefore(new CorsRequestFilter(), BasicAuthenticationFilter.class);
     }

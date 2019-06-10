@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.service;
+package com.atstudio.eyfofalafel.backend.service.users;
 
 import com.atstudio.eyfofalafel.backend.repository.UserRepository;
 import org.slf4j.Logger;

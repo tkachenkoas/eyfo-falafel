@@ -1,16 +1,21 @@
 package com.atstudio.eyfofalafel.backend.domain.place;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Data
 @Table(name = "t_locations")
+@NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -18,16 +23,16 @@ public class Location {
     private String address;
 
     @Column(name = "latitude")
-    private Double latitude;
+    private BigDecimal latitude;
 
     @Column(name = "longitude")
-    private Double longitude;
+    private BigDecimal longitude;
 
-    public Location() {
+    public static Location ofLatLng(Double lat, Double lng) {
+        Location location = new Location();
+        location.latitude = new BigDecimal(lat);
+        location.longitude = new BigDecimal(lng);
+        return location;
     }
 
-    public Location(Double latitude, Double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 }

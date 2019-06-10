@@ -27,4 +27,15 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="3" author="Anton">
+        <addPrimaryKey tableName="t_places" columnNames="id"/>
+        <addAutoIncrement tableName="t_places" columnName="id"/>
+        <rollback>
+            <dropPrimaryKey tableName="t_places"/>
+            <sql>
+                ALTER TABLE t_places ALTER COLUMN id DROP DEFAULT;
+            </sql>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

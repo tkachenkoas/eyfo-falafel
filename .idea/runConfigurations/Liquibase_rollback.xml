@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Liquibase update" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="Liquibase rollback" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -12,7 +12,7 @@
             <list>
               <option value="clean" />
               <option value="process-resources" />
-              <option value="-Plocal,updateDb" />
+              <option value="-Plocal,rollback" />
               <option value="-pl" />
               <option value=":eyfo-database" />
             </list>

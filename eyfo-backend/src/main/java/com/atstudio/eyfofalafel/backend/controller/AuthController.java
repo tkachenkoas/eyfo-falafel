@@ -1,6 +1,6 @@
-package com.atstudio.eyfofalafel.backend.resource;
+package com.atstudio.eyfofalafel.backend.controller;
 
-import com.atstudio.eyfofalafel.backend.service.UserService;
+import com.atstudio.eyfofalafel.backend.service.users.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +17,11 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-public class LoginResource {
+public class AuthController {
 
     private UserService userService;
 
-    public LoginResource(UserService userService) {
+    public AuthController(UserService userService) {
         this.userService = userService;
     }
 

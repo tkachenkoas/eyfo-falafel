@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Place} from "../../../models/place";
+import {PlacesService} from "../../../services/places.service";
 
 @Component({
   selector: 'app-places-list',
@@ -8,9 +9,16 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class PlacesListComponent implements OnInit {
 
-  constructor(private router: Router
-              , private  route: ActivatedRoute) { }
+  constructor(private placeService: PlacesService) { }
+
+  placeList : Place[];
 
   ngOnInit() {
+    this.loadPlaces();
   }
+
+  private loadPlaces(): void {
+    this.placeService.getPlaces().then(res => this.placeList = res);
+  }
+
 }

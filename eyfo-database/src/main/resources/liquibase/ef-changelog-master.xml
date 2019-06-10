@@ -8,5 +8,6 @@
     <include file="/tables/t_sec_role.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_places.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_locations.xml" relativeToChangelogFile="true"/>
+    <include file="/tables/hibernate_sequence.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

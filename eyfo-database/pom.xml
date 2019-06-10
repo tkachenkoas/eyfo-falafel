@@ -80,7 +80,7 @@
                         </configuration>
                         <executions>
                             <execution>
-                                <phase>verify</phase>
+                                <phase>process-resources</phase>
                                 <goals>
                                     <goal>rollback</goal>
                                 </goals>
@@ -103,7 +103,7 @@
                         </configuration>
                         <executions>
                             <execution>
-                                <phase>verify</phase>
+                                <phase>process-resources</phase>
                                 <goals>
                                     <goal>update</goal>
                                 </goals>
@@ -150,7 +150,7 @@
                 <executions>
                     <execution>
                         <id>copy-resources</id>
-                        <phase>compile</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>

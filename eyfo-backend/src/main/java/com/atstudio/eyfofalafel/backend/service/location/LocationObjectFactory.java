@@ -8,15 +8,14 @@ public class LocationObjectFactory {
 
     public LatLng toGoogleLocation(Location location) {
         LatLng latLng = new LatLng();
-        latLng.lat = location.getLatitude();
-        latLng.lng = location.getLongitude();
+        latLng.lat = location.getLatitude().doubleValue();
+        latLng.lng = location.getLongitude().doubleValue();
         return latLng;
     }
 
     public Location fromGeocodingResult(GeocodingResult geoCoding) {
-        Location location = new Location();
-        location.setLatitude(geoCoding.geometry.location.lat);
-        location.setLongitude(geoCoding.geometry.location.lng);
+        LatLng latLng = geoCoding.geometry.location;
+        Location location = Location.ofLatLng(latLng.lat, latLng.lng);
         location.setAddress(geoCoding.formattedAddress);
         return location;
     }
