@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Place} from "../../../models/place";
 import {PlacesService} from "../../../services/places.service";
 
@@ -7,18 +7,25 @@ import {PlacesService} from "../../../services/places.service";
   templateUrl: './places-list.component.html',
   styleUrls: ['./places-list.component.css']
 })
-export class PlacesListComponent implements OnInit {
+export class PlacesListComponent implements AfterViewInit  {
+
+  displayedColumns: string[] = ['id', 'name', 'address'];
+  data: Place[] = [];
+  isLoadingResults = true;
 
   constructor(private placeService: PlacesService) { }
 
-  placeList : Place[];
-
-  ngOnInit() {
+  ngAfterViewInit() {
     this.loadPlaces();
   }
 
   private loadPlaces(): void {
-    this.placeService.getPlaces().then(res => this.placeList = res);
+    this.isLoadingResults = true;
+    this.placeService.getPlaces()
+                     .then(res => {
+                        this.data = res;
+                        this.isLoadingResults = false;
+                      });
   }
 
 }
