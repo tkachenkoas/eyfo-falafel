@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 @Data
 @Entity
 @Table(name = "t_places")
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Place {
 
     @Id

@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../environments/environment';
 import {Subject} from 'rxjs';
 import {Router} from "@angular/router";
 
@@ -10,11 +9,17 @@ export interface IAuthenticatedResult {
   message?: string
 }
 
+interface AuthenticationResponse {
+  token: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   authSubject = new Subject<IAuthenticatedResult>();
+  private TOKEN_KEY: string = 'xAuthToken';
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -27,38 +32,43 @@ export class LoginService {
 
     return this.http.get('token', {headers: headers})
       .subscribe(
-        res => {
-          localStorage.setItem('xAuthToken', res['token']);
+        (res: AuthenticationResponse) => {
+          localStorage.setItem(this.TOKEN_KEY, res.token);
           this.authSubject.next({authenticated: true});
         },
-        err => {
-          this.authSubject.next({authenticated: false});
+        (err: string) => {
+          this.authSubject.next({authenticated: false, message: err});
         }
       );
   }
 
   checkSession() {
     this.http.get('checkSession')
-      .subscribe((response) => {
-          this.authSubject.next({authenticated: true});
+      .subscribe(() => {
+          this.authSubject.next({authenticated: true})
         },
-        error => {this.performLogout()}
+        () => {
+          this.performLogout()
+        }
       );
   }
 
   private performLogout() {
     this.authSubject.next({authenticated: false});
-    localStorage.removeItem('xAuthToken');
+    localStorage.removeItem(this.TOKEN_KEY);
     this.router.navigate(['/login'])
   }
 
   logout() {
-    this.http.post('user/logout', '').toPromise()
-      .then(() => {this.performLogout()});
+    this.http.post('user/logout', '')
+      .toPromise()
+      .then(() => {
+        this.performLogout()
+      });
   }
 
   getToken(): string {
-    return localStorage.getItem('xAuthToken');
+    return localStorage.getItem(this.TOKEN_KEY);
   }
 
   isAuthenticated(): boolean {

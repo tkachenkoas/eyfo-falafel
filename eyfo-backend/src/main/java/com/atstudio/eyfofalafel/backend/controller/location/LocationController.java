@@ -1,10 +1,11 @@
-package com.atstudio.eyfofalafel.backend.controller;
+package com.atstudio.eyfofalafel.backend.controller.location;
 
+import com.atstudio.eyfofalafel.backend.controller.beanmapper.RestObjectMapper;
 import com.atstudio.eyfofalafel.backend.domain.place.Location;
 import com.atstudio.eyfofalafel.backend.service.location.LocationService;
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,31 +21,33 @@ import java.util.List;
 public class LocationController {
 
     private LocationService locationService;
-    @Qualifier("pretty")
-    private Gson gson;
+    private RestObjectMapper<Location, LocationRestDTO> mapper;
 
-    public LocationController(LocationService locationService, Gson gson) {
+    public LocationController(LocationService locationService,
+                              @Qualifier("location") RestObjectMapper mapper) {
         this.locationService = locationService;
-        this.gson = gson;
+        this.mapper = mapper;
     }
 
     @GetMapping("/address-suggestions")
-    public List<String> getAddressSuggestions(@NotNull(message = "Search string must be at least 3 characters")
+    public ResponseEntity<List<String>> getAddressSuggestions(@NotNull(message = "Search string must be at least 3 characters")
                                               @Size (min = 3, message = "Search string must be at least 3 characters")
                                               @RequestParam("searchStr") String searchStr) {
-        return locationService.getAddressSuggestions(searchStr);
+        return ResponseEntity.ok(locationService.getAddressSuggestions(searchStr));
     }
 
     @GetMapping("/location-by-address")
-    public Location getLocationByAddress(@NotNull(message = "Address must be at least 3 characters")
+    public ResponseEntity<LocationRestDTO> getLocationByAddress(@NotNull(message = "Address must be at least 3 characters")
                                               @Size (min = 3, message = "Address must be at least 3 characters")
                                               @RequestParam("address") String address) {
-        return locationService.getLocationByAddress(address);
+        LocationRestDTO response = mapper.toRest(locationService.getLocationByAddress(address));
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping(value = "/address-by-location", produces = "application/json")
-    public String getAddressByLocation (@RequestParam("lat") Double lat, @RequestParam("lng") Double lng) {
-        return gson.toJson(locationService.getAddressByLocation(Location.ofLatLng(lat,lng)));
+    public ResponseEntity<String> getAddressByLocation (@RequestParam("lat") Double lat, @RequestParam("lng") Double lng) {
+        String address = locationService.getAddressByLocation(Location.ofLatLng(lat,lng));
+        return ResponseEntity.ok(address);
     }
 
 }

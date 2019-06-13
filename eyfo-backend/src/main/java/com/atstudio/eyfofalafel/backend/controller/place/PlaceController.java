@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.controller;
+package com.atstudio.eyfofalafel.backend.controller.place;
 
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/places")
@@ -27,13 +28,16 @@ public class PlaceController {
     }
 
     @PostMapping("/new")
-    public Place newPlace(@RequestBody Place place) {
-        return placeService.save(place);
+    public ResponseEntity<Place> newPlace(@RequestBody Place place) {
+        return ResponseEntity.ok(placeService.save(place));
     }
 
     @GetMapping("/{id}")
-    public Place getById(@PathVariable Long id) {
-        return placeService.findById(id).orElseThrow(() -> new EntityNotFoundException("id"));
+    public ResponseEntity<Place> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(
+                placeService.findById(id)
+                            .orElseThrow(() -> new EntityNotFoundException("Can't find place with id=" + id))
+        );
     }
 
     @PutMapping("/{id}")

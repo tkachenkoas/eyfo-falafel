@@ -12,17 +12,17 @@ export class PlacesService {
 
   public getPlaces(): Promise<Place[]> {
     return this.http.get('places/').pipe(
-      map(data => {
-        console.log(`Places list: ${JSON.stringify(data)}`)
+      map((data: Place[]) => {
+        console.log(`Places list: ${JSON.stringify(data)}`);
         return data;
       })
-    ).toPromise() as Promise<Place[]>;
+    ).toPromise();
   }
 
-  public createPlace(place: Place) {
-    this.http.post('places/new', place).pipe(
-      map(data => {
-        console.log(`Created place: ${JSON.stringify(data)}`)
+  public createPlace(place: Place): Promise<Place> {
+    return this.http.post('places/new', place).pipe(
+      map((data: Place)=> {
+        console.log(`Created place: ${JSON.stringify(data)}`);
         return data;
       })
     ).toPromise();

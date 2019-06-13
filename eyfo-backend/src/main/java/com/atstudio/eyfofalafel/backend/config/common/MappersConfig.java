@@ -1,26 +1,26 @@
 package com.atstudio.eyfofalafel.backend.config.common;
 
 import com.atstudio.eyfofalafel.backend.service.location.LocationObjectFactory;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class MappersConfig {
 
     @Bean
-    @Qualifier("pretty")
-    public Gson prettyGson() {
-        return new GsonBuilder().setPrettyPrinting().create();
-    }
-
-    @Bean
-    @Primary
-    public Gson defaultGson() {
-        return new Gson();
+    @Qualifier("nullSkippingMapper")
+    public ObjectMapper nullSkippingMapper() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+        return mapper;
     }
 
     @Bean
