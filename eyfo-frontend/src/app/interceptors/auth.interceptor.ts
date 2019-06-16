@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(public loginService: LoginService, public router: Router) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<RestResponse>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<RestResponse<any>>> {
     if (request.url.indexOf('token') >= 0) {
       return next.handle(request);
     }

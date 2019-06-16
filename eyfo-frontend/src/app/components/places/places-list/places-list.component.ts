@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Place} from "../../../models/place";
 import {PlacesService} from "../../../services/places.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-places-list',
@@ -9,11 +10,12 @@ import {PlacesService} from "../../../services/places.service";
 })
 export class PlacesListComponent implements AfterViewInit  {
 
-  displayedColumns: string[] = ['id', 'name', 'address'];
+  displayedColumns: string[] = ['id', 'name', 'address', 'edit'];
   data: Place[] = [];
   isLoadingResults = true;
 
-  constructor(private placeService: PlacesService) { }
+  constructor(private placeService: PlacesService,
+              private router: Router) { }
 
   ngAfterViewInit() {
     this.loadPlaces();
@@ -26,6 +28,10 @@ export class PlacesListComponent implements AfterViewInit  {
                         this.data = res;
                         this.isLoadingResults = false;
                       });
+  }
+
+  public editPlace(place: Place) {
+    this.router.navigate([`places/${place.id}/edit`]);
   }
 
 }
