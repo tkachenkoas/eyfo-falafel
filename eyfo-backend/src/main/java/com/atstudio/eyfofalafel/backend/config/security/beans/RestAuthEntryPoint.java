@@ -2,7 +2,6 @@ package com.atstudio.eyfofalafel.backend.config.security.beans;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -18,7 +17,6 @@ import java.io.IOException;
 public class RestAuthEntryPoint implements AuthenticationEntryPoint {
 
     @Autowired
-    @Qualifier("nullSkippingMapper")
     private ObjectMapper objectMapper;
 
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException ex) throws IOException, ServletException {

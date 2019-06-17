@@ -1,5 +1,6 @@
-package com.atstudio.eyfofalafel.backend.config.common.beans;
+package com.atstudio.eyfofalafel.backend.config.common.serialization;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.zalando.logbook.*;
@@ -12,8 +13,8 @@ public class PrincipalHttpLogFormatter implements HttpLogFormatter {
 
     private final JsonHttpLogFormatter delegate;
 
-    public PrincipalHttpLogFormatter(final JsonHttpLogFormatter delegate) {
-        this.delegate = delegate;
+    public PrincipalHttpLogFormatter(final ObjectMapper mapper) {
+        this.delegate = new JsonHttpLogFormatter(mapper);
     }
 
     @Override

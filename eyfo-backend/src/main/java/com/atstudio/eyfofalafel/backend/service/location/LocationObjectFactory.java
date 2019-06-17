@@ -3,7 +3,9 @@ package com.atstudio.eyfofalafel.backend.service.location;
 import com.atstudio.eyfofalafel.backend.domain.place.Location;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LocationObjectFactory {
 
     public LatLng toGoogleLocation(Location location) {

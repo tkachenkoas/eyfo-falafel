@@ -24,7 +24,7 @@ export class EditPlaceComponent implements OnInit {
       if (edit) {
         this.editMode = true;
         const id = parseInt(urls.map(url => url.path)
-                                .find(path  => parseInt(path) == path));
+                                .find(path  => /^\d+$/.test(path)));
         this.placesService.getPlaceById(id)
             .then((place) => {
               const {name, location} = place;
