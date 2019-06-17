@@ -9,7 +9,7 @@ import {LatLngLiteral} from '@agm/core';
 })
 export class LocationService {
 
-  locationSubject: Subject<Coordinates> = new Subject();
+  userLocationSubject: Subject<Coordinates> = new Subject();
   constructor(private http: HttpClient) {
   }
 
@@ -38,14 +38,14 @@ export class LocationService {
     }).toPromise();
   }
 
-  refreshLocation(): void {
+  requestUserLocation(): void {
     if (!window.navigator || !window.navigator.geolocation) {
       console.log('No navigation available');
       return;
     }
     window.navigator.geolocation.getCurrentPosition(
       position => {
-        this.locationSubject.next(position.coords);
+        this.userLocationSubject.next(position.coords);
         console.log(position);
       },
       error => {

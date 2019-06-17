@@ -1,6 +1,6 @@
 <form [formGroup]="placeForm">
   <div>
-    <h3>Добавить точку</h3>
+    <h3> {{editMode ? 'Добавить точку' : 'Редактировать точку'}} </h3>
   </div>
   <div>
     <mat-form-field class="full-width">
