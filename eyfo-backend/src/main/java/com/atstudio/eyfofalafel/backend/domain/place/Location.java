@@ -1,23 +1,14 @@
 package com.atstudio.eyfofalafel.backend.domain.place;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 
-@Entity
+@Embeddable
 @Data
-@Table(name = "t_locations")
-@NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Location {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
 
     @Column(name = "address")
     private String address;

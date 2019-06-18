@@ -38,4 +38,17 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="4" author="Anton">
+        <addColumn tableName="t_places">
+            <column name="address" type="varchar2(128)"/>
+            <column name="latitude" type="number(8,5)"/>
+            <column name="longitude" type="number(8,5)"/>
+        </addColumn>
+        <rollback>
+            <dropColumn tableName="t_places" columnName="address"/>
+            <dropColumn tableName="t_places" columnName="latitude"/>
+            <dropColumn tableName="t_places" columnName="longitude"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

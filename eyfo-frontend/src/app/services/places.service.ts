@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Place} from "../models/place";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {logAndReturn} from "../utils/logging";
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,34 @@ export class PlacesService {
 
   public getPlaces(): Promise<Place[]> {
     return this.http.get('places/').pipe(
-      map(data => {
-        console.log(`Places list: ${JSON.stringify(data)}`)
-        return data;
+      map((data: Place[]) => {
+        return logAndReturn(data, 'Place list');
       })
-    ).toPromise() as Promise<Place[]>;
+    ).toPromise();
   }
 
-  public createPlace(place: Place) {
-    this.http.post('places/new', place).pipe(
-      map(data => {
-        console.log(`Created place: ${JSON.stringify(data)}`)
-        return data;
+  public getPlaceById(id: number): Promise<Place> {
+    return this.http.get(`places/${id}`).pipe(
+      map((data: Place) => {
+        return logAndReturn(data, `Place id=${id}`);
+      })
+    ).toPromise();
+  }
+
+  public createPlace(place: Place): Promise<Place> {
+    return this.http.post('places/new', place).pipe(
+      map((data: Place) => {
+        return logAndReturn(data, 'Created place');
+      })
+    ).toPromise();
+  }
+
+  public patchPlace(place: Place): Promise<Place> {
+    const {id} = place;
+    if (!id || Number.isNaN(id)) return;
+    return this.http.put(`places/${id}`, place).pipe(
+      map((data: Place) => {
+        return logAndReturn(data, 'Patched place');
       })
     ).toPromise();
   }

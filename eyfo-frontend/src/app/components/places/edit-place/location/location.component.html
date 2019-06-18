@@ -16,27 +16,28 @@
     </mat-autocomplete>
   </mat-form-field>
   <ng-container>
-    <div *ngIf="formValue('address')" class="form-group">
-      Выбранный адрес: {{ formValue('address') }}
+    <div *ngIf="getFormValue('address')" class="form-group">
+      Выбранный адрес: {{ getFormValue('address') }}
     </div>
-    <div *ngIf="formValue('latitude') || formValue('longitude')" class="form-group">
+    <div *ngIf="getFormValue('latitude') || getFormValue('longitude')" class="form-group">
       <div>
-        Локация(широта): {{formValue('latitude') | number: '1.3-3'}}
+        Локация(широта): {{getFormValue('latitude') | number: '1.3-3'}}
       </div>
       <div>
-        Локация(долгота): {{formValue('longitude') | number: '1.3-3'}}
+        Локация(долгота): {{getFormValue('longitude') | number: '1.3-3'}}
       </div>
     </div>
   </ng-container>
   <agm-map #googleMap
-           [latitude]="selectedLocation.latitude"
-           [longitude]="selectedLocation.longitude"
+           [latitude]="userLocation.latitude"
+           [longitude]="userLocation.longitude"
            [zoom]="zoom"
            [disableDefaultUI]="false"
+           [streetViewControl]="false"
            (mapClick)="markerDragEnd($event.coords)">
-    <agm-marker
-      [latitude]="selectedLocation.latitude"
-      [longitude]="selectedLocation.longitude"
+    <agm-marker *ngIf="getFormValue('latitude') || getFormValue('longitude')"
+      [latitude]="getFormValue('latitude')"
+      [longitude]="getFormValue('longitude')"
       [markerDraggable]="true"
       (dragEnd)="markerDragEnd($event.coords)">
     </agm-marker>
