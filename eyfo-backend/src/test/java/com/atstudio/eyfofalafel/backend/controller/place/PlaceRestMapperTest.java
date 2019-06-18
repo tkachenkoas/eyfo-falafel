@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PlaceRestMapperTest extends BaseMapperTest {
 
-    private PlaceRestMapper mapper = new PlaceRestMapper();
+    private PlaceRestMapper mapper = new PlaceRestMapper(new LocationRestMapper());
 
     @Test
     public void toEntity() {

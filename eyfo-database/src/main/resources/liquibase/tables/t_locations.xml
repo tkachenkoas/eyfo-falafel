@@ -27,4 +27,26 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="3" author="Anton">
+        <sql>
+            UPDATE t_places
+            SET
+                address = l.address,
+                latitude = l.latitude,
+                longitude = l.longitude
+            FROM
+                t_locations as l
+            WHERE
+                t_places.location_id = l.id;
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="Anton">
+        <dropTable tableName="t_locations"/>
+    </changeSet>
+
+    <changeSet id="5" author="Anton">
+        <dropColumn tableName="t_places" columnName="location_id"/>
+    </changeSet>
+
 </databaseChangeLog>

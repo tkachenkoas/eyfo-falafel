@@ -37,8 +37,8 @@ export class PlacesService {
 
   public patchPlace(place: Place): Promise<Place> {
     const {id} = place;
-    if (Number.isNaN(id)) return;
-    return this.http.post(`places/${id}`, place).pipe(
+    if (!id || Number.isNaN(id)) return;
+    return this.http.put(`places/${id}`, place).pipe(
       map((data: Place) => {
         return logAndReturn(data, 'Patched place');
       })

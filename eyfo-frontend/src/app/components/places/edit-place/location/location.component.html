@@ -33,10 +33,11 @@
            [longitude]="userLocation.longitude"
            [zoom]="zoom"
            [disableDefaultUI]="false"
+           [streetViewControl]="false"
            (mapClick)="markerDragEnd($event.coords)">
-    <agm-marker
-      [latitude]="userLocation.latitude"
-      [longitude]="userLocation.longitude"
+    <agm-marker *ngIf="getFormValue('latitude') || getFormValue('longitude')"
+      [latitude]="getFormValue('latitude')"
+      [longitude]="getFormValue('longitude')"
       [markerDraggable]="true"
       (dragEnd)="markerDragEnd($event.coords)">
     </agm-marker>

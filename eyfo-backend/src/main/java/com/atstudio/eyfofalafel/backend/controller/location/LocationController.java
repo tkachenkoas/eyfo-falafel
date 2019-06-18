@@ -45,9 +45,10 @@ public class LocationController {
     }
 
     @GetMapping(value = "/address-by-location", produces = "application/json")
-    public ResponseEntity<String> getAddressByLocation (@RequestParam("lat") Double lat, @RequestParam("lng") Double lng) {
-        String address = locationService.getAddressByLocation(Location.ofLatLng(lat,lng));
-        return ResponseEntity.ok(address);
+    public ResponseEntity<LocationRestDTO> getAddressByLocation (@RequestParam("lat") Double lat, @RequestParam("lng") Double lng) {
+        Location location = Location.ofLatLng(lat,lng);
+        location.setAddress(locationService.getAddressByLocation(location));
+        return ResponseEntity.ok(mapper.toRest(location));
     }
 
 }

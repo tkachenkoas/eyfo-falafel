@@ -21,8 +21,8 @@ export class LocationService {
     });
   }
 
-  getAddressByLocation(coords: LatLngLiteral): Promise<string> {
-    return this.http.get<string>('location/address-by-location', {
+  getLocationByCoords(coords: LatLngLiteral): Promise<ILocation> {
+    return this.http.get<ILocation>('location/address-by-location', {
       params: {
         lat: coords.lat.toString(),
         lng: coords.lng.toString()

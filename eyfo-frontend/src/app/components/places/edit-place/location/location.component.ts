@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, forwardRef, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, forwardRef, OnInit} from '@angular/core';
 import {
   ControlValueAccessor,
   FormBuilder,
@@ -33,9 +33,12 @@ import {ILocation} from "../../../../models/location";
     }
   ]
 })
-export class LocationComponent implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor, Validator {
+export class LocationComponent implements OnInit, AfterViewInit, ControlValueAccessor, Validator {
 
-  zoom = 8;
+  ZOOM_FAR: number = 8;
+  ZOOM_CLOSE: number = 15;
+  zoom = this.ZOOM_FAR;
+
   userLocation: ILocation = {longitude: 0, latitude: 0};
   addressSuggestions: string[];
   isLoading: boolean = false;
@@ -52,11 +55,11 @@ export class LocationComponent implements OnInit, AfterViewInit, OnDestroy, Cont
   });
 
   ngOnInit() {
-    this.locationService.userLocationSubject
-      .subscribe(coords => {
-        this.setSelectedLocation(coords);
-        this.zoom = 14;
+    this.locationService.userLocationSubject.subscribe(coords => {
+        this.setCenterLocation(coords);
+        this.zoom = this.ZOOM_CLOSE;
       });
+
     this.addressSearch.valueChanges
       .pipe(
         debounceTime(500),
@@ -76,10 +79,6 @@ export class LocationComponent implements OnInit, AfterViewInit, OnDestroy, Cont
     this.locationService.requestUserLocation();
   }
 
-  ngOnDestroy(): void {
-    this.locationService.userLocationSubject.unsubscribe();
-  }
-
   get locationControls() {
     return this.locationForm.controls;
   }
@@ -94,8 +93,8 @@ export class LocationComponent implements OnInit, AfterViewInit, OnDestroy, Cont
     this.locationService.getLocationByAddress(address)
       .then(res => {
         console.log(res);
-        this.setSelectedLocation(res);
-        this.zoom = 17;
+        this.setCenterLocation(res);
+        this.zoom = this.ZOOM_CLOSE;
       });
     this.addressSearch.patchValue('', {emitEvent: false});
   }
@@ -104,17 +103,16 @@ export class LocationComponent implements OnInit, AfterViewInit, OnDestroy, Cont
     this.locationControls[control].patchValue(value);
   }
 
-  private setSelectedLocation(location: ILocation) : void {
+  private setCenterLocation(location: ILocation) : void {
     if (!location) return;
     this.userLocation = location;
-
   }
 
   markerDragEnd(coords: LatLngLiteral) {
     console.log('dragEnd', coords);
 
-    this.locationService.getAddressByLocation(coords)
-      .then(addr => this.patchFormValue('address', addr));
+    this.locationService.getLocationByCoords(coords)
+      .then(loc => this.patchFormValue('address', loc.address));
 
     const {latitude, longitude} = { latitude: coords.lat,
                                     longitude: coords.lng };
@@ -122,7 +120,7 @@ export class LocationComponent implements OnInit, AfterViewInit, OnDestroy, Cont
     this.patchFormValue('latitude', latitude);
     this.patchFormValue('longitude', longitude);
 
-    this.setSelectedLocation({ latitude, longitude });
+    this.setCenterLocation({ latitude, longitude });
   }
 
   registerOnChange(fn: any): void {
@@ -140,11 +138,11 @@ export class LocationComponent implements OnInit, AfterViewInit, OnDestroy, Cont
   }
 
   writeValue(val: any): void {
-    if (val) {
-      const location = {...val} as ILocation;
-      delete location.id;
-      this.locationForm.setValue({...location}, {emitEvent: false});
-    }
+    if (!val) return;
+    const location = {...val} as ILocation;
+    this.setCenterLocation(location);
+    this.zoom = this.ZOOM_CLOSE;
+    this.locationForm.setValue({...location}, {emitEvent: false});
   }
 
   validate(control: FormControl): ValidationErrors | null {
