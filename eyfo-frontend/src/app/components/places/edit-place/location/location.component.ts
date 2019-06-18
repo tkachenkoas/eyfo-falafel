@@ -91,10 +91,12 @@ export class LocationComponent implements OnInit, AfterViewInit, ControlValueAcc
   onAddressSelection(address: string) {
     this.patchFormValue('address', address);
     this.locationService.getLocationByAddress(address)
-      .then(res => {
-        console.log(res);
-        this.setCenterLocation(res);
+      .then((location) => {
+        this.setCenterLocation(location);
         this.zoom = this.ZOOM_CLOSE;
+        const {latitude, longitude} = location;
+        this.patchFormValue('latitude', latitude);
+        this.patchFormValue('longitude', longitude);
       });
     this.addressSearch.patchValue('', {emitEvent: false});
   }
