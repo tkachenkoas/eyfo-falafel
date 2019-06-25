@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
+    "prepare-packages": "npm prune && npm install",
     "start": "ng serve --configuration local",
-    "build-local": "ng build --configuration=local",
+    "build-local": "rimraf dist && ng build --configuration=local",
     "staging": "ng build --configuration=staging",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../resources/static/ && mkdirp ../resources/static",
@@ -28,7 +29,6 @@
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
     "@types/es6-promise": "^3.3.0",
-    "@fortawesome/fontawesome-free": "^5.9.0",
     "bootstrap": "^4.3.1",
     "core-js": "^3.1.3",
     "hammerjs": "^2.0.8",
