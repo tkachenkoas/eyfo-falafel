@@ -5,7 +5,7 @@
   <div>
     <mat-form-field class="full-width">
       <input matInput placeholder="Название" formControlName="name">
-      <mat-error *ngIf="hasErrors('name')">Название не должно быть пустым</mat-error>
+      <mat-error *ngIf="hasErrors('name')">Название должно содержать минимум 3 буквы</mat-error>
     </mat-form-field>
   </div>
   <div>
