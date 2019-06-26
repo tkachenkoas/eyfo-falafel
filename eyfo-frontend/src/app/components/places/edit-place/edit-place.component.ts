@@ -39,7 +39,7 @@ export class EditPlaceComponent implements OnInit {
     });
 
     this.placeForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', Validators.pattern(/[а-яa-z]{3}/i)],
       location: new FormControl()
     });
   }

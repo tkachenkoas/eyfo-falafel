@@ -1,50 +1,51 @@
 package com.atstudio.eyfofalafel.backend.service.location;
 
 import com.atstudio.eyfofalafel.backend.domain.place.Location;
-import com.google.maps.GeoApiContext;
-import com.google.maps.GeocodingApi;
-import com.google.maps.PlaceAutocompleteRequest;
-import com.google.maps.PlacesApi;
+import com.google.maps.*;
 import com.google.maps.model.AutocompletePrediction;
 import com.google.maps.model.GeocodingResult;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
+@Slf4j
 public class GoogleLocationApi implements LocationApi{
 
-    private static Logger log;
-    private GeoApiContext context;
+    private GeoApiContext geoApiContext;
     private LocationObjectFactory factory;
 
-    public GoogleLocationApi(GeoApiContext context, Logger logger, LocationObjectFactory factory) {
-        this.context = context;
-        this.log = logger;
+    public GoogleLocationApi(GeoApiContext googleApiContext, LocationObjectFactory factory) {
+        this.geoApiContext = googleApiContext;
         this.factory = factory;
     }
 
     @Override
     public List<String> getAddressSuggestions(String address) throws Exception {
-        AutocompletePrediction[] predictions = PlacesApi.placeAutocomplete(context, address, new PlaceAutocompleteRequest.SessionToken(UUID.randomUUID())).await();
-        return Arrays.stream(predictions).map(ac -> ac.description).collect(Collectors.toList());
+        PlaceAutocompleteRequest.SessionToken token = new PlaceAutocompleteRequest.SessionToken(UUID.randomUUID());
+        PlaceAutocompleteRequest request = PlacesApi.placeAutocomplete(geoApiContext, address, token).language("ru");
+        AutocompletePrediction[] predictions = request.await();
+        return Arrays.stream(predictions).map(ac -> ac.description).collect(toList());
     }
 
     @Override
     public Location getLocationByAddress(String address) throws Exception {
-        GeocodingResult[] geoCodings = GeocodingApi.geocode(context, address).await();
+        GeocodingResult[] geoCodings = GeocodingApi.geocode(geoApiContext, address).await();
         if (ArrayUtils.isEmpty(geoCodings)) return null;
         return factory.fromGeocodingResult(geoCodings[0]);
     }
 
     @Override
     public String getAddressByLocation(Location location) throws Exception {
-        GeocodingResult[] geoCodings = GeocodingApi.reverseGeocode(context, factory.toGoogleLocation(location)).await();
+        GeocodingApiRequest request = GeocodingApi.reverseGeocode(geoApiContext, factory.toGoogleLocation(location))
+                                                  .language("ru");
+        GeocodingResult[] geoCodings = request.await();
         if (ArrayUtils.isEmpty(geoCodings)) return null;
         return geoCodings[0].formattedAddress;
     }
