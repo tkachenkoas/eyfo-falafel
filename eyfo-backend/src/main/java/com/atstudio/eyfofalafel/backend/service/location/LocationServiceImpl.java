@@ -1,20 +1,19 @@
 package com.atstudio.eyfofalafel.backend.service.location;
 
 import com.atstudio.eyfofalafel.backend.domain.place.Location;
-import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class LocationServiceImpl implements LocationService {
 
-    private static Logger log;
     private LocationApi locationApi;
 
-    public LocationServiceImpl(LocationApi locationApi, Logger logger) {
+    public LocationServiceImpl(LocationApi locationApi) {
         this.locationApi = locationApi;
-        this.log = logger;
     }
 
     @Override
