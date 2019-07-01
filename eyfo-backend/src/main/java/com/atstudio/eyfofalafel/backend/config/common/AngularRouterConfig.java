@@ -22,12 +22,10 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
 
     private static class ApiAwareRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
-        private static final String API_PATH_PREFIX = "api";
-
         @Override
         protected void registerHandlerMethod(Object handler, Method method, RequestMappingInfo mapping) {
             if (AnnotationUtils.findAnnotation(method.getDeclaringClass(), RestController.class) != null) {
-                PatternsRequestCondition apiPattern = new PatternsRequestCondition(API_PATH_PREFIX).combine(mapping.getPatternsCondition());
+                PatternsRequestCondition apiPattern = new PatternsRequestCondition("api").combine(mapping.getPatternsCondition());
 
                 mapping = new RequestMappingInfo(mapping.getName(), apiPattern, mapping.getMethodsCondition(),
                         mapping.getParamsCondition(), mapping.getHeadersCondition(), mapping.getConsumesCondition(),
@@ -48,6 +46,8 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+        // swagger endpoints
         registry.addResourceHandler("/**").addResourceLocations("classpath:/resources/");
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");

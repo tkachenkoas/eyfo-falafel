@@ -19,6 +19,7 @@ public class RestAuthEntryPoint implements AuthenticationEntryPoint {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException ex) throws IOException, ServletException {
         if (request.getRequestURI().contains("swagger")) {
             response.addHeader("WWW-Authenticate", "Basic");

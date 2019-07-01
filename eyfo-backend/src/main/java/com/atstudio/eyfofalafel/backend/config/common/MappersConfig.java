@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.config.common.serialization;
+package com.atstudio.eyfofalafel.backend.config.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
