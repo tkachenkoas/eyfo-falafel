@@ -20,6 +20,7 @@ import {MaterialComponentsModule} from "./modules/material-components.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
 import { LocationComponent } from './components/places/edit-place/location/location.component';
+import { FooterComponent } from './components/common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LocationComponent } from './components/places/edit-place/location/locat
     PlacesListComponent,
     EditPlaceComponent,
     PlaceComponent,
-    LocationComponent
+    LocationComponent,
+    FooterComponent
   ],
   imports: [
     MaterialComponentsModule,
