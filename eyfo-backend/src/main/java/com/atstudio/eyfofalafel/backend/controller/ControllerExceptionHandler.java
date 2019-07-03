@@ -24,7 +24,7 @@ public class ControllerExceptionHandler {
 
     private ResponseEntity<String> logAndBuildErrorResponse(Exception ex, HttpStatus status) {
         log.error(ex.getMessage(), ex);
-        return ResponseEntity.status(status).body(ex.getMessage());
+        return ResponseEntity.status(status).body("Faced unexpected error when executing query");
     }
 
 }

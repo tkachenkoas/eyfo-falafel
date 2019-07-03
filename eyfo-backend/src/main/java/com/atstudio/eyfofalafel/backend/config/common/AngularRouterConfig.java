@@ -41,9 +41,12 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
         registry.addViewController("/").setViewName("forward:/index.html");
         // Single directory level - no need to exclude "api"
         registry.addViewController("/{x:[\\w\\-]+}").setViewName("forward:/index.html");
-        // Multi-level directory path, need to exclude "api" on the first part of the path
-        registry.addViewController("/{x:^(?!api$).*$}/**/{y:[\\w\\-]+}").setViewName("forward:/index.html");
+        // Multi-level directory path, need to exclude "api/public" on the first part of the path
+        registry.addViewController("/{x:^(?!api$|public$).*$}/**/{y:[\\w\\d\\_\\-\\.]+}").setViewName("forward:/index.html");
     }
+
+    @Value("${files.folder.storage}")
+    private String fileStoragePath;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -55,7 +58,8 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
 
-
+        registry.addResourceHandler("/public/**")
+                .addResourceLocations("file:///" + fileStoragePath);
 
     }
 
