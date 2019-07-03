@@ -1,5 +1,6 @@
 package com.atstudio.eyfofalafel.backend.config.common;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,6 +54,9 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+
+
     }
 
 }
