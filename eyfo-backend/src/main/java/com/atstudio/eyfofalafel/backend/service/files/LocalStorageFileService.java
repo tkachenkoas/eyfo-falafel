@@ -18,16 +18,16 @@ import static org.apache.commons.io.FilenameUtils.getExtension;
 @Service
 public class LocalStorageFileService implements FileStorageService {
 
-    @Value("${files.folder.temp}")
-    private String tempFileLocation;
-    @Value("${files.folder.storage}")
+    public final static String TEMP_FOLDER = "temp";
+
+    @Value("${files.drive.folder}")
     private String fileStorageLocation;
 
     @PostConstruct
     public void initPaths() {
         try {
-            Files.createDirectories(Paths.get(tempFileLocation));
-            Files.createDirectories(Paths.get(fileStorageLocation));
+            Files.createDirectories(tempPath());
+            Files.createDirectories(storagePath());
         } catch (Exception ex) {
             throw new RuntimeException("Could not create file storage directory", ex);
         }
@@ -35,10 +35,10 @@ public class LocalStorageFileService implements FileStorageService {
 
     @Override
     public Attachment saveTempFile(Attachment file) throws IOException {
-        String targetFileName = String.join(".", getRandomFilename(), getExtension(file.getFileName()));
-        Path targetLocation = Paths.get(this.tempFileLocation).resolve(targetFileName);
+        String targetFileName = String.join(".", getRandomFilename(), getExtension(file.getFileName()).toLowerCase());
+        Path targetLocation = tempPath().resolve(targetFileName);
         Files.write(targetLocation, file.getContent());
-        file.setFullPath(targetLocation.toAbsolutePath().toString());
+        file.setFullPath(String.join("/", TEMP_FOLDER, targetFileName).toLowerCase());
         return file;
     }
 
@@ -46,5 +46,13 @@ public class LocalStorageFileService implements FileStorageService {
         String datePart = new SimpleDateFormat("YYYYMMDDHH").format(new Date());
         String randomPart = String.format("%07d" , new Random().nextInt(1000000));
         return String.join("_", datePart, randomPart);
+    }
+
+    private Path tempPath() {
+        return Paths.get(fileStorageLocation, TEMP_FOLDER);
+    }
+
+    private Path storagePath() {
+        return Paths.get(fileStorageLocation);
     }
 }

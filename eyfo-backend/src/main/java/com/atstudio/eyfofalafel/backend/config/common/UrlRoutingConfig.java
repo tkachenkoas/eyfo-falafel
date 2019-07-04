@@ -1,5 +1,6 @@
 package com.atstudio.eyfofalafel.backend.config.common;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.lang.reflect.Method;
 
 @Configuration
-public class AngularRouterConfig extends WebMvcConfigurationSupport {
+public class UrlRoutingConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
@@ -45,7 +46,7 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
         registry.addViewController("/{x:^(?!api$|public$).*$}/**/{y:[\\w\\d\\_\\-\\.]+}").setViewName("forward:/index.html");
     }
 
-    @Value("${files.folder.storage}")
+    @Value("${files.drive.folder}")
     private String fileStoragePath;
 
     @Override
@@ -59,8 +60,12 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
 
         registry.addResourceHandler("/public/**")
-                .addResourceLocations("file:///" + fileStoragePath);
+                .addResourceLocations(resourceLocationPrefix() + fileStoragePath.toLowerCase());
 
+    }
+
+    private String resourceLocationPrefix() {
+        return SystemUtils.IS_OS_WINDOWS ? "file:///" : "file:/";
     }
 
 }
