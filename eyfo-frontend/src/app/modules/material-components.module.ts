@@ -7,6 +7,7 @@ import {
   MatToolbarModule
 } from "@angular/material";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {DragScrollModule} from "ngx-drag-scroll";
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    DragScrollModule
   ],
   exports: [
     MatButtonModule,
@@ -29,7 +31,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    DragScrollModule
   ]
 })
 export class MaterialComponentsModule {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {ILocation} from '../models/location';
+import {ILocation} from '../models/model-interfaces';
 import {LatLngLiteral} from '@agm/core';
 
 @Injectable({

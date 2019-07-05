@@ -5,7 +5,7 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {HttpStatus} from "../const/http";
-import {RestResponse} from "../models/RestResponse";
+import {RestResponse} from "../models/rest-response";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

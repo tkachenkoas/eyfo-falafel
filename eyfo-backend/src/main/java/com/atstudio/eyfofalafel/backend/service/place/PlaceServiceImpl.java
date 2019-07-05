@@ -4,11 +4,13 @@ import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import com.atstudio.eyfofalafel.backend.repository.PlaceRepository;
 import com.google.common.collect.Lists;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class PlaceServiceImpl implements PlaceService {
 
     private PlaceRepository crudRepo;

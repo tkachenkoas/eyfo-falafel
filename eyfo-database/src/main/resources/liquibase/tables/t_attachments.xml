@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Anton" id="1">
+        <createTable tableName="t_attachments">
+            <column name="id" type="number(19)"/>
+            <column name="file_name" type="varchar2(128)"/>
+            <column name="full_description" type="varchar2(256)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="t_attachments"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="Anton">
+        <addPrimaryKey tableName="t_attachments" columnNames="id"/>
+        <addAutoIncrement tableName="t_attachments" columnName="id"/>
+        <rollback>
+            <dropPrimaryKey tableName="t_attachments"/>
+            <sql>
+                ALTER TABLE t_attachments ALTER COLUMN id DROP DEFAULT;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

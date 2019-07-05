@@ -1,9 +1,11 @@
 package com.atstudio.eyfofalafel.backend.domain.place;
 
+import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -29,5 +31,13 @@ public class Place {
 
     @Column(name = "price_to")
     private BigDecimal priceTo;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "t_places_attachments",
+            joinColumns = { @JoinColumn(name = "attachment_id") },
+            inverseJoinColumns = { @JoinColumn(name = "place_id") }
+    )
+    private List<Attachment> attachments;
 
 }
