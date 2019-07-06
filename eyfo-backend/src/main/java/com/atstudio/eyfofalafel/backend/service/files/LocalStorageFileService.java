@@ -1,6 +1,7 @@
 package com.atstudio.eyfofalafel.backend.service.files;
 
 import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.Random;
 import static org.apache.commons.io.FilenameUtils.getExtension;
 
 @Service
+@Slf4j
 public class LocalStorageFileService implements FileStorageService {
 
     public final static String TEMP_FOLDER = "temp";
@@ -34,12 +36,37 @@ public class LocalStorageFileService implements FileStorageService {
     }
 
     @Override
-    public Attachment saveTempFile(Attachment file) throws IOException {
-        String targetFileName = String.join(".", getRandomFilename(), getExtension(file.getFileName()).toLowerCase());
-        Path targetLocation = tempPath().resolve(targetFileName);
-        Files.write(targetLocation, file.getContent());
-        file.setFullPath(String.join("/", TEMP_FOLDER, targetFileName).toLowerCase());
-        return file;
+    public Attachment saveTempFile(Attachment file) {
+        try {
+            String targetFileName = String.join(".", getRandomFilename(), getExtension(file.getFileName()).toLowerCase());
+            Path targetLocation = tempPath().resolve(targetFileName);
+            Files.write(targetLocation, file.getContent());
+            file.setFullPath(String.join("/", TEMP_FOLDER, targetFileName).toLowerCase());
+            return file;
+        } catch (IOException e){
+            log.error(e.getMessage(), e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Attachment saveFileForStorage(Attachment file) {
+        if (!file.getFullPath().contains(TEMP_FOLDER)) return file;
+
+        return null;
+    }
+
+    @Override
+    public void remove(Attachment file) {
+        Path filePath = storagePath().resolve(Paths.get(file.getFullPath()));
+        if (!Files.exists(filePath)) {
+            log.info("File {} does not exist; will do nothing", filePath.toString());
+        }
+        try {
+            Files.delete(filePath);
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
     }
 
     private String getRandomFilename() {

@@ -2,7 +2,6 @@ package com.atstudio.eyfofalafel.backend.controller.files;
 
 import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService;
-import com.atstudio.eyfofalafel.backend.service.files.FilesObjectFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,17 +16,17 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadController {
 
     private FileStorageService fileStorageService;
-    private FilesObjectFactory factory;
+    private FilesObjectMapper mapper;
 
-    public FileUploadController(FileStorageService fileStorageService, FilesObjectFactory factory) {
+    public FileUploadController(FileStorageService fileStorageService, FilesObjectMapper factory) {
         this.fileStorageService = fileStorageService;
-        this.factory = factory;
+        this.mapper = factory;
     }
 
     @PostMapping("/upload-temp")
     public ResponseEntity<FileRestDto> uploadTempFile(@RequestParam("file") MultipartFile file) throws Exception {
-        Attachment tempFile = fileStorageService.saveTempFile(factory.fromMultipart(file));
-        return ResponseEntity.ok(factory.fromAttachment(tempFile));
+        Attachment tempFile = fileStorageService.saveTempFile(mapper.fromMultipart(file));
+        return ResponseEntity.ok(mapper.fromAttachment(tempFile));
     }
 
 }

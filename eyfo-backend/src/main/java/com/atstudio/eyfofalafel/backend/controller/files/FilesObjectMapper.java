@@ -1,14 +1,15 @@
-package com.atstudio.eyfofalafel.backend.service.files;
+package com.atstudio.eyfofalafel.backend.controller.files;
 
-import com.atstudio.eyfofalafel.backend.controller.files.FileRestDto;
 import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-@Component
-public class FilesObjectFactory {
+import java.nio.file.Paths;
 
-    public static final String PUBLIC_PREFIX = "/public/";
+@Component
+public class FilesObjectMapper {
+
+    static final String PUBLIC_PREFIX = "public";
 
     public Attachment fromMultipart(MultipartFile file) throws Exception {
         Attachment attachment = new Attachment();
@@ -19,14 +20,15 @@ public class FilesObjectFactory {
 
     public FileRestDto fromAttachment(Attachment attachment) {
         FileRestDto dto = new FileRestDto();
-        dto.setFullPath(PUBLIC_PREFIX + attachment.getFullPath());
+        dto.setFullPath(Paths.get(PUBLIC_PREFIX, attachment.getFullPath()).normalize().toString());
         dto.setId(attachment.getId());
         return dto;
     }
 
     public Attachment fromRestDto(FileRestDto restDto) {
         Attachment attachment = new Attachment();
-        attachment.setFullPath(restDto.getFullPath().replace(PUBLIC_PREFIX, ""));
+        String normalizedPathWithoutPrefix = Paths.get(restDto.getFullPath().replace(PUBLIC_PREFIX, "")).normalize().toString();
+        attachment.setFullPath(normalizedPathWithoutPrefix);
         attachment.setId(restDto.getId());
         return attachment;
     }

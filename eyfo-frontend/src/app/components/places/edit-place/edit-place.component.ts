@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {IImgAttachment, IPlace} from "../../../models/model-interfaces";
 import {ActivatedRoute, Router} from "@angular/router";
 import {logAndReturn} from "../../../utils/logging";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-edit-place',
@@ -51,11 +52,11 @@ export class EditPlaceComponent implements OnInit {
     this.images = this.images.filter(img => img != removal)
   }
 
-  uploadImage(event) {
-    const file: File = event.target.files[0]
-    this.placesService.uploadImage(file)
-              .then( (image: IImgAttachment) => this.images.push(image));
-  }
+  onImageUpload = (event) => {
+    this.images.push(event[1] as IImgAttachment);
+  };
+
+  getUrlWithHost = (url: string) => `${environment.serverHost}${url}`;
 
   hasErrors = (controlName: string) : boolean =>{
     const  control = this.frm[controlName];

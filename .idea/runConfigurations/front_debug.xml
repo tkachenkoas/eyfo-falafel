@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="front-debug" type="JavascriptDebugType" factoryName="JavaScript Debug" engineId="b1b2ec2c-20bd-4ee2-89c4-616db004bcd4" uri="http://localhost:4200/" useFirstLineBreakpoints="true">
+    <mapping url="webpack:///.src" local-file="$PROJECT_DIR$/eyfo-frontend/src" />
+    <mapping url="webpack:///." local-file="$PROJECT_DIR$/eyfo-frontend" />
+    <method v="2" />
+  </configuration>
+</component>

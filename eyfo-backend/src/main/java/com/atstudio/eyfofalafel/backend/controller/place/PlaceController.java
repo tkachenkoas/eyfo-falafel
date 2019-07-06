@@ -4,11 +4,9 @@ import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityNotFoundException;
 import javax.xml.bind.ValidationException;
 import java.util.List;
 import java.util.Objects;
@@ -41,10 +39,7 @@ public class PlaceController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Place> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(
-                placeService.findById(id)
-                            .orElseThrow(() -> new EntityNotFoundException("Can't find place with id=" + id))
-        );
+        return ResponseEntity.ok(placeService.findByIdOrThrow(id));
     }
 
     @PutMapping("/{id}")
@@ -53,13 +48,11 @@ public class PlaceController {
         if (!Objects.equals(placeToSave.getId(), id)) {
             throw new ValidationException("Place id must be present and be equal " + id);
         }
-        Place existingPlace = placeService.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Can't find place with id=" + id));
-        mapper.patchExistingPlace(existingPlace, placeToSave);
-        return ResponseEntity.ok(
-                    mapper.toRest(placeService.save(existingPlace))
-                );
+        return ResponseEntity.ok(mapper.toRest(
+                            placeService.save(
+                                    mapper.toEntity(placeToSave)
+                            )
+                    ));
     }
-
 
 }
