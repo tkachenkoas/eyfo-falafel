@@ -32,7 +32,7 @@ public class Place {
     @Column(name = "price_to")
     private BigDecimal priceTo;
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
+    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.EAGER)
     @JoinTable(
             name = "t_places_attachments",
             joinColumns = { @JoinColumn(name = "place_id") },

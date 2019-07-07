@@ -67,6 +67,7 @@ public class LocalStorageFileService implements FileStorageService {
         File target = Paths.get(fileStorageLocation, tempPath.replace(TEMP_FOLDER, "")).toFile();
         try {
             FileUtils.copyFile(original, target);
+            removeByPath(original.toPath());
         } catch (IOException e) {
             log.error(e.getMessage(), e);
             throw new RuntimeException(e);
@@ -79,6 +80,10 @@ public class LocalStorageFileService implements FileStorageService {
     @Override
     public void remove(Attachment file) {
         Path filePath = storagePath().resolve(Paths.get(file.getFullPath()));
+        removeByPath(filePath);
+    }
+
+    private void removeByPath(Path filePath) {
         if (!Files.exists(filePath)) {
             log.info("File {} does not exist; will do nothing", filePath.toString());
         }
