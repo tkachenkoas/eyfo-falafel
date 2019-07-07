@@ -38,8 +38,10 @@ public class PlaceController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Place> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(placeService.findByIdOrThrow(id));
+    public ResponseEntity<PlaceRestDto> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(mapper.toRest(
+                placeService.findByIdOrThrow(id)
+        ));
     }
 
     @PutMapping("/{id}")

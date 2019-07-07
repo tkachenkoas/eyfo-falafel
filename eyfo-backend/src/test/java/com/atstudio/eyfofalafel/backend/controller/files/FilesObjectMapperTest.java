@@ -4,12 +4,9 @@ import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.nio.file.Paths;
 import java.util.Arrays;
 
-import static com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper.PUBLIC_PREFIX;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 @Slf4j
 public class FilesObjectMapperTest {
@@ -23,12 +20,7 @@ public class FilesObjectMapperTest {
             attach.setFullPath(path);
 
             FileRestDto restDto = underTest.fromAttachment(attach);
-
-            String restPath = restDto.getFullPath();
-
-            assertTrue(isNormalized(restPath));
-            assertTrue(restPath.startsWith(PUBLIC_PREFIX));
-            assertFalse(restPath.startsWith("/"));
+            assertEquals("public/temp/someFile.jpg", restDto.getFullPath());
         });
     }
 
@@ -39,14 +31,25 @@ public class FilesObjectMapperTest {
             restDto.setFullPath(path);
 
             Attachment attach = underTest.fromRestDto(restDto);
-
-            String attachPath = attach.getFullPath();
-            assertTrue(isNormalized(attachPath));
-            assertFalse(attachPath.contains(PUBLIC_PREFIX));
+            assertEquals("temp/someFile.jpg", attach.getFullPath());
         });
     }
 
-    private boolean isNormalized(String path) {
-        return path.equals(Paths.get(path).normalize().toString());
+    @Test
+    public void normalizeSlashes() {
+        assertEquals(FilesObjectMapper.normalizeSlashes("\\\\temp\\file.name"), "temp/file.name");
+        assertEquals(FilesObjectMapper.normalizeSlashes("//temp\\file.name"), "temp/file.name");
+    }
+
+    @Test
+    public void fileNameTakenFromPath() {
+        Arrays.asList("/public/temp/someFile.jpg", "\\public\\temp\\someFile.jpg").forEach( (path) -> {
+            FileRestDto restDto = new FileRestDto();
+            restDto.setFullPath(path);
+
+            Attachment attach = underTest.fromRestDto(restDto);
+
+            assertEquals("someFile.jpg", attach.getFileName());
+        });
     }
 }

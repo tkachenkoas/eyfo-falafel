@@ -26,4 +26,29 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="3" author="Anton">
+        <renameColumn columnDataType="varchar2(256)"
+                      newColumnName="full_path"
+                      oldColumnName="full_description"
+                      tableName="t_attachments"/>
+    </changeSet>
+
+    <changeSet id="4" author="Anton">
+        <addNotNullConstraint columnName="full_path"
+                              tableName="t_attachments"/>
+        <rollback>
+            <dropNotNullConstraint columnName="full_path"
+                                   tableName="t_attachments"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="5" author="Anton">
+        <addNotNullConstraint columnName="file_name"
+                              tableName="t_attachments"/>
+        <rollback>
+            <dropNotNullConstraint columnName="file_name"
+                                   tableName="t_attachments"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

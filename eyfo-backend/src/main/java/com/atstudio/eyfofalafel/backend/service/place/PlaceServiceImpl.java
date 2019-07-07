@@ -49,7 +49,7 @@ public class PlaceServiceImpl implements PlaceService {
         existingPlace.setLocation(placeToSave.getLocation());
         existingPlace.setAttachments(newAttachments);
 
-        return crudRepo.save(placeToSave);
+        return crudRepo.save(existingPlace);
     }
 
     private List<Attachment> storeAll(List<Attachment> attachments) {

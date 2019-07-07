@@ -2,10 +2,12 @@ package com.atstudio.eyfofalafel.backend.service.files;
 
 import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
+import static com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper.normalizeSlashes;
 import static org.apache.commons.io.FilenameUtils.getExtension;
 
 @Service
@@ -50,10 +53,27 @@ public class LocalStorageFileService implements FileStorageService {
     }
 
     @Override
-    public Attachment saveFileForStorage(Attachment file) {
-        if (!file.getFullPath().contains(TEMP_FOLDER)) return file;
+    public Attachment saveFileForStorage(Attachment attachmentToStore) {
+        if (!attachmentToStore.getFullPath().contains(TEMP_FOLDER)) return attachmentToStore;
+        Attachment stored = new Attachment();
+        stored.setId(attachmentToStore.getId());
+        stored.setFileName(attachmentToStore.getFileName());
 
-        return null;
+        String tempPath = attachmentToStore.getFullPath();
+        File original = Paths.get(fileStorageLocation, tempPath).toFile();
+        if (!original.exists()) {
+            return null;
+        }
+        File target = Paths.get(fileStorageLocation, tempPath.replace(TEMP_FOLDER, "")).toFile();
+        try {
+            FileUtils.copyFile(original, target);
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+            throw new RuntimeException(e);
+        }
+        String relativePath = normalizeSlashes(target.getPath().replace(storagePath().toString(),""));
+        stored.setFullPath(relativePath);
+        return stored;
     }
 
     @Override

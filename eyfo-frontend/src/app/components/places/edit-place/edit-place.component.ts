@@ -68,6 +68,7 @@ export class EditPlaceComponent implements OnInit {
 
     const place: IPlace = this.placeForm.value as IPlace;
     place.id = this.placeId;
+    place.attachments = this.images;
     const saveAction: Promise<IPlace> = this.editMode()
                                       ? this.placesService.patchPlace(logAndReturn(place, 'Create new place'))
                                       : this.placesService.createPlace(logAndReturn(place, 'Create new place'));

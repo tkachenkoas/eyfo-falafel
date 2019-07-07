@@ -20,17 +20,27 @@ public class FilesObjectMapper {
 
     public FileRestDto fromAttachment(Attachment attachment) {
         FileRestDto dto = new FileRestDto();
-        dto.setFullPath(Paths.get(PUBLIC_PREFIX, attachment.getFullPath()).normalize().toString());
+        String fullPath = normalizeSlashes(Paths.get(PUBLIC_PREFIX, attachment.getFullPath()).toString());
+        dto.setFullPath(fullPath);
         dto.setId(attachment.getId());
         return dto;
     }
 
     public Attachment fromRestDto(FileRestDto restDto) {
         Attachment attachment = new Attachment();
-        String normalizedPathWithoutPrefix = Paths.get(restDto.getFullPath().replace(PUBLIC_PREFIX, "")).normalize().toString();
+        String normalizedPathWithoutPrefix = normalizeSlashes(restDto.getFullPath().replace(PUBLIC_PREFIX, ""));
         attachment.setFullPath(normalizedPathWithoutPrefix);
+        String[] path = normalizeSlashes(restDto.getFullPath()).split("/");
+        String fileName = path[path.length-1];
+        attachment.setFileName(fileName);
         attachment.setId(restDto.getId());
         return attachment;
+    }
+
+    public static String normalizeSlashes(String path) {
+        return path.replaceAll("\\\\+","/")
+                   .replaceAll("/+","/")
+                   .replaceAll("^/","");
     }
 
 }
