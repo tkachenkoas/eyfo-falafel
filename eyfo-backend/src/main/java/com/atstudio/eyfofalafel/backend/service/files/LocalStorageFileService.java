@@ -19,14 +19,15 @@ import java.util.Random;
 import static com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper.normalizeSlashes;
 import static org.apache.commons.io.FilenameUtils.getExtension;
 
-@Service
 @Slf4j
 public class LocalStorageFileService implements FileStorageService {
 
     public final static String TEMP_FOLDER = "temp";
-
-    @Value("${files.drive.folder}")
     private String fileStorageLocation;
+
+    public LocalStorageFileService(String fileStorageLocation) {
+        this.fileStorageLocation = fileStorageLocation;
+    }
 
     @PostConstruct
     public void initPaths() {

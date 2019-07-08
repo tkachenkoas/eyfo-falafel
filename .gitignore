@@ -31,6 +31,9 @@ mwnw
 ### Configs ###
 conf/local
 
+### Test-resourses ###
+**/test-config.properties
+
 ### Frontend ###
 node/
 node_modules/
