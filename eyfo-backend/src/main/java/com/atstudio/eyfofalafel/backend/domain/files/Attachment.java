@@ -21,6 +21,14 @@ public class Attachment {
     @Transient
     private byte[] content;
 
+    public static Attachment newFrom(Attachment src) {
+        Attachment result = new Attachment();
+        result.setFileName(src.getFileName());
+        result.setFullPath(src.getFullPath());
+        result.setContent(src.getContent());
+        return result;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

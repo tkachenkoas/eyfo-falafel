@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,7 +25,7 @@ public class LocalStorageFileServiceTest {
     private final String testStorageRoot;
 
     {
-        String providedRoot = ResourceBundle.getBundle("test-config").getString("files.drive.folder");
+        String providedRoot = ResourceBundle.getBundle("test_config").getString("files.drive.folder");
         testStorageRoot = providedRoot + "tests/";
     }
 
@@ -44,36 +45,21 @@ public class LocalStorageFileServiceTest {
     }
 
     @Test
-    public void tempFileSaved() {
+    public void tempFileSaved() throws FileNotFoundException {
         Attachment attachment = someAttachment();
         Attachment storedTempFile = underTest.saveTempFile(attachment);
+
+        assertTrue(attachment != storedTempFile);
 
         Path filePath = Paths.get(testStorageRoot, storedTempFile.getFullPath());
         assertTrue(Files.exists(filePath));
 
-        byte[] fileContent = {};
-        try {
-            fileContent = Files.readAllBytes(filePath);
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-        }
-        assertArrayEquals(attachment.getContent(), fileContent);
+        underTest.readContent(storedTempFile);
+        assertArrayEquals(attachment.getContent(), storedTempFile.getContent());
     }
 
     @Test
-    public void storedFileRemoved() {
-        Attachment attachment = someAttachment();
-        Attachment storedTempFile = underTest.saveTempFile(attachment);
-
-        Path filePath = Paths.get(testStorageRoot, storedTempFile.getFullPath());
-        assertTrue(Files.exists(filePath));
-
-        underTest.remove(storedTempFile);
-        assertFalse(Files.exists(filePath));
-    }
-
-    @Test
-    public void tempFileMovedToStorage() {
+    public void fileMovedToStorage() throws FileNotFoundException {
         Attachment attachment = someAttachment();
         Attachment storedTempFile = underTest.saveTempFile(attachment);
 
@@ -82,18 +68,27 @@ public class LocalStorageFileServiceTest {
 
         // Original temp file is removed from temp
         Attachment stored = underTest.saveFileForStorage(storedTempFile);
-        assertFalse(Files.exists(tempFilePath));
+        underTest.readContent(stored);
+        assertArrayEquals(attachment.getContent(), storedTempFile.getContent());
+    }
 
-        Path storedFilePath = Paths.get(testStorageRoot, stored.getFullPath());
-        assertTrue(Files.exists(storedFilePath));
+    @Test(expected = FileNotFoundException.class)
+    public void storedFileRemoved() throws FileNotFoundException {
+        Attachment attachment = someAttachment();
+        Attachment storedTempFile = underTest.saveTempFile(attachment);
 
-        byte[] storedFileContent = {};
-        try {
-            storedFileContent = Files.readAllBytes(storedFilePath);
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-        }
-        assertArrayEquals(attachment.getContent(), storedFileContent);
+        underTest.remove(storedTempFile);
+        underTest.readContent(storedTempFile);
+    }
+
+    @Test(expected = FileNotFoundException.class)
+    public void originalFileRemovedOnMoveToStorage() throws FileNotFoundException {
+        Attachment attachment = someAttachment();
+        Attachment storedTempFile = underTest.saveTempFile(attachment);
+
+        Attachment stored = underTest.saveFileForStorage(storedTempFile);
+        // Original temp file is removed from temp
+        underTest.readContent(storedTempFile);
     }
 
     private Attachment someAttachment() {

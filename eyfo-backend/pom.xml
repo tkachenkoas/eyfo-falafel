@@ -108,7 +108,7 @@
                 <executions>
                     <execution>
                         <id>copy-test-config</id>
-                        <phase>test-compile</phase>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -120,7 +120,7 @@
                                 <resource>
                                     <directory>${project.parent.basedir}/conf/local/</directory>
                                     <includes>
-                                        <include>test-config.properties</include>
+                                        <include>test_config.properties</include>
                                     </includes>
                                 </resource>
                             </resources>

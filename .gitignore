@@ -32,7 +32,7 @@ mwnw
 conf/local
 
 ### Test-resourses ###
-**/test-config.properties
+**/test_config.properties
 
 ### Frontend ###
 node/
