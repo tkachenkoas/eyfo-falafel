@@ -25,7 +25,7 @@ public class LocalStorageFileServiceTest {
     private final String testStorageRoot;
 
     {
-        String providedRoot = ResourceBundle.getBundle("test_config").getString("files.drive.folder");
+        String providedRoot = ResourceBundle.getBundle("application").getString("files.drive.folder");
         testStorageRoot = providedRoot + "tests/";
     }
 

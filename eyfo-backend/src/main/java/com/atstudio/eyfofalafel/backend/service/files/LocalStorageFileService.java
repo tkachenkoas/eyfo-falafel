@@ -100,7 +100,7 @@ public class LocalStorageFileService implements FileStorageService {
             byte[] fileContent = Files.readAllBytes(storagePath().resolve(Paths.get(file.getFullPath())));
             file.setContent(fileContent);
         } catch (IOException e) {
-            log.error(e.getMessage(), e);
+            log.error(e.getMessage());
             throw new FileNotFoundException(file.getFullPath());
         }
     }
