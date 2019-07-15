@@ -55,7 +55,7 @@
                                 </goals>
                                 <configuration>
                                     <files>
-                                        <file>${project.parent.basedir}/conf/local/test_config.properties</file>
+                                        <file>${project.parent.basedir}/conf/test/application.properties</file>
                                     </files>
                                 </configuration>
                             </execution>

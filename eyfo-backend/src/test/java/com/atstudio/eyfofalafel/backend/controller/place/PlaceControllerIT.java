@@ -5,8 +5,6 @@ import com.atstudio.eyfofalafel.backend.controller.files.FileRestDto;
 import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +31,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Import(TestContextConfig.class)
-@TestPropertySource("/test_config.properties")
 @AutoConfigureMockMvc(secure = false)
 public class PlaceControllerIT {
 
