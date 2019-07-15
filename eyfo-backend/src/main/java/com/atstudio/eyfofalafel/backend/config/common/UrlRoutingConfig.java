@@ -65,7 +65,7 @@ public class UrlRoutingConfig extends WebMvcConfigurationSupport {
     }
 
     private String resourceLocationPrefix() {
-        return SystemUtils.IS_OS_WINDOWS ? "file:///" : "file:/";
+        return SystemUtils.IS_OS_WINDOWS ? "file:///" : "file:";
     }
 
 }
