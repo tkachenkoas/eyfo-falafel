@@ -33,7 +33,7 @@ conf/local
 conf/test
 
 ### Test-resourses ###
-**/*.properties
+test/resources/*.properties
 
 
 ### Frontend ###
