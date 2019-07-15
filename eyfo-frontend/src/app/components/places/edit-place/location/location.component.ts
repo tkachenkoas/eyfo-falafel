@@ -13,7 +13,7 @@ import {
 import {LocationService} from "../../../../services/location.service";
 import {debounceTime, finalize, switchMap, tap} from "rxjs/operators";
 import {LatLngLiteral} from "@agm/core";
-import {ILocation} from "../../../../models/location";
+import {ILocation} from "../../../../models/model-interfaces";
 
 
 @Component({
@@ -111,8 +111,6 @@ export class LocationComponent implements OnInit, AfterViewInit, ControlValueAcc
   }
 
   markerDragEnd(coords: LatLngLiteral) {
-    console.log('dragEnd', coords);
-
     this.locationService.getLocationByCoords(coords)
       .then(loc => this.patchFormValue('address', loc.address));
 

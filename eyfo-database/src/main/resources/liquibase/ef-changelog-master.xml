@@ -2,12 +2,14 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
+    <include file="/tables/hibernate_sequence.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_user.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_sec_role.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_places.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_locations.xml" relativeToChangelogFile="true"/>
-    <include file="/tables/hibernate_sequence.xml" relativeToChangelogFile="true"/>
+    <include file="/tables/t_attachments.xml" relativeToChangelogFile="true"/>
+    <include file="/tables/t_places_attachments.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

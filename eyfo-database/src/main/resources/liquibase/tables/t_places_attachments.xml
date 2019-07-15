@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet author="Anton" id="1">
+        <createTable tableName="t_places_attachments">
+            <column name="place_id" type="number(19)"/>
+            <column name="attachment_id" type="number(19)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="t_places_attachments"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="Anton">
+        <addForeignKeyConstraint baseColumnNames="place_id" baseTableName="t_places_attachments"
+                                 referencedColumnNames="id" referencedTableName="t_places"
+                                 constraintName="fk_place_id"
+                                 onDelete="CASCADE" onUpdate="RESTRICT"/>
+        <rollback>
+            <dropForeignKeyConstraint baseTableName="t_places_attachments" constraintName="fk_place_id"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="Anton">
+        <addForeignKeyConstraint baseColumnNames="attachment_id" baseTableName="t_places_attachments"
+                                 referencedColumnNames="id" referencedTableName="t_attachments"
+                                 constraintName="fk_attachment_id"
+                                 onDelete="CASCADE" onUpdate="RESTRICT"/>
+        <rollback>
+            <dropForeignKeyConstraint baseTableName="t_places_attachments" constraintName="fk_attachment_id"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

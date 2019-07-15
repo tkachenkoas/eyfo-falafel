@@ -1,5 +1,7 @@
 package com.atstudio.eyfofalafel.backend.config.common;
 
+import org.apache.commons.lang3.SystemUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.lang.reflect.Method;
 
 @Configuration
-public class AngularRouterConfig extends WebMvcConfigurationSupport {
+public class UrlRoutingConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
@@ -40,9 +42,12 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
         registry.addViewController("/").setViewName("forward:/index.html");
         // Single directory level - no need to exclude "api"
         registry.addViewController("/{x:[\\w\\-]+}").setViewName("forward:/index.html");
-        // Multi-level directory path, need to exclude "api" on the first part of the path
-        registry.addViewController("/{x:^(?!api$).*$}/**/{y:[\\w\\-]+}").setViewName("forward:/index.html");
+        // Multi-level directory path, need to exclude "api/public" on the first part of the path
+        registry.addViewController("/{x:^(?!api$|public$).*$}/**/{y:[\\w\\d\\_\\-\\.]+}").setViewName("forward:/index.html");
     }
+
+    @Value("${files.drive.folder}")
+    private String fileStoragePath;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -53,6 +58,14 @@ public class AngularRouterConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        registry.addResourceHandler("/public/**")
+                .addResourceLocations(resourceLocationPrefix() + fileStoragePath.toLowerCase());
+
+    }
+
+    private String resourceLocationPrefix() {
+        return SystemUtils.IS_OS_WINDOWS ? "file:///" : "file:/";
     }
 
 }

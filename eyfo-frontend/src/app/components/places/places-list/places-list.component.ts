@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {Place} from "../../../models/place";
+import {AfterViewInit, Component} from '@angular/core';
+import {IPlace} from "../../../models/model-interfaces";
 import {PlacesService} from "../../../services/places.service";
 import {Router} from "@angular/router";
 
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class PlacesListComponent implements AfterViewInit  {
 
   displayedColumns: string[] = ['id', 'name', 'address', 'edit'];
-  data: Place[] = [];
+  data: IPlace[] = [];
   isLoadingResults = true;
 
   constructor(private placeService: PlacesService,
@@ -30,7 +30,7 @@ export class PlacesListComponent implements AfterViewInit  {
                       });
   }
 
-  public editPlace(place: Place) {
+  editPlace(place: IPlace) {
     this.router.navigate([`places/${place.id}/edit`]);
   }
 

@@ -13,7 +13,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-	<name>eyfo-falafel</name>
+	<name>eyfo-backend</name>
 	<description>Your personal assistant in finding a perfect falafel</description>
 
     <profiles>
@@ -107,25 +107,36 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-resources</id>
-                        <phase>compile</phase>
+                        <id>copy-test-config</id>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
                             <outputDirectory>
-                                ${basedir}/target/classes
+                                ${basedir}/src/test/resources
                             </outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/src/main/resources</directory>
+                                    <directory>${project.parent.basedir}/conf/local/</directory>
                                     <includes>
-                                        <include>**/*.properties</include>
+                                        <include>test_config.properties</include>
                                     </includes>
-                                    <filtering>true</filtering>
                                 </resource>
                             </resources>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -166,14 +177,20 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
         </dependency>
 
         <dependency>

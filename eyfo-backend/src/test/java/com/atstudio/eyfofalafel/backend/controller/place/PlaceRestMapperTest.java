@@ -1,6 +1,7 @@
 package com.atstudio.eyfofalafel.backend.controller.place;
 
 import com.atstudio.eyfofalafel.backend.controller.BaseMapperTest;
+import com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper;
 import com.atstudio.eyfofalafel.backend.controller.location.LocationRestMapper;
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PlaceRestMapperTest extends BaseMapperTest {
 
-    private PlaceRestMapper mapper = new PlaceRestMapper(new LocationRestMapper());
+    private PlaceRestMapper mapper = new PlaceRestMapper(new LocationRestMapper(), new FilesObjectMapper());
 
     @Test
     public void toEntity() {

@@ -1,10 +1,11 @@
 package com.atstudio.eyfofalafel.backend;
 
+import com.atstudio.eyfofalafel.backend.service.files.LocalStorageFileService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @SpringBootApplication(exclude = {ErrorMvcAutoConfiguration.class})
 public class EyfoFalafelApplication {
@@ -14,8 +15,8 @@ public class EyfoFalafelApplication {
 	}
 
 	@Bean
-	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-		return new PropertySourcesPlaceholderConfigurer();
+	public static LocalStorageFileService localStorageFileService(@Value("${files.drive.folder}") String fileStorageLocation) {
+		return new LocalStorageFileService(fileStorageLocation);
 	}
 
 }

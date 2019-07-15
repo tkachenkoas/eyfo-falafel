@@ -12,15 +12,21 @@ import {PlacesListComponent} from './components/places/places-list/places-list.c
 import {EditPlaceComponent} from './components/places/edit-place/edit-place.component';
 import {PlaceComponent} from './components/places/place.component';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
-import {MatAutocompleteModule} from '@angular/material';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AgmCoreModule} from '@agm/core';
 import {environment} from '../environments/environment';
-import {MaterialComponentsModule} from "./modules/material-components.module";
-import {APP_BASE_HREF} from "@angular/common";
+import {UiComponentsModule} from "./modules/ui-components.module";
 import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
-import { LocationComponent } from './components/places/edit-place/location/location.component';
-import { FooterComponent } from './components/common/footer/footer.component';
+import {LocationComponent} from './components/places/edit-place/location/location.component';
+import {FooterComponent} from './components/common/footer/footer.component';
+import {DROPZONE_CONFIG, DropzoneConfigInterface, DropzoneModule} from 'ngx-dropzone-wrapper';
+
+const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
+  url: `${environment.apiUrl}files/upload-temp`,
+  maxFilesize: 10,
+  acceptedFiles: 'image/*',
+  createImageThumbnails: false,
+  previewTemplate: '<div></div>'
+};
 
 @NgModule({
   declarations: [
@@ -34,11 +40,12 @@ import { FooterComponent } from './components/common/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    MaterialComponentsModule,
+    UiComponentsModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    DropzoneModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey
@@ -56,6 +63,10 @@ import { FooterComponent } from './components/common/footer/footer.component';
       provide: HTTP_INTERCEPTORS,
       useClass: ApiUrlInterceptor,
       multi: true
+    },
+    {
+      provide: DROPZONE_CONFIG,
+      useValue: DEFAULT_DROPZONE_CONFIG
     }
   ],
   bootstrap: [AppComponent]

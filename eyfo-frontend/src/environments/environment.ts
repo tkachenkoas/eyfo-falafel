@@ -1,5 +1,8 @@
+const serverHost = '/'
+
 export const environment = {
   production: true,
-  apiUrl: '/api/',
+  serverHost,
+  apiUrl: `${serverHost}api/`,
   googleMapsApiKey: '@GOOGLE_API_KEY@'
 };
