@@ -28,8 +28,7 @@
     </drag-scroll>
   </div>
   <div class="vert-space">
-    <dropzone [config]="config"
-              [message]="'Нажмите или перетащите фотографии для загрузки'"
+    <dropzone [message]="'Нажмите или перетащите фотографии для загрузки'"
               (success)="onImageUpload($event)"></dropzone>
   </div>
   <div class="vert-space">
