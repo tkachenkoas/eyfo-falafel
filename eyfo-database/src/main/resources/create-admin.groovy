@@ -11,8 +11,17 @@ import static java.lang.Integer.parseInt
 
 Properties props = new Properties()
 
-props.load(this.class.classLoader.getResourceAsStream("application.properties") as InputStream)
-props.load(this.class.classLoader.getResourceAsStream("seeders/admin-user.properties") as InputStream)
+def loadProps = { String file ->
+    InputStream is = this.class.classLoader.getResourceAsStream(file)
+    try {
+        props.load(is)
+    } finally {
+        is.close()
+    }
+}
+
+loadProps("application.properties")
+loadProps("./seeders/admin-user.properties")
 
 def encoder = new BCryptPasswordEncoder(
         parseInt(props."security.password.strength" as String),
