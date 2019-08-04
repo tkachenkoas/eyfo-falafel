@@ -144,6 +144,20 @@
                     <plugin>
                         <groupId>org.codehaus.gmaven</groupId>
                         <artifactId>groovy-maven-plugin</artifactId>
+                        <version>2.1</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.codehaus.groovy</groupId>
+                                <artifactId>groovy-all</artifactId>
+                                <version>2.5.6</version>
+                                <type>pom</type>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.postgresql</groupId>
+                                <artifactId>postgresql</artifactId>
+                                <version>42.2.5</version>
+                            </dependency>
+                        </dependencies>
                         <executions>
                             <execution>
                                 <phase>verify</phase>
@@ -151,7 +165,8 @@
                                     <goal>execute</goal>
                                 </goals>
                                 <configuration>
-                                    <source>${project.basedir}/src/main/script/create-admin.groovy</source>
+                                    <classpathScope>compile</classpathScope>
+                                    <source>${project.basedir}/src/main/resources/create-admin.groovy</source>
                                 </configuration>
                             </execution>
                         </executions>
@@ -163,17 +178,6 @@
 
 	<build>
 		<plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -204,17 +208,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.codehaus.gmaven</groupId>
-            <artifactId>groovy-maven-plugin</artifactId>
-            <version>2.1</version>
-        </dependency>
-
-
-        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
-        <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>2.5.7</version>
+            <version>2.5.6</version>
             <type>pom</type>
         </dependency>
 
