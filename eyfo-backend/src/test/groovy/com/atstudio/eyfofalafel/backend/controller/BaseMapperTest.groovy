@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
-public class BaseMapperTest {
+class BaseMapperTest {
 
     protected Location testLocation() {
         Location location = new Location();
