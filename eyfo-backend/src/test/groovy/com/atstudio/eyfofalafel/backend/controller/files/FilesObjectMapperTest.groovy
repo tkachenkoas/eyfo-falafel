@@ -1,7 +1,5 @@
 package com.atstudio.eyfofalafel.backend.controller.files
 
-import com.atstudio.eyfofalafel.backend.controller.files.FileRestDto
-import com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper
 import com.atstudio.eyfofalafel.backend.domain.files.Attachment
 import lombok.extern.slf4j.Slf4j
 import org.junit.Test
