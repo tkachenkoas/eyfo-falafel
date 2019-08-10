@@ -6,17 +6,13 @@ import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO
 import com.atstudio.eyfofalafel.backend.testutil.TestUtils
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Import
 import org.springframework.mock.web.MockMultipartFile
 import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 
-import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.getFileContent
-import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.getUrlWithHost
-import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.performGet
-import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.performPost
+import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.*
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD
 

@@ -1,6 +1,5 @@
 package com.atstudio.eyfofalafel.backend.config.security;
 
-import com.atstudio.eyfofalafel.backend.config.security.beans.CorsRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -11,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -41,12 +39,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
              .csrf().disable()
              .cors().disable()
-             .httpBasic().authenticationEntryPoint(failureHandler)
-             .and().authorizeRequests()
-             .antMatchers(PUBLIC_RESOURCES).permitAll()
-             .antMatchers("/swagger-*").authenticated()
-             .regexMatchers("/api/").authenticated();
-        http.addFilterBefore(new CorsRequestFilter(), BasicAuthenticationFilter.class);
+             .authorizeRequests()
+                .antMatchers(PUBLIC_RESOURCES).permitAll()
+                .antMatchers("/swagger-*").authenticated()
+                .antMatchers("/api/**").authenticated()
+                .and()
+                .httpBasic().authenticationEntryPoint(failureHandler)
+        ;
     }
 
     @Autowired

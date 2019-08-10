@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "prepare-packages": "npm prune && npm install",
-    "start": "ng serve --configuration local",
+    "start": "ng serve --configuration=local",
     "build-local": "rimraf dist && ng build --configuration=local",
     "staging": "ng build --configuration=staging",
     "postbuild": "npm run deploy",
