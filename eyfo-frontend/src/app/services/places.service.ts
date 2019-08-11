@@ -56,4 +56,8 @@ export class PlacesService {
       })
     ).toPromise();
   }
+
+  deletePlace(id: number) {
+    return this.http.delete(`places/${id}`).toPromise();
+  }
 }

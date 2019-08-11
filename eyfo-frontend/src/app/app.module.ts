@@ -19,6 +19,7 @@ import {ApiUrlInterceptor} from './interceptors/api-url.interceptor';
 import {LocationComponent} from './components/places/edit-place/location/location.component';
 import {FooterComponent} from './components/common/footer/footer.component';
 import {DropzoneConfigInterface, DropzoneModule} from 'ngx-dropzone-wrapper';
+import {MatTooltipModule} from '@angular/material';
 
 export const DEFAULT_DROPZONE_CONFIG = (): DropzoneConfigInterface => {
   return {
@@ -53,7 +54,8 @@ export const DEFAULT_DROPZONE_CONFIG = (): DropzoneConfigInterface => {
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey
     }),
-    routing
+    routing,
+    MatTooltipModule
   ],
   providers: [
     LoginService,
