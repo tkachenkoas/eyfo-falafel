@@ -61,4 +61,9 @@ public class PlaceServiceImpl implements PlaceService {
     public Place findByIdOrThrow(Long id)  {
         return crudRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("Can't find place with id=" + id));
     }
+
+    @Override
+    public void deleteById(Long id) {
+        this.crudRepo.deleteById(id);
+    }
 }

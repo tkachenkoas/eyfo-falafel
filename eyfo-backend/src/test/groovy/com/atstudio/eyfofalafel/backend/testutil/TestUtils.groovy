@@ -58,10 +58,16 @@ class TestUtils {
     }
 
     static <T> T performGet(CharSequence url, Class<T> extractClass) {
-        return RestAssured.given().spec(reqSpec())
+        return RestAssured.given()
                             .get(url.toString())
                             .then().spec(success())
                             .extract().as(extractClass)
+    }
+
+    static <T> T performDelete(CharSequence url) {
+        return RestAssured.given()
+                .delete(url.toString())
+                .then().statusCode(200)
     }
 
     static <T> T performPost(CharSequence url, Object body, Class<T> extractClass) {
