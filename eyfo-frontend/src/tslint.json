@@ -9,6 +9,7 @@
             "app",
             "camelCase"
         ],
+      "triple-equals": false,
         "component-selector": [
             true,
             "element",

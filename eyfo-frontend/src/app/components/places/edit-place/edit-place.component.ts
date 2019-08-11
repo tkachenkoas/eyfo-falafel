@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {PlacesService} from '../../../services/places.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {IImgAttachment, IPlace} from "../../../models/model-interfaces";
-import {ActivatedRoute, Router} from "@angular/router";
-import {logAndReturn} from "../../../utils/logging";
-import {environment} from "../../../../environments/environment";
+import {IImgAttachment, IPlace} from '../../../models/model-interfaces';
+import {ActivatedRoute, Router} from '@angular/router';
+import {logAndReturn} from '../../../utils/logging';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-edit-place',
@@ -43,28 +43,28 @@ export class EditPlaceComponent implements OnInit {
     });
 
     this.placeForm = this.formBuilder.group({
-      name: ['', Validators.pattern(/[а-яa-z]{3}/i)],
+      name: ['', [Validators.required, Validators.pattern(/[а-яa-z]{3}/i)]],
       location: new FormControl()
     });
   }
 
   removeImage(removal: IImgAttachment) {
-    this.images = this.images.filter(img => img != removal)
+    this.images = this.images.filter(img => img != removal);
   }
 
   onImageUpload = (event) => {
     this.images.push(event[1] as IImgAttachment);
-  };
+  }
 
   getUrlWithHost = (url: string) => `${environment.serverHost}${url}`;
 
-  hasErrors = (controlName: string) : boolean =>{
+  hasErrors = (controlName: string): boolean => {
     const  control = this.frm[controlName];
     return control.touched && !control.valid;
-  };
+  }
 
   submitForm() {
-    if (!this.placeForm.valid) return;
+    if (!this.placeForm.valid) { return; }
 
     const place: IPlace = this.placeForm.value as IPlace;
     place.id = this.placeId;
