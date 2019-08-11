@@ -1,7 +1,7 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {IPlace} from "../../../models/model-interfaces";
-import {PlacesService} from "../../../services/places.service";
-import {Router} from "@angular/router";
+import {IPlace} from '../../../models/model-interfaces';
+import {PlacesService} from '../../../services/places.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-places-list',
@@ -32,6 +32,10 @@ export class PlacesListComponent implements AfterViewInit  {
 
   editPlace(place: IPlace) {
     this.router.navigate([`places/${place.id}/edit`]);
+  }
+
+  deletePlace(place: IPlace) {
+    this.placeService.deletePlace(place.id).then(() => this.loadPlaces());
   }
 
 }

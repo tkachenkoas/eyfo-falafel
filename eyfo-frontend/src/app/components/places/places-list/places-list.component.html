@@ -34,12 +34,19 @@
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef> Редактировать </th>
+      <th mat-header-cell *matHeaderCellDef> Действия </th>
       <td mat-cell *matCellDef="let element">
         <button mat-flat-button
+                matTooltip="Редактировать"
                 color="primary"
                 (click)="editPlace(element)">
           <i class="far fa-edit"></i>
+        </button>
+        <button mat-flat-button
+                matTooltip="Удалить"
+                color="primary"
+                (click)="deletePlace(element)">
+          <i class="far fa-trash-alt"></i>
         </button>
       </td>
     </ng-container>

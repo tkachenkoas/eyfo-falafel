@@ -4,13 +4,13 @@ import {LoginService} from '../services/login.service';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {HttpStatus} from "../const/http";
-import {RestResponse} from "../models/rest-response";
+import {HttpStatus} from '../const/http';
+import {RestResponse} from '../models/rest-response';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(public loginService: LoginService, public router: Router) {}
+  constructor(private router: Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<RestResponse<any>>> {
     if (request.url.indexOf('token') >= 0) {
@@ -26,9 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
   addAuthToken(request: HttpRequest<any>): HttpRequest<any> {
     return request.clone({
-      setHeaders: {
-        'x-auth-token': this.loginService.getToken()
-      }
+      setHeaders: LoginService.getAuthHeader()
     });
   }
 }

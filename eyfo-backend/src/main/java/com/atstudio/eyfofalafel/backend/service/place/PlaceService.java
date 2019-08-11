@@ -11,5 +11,5 @@ public interface PlaceService {
     List<Place> findAll();
     Place save(Place place);
     Place findByIdOrThrow(Long id);
-
+    void deleteById(Long id);
 }

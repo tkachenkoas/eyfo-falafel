@@ -14,18 +14,22 @@ import {PlaceComponent} from './components/places/place.component';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {AgmCoreModule} from '@agm/core';
 import {environment} from '../environments/environment';
-import {UiComponentsModule} from "./modules/ui-components.module";
-import {ApiUrlInterceptor} from "./interceptors/api-url.interceptor";
+import {UiComponentsModule} from './modules/ui-components.module';
+import {ApiUrlInterceptor} from './interceptors/api-url.interceptor';
 import {LocationComponent} from './components/places/edit-place/location/location.component';
 import {FooterComponent} from './components/common/footer/footer.component';
-import {DROPZONE_CONFIG, DropzoneConfigInterface, DropzoneModule} from 'ngx-dropzone-wrapper';
+import {DropzoneConfigInterface, DropzoneModule} from 'ngx-dropzone-wrapper';
+import {MatTooltipModule} from '@angular/material';
 
-const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
-  url: `${environment.apiUrl}files/upload-temp`,
-  maxFilesize: 10,
-  acceptedFiles: 'image/*',
-  createImageThumbnails: false,
-  previewTemplate: '<div></div>'
+export const DEFAULT_DROPZONE_CONFIG = (): DropzoneConfigInterface => {
+  return {
+    url: `${environment.apiUrl}files/upload-temp`,
+    maxFilesize: 10,
+    acceptedFiles: 'image/*',
+    createImageThumbnails: false,
+    previewTemplate: '<div></div>',
+    headers: LoginService.getAuthHeader()
+  };
 };
 
 @NgModule({
@@ -50,7 +54,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey
     }),
-    routing
+    routing,
+    MatTooltipModule
   ],
   providers: [
     LoginService,
@@ -63,10 +68,6 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiUrlInterceptor,
       multi: true
-    },
-    {
-      provide: DROPZONE_CONFIG,
-      useValue: DEFAULT_DROPZONE_CONFIG
     }
   ],
   bootstrap: [AppComponent]

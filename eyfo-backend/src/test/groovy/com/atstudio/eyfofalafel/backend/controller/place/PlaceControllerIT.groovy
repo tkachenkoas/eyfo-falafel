@@ -42,6 +42,20 @@ class PlaceControllerIT {
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
+    void deletePlace() throws Exception {
+        PlaceRestDto result = performPost(getUrlWithHost("api/places/new"), testPlace(), PlaceRestDto)
+
+        performDelete(getUrlWithHost("api/places/${result.getId()}"))
+
+        List<PlaceRestDto> places = performGet(getUrlWithHost("api/places/"), PlaceRestDto[])
+        assert (places.size() == 0)
+    }
+
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
+            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
     void attachmentCanBeViewedAfterPlaceCreate() throws Exception {
         MockMultipartFile tempFile = testFile()
 

@@ -44,6 +44,12 @@ public class PlaceController {
         ));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity removeById(@PathVariable Long id) {
+        placeService.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+
     @PutMapping("/{id}")
     @SneakyThrows
     public ResponseEntity<PlaceRestDto> editById(@RequestBody PlaceRestDto placeToSave, @PathVariable Long id) {
