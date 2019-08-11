@@ -158,7 +158,6 @@
                                 <configuration>
                                     <files>
                                         <file>${project.parent.basedir}/conf/local/application.properties</file>
-                                        <file>${project.parent.basedir}/conf/local/db.properties</file>
                                     </files>
                                 </configuration>
                             </execution>

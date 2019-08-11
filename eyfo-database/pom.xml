@@ -29,8 +29,6 @@
                                 </goals>
                                 <configuration>
                                     <files>
-                                        <file>${project.parent.basedir}/conf/local/db.properties</file>
-                                        <file>${project.parent.basedir}/conf/local/seed-data.properties</file>
                                         <file>${project.parent.basedir}/conf/local/application.properties</file>
                                     </files>
                                 </configuration>
