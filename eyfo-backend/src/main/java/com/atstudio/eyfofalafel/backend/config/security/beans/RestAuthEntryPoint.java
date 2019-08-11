@@ -1,6 +1,7 @@
 package com.atstudio.eyfofalafel.backend.config.security.beans;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
+@Slf4j
 public class RestAuthEntryPoint implements AuthenticationEntryPoint {
 
     @Autowired
@@ -27,6 +29,8 @@ public class RestAuthEntryPoint implements AuthenticationEntryPoint {
 
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+
+        log.error("Unauthorized access attempt for url " + request.getRequestURI());
 
         response.getOutputStream().println(
                 objectMapper.writeValueAsString(

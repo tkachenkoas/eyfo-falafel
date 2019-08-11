@@ -28,8 +28,11 @@
     </drag-scroll>
   </div>
   <div class="vert-space">
-    <dropzone [message]="'Нажмите или перетащите фотографии для загрузки'"
-              (success)="onImageUpload($event)"></dropzone>
+    <dropzone
+      [config]="dzConfig"
+      [message]="'Нажмите или перетащите фотографии для загрузки'"
+      (success)="onImageUpload($event)">
+    </dropzone>
   </div>
   <div class="vert-space">
     <button mat-raised-button

@@ -5,6 +5,7 @@ import {IImgAttachment, IPlace} from '../../../models/model-interfaces';
 import {ActivatedRoute, Router} from '@angular/router';
 import {logAndReturn} from '../../../utils/logging';
 import {environment} from '../../../../environments/environment';
+import {DEFAULT_DROPZONE_CONFIG} from '../../../app.module';
 
 @Component({
   selector: 'app-edit-place',
@@ -22,6 +23,8 @@ export class EditPlaceComponent implements OnInit {
               private route: ActivatedRoute,
               private formBuilder: FormBuilder) {
   }
+
+  public dzConfig = DEFAULT_DROPZONE_CONFIG();
 
   editMode(): boolean {
     return !!this.placeId;
