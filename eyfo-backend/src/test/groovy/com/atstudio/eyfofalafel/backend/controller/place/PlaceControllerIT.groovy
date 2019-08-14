@@ -1,8 +1,9 @@
 package com.atstudio.eyfofalafel.backend.controller.place
 
-import com.atstudio.eyfofalafel.backend.TestContextAutoConfig
+import com.atstudio.eyfofalafel.backend.TestDataSourceAutoConfiguration
 import com.atstudio.eyfofalafel.backend.controller.files.FileRestDto
 import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO
+import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter
 import com.atstudio.eyfofalafel.backend.testutil.TestUtils
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,7 +18,7 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TES
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD
 
 @RunWith(SpringJUnit4ClassRunner)
-@Import(TestContextAutoConfig)
+@Import(TestDataSourceAutoConfiguration)
 class PlaceControllerIT {
 
     @Test
@@ -35,6 +36,26 @@ class PlaceControllerIT {
 
         assert (places.size() == 1)
         assert  newPlace == places.get(0)
+    }
+
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
+            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
+    void simpleSearchTest() throws Exception {
+        PlaceFilter testNameSearch = [
+                "searchText" : "фалафельная"
+        ] as PlaceFilter
+
+        List<PlaceRestDto> places = performGet(
+                getUrlWithHost("api/places/"),
+                ['filter', testNameSearch] as Map,
+                PlaceRestDto[]
+        )
+        assert places.size() == 1
+        assert places[0].getName().contains('фалафельная')
     }
 
     @Test

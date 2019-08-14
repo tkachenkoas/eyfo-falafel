@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static java.util.stream.Collectors.toList;
 
 @Service
-@Transactional
 public class PlaceServiceImpl implements PlaceService {
 
     private PlaceRepository crudRepo;
@@ -26,11 +27,15 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public List<Place> findAll() {
-        return newArrayList(crudRepo.findAll());
+    public Collection<Place> findAll(Optional<PlaceFilter> filterOptional) {
+        return newArrayList(
+                filterOptional.map(filter -> crudRepo.findFiltered(filter))
+                                .orElseGet(() -> crudRepo.findAll())
+        );
     }
 
     @Override
+    @Transactional
     public Place save(Place placeToSave) {
         List<Attachment> newAttachments = storeAll(placeToSave.getAttachments());
 

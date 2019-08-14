@@ -1,6 +1,7 @@
 package com.atstudio.eyfofalafel.backend.controller.place;
 
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
+import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.xml.bind.ValidationException;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
+
+import static java.util.Optional.ofNullable;
+import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping(value = "/places")
@@ -26,8 +29,12 @@ public class PlaceController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<PlaceRestDto>> all() {
-        List<PlaceRestDto> places = placeService.findAll().stream().map(pl -> mapper.toRest(pl)).collect(Collectors.toList());
+    public ResponseEntity<List<PlaceRestDto>> search(
+            @RequestParam(name = "filter", required = false, defaultValue = "") PlaceFilter filter
+    ) {
+        List<PlaceRestDto> places = placeService.findAll(ofNullable(filter)).stream()
+                                                .map(pl -> mapper.toRest(pl))
+                                                .collect(toList());
         return ResponseEntity.ok(places);
     }
 
