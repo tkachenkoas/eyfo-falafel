@@ -4,6 +4,7 @@ import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import com.atstudio.eyfofalafel.backend.repository.PlaceRepository;
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,10 +28,10 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public Collection<Place> findAll(Optional<PlaceFilter> filterOptional) {
+    public Collection<Place> findAll(Optional<PlaceFilter> filterOptional, Pageable paging) {
         return newArrayList(
                 filterOptional.map(filter -> crudRepo.findFiltered(filter))
-                                .orElseGet(() -> crudRepo.findAll())
+                                .orElseGet(() -> crudRepo.findAll(paging))
         );
     }
 
@@ -58,8 +59,9 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     private List<Attachment> storeAll(List<Attachment> attachments) {
-        return newArrayList(attachments.stream()
-                .map(att -> fileStorageService.saveFileForStorage(att)).collect(toList()));
+        return attachments.stream()
+                          .map(att -> fileStorageService.saveFileForStorage(att))
+                          .collect(toList());
     }
 
     @Override

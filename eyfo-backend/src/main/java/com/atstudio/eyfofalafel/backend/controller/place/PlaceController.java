@@ -5,6 +5,9 @@ import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,9 +33,11 @@ public class PlaceController {
 
     @GetMapping("/")
     public ResponseEntity<List<PlaceRestDto>> search(
-            @RequestParam(name = "filter", required = false, defaultValue = "") PlaceFilter filter
+            @RequestParam(name = "filter", required = false) PlaceFilter filter,
+            @RequestParam(name = "paging", required = false) Pageable paging
     ) {
-        List<PlaceRestDto> places = placeService.findAll(ofNullable(filter)).stream()
+        paging = ObjectUtils.firstNonNull(paging, PageRequest.of(1, 10));
+        List<PlaceRestDto> places = placeService.findAll(ofNullable(filter), paging).stream()
                                                 .map(pl -> mapper.toRest(pl))
                                                 .collect(toList());
         return ResponseEntity.ok(places);
