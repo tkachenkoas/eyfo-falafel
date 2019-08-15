@@ -4,16 +4,15 @@ import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import com.atstudio.eyfofalafel.backend.repository.PlaceRepository;
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -28,11 +27,10 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public Collection<Place> findAll(Optional<PlaceFilter> filterOptional, Pageable paging) {
-        return newArrayList(
-                filterOptional.map(filter -> crudRepo.findFiltered(filter))
-                                .orElseGet(() -> crudRepo.findAll(paging))
-        );
+    public Page<Place> findAll(Optional<PlaceFilter> filterOptional, Pageable paging) {
+        return filterOptional
+                    .map(filter -> crudRepo.findFiltered(filter, paging))
+                    .orElseGet(() -> crudRepo.findAll(paging));
     }
 
     @Override
