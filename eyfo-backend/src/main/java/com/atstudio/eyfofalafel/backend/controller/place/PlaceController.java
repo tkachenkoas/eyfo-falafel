@@ -5,7 +5,6 @@ import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -15,9 +14,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.ValidationException;
 import java.util.Objects;
+import java.util.Optional;
 
-import static java.util.Optional.ofNullable;
+import static java.util.Optional.of;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @RestController
 @RequestMapping(value = "/places")
@@ -34,12 +35,16 @@ public class PlaceController {
 
     @GetMapping("/")
     public ResponseEntity<Page<PlaceRestDto>> search(
-            @RequestParam(name = "filter", required = false) PlaceFilter filter,
-            @RequestParam(name = "paging", required = false) Pageable paging
+            @RequestParam(value = "searchText", defaultValue = "") String searchText,
+            @RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
     ) {
-        paging = ObjectUtils.firstNonNull(paging, PageRequest.of(0, 10));
+        Optional<PlaceFilter> filter = isBlank(searchText)
+                ? Optional.empty()
+                : of(new PlaceFilter(searchText));
+        Pageable paging = PageRequest.of(pageNumber, pageSize);
 
-        Page<Place> placePage = placeService.findAll(ofNullable(filter), paging);
+        Page<Place> placePage = placeService.findAll(filter, paging);
 
         Page<PlaceRestDto> restPlacesPage = new PageImpl<>(
                 placePage.stream().map(mapper::toRest).collect(toList()),

@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.testutil
 
-
+import com.jayway.restassured.path.json.JsonPath
 import com.jayway.restassured.builder.RequestSpecBuilder
 import com.jayway.restassured.builder.ResponseSpecBuilder
 import com.jayway.restassured.http.ContentType
@@ -58,19 +58,13 @@ class TestUtils {
                 .then().extract().asByteArray()
     }
 
-    static <T> T performGet(CharSequence url, Class<T> extractClass) {
+    static JsonPath rawGet(CharSequence url, Map<String, Object> params = [:]) {
         return given()
-                    .get(url.toString())
-                    .then().spec(success())
-                    .extract().as(extractClass)
-    }
-
-    static <T> T performGet(CharSequence url, Map<String, Object> params, Class<T> extractClass) {
-        return given()
+                .contentType(ContentType.JSON)
                 .params(params)
                 .get(url.toString())
                 .then().spec(success())
-                .extract().as(extractClass)
+                .extract().body().jsonPath()
     }
 
     static <T> T performDelete(CharSequence url) {

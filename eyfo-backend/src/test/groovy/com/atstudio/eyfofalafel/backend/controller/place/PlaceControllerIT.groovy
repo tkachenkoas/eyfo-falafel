@@ -3,8 +3,6 @@ package com.atstudio.eyfofalafel.backend.controller.place
 import com.atstudio.eyfofalafel.backend.TestDataSourceAutoConfiguration
 import com.atstudio.eyfofalafel.backend.controller.files.FileRestDto
 import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO
-import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter
-import com.atstudio.eyfofalafel.backend.testutil.TestUtils
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.context.annotation.Import
@@ -32,10 +30,10 @@ class PlaceControllerIT {
         PlaceRestDto result = performPost(getUrlWithHost("api/places/new"), newPlace, PlaceRestDto)
 
         assert newPlace == result
-        List<PlaceRestDto> places = performGet(getUrlWithHost("api/places/"), PlaceRestDto[])
+        List<PlaceRestDto> places = getPlaces("api/places/")
 
-        assert (places.size() == 1)
-        assert  newPlace == places.get(0)
+        assert places.size() == 1
+        assert newPlace == places.get(0)
     }
 
     @Test
@@ -45,17 +43,15 @@ class PlaceControllerIT {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void simpleSearchTest() throws Exception {
-        PlaceFilter testNameSearch = [
-                "searchText" : "фалафельная"
-        ] as PlaceFilter
-
-        List<PlaceRestDto> places = performGet(
-                getUrlWithHost("api/places/"),
-                ['filter', testNameSearch] as Map,
-                PlaceRestDto[]
+        List<PlaceRestDto> places = getPlaces("api/places/",
+                ["searchText" : "фалафельная"] as Map
         )
         assert places.size() == 1
         assert places[0].getName().contains('фалафельная')
+    }
+
+    private List<PlaceRestDto> getPlaces(String url, Map<String, Object> params = [:]) {
+        return rawGet(getUrlWithHost(url), params)['content'] as PlaceRestDto[]
     }
 
     @Test
@@ -68,7 +64,7 @@ class PlaceControllerIT {
 
         performDelete(getUrlWithHost("api/places/${result.getId()}"))
 
-        List<PlaceRestDto> places = performGet(getUrlWithHost("api/places/"), PlaceRestDto[])
+        List<PlaceRestDto> places = getPlaces("api/places/")
         assert (places.size() == 0)
     }
 
@@ -80,7 +76,7 @@ class PlaceControllerIT {
     void attachmentCanBeViewedAfterPlaceCreate() throws Exception {
         MockMultipartFile tempFile = testFile()
 
-        FileRestDto tempUpload = TestUtils.multipart(getUrlWithHost("api/files/upload-temp"), tempFile, FileRestDto)
+        FileRestDto tempUpload = multipart(getUrlWithHost("api/files/upload-temp"), tempFile, FileRestDto)
 
         PlaceRestDto newPlace = testPlace()
         newPlace.setAttachments([tempUpload])
