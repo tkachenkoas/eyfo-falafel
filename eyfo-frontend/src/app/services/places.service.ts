@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {IImgAttachment, IPlace} from '../models/model-interfaces';
-import {HttpClient} from '@angular/common/http';
+import {IImgAttachment, IPlace, Pageable} from '../models/model-interfaces';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {logAndReturn} from '../utils/logging';
 import {environment} from '../../environments/environment';
@@ -12,12 +12,16 @@ export class PlacesService {
 
   constructor(private http: HttpClient) { }
 
-  public getPlaces(): Promise<IPlace[]> {
-    return this.http.get('places/').pipe(
-      map((data: IPlace[]) => {
-        return logAndReturn(data, 'Place list');
-      })
-    ).toPromise();
+  public getPlaces(searchText: string): Promise<IPlace[]> {
+    const params = new HttpParams()
+      .set('searchText', searchText || '');
+
+    return this.http.get('places/', {params})
+      .pipe(
+        map((data: Pageable<IPlace>) => {
+          return logAndReturn(data.content, 'Place list');
+        })
+      ).toPromise();
   }
 
   public getPlaceById(id: number): Promise<IPlace> {

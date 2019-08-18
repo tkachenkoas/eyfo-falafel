@@ -13,6 +13,7 @@ export class PlacesListComponent implements AfterViewInit  {
   displayedColumns: string[] = ['id', 'name', 'address', 'edit'];
   data: IPlace[] = [];
   isLoadingResults = true;
+  searchText: string;
 
   constructor(private placeService: PlacesService,
               private router: Router) { }
@@ -21,9 +22,9 @@ export class PlacesListComponent implements AfterViewInit  {
     this.loadPlaces();
   }
 
-  private loadPlaces(): void {
+  loadPlaces(): void {
     this.isLoadingResults = true;
-    this.placeService.getPlaces()
+    this.placeService.getPlaces(this.searchText)
                      .then(res => {
                         this.data = res;
                         this.isLoadingResults = false;
