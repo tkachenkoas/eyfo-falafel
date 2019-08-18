@@ -30,7 +30,7 @@ class PlaceControllerIT {
         PlaceRestDto result = performPost(getUrlWithHost("api/places/new"), newPlace, PlaceRestDto)
 
         assert newPlace == result
-        List<PlaceRestDto> places = getPlaces("api/places/")
+        List<PlaceRestDto> places = getPlaces()
 
         assert places.size() == 1
         assert newPlace == places.get(0)
@@ -43,15 +43,38 @@ class PlaceControllerIT {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void simpleSearchTest() throws Exception {
-        List<PlaceRestDto> places = getPlaces("api/places/",
+        List<PlaceRestDto> places = getPlaces(
                 ["searchText" : "фалафельная"] as Map
         )
         assert places.size() == 1
         assert places[0].getName().contains('фалафельная')
     }
 
-    private List<PlaceRestDto> getPlaces(String url, Map<String, Object> params = [:]) {
-        return rawGet(getUrlWithHost(url), params)['content'] as PlaceRestDto[]
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
+            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
+    void findByPaging() throws Exception {
+        def pagingTest = { pageNum, String text ->
+            List<PlaceRestDto> places = getPlaces(
+                    [
+                            "pageNumber" : pageNum,
+                            "pageSize": 1
+                    ] as Map
+            )
+            assert places.size() == 1
+            assert places[0].getName().contains(text)
+        }
+
+        pagingTest(0, 'фалафельная')
+        pagingTest(1, 'шаурмяшная')
+
+    }
+
+    private static List<PlaceRestDto> getPlaces(Map<String, Object> params = [:]) {
+        return rawGet(getUrlWithHost("api/places/"), params)['content'] as PlaceRestDto[]
     }
 
     @Test
@@ -63,9 +86,7 @@ class PlaceControllerIT {
         PlaceRestDto result = performPost(getUrlWithHost("api/places/new"), testPlace(), PlaceRestDto)
 
         performDelete(getUrlWithHost("api/places/${result.getId()}"))
-
-        List<PlaceRestDto> places = getPlaces("api/places/")
-        assert (places.size() == 0)
+        assert (getPlaces().size() == 0)
     }
 
     @Test
@@ -88,11 +109,11 @@ class PlaceControllerIT {
         assert attachContent == tempFile.getBytes()
     }
 
-    private MockMultipartFile testFile() {
+    private static MockMultipartFile testFile() {
         return new MockMultipartFile("file", "temp_img.png", "image/png", "some file content".getBytes())
     }
 
-    private PlaceRestDto testPlace() {
+    private static PlaceRestDto testPlace() {
         PlaceRestDto place = new PlaceRestDto()
         place.setName("Test place")
         place.setPriceFrom(BigDecimal.ONE)
