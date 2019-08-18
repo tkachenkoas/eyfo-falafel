@@ -1,13 +1,14 @@
 package com.atstudio.eyfofalafel.backend.testutil
 
-
-import com.jayway.restassured.RestAssured
+import com.jayway.restassured.path.json.JsonPath
 import com.jayway.restassured.builder.RequestSpecBuilder
 import com.jayway.restassured.builder.ResponseSpecBuilder
 import com.jayway.restassured.http.ContentType
 import com.jayway.restassured.specification.RequestSpecification
 import com.jayway.restassured.specification.ResponseSpecification
 import org.springframework.web.multipart.MultipartFile
+
+import static com.jayway.restassured.RestAssured.given
 
 class TestUtils {
 
@@ -45,33 +46,35 @@ class TestUtils {
     }
 
     static <T> T multipart(String url, MultipartFile file, Class<T> extractClass) {
-        return  RestAssured.given().contentType('multipart/form-data')
+        return  given().contentType('multipart/form-data')
                 .multiPart("file", file.getOriginalFilename(), file.getBytes())
                 .post(url).then().spec(success())
                 .extract().as(extractClass)
     }
 
     static byte[] getFileContent(String fullPath) {
-        return RestAssured.given()
+        return given()
                 .get(getUrlWithHost(fullPath))
                 .then().extract().asByteArray()
     }
 
-    static <T> T performGet(CharSequence url, Class<T> extractClass) {
-        return RestAssured.given()
-                            .get(url.toString())
-                            .then().spec(success())
-                            .extract().as(extractClass)
+    static JsonPath rawGet(CharSequence url, Map<String, Object> params = [:]) {
+        return given()
+                .contentType(ContentType.JSON)
+                .params(params)
+                .get(url.toString())
+                .then().spec(success())
+                .extract().body().jsonPath()
     }
 
     static <T> T performDelete(CharSequence url) {
-        return RestAssured.given()
+        return given()
                 .delete(url.toString())
                 .then().statusCode(200)
     }
 
     static <T> T performPost(CharSequence url, Object body, Class<T> extractClass) {
-        return RestAssured.given().spec(reqSpec())
+        return given().spec(reqSpec())
                             .body(body)
                             .post(url.toString())
                             .then().spec(success())

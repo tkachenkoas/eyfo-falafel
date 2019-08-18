@@ -17,3 +17,11 @@ export interface IImgAttachment {
   id?: number;
   fullPath: string;
 }
+
+export interface Pageable<T> {
+  content: T[];
+  number: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}

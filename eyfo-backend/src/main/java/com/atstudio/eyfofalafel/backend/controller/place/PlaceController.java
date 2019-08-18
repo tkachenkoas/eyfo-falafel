@@ -1,16 +1,21 @@
 package com.atstudio.eyfofalafel.backend.controller.place;
 
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
+import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.ValidationException;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping(value = "/places")
@@ -26,9 +31,20 @@ public class PlaceController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<PlaceRestDto>> all() {
-        List<PlaceRestDto> places = placeService.findAll().stream().map(pl -> mapper.toRest(pl)).collect(Collectors.toList());
-        return ResponseEntity.ok(places);
+    public ResponseEntity<Page<PlaceRestDto>> search(
+            PlaceFilter filter,
+            @RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
+    ) {
+        Pageable paging = PageRequest.of(pageNumber, pageSize);
+        Page<Place> placePage = placeService.findAll(filter, paging);
+
+        Page<PlaceRestDto> restPlacesPage = new PageImpl<>(
+                placePage.stream().map(mapper::toRest).collect(toList()),
+                placePage.getPageable(),
+                placePage.getTotalElements()
+        );
+        return ResponseEntity.ok(restPlacesPage);
     }
 
     @PostMapping("/new")

@@ -4,7 +4,7 @@ import com.atstudio.eyfofalafel.backend.domain.files.Attachment
 import lombok.extern.slf4j.Slf4j
 import org.junit.Test
 
-import static java.util.Arrays.asList
+import static com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper.normalizeSlashes
 
 @Slf4j
 class FilesObjectMapperTest {
@@ -13,7 +13,7 @@ class FilesObjectMapperTest {
 
     @Test
     void restDtoStartsFromPublicAndIsNormalized() {
-        asList("/temp/someFile.jpg", "temp/someFile.jpg").forEach({ path ->
+        ["/temp/someFile.jpg", "temp/someFile.jpg"].forEach({ path ->
             Attachment attach = new Attachment()
             attach.setFullPath(path)
             FileRestDto restDto = underTest.fromAttachment(attach)
@@ -23,7 +23,7 @@ class FilesObjectMapperTest {
 
     @Test
     void attachmentIsNormalizedAndWithoutPublic() {
-        asList("/public/temp/someFile.jpg", "public/temp/someFile.jpg").forEach({ path ->
+        ["/public/temp/someFile.jpg", "public/temp/someFile.jpg"].forEach({ path ->
             FileRestDto restDto = new FileRestDto()
             restDto.setFullPath(path)
 
@@ -34,13 +34,13 @@ class FilesObjectMapperTest {
 
     @Test
     void normalizeSlashes() {
-        assert  FilesObjectMapper.normalizeSlashes("\\\\temp\\file.name") == "temp/file.name"
-        assert  FilesObjectMapper.normalizeSlashes("//temp\\file.name") == "temp/file.name"
+        assert  normalizeSlashes("\\\\temp\\file.name") == "temp/file.name"
+        assert  normalizeSlashes("//temp\\file.name") == "temp/file.name"
     }
 
     @Test
     void fileNameTakenFromPath() {
-        asList("/public/temp/someFile.jpg", "\\public\\temp\\someFile.jpg").forEach({ path ->
+        ["/public/temp/someFile.jpg", "\\public\\temp\\someFile.jpg"].forEach({ path ->
             FileRestDto restDto = new FileRestDto()
             restDto.setFullPath(path)
 

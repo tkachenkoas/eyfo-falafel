@@ -4,17 +4,17 @@ import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import com.atstudio.eyfofalafel.backend.repository.PlaceRepository;
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static java.util.stream.Collectors.toList;
 
 @Service
-@Transactional
 public class PlaceServiceImpl implements PlaceService {
 
     private PlaceRepository crudRepo;
@@ -26,11 +26,14 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public List<Place> findAll() {
-        return newArrayList(crudRepo.findAll());
+    public Page<Place> findAll(PlaceFilter filter, Pageable paging) {
+        return filter.isEmpty()
+                ? crudRepo.findAll(paging)
+                : crudRepo.findFiltered(filter, paging);
     }
 
     @Override
+    @Transactional
     public Place save(Place placeToSave) {
         List<Attachment> newAttachments = storeAll(placeToSave.getAttachments());
 
@@ -53,8 +56,9 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     private List<Attachment> storeAll(List<Attachment> attachments) {
-        return newArrayList(attachments.stream()
-                .map(att -> fileStorageService.saveFileForStorage(att)).collect(toList()));
+        return attachments.stream()
+                          .map(att -> fileStorageService.saveFileForStorage(att))
+                          .collect(toList());
     }
 
     @Override

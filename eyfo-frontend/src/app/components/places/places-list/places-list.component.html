@@ -13,6 +13,20 @@
   </mat-grid-tile>
 </mat-grid-list>
 
+<ng-container>
+  <mat-form-field style="width:100% !important" >
+    <input matInput
+           [(ngModel)]="searchText"
+           placeholder="Поиск точки по названию или адресу"
+           type="search">
+    <button mat-button matSuffix mat-stroked-button
+            aria-label="search"
+            (click)="loadPlaces()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</ng-container>
+
 <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
 
 <ng-container *ngIf="!isLoadingResults">
