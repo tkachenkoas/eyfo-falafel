@@ -14,11 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.ValidationException;
 import java.util.Objects;
-import java.util.Optional;
 
-import static java.util.Optional.of;
 import static java.util.stream.Collectors.toList;
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @RestController
 @RequestMapping(value = "/places")
@@ -35,15 +32,11 @@ public class PlaceController {
 
     @GetMapping("/")
     public ResponseEntity<Page<PlaceRestDto>> search(
-            @RequestParam(value = "searchText", defaultValue = "") String searchText,
+            PlaceFilter filter,
             @RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
     ) {
-        Optional<PlaceFilter> filter = isBlank(searchText)
-                ? Optional.empty()
-                : of(new PlaceFilter(searchText));
         Pageable paging = PageRequest.of(pageNumber, pageSize);
-
         Page<Place> placePage = placeService.findAll(filter, paging);
 
         Page<PlaceRestDto> restPlacesPage = new PageImpl<>(
@@ -51,7 +44,6 @@ public class PlaceController {
                 placePage.getPageable(),
                 placePage.getTotalElements()
         );
-
         return ResponseEntity.ok(restPlacesPage);
     }
 

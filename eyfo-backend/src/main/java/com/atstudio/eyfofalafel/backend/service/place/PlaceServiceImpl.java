@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -27,10 +26,10 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public Page<Place> findAll(Optional<PlaceFilter> filterOptional, Pageable paging) {
-        return filterOptional
-                    .map(filter -> crudRepo.findFiltered(filter, paging))
-                    .orElseGet(() -> crudRepo.findAll(paging));
+    public Page<Place> findAll(PlaceFilter filter, Pageable paging) {
+        return filter.isEmpty()
+                ? crudRepo.findAll(paging)
+                : crudRepo.findFiltered(filter, paging);
     }
 
     @Override
