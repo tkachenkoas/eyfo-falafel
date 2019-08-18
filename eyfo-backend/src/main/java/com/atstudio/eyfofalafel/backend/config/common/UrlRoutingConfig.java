@@ -43,7 +43,7 @@ public class UrlRoutingConfig extends WebMvcConfigurationSupport {
         // Single directory level - no need to exclude "api"
         registry.addViewController("/{x:[\\w\\-]+}").setViewName("forward:/index.html");
         // Multi-level directory path, need to exclude "api/public" on the first part of the path
-        registry.addViewController("/{x:^(?!api$|public$).*$}/**/{y:[\\w\\d\\_\\-\\.]+}").setViewName("forward:/index.html");
+        registry.addViewController("/{x:^(?!api$|public$|webjars$).*$}/**/{y:[\\w\\d\\_\\-\\.]+}").setViewName("forward:/index.html");
     }
 
     @Value("${files.drive.folder}")
