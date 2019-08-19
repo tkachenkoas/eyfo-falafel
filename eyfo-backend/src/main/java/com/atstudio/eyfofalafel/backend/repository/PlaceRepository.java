@@ -15,7 +15,8 @@ public interface PlaceRepository extends PagingAndSortingRepository<Place, Long>
     @Query(
            "SELECT p from Place p " +
            " WHERE ( lower(p.name) like %:#{#filter.searchText.toLowerCase()}%" +
-           " OR lower(p.description) like %:#{#filter.searchText.toLowerCase()}% )"
+           " OR lower(p.description) like %:#{#filter.searchText.toLowerCase()}% " +
+           " OR lower(p.location.address) like %:#{#filter.searchText.toLowerCase()}%) "
     )
     Page<Place> findFiltered(
             @Param("filter") PlaceFilter filter,

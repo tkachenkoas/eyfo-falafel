@@ -1,19 +1,23 @@
-import {AfterViewInit, Component} from '@angular/core';
-import {IPlace} from '../../../models/model-interfaces';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {IPlace, Pageable} from '../../../models/model-interfaces';
 import {PlacesService} from '../../../services/places.service';
 import {Router} from '@angular/router';
+import {PageEvent} from '@angular/material/paginator';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-places-list',
   templateUrl: './places-list.component.html',
   styleUrls: ['./places-list.component.css']
 })
-export class PlacesListComponent implements AfterViewInit  {
+export class PlacesListComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['id', 'name', 'address', 'edit'];
-  data: IPlace[] = [];
+  places: Pageable<IPlace>;
   isLoadingResults = true;
   searchText: string;
+
+  pageEvent: PageEvent;
 
   constructor(private placeService: PlacesService,
               private router: Router) { }
@@ -22,11 +26,11 @@ export class PlacesListComponent implements AfterViewInit  {
     this.loadPlaces();
   }
 
-  loadPlaces(): void {
+  loadPlaces(pageEvent: PageEvent = {} as PageEvent): void {
     this.isLoadingResults = true;
-    this.placeService.getPlaces(this.searchText)
-                     .then(res => {
-                        this.data = res;
+    this.placeService.getPlaces(this.searchText, pageEvent.pageIndex, pageEvent.pageSize)
+                     .then(page => {
+                        this.places = page;
                         this.isLoadingResults = false;
                       });
   }

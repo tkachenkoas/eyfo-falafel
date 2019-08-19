@@ -5,7 +5,8 @@ import {IImgAttachment, IPlace} from '../../../models/model-interfaces';
 import {ActivatedRoute, Router} from '@angular/router';
 import {logAndReturn} from '../../../utils/logging';
 import {environment} from '../../../../environments/environment';
-import {DEFAULT_DROPZONE_CONFIG} from '../../../app.module';
+import {DropzoneConfigInterface} from "ngx-dropzone-wrapper";
+import {LoginService} from "../../../services/login.service";
 
 @Component({
   selector: 'app-edit-place',
@@ -24,7 +25,16 @@ export class EditPlaceComponent implements OnInit {
               private formBuilder: FormBuilder) {
   }
 
-  public dzConfig = DEFAULT_DROPZONE_CONFIG();
+  public getDropzoneConfig = (): DropzoneConfigInterface => {
+    return {
+      url: `${environment.apiUrl}files/upload-temp`,
+      maxFilesize: 10,
+      acceptedFiles: 'image/*',
+      createImageThumbnails: false,
+      previewTemplate: '<div></div>',
+      headers: LoginService.getAuthHeader()
+    };
+  }
 
   editMode(): boolean {
     return !!this.placeId;
@@ -34,8 +44,9 @@ export class EditPlaceComponent implements OnInit {
     this.route.url.subscribe((urls) => {
       const edit = urls.some(url => url.path == 'edit');
       if (edit) {
-        this.placeId = parseInt(urls.map(url => url.path)
-          .find(path  => /^\d+$/.test(path)));
+        this.placeId = parseInt(
+          urls.map(url => url.path).find(path  => /^\d+$/.test(path))
+        );
         this.placesService.getPlaceById(this.placeId)
           .then((place) => {
             const {name, location} = place;

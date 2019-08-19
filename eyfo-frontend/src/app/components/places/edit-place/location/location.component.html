@@ -20,7 +20,7 @@
       Выбранный адрес: {{ getFormValue('address') }}
     </div>
   </ng-container>
-  <agm-map #googleMap
+  <agm-map
            [latitude]="userLocation.latitude"
            [longitude]="userLocation.longitude"
            [zoom]="zoom"

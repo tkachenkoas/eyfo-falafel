@@ -30,7 +30,7 @@
 <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
 
 <ng-container *ngIf="!isLoadingResults">
-  <table mat-table [dataSource]="data" class="mat-elevation-z8">
+  <table mat-table [dataSource]="places?.content" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> id </th>
@@ -68,4 +68,12 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <mat-paginator
+    [length]="places?.totalElements"
+    [pageIndex]="places?.number"
+    [pageSize]="places?.size"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="loadPlaces($event)">
+  </mat-paginator>
 </ng-container>

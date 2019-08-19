@@ -12,14 +12,21 @@ export class PlacesService {
 
   constructor(private http: HttpClient) { }
 
-  public getPlaces(searchText: string): Promise<IPlace[]> {
+  public getPlaces(
+    searchText: string = '',
+    pageNumber: number = 0,
+    pageSize: number = 1
+  ): Promise<Pageable<IPlace>> {
     const params = new HttpParams()
-      .set('searchText', searchText || '');
+      .set('searchText', searchText)
+      .set('pageNumber', `${pageNumber}`)
+      .set('pageSize', `${pageSize}`);
+
 
     return this.http.get('places/', {params})
       .pipe(
         map((data: Pageable<IPlace>) => {
-          return logAndReturn(data.content, 'Place list');
+          return logAndReturn(data, 'Place list');
         })
       ).toPromise();
   }
