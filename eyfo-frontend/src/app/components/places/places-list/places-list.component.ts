@@ -1,9 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {IPlace, IPageable, IPaging} from '../../../models/model-interfaces';
+import {AfterViewInit, Component} from '@angular/core';
+import {IPageable, IPaging, IPlace} from '../../../models/model-interfaces';
 import {PlacesService} from '../../../services/places.service';
 import {Router} from '@angular/router';
 import {PageEvent} from '@angular/material/paginator';
-import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-places-list',
