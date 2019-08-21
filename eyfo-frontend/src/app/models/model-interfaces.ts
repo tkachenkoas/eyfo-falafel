@@ -18,10 +18,15 @@ export interface IImgAttachment {
   fullPath: string;
 }
 
-export interface Pageable<T> {
+export interface IPageable<T> {
   content: T[];
   number: number;
   size: number;
   totalElements: number;
   totalPages: number;
+}
+
+export interface IPaging {
+  pageNumber: number;
+  pageSize: number;
 }

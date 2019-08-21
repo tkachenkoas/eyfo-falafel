@@ -17,11 +17,12 @@
   <mat-form-field style="width:100% !important" >
     <input matInput
            [(ngModel)]="searchText"
+           (keyup.enter)="search()"
            placeholder="Поиск точки по названию или адресу"
            type="search">
     <button mat-button matSuffix mat-stroked-button
             aria-label="search"
-            (click)="loadPlaces()">
+            (click)="search()">
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
@@ -74,6 +75,6 @@
     [pageIndex]="places?.number"
     [pageSize]="places?.size"
     [pageSizeOptions]="[5, 10, 20]"
-    (page)="loadPlaces($event)">
+    (page)="onPageSelect($event)">
   </mat-paginator>
 </ng-container>

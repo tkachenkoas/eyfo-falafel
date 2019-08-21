@@ -7,3 +7,7 @@ img {
   height: 100px;
   width: 100px;
 }
+
+/deep/ .dropzone .dz-message {
+  min-height: 70px !important;
+}

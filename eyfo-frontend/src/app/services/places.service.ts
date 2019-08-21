@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {IImgAttachment, IPlace, Pageable} from '../models/model-interfaces';
+import {IImgAttachment, IPlace, IPageable, IPaging} from '../models/model-interfaces';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {logAndReturn} from '../utils/logging';
@@ -14,18 +14,17 @@ export class PlacesService {
 
   public getPlaces(
     searchText: string = '',
-    pageNumber: number = 0,
-    pageSize: number = 1
-  ): Promise<Pageable<IPlace>> {
+    paging: IPaging = {pageNumber: 0, pageSize: 10}
+  ): Promise<IPageable<IPlace>> {
     const params = new HttpParams()
       .set('searchText', searchText)
-      .set('pageNumber', `${pageNumber}`)
-      .set('pageSize', `${pageSize}`);
+      .set('pageNumber', `${paging.pageNumber}`)
+      .set('pageSize', `${paging.pageSize}`);
 
 
     return this.http.get('places/', {params})
       .pipe(
-        map((data: Pageable<IPlace>) => {
+        map((data: IPageable<IPlace>) => {
           return logAndReturn(data, 'Place list');
         })
       ).toPromise();

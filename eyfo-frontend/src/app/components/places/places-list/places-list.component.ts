@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {IPlace, Pageable} from '../../../models/model-interfaces';
+import {IPlace, IPageable, IPaging} from '../../../models/model-interfaces';
 import {PlacesService} from '../../../services/places.service';
 import {Router} from '@angular/router';
 import {PageEvent} from '@angular/material/paginator';
@@ -13,11 +13,11 @@ import {tap} from 'rxjs/operators';
 export class PlacesListComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['id', 'name', 'address', 'edit'];
-  places: Pageable<IPlace>;
+  places: IPageable<IPlace>;
   isLoadingResults = true;
   searchText: string;
 
-  pageEvent: PageEvent;
+  paging: IPaging;
 
   constructor(private placeService: PlacesService,
               private router: Router) { }
@@ -26,9 +26,17 @@ export class PlacesListComponent implements AfterViewInit {
     this.loadPlaces();
   }
 
-  loadPlaces(pageEvent: PageEvent = {} as PageEvent): void {
+  onPageSelect(pageEvent: PageEvent) {
+    this.paging = {
+      pageNumber: pageEvent.pageIndex,
+      pageSize: pageEvent.pageSize
+    }
+    this.loadPlaces();
+  }
+
+  loadPlaces(): void {
     this.isLoadingResults = true;
-    this.placeService.getPlaces(this.searchText, pageEvent.pageIndex, pageEvent.pageSize)
+    this.placeService.getPlaces(this.searchText, this.paging)
                      .then(page => {
                         this.places = page;
                         this.isLoadingResults = false;
@@ -43,4 +51,11 @@ export class PlacesListComponent implements AfterViewInit {
     this.placeService.deletePlace(place.id).then(() => this.loadPlaces());
   }
 
+  search() {
+    this.paging = {
+      pageSize: this.places.size,
+      pageNumber: 0
+    };
+    this.loadPlaces();
+  }
 }
