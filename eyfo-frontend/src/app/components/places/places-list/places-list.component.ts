@@ -26,11 +26,7 @@ export class PlacesListComponent implements AfterViewInit {
   }
 
   onPageSelect(pageEvent: PageEvent) {
-    this.paging = {
-      pageNumber: pageEvent.pageIndex,
-      pageSize: pageEvent.pageSize
-    }
-    this.loadPlaces();
+    this.refreshList(pageEvent.pageIndex, pageEvent.pageSize);
   }
 
   loadPlaces(): void {
@@ -51,9 +47,13 @@ export class PlacesListComponent implements AfterViewInit {
   }
 
   search() {
+    this.refreshList(this.places.size, 0);
+  }
+
+  private refreshList(pageSize: number, pageNumber: number) {
     this.paging = {
-      pageSize: this.places.size,
-      pageNumber: 0
+      pageSize: pageSize,
+      pageNumber: pageNumber
     };
     this.loadPlaces();
   }
