@@ -38,10 +38,10 @@ class Place {
     int priceTo
 }
 
-def places = [] as List<Place>
+def allPlaces = [] as List<Place>
 
 for (def jsonPlace: data['results']) {
-    places << (new Place(
+    allPlaces << (new Place(
             name: (jsonPlace['name'] as String).replaceAll("'", "-"),
             description: String.join(',', jsonPlace['types'] as List),
             address: jsonPlace['vicinity'],
@@ -52,25 +52,37 @@ for (def jsonPlace: data['results']) {
     ))
 }
 
-def randPlaces = [] as List<String>
-5.times {
-    def randPlace = places[ (int) (Math.random() * places.size() ) ]
-    randPlaces << "'${randPlace.name + randPlace.address}'"
+println("Loaded ${allPlaces.size()} places from json")
+
+def placeSynthIds = allPlaces.collect { place ->
+    return "'${place.name + place.address}'" as String
 }
 
-def existCount = sql.firstRow(
-        "select count(*) as count " +
-        "from t_places pl " +
-        "where pl.name || pl.address in (${String.join(",", randPlaces)})  "
-).count
+Set<String> placesToAddIds = new HashSet<>(placeSynthIds);
 
-if (existCount > 3) {
-    println "Data already exist. Will insert nothing"
+sql.eachRow(
+        "select * " +
+        "from t_places pl " +
+        "where pl.name || pl.address in (${String.join(",", placeSynthIds)})  "
+) { row ->
+    placesToAddIds.remove("'${row['name'] + row['address']}'" as String)
+}
+
+if (placesToAddIds.isEmpty()) {
+    println "No new places to add, will terminate"
     sql.close()
     return
 }
 
-for (Place place: places) {
+def placesToAdd = allPlaces.findAll{ place ->
+    placesToAddIds.contains("'${place.name + place.address}'" as String)
+}
+
+println("Will add new ${placesToAdd.size()} places to db")
+
+int added = 0;
+
+for (Place place: placesToAdd) {
     try {
         sql.execute(
                 "INSERT\n " +
@@ -80,9 +92,12 @@ for (Place place: places) {
                         "( '${place.name}', '${place.description}', '${place.address}', \n" +
                         " ${place.lat}, ${place.lng}, ${place.priceFrom}, ${place.priceTo} ) ;"
         )
+        added++;
     } catch (Exception e) {
         println "Exception on place ${place}"
     }
 }
+
+println "Successfully added ${added} places, failed ${placesToAddIds.size() - added} results"
 
 sql.close()
