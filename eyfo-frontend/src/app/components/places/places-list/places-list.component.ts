@@ -26,7 +26,7 @@ export class PlacesListComponent implements AfterViewInit {
   }
 
   onPageSelect(pageEvent: PageEvent) {
-    this.refreshList(pageEvent.pageIndex, pageEvent.pageSize);
+    this.refreshList(pageEvent.pageSize, pageEvent.pageIndex);
   }
 
   loadPlaces(): void {
