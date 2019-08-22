@@ -29,7 +29,7 @@
   </div>
   <div class="vert-space">
     <dropzone
-      [config]="dzConfig"
+      [config]="getDropzoneConfig()"
       [message]="'Нажмите или перетащите фотографии для загрузки'"
       (success)="onImageUpload($event)">
     </dropzone>

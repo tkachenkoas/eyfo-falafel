@@ -38,14 +38,26 @@ Connection conn = DriverManager.getConnection(
 
 def sql = Sql.newInstance(conn)
 
+def admLogin = props."admin.username";
+
+boolean exist = sql.firstRow(
+        "select count(*) as count " +
+        "from t_user usr " +
+        "where usr.user_name = '${admLogin}' "
+).count == 1;
+
+if (exist) {
+    println("Admin user ${admLogin} already exists, will do nothing")
+    sql.close()
+    return
+}
+
 sql.execute(
         "INSERT INTO t_user (id, user_name, password) " +
                 " VALUES ( " +
                 "   ( SELECT COALESCE (MAX(id) + 1, 1) FROM t_user ), :userName, :encPassw " +
-                " )  " +
-                " ON CONFLICT ON CONSTRAINT unq_login" +
-                " DO NOTHING ",
-        userName : props."admin.username",
+                " )  ",
+        userName : admLogin,
         encPassw : encPassw
 )
 

@@ -1,19 +1,22 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {IPlace} from '../../../models/model-interfaces';
+import {IPageable, IPaging, IPlace} from '../../../models/model-interfaces';
 import {PlacesService} from '../../../services/places.service';
 import {Router} from '@angular/router';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-places-list',
   templateUrl: './places-list.component.html',
   styleUrls: ['./places-list.component.css']
 })
-export class PlacesListComponent implements AfterViewInit  {
+export class PlacesListComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['id', 'name', 'address', 'edit'];
-  data: IPlace[] = [];
+  places: IPageable<IPlace>;
   isLoadingResults = true;
   searchText: string;
+
+  paging: IPaging;
 
   constructor(private placeService: PlacesService,
               private router: Router) { }
@@ -22,11 +25,15 @@ export class PlacesListComponent implements AfterViewInit  {
     this.loadPlaces();
   }
 
+  onPageSelect(pageEvent: PageEvent) {
+    this.refreshList(pageEvent.pageIndex, pageEvent.pageSize);
+  }
+
   loadPlaces(): void {
     this.isLoadingResults = true;
-    this.placeService.getPlaces(this.searchText)
-                     .then(res => {
-                        this.data = res;
+    this.placeService.getPlaces(this.searchText, this.paging)
+                     .then(page => {
+                        this.places = page;
                         this.isLoadingResults = false;
                       });
   }
@@ -39,4 +46,15 @@ export class PlacesListComponent implements AfterViewInit  {
     this.placeService.deletePlace(place.id).then(() => this.loadPlaces());
   }
 
+  search() {
+    this.refreshList(this.places.size, 0);
+  }
+
+  private refreshList(pageSize: number, pageNumber: number) {
+    this.paging = {
+      pageSize: pageSize,
+      pageNumber: pageNumber
+    };
+    this.loadPlaces();
+  }
 }

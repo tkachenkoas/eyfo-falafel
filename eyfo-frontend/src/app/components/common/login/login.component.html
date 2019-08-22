@@ -16,7 +16,11 @@
         <tr>
           <td>
             <mat-form-field class="full-width">
-              <input matInput placeholder="Password" type="password" formControlName="password">
+              <input matInput
+                     placeholder="Password"
+                     type="password"
+                     formControlName="password"
+                     (keydown.enter)="onSubmit()">
               <mat-error *ngIf="hasErrors('password')">Should not be empty</mat-error>
             </mat-form-field>
           </td>

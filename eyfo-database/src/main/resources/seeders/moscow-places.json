@@ -1,0 +1,3133 @@
+{
+  "html_attributions": [],
+  "next_page_token": "CtQEQwIAAFuVK7IzwSeZ02Iu0FMmPewO_9JPQc0JmIYMUQlAVmQ8c7mHXYesEuOaMWk9Rb6xhUV2n8hhRTufzvRfgaI3adDCxOLWxd7pFeqQBzzUOo5uE9wvtwg8gwCw9O7plKhNfEpQaAKlHBpiDR9HB-O6VaI34SIPn_ty8uVS7VXx3JWDdEtSx01ezMaonQdPPu2xy8bVzfSANfOEW7___VhKvoTZnxGKTFkmCXXmWuKMy7kwabojp-CLzUAwk5QZsxFpXV7ha52QD9SweUIv73M0uvXLtGGEAqeRwT56TBE4m4d62pGgirfI9m9114KIDrcvMv9nNj3Y0bFwku71gutmejff9n08aOwRLmE8zENDuwxi7KYOIgG261ZXUl8omsqu8faExx8tjUnRDTepvBwR0A50rdI2peYnY9Q_6FNHIDXbbacUxLMMIU_lSLi8pVw-09IIwFvMHSd3Tc5_Kj7BkfWEu-vPf_dzn5rEscMddBGVwFRdg_Q_ywkYLXGx8TRUmmUH7oYuMMZ0D0yeC_Tz6ZygZCgW-3Uanvi-PW_TcoDbz2gIigZFXUoqdawd7pRyc3sdxzJ1XkVFHepePc2wfckCCTZBVDeOXSoIWrd_iv9WfLT6P5iP_ethjMoLuUAtrlf_5KN4uHHymaoiLFpw3vejSkrqiSo37fO0qSi4EVJXfzssoLWOVmpTwew5u48jTICugRu-Pvz02fpry2a8K4-grb6RazlVvYuAWJ_OmYFalKQJNNC-ZkLsDF8nUq_GpHmxM7u0q6Dll-UJgH58uCwSELaE1flalKb8DNuC3Cji5jsaFLy3G8HpWnnTPnS53VGTvHtgj_5j",
+  "results": [
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7407547,
+          "lng": 37.59469729999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7420766302915,
+            "lng": 37.59612963029149
+          },
+          "southwest": {
+            "lat": 55.7393786697085,
+            "lng": 37.59343166970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "876b4ed704549327d5edcf98c01f590a7e78eee5",
+      "name": "Багратион",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1384,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111762812980389506370/photos\">Багратион</a>"
+          ],
+          "photo_reference": "CmRaAAAAyJYo4ZPOQt_eg6y1K8zmQRzpvwz3ud15EYtQrjMv9js-d3vzPGVVVqxFSfynzuBvfsB_VMMvowEKhzClcrvFXxLrMHsKkWTCrSgs7e_9fPAY0DgKbijwKbG0RNAcQ7eqEhAUjixxuHu8w5i5LcKd8ZaNGhRXpqgKCffPoknVTFhP7PKXfXwEEw",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJu-oA5q5LtUYRhqATIQgKZ94",
+      "plus_code": {
+        "compound_code": "PHRV+8V Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPHRV+8V"
+      },
+      "rating": 4.4,
+      "reference": "ChIJu-oA5q5LtUYRhqATIQgKZ94",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 239,
+      "vicinity": "Сеченовский переулок, 7А, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.73477949999999,
+          "lng": 37.6632163
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7360729802915,
+            "lng": 37.66462843029149
+          },
+          "southwest": {
+            "lat": 55.7333750197085,
+            "lng": 37.66193046970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "bdff3b1e676302d7738a95008048a728d4050417",
+      "name": "Таганка",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3120,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100177538633087919710/photos\">Кекс Укропов</a>"
+          ],
+          "photo_reference": "CmRaAAAAElTqnO8rgC1wTzT3rA8826QmcTNpvh5ufXm4UMkFaHjRMvEYpQaZpQEE3lvp1Vvq2OBCXa5_JTM_YtcxTHAkTVClf_N6Ab908mBUgUo9fj3BzelqHqFPigl8dIXu4exHEhDD5q7oKE-0i-3PgcDfUaDZGhRA9sGymxSY6e3-HEICpzmCQ_HNxw",
+          "width": 4160
+        }
+      ],
+      "place_id": "ChIJRXPPQNxKtUYRCpROiCXJRVk",
+      "plus_code": {
+        "compound_code": "PMM7+W7 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPMM7+W7"
+      },
+      "rating": 4.2,
+      "reference": "ChIJRXPPQNxKtUYRCpROiCXJRVk",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 71,
+      "vicinity": "Марксистская улица, 34 стр. 2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.765197,
+          "lng": 37.6082951
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.76681343029151,
+            "lng": 37.6094672802915
+          },
+          "southwest": {
+            "lat": 55.76411546970851,
+            "lng": 37.6067693197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "d81e3a6fe06650db44e1d8fd7d2bc121612ef368",
+      "name": "Траттория Венеция",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108407156229390816310/photos\">Helen Baibakova</a>"
+          ],
+          "photo_reference": "CmRaAAAAfdPqEnVn0SZsgRhZy0m7vc-zlrQc_b9LScBnm3guCcZ_xpihSBVI1OuvUOvov9qXC-j2Z0Fw5lF_IymwhC8g-4AeYC0RugvPJPNoF6v6BA86KpKKoVwbcz6GOrx2pV4HEhCL9jOph9FNxb8ld6IWT4hnGhRZRTTQNET-160UNUw0DMpjLZnSKw",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJtz_iHUFKtUYRbm412gTOQR8",
+      "plus_code": {
+        "compound_code": "QJ85+38 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ85+38"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJtz_iHUFKtUYRbm412gTOQR8",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1209,
+      "vicinity": "Страстной бульвар, 4 строение 3, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.6539686,
+          "lng": 37.5930467
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6555144802915,
+            "lng": 37.5945923302915
+          },
+          "southwest": {
+            "lat": 55.6528165197085,
+            "lng": 37.5918943697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "1a1d37a70accb853fa8929a006ece023afa7edfd",
+      "name": "Берлин",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1200,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112355793095837444253/photos\">Никитос Малышев</a>"
+          ],
+          "photo_reference": "CmRaAAAAE2ENW8Xua1ZcSUHVoun79b7Ta3W5aUcTbqSO04fQI2-sak9Im39i034seoxG1a_CGrBlPlufm0_23ZS5BlyCo-WLINOStCwaXCQHu8F9yZRWj5_o9c_DrwypbNuQ-2uYEhDEXCEzp8vwLjQY1n78kLF5GhTEqrCZDrzfMrIwBSeBzpQfJtsLKQ",
+          "width": 1600
+        }
+      ],
+      "place_id": "ChIJV6DIyiizSkERg85sZFoSSkg",
+      "plus_code": {
+        "compound_code": "MH3V+H6 Юго-Западный административный округ, Москва, Россия",
+        "global_code": "9G7VMH3V+H6"
+      },
+      "rating": 4.1,
+      "reference": "ChIJV6DIyiizSkERg85sZFoSSkg",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 389,
+      "vicinity": "Малая Юшуньская улица, 1 корп. 2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.78160479999999,
+          "lng": 37.4332084
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7833676802915,
+            "lng": 37.4349431802915
+          },
+          "southwest": {
+            "lat": 55.7806697197085,
+            "lng": 37.43224521970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "f31b2dfcd551edb66037791d3f26011e5c3d57ec",
+      "name": "Роял Зенит-1",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 600,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110455788562065722602/photos\">Роял Зенит-1</a>"
+          ],
+          "photo_reference": "CmRaAAAAMxCDbGFsK7qVIJbJfZ4BmF0LkV7SAtTs9RBEp32ZCTWWDtveoHHb0amp3qU4KfyIXgBjev_X2ir9niTFSd_ho0oUOmESXCcomx69ML7ry_cOnNgaV8y_WJswWdNJEg9vEhByl_4PkgFeB6TrIGkSd3y0GhRbrU206qFMkML-pxaNNSRkWmNpVQ",
+          "width": 900
+        }
+      ],
+      "place_id": "ChIJdU6DAMJItUYRioJywHSsseg",
+      "plus_code": {
+        "compound_code": "QCJM+J7 Северо-Западный административный округ, Москва, Россия",
+        "global_code": "9G7VQCJM+J7"
+      },
+      "rating": 4.8,
+      "reference": "ChIJdU6DAMJItUYRioJywHSsseg",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "spa",
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 36,
+      "vicinity": "Таманская улица, 49Б, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7536864,
+          "lng": 37.6540196
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.75507993029149,
+            "lng": 37.6553648302915
+          },
+          "southwest": {
+            "lat": 55.75238196970849,
+            "lng": 37.6526668697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "47b48cedbca80429bd64505cde9ca4dbd0196758",
+      "name": "Агиос-отель на Курской",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 392,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100593361632325655649/photos\">Агиос-отель на Курской</a>"
+          ],
+          "photo_reference": "CmRaAAAAnNv0jmMMe4ECXQz3bOvdWU7NiOYfbMv7KEMjlILIPJth_FyBd6Om7tWI5f9xOccmlX7UN-fikK1HaydqXuz33lcBfK3pQnprSSNr72vJ3lM1DVxCGc8S_v94LS4pwzfvEhBAV7xspqySNz4_FUetBgAsGhSLPkgYHlCNL28xEMaJWmBZJrw7QQ",
+          "width": 1152
+        }
+      ],
+      "place_id": "ChIJOetbxfJKtUYRSkYY96ztkRo",
+      "plus_code": {
+        "compound_code": "QM33+FJ Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQM33+FJ"
+      },
+      "rating": 3.8,
+      "reference": "ChIJOetbxfJKtUYRSkYY96ztkRo",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 726,
+      "vicinity": "улица Воронцово Поле, 16, стр. 4, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7514069,
+          "lng": 37.8904886
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7528625802915,
+            "lng": 37.8918049802915
+          },
+          "southwest": {
+            "lat": 55.7501646197085,
+            "lng": 37.8891070197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "b643f1675c6da3626c9c87f99638a880191ca411",
+      "name": "Новокосино Отель",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 390,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105948910436726293775/photos\">Новокосино Отель</a>"
+          ],
+          "photo_reference": "CmRaAAAA9b25m6bpZkrPhqwtJRUa3Qi9QfjKTCV7puriuSXU0vjsKzYxURhTfQ2onsKAuxw6o4et5go-gYVX9OOIEfho29zKzNzvBNUJtYwHP9PmyjliYICU0i93lnA5NDn85yWtEhAHjf6ruc2VRlN1v3nQahkfGhQ5-HL2Rhsi9x8Q4VvaDbR_buZzwQ",
+          "width": 695
+        }
+      ],
+      "place_id": "ChIJD1Xhf8rLSkERpCUSP_nBibo",
+      "plus_code": {
+        "compound_code": "QV2R+H5 Балашиха, Московская область, Россия",
+        "global_code": "9G7VQV2R+H5"
+      },
+      "rating": 4.1,
+      "reference": "ChIJD1Xhf8rLSkERpCUSP_nBibo",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "spa",
+        "lodging",
+        "food",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 198,
+      "vicinity": "Носовихинское шоссе, 26, Балашиха"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7282671,
+          "lng": 37.7335198
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.72970078029149,
+            "lng": 37.7349145302915
+          },
+          "southwest": {
+            "lat": 55.7270028197085,
+            "lng": 37.73221656970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "8ae8cc869808c6b99d991e083a6d72771b81cde0",
+      "name": "Гостиный Дом \"Карачарово\"",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1361,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112558305807164429459/photos\">Гостиный Дом &quot;Карачарово&quot;</a>"
+          ],
+          "photo_reference": "CmRaAAAAeSC14gnDHwntgQjZ5G_2eCEKHd6D94u6KfJc55qGJWHcrY-28gFmacr3M8usEZ6VeZbjroTF8T7XkTvwbC7g7IMY87PyUxkPy2_lR461rXbHkRRb2Jzu2HX33-1AKk0TEhDyRF1fURYTnlDkQpKUp9L9GhRSQcDhHIptfVkOk-YS15tz3nk9yw",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJ2aBXNEe1SkERZJDAD_T55jA",
+      "plus_code": {
+        "compound_code": "PPHM+8C Юго-Восточный административный округ, Москва, Россия",
+        "global_code": "9G7VPPHM+8C"
+      },
+      "rating": 3.7,
+      "reference": "ChIJ2aBXNEe1SkERZJDAD_T55jA",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 82,
+      "vicinity": "Газгольдерная улица, 6, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.6605632,
+          "lng": 37.6260614
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6619096802915,
+            "lng": 37.6275191802915
+          },
+          "southwest": {
+            "lat": 55.6592117197085,
+            "lng": 37.6248212197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "6e4033dd41b8119880acf1987e99eea32d49052e",
+      "name": "Jazz Hotel",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1224,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103145805389708542257/photos\">Jazz Hotel</a>"
+          ],
+          "photo_reference": "CmRaAAAALBaXcaoBqISL74eAUK51XmUgItACMlBjr5sQL1UmICe52-iEVAz-YQnEaiAVH6kh-M_sBHc3110QTDHsyKnoxgOF7AeFouhCmcLrWc8Ejizai46tLQFtlDwycK84d-FNEhDIzDQprc5LgeYKrJo18_qyGhTXzT_QiW4ED6SqlCXqbR4l1WIokQ",
+          "width": 2000
+        }
+      ],
+      "place_id": "ChIJH5KAYz-zSkERGQCBLaDbF_Q",
+      "plus_code": {
+        "compound_code": "MJ6G+6C Южный административный округ, Москва, Россия",
+        "global_code": "9G7VMJ6G+6C"
+      },
+      "rating": 4.3,
+      "reference": "ChIJH5KAYz-zSkERGQCBLaDbF_Q",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 97,
+      "vicinity": "Старокаширское шоссе, 2 корпус 4, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.61108399999999,
+          "lng": 37.0071782
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.61244128029149,
+            "lng": 37.0085077802915
+          },
+          "southwest": {
+            "lat": 55.60974331970849,
+            "lng": 37.0058098197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "b427280a4276ee091a89c7c91249823008c1ae72",
+      "name": "Голицыно, УМЦ (Центр конгрессного туризма и отдыха)",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2736,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105542208241019235348/photos\">Голицыно, УМЦ (Центр конгрессного туризма и отдыха)</a>"
+          ],
+          "photo_reference": "CmRaAAAA8yFHvnLdcMjcYksnknJjJOAp9eJywRaHarT3pzIyLSFDBntbqrzLjxFidbbN-U_Cz6Tb14hsuceCO4b5ZkpZbqpMa4BR8QzDyrc9UL0tZLD6LjihvRAyURcqfunKgN42EhAn6enbWc_0pWeU-bFLIIwUGhTXuVrg3XRr_6LI66vK8mVCmm2CGg",
+          "width": 3648
+        }
+      ],
+      "place_id": "ChIJVVVVVYBYtUYRZpEbYqnAxSA",
+      "plus_code": {
+        "compound_code": "J264+CV Голицыно, Московская область, Россия",
+        "global_code": "9G7VJ264+CV"
+      },
+      "rating": 4.1,
+      "reference": "ChIJVVVVVYBYtUYRZpEbYqnAxSA",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "real_estate_agency",
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 279,
+      "vicinity": "Петровское шоссе, 52, Голицыно"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.494895,
+          "lng": 37.329777
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.4962782802915,
+            "lng": 37.3312789302915
+          },
+          "southwest": {
+            "lat": 55.4935803197085,
+            "lng": 37.3285809697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "5a79dca7f77b46ad46dedf9a2e2399fecaa863fe",
+      "name": "Отель & Русская баня \"АнРи\"",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1250,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113853163956413327763/photos\">Anri Hotel</a>"
+          ],
+          "photo_reference": "CmRaAAAAtgEgEtGF6DQVE06RTryFXdTt0ddVV1AKECJ-wzC9eZW2a7H7get67UrNaFl7zGYGChqakYnVdBv3ouZ2maG6YuJPEHjl9o4ct6f5YuJINf1CwXgtAqDRtXnnbcUNJgvHEhDjJp9c2JGQTm1Q53hT4th1GhQcQnO_MS5e_g6w35A4l7gU_C7SqQ",
+          "width": 1249
+        }
+      ],
+      "place_id": "ChIJUUen07GqSkEROZ5XvoAlCX0",
+      "plus_code": {
+        "compound_code": "F8VH+XW Ватутинки, Московская область, Россия",
+        "global_code": "9G7VF8VH+XW"
+      },
+      "rating": 4,
+      "reference": "ChIJUUen07GqSkEROZ5XvoAlCX0",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "spa",
+        "church",
+        "place_of_worship",
+        "lodging",
+        "bar",
+        "food",
+        "health",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 149,
+      "vicinity": "Vatutinki Street 36, Troitsk (Moskovskaya Oblast)"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.668302,
+          "lng": 37.5612249
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6697406302915,
+            "lng": 37.56267013029149
+          },
+          "southwest": {
+            "lat": 55.6670426697085,
+            "lng": 37.55997216970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "ccdacfb1b98defca4c1ee2a718ac875655d8b0f7",
+      "name": "Малетон",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1936,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114300940382729790168/photos\">Малетон</a>"
+          ],
+          "photo_reference": "CmRaAAAAVf7M9EwHjSvZpGlQP8gDm93j8Xcw_ai2qjeff65xBcPEVJX9L0MNUrvB3pf8lQQRt1ptMm_dpu9C7O7PLmRWVDGJzex6qpKhaDCLuiWcQG45ur-hHFqNlyvUEu0QCy0TEhB7q0PRtnxtdETZPt774zRgGhSdZ9E5Qu7j6ebGBIfDsHdBqrfZ7g",
+          "width": 2592
+        }
+      ],
+      "place_id": "ChIJ6U_MCNtMtUYR4eHkDsFmXlM",
+      "plus_code": {
+        "compound_code": "MH96+8F Юго-Западный административный округ, Москва, Россия",
+        "global_code": "9G7VMH96+8F"
+      },
+      "rating": 4.3,
+      "reference": "ChIJ6U_MCNtMtUYR4eHkDsFmXlM",
+      "scope": "GOOGLE",
+      "types": [
+        "beauty_salon",
+        "cafe",
+        "lodging",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 80,
+      "vicinity": "улица Гарибальди, 36, стр. 3, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.6830458,
+          "lng": 37.6460069
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6844858302915,
+            "lng": 37.64733243029149
+          },
+          "southwest": {
+            "lat": 55.6817878697085,
+            "lng": 37.6446344697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "377fc21f638135d858cbf0044eb83097ed538be4",
+      "name": "Иван-чай, отель-кофейня",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3120,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106957808631207767984/photos\">Василий Владимирович</a>"
+          ],
+          "photo_reference": "CmRaAAAAW7PuXgXdilHHYCuaNPhkGBWGKX-7SxumxuPHLpZdOmzbA6sWgEhJimkn8TpskdmrpeG2hPVG0UNvKJ44ByPmSbrQLOzIT_067Y0vo4mNAGUTv67CF2_Gm0kVrNTChuUcEhBz-lQGBa3M_pMvlsxSu46KGhT548TqkJ914zUfERDCG7t037I3hA",
+          "width": 4160
+        }
+      ],
+      "place_id": "ChIJHX6uKqa0SkERMSrSGnkIlMA",
+      "plus_code": {
+        "compound_code": "MJMW+6C Южный административный округ, Москва, Россия",
+        "global_code": "9G7VMJMW+6C"
+      },
+      "rating": 4.5,
+      "reference": "ChIJHX6uKqa0SkERMSrSGnkIlMA",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 126,
+      "vicinity": "Нагатинская набережная, 10 корпус 3, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.75867400000001,
+          "lng": 37.646322
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7600487802915,
+            "lng": 37.64786548029149
+          },
+          "southwest": {
+            "lat": 55.75735081970851,
+            "lng": 37.6451675197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "7d1a92a13a07afbe03d2f1005b80f79f08095eab",
+      "name": "Imagine Cafe",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112436221293133657550/photos\">Imagine Cafe</a>"
+          ],
+          "photo_reference": "CmRaAAAA7yIqULJlo3D96N6PJkW09eoBYJqj_thWx8fY_h31eEpK4k-tt4n6Vx5xzPab8PNlPFmgRVHrfC5vxMWXFxkW0dK9JL1Zhu-9f4hDYiV38rYj4eKld_qQViBmA4PGkWXJEhCiIEsGl9A0sD-CltmsufCWGhTaS3tbQViP4BgLqqasl1tBTkP3RQ",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJc_SHxYpKtUYRRxS9hFOlPx8",
+      "plus_code": {
+        "compound_code": "QJ5W+FG Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ5W+FG"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJc_SHxYpKtUYRRxS9hFOlPx8",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "night_club",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1286,
+      "vicinity": "улица Покровка, 16/16, стр. 1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.92023099999999,
+          "lng": 37.36639710000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.9215065802915,
+            "lng": 37.3678628802915
+          },
+          "southwest": {
+            "lat": 55.9188086197085,
+            "lng": 37.3651649197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "268dfe5085690a416821f7af63e94ebace821235",
+      "name": "Mon Plaisir Кафе",
+      "photos": [
+        {
+          "height": 3096,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118405659880893903527/photos\">Связной Связной</a>"
+          ],
+          "photo_reference": "CmRaAAAAW2QHSvH4xnVL9MJ2Z4SKLBzSkbTuuOsRMqSCguGthXJsu6Pn9xKUFFc8n2jQK1ap3q79PkcYjBH6gb00HS5NLz-8ImhAWnqPrCRKYNEhkkQ71eGe5hl2Gh0jwIEMdtXwEhBAfRvBpz-vD_1oN8JCiwFbGhQycJhq-DsBS-QeERhefq-Ahd0G1g",
+          "width": 4128
+        }
+      ],
+      "place_id": "ChIJT0JnbzA_tUYR4BwETuU8hA8",
+      "plus_code": {
+        "compound_code": "W9C8+3H Химки, Московская область, Россия",
+        "global_code": "9G7VW9C8+3H"
+      },
+      "rating": 4.3,
+      "reference": "ChIJT0JnbzA_tUYR4BwETuU8hA8",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 182,
+      "vicinity": "микрорайон Планерная, 14, Химки"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.778231,
+          "lng": 37.585578
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.77959158029149,
+            "lng": 37.5867619302915
+          },
+          "southwest": {
+            "lat": 55.7768936197085,
+            "lng": 37.5840639697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "59567ff34b586a815a8fff9b8fc0186ca41517e0",
+      "name": "Старбакс",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115400805865469567292/photos\">Marat Valeyev</a>"
+          ],
+          "photo_reference": "CmRaAAAAYS78BM_Wirbs4LJJ0q7wR6mbUB9p5MUm5GvuYN6TvIc5uKbe0U1wK2DQ5OvxpkNa3HtzN4p3lEZoqn1_SB4IsJzL_HFL6P7LERmaZ6_LkaYGmr5_0gKm0PIG_2i7sfpyEhBgJ-oC9deJXdZuAlUA3QzSGhSca4oidccyQ-ESq_b0gLj3i9hAvA",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJH2UIEyJKtUYRdkHx2HD2xho",
+      "plus_code": {
+        "compound_code": "QHHP+76 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQHHP+76"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJH2UIEyJKtUYRdkHx2HD2xho",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 750,
+      "vicinity": "Белая Площадь, Бутырский Вал улица, 10, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.75524619999999,
+          "lng": 37.60065170000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7565750302915,
+            "lng": 37.60190883029151
+          },
+          "southwest": {
+            "lat": 55.7538770697085,
+            "lng": 37.59921086970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "5b531015d314d8acf0f3256b30bff90de7ddd129",
+      "name": "Жан-Жак",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1440,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108933941515605298263/photos\">Roman Veselov</a>"
+          ],
+          "photo_reference": "CmRaAAAA-PyDWSy5JYbzSeb8vfxQkTXRLAJUCX6yAu0PMqiCJrj1Ob_mSzJr7ey2fryIO2iWxvj4u-rnd4slMU8d1frZEf6HJcK4Z0hRd4TNpAUcroRqf5MMXJ-nSBRZRm6BMk7VEhCo5_bGcEMhl7cMhdymu_h3GhTi2-wmvrx_rq9-bTfJdaFF6EVpDQ",
+          "width": 2560
+        }
+      ],
+      "place_id": "ChIJl90VvU5KtUYR2UmZCXA-1nk",
+      "plus_code": {
+        "compound_code": "QJ42+37 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ42+37"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJl90VvU5KtUYR2UmZCXA-1nk",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 607,
+      "vicinity": "Никитский бульвар, 12, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.771111,
+          "lng": 37.6223776
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.77245093029151,
+            "lng": 37.62359988029149
+          },
+          "southwest": {
+            "lat": 55.76975296970851,
+            "lng": 37.6209019197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "68218c37440748de37d0992fba886a38bc77e291",
+      "name": "Жан-Жак",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 357,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101172446166245105873/photos\">Жан-Жак Кафе</a>"
+          ],
+          "photo_reference": "CmRaAAAAh47HjTEjT3N5CxOuE451ySNYpoW7LNIsoXuXLkf_vgrjORdLxHCVRztvfEf6YGX38HkzE-RWbndACTBaqKZoHLn2bfCfFRPC_C2hJc43zJM-MFEJt-iHkZLEaEQOltZGEhCI1rLCFkDkpyulOq7FqeEZGhTnGMpAT0QkxW6FdT_zPBoYKwKBqg",
+          "width": 820
+        }
+      ],
+      "place_id": "ChIJqa7b3WtKtUYRQP5NPYk-1YQ",
+      "plus_code": {
+        "compound_code": "QJCC+CX Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJCC+CX"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJqa7b3WtKtUYRQP5NPYk-1YQ",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 519,
+      "vicinity": "Цветной бульвар, 24 к.1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.75635399999999,
+          "lng": 37.60492000000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.75785998029149,
+            "lng": 37.60635423029149
+          },
+          "southwest": {
+            "lat": 55.75516201970849,
+            "lng": 37.60365626970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "fcf6da1e2b668f7f1e726d4d9056846eb08a3990",
+      "name": "Кофемания",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105175342970130401382/photos\">Ilshat Akhmetzyanov</a>"
+          ],
+          "photo_reference": "CmRaAAAA7yMzin02Q1h1k3D8Bpg1cpfe-38opExn2qGJVT0Rd3moVBlhQyIT5S9-nElINYLZHu3ntd3ppWX9IQJM_HjqIwJPwy4FNGRhdnBfuhm2ohgqrUrSz4MsbBt1JJRGCLqvEhCyiLjz_8LWEKDF1RpgHvbVGhRFZVUsswur62MYL2xi7_9zDMm8bg",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJOZWrTUhKtUYRXmlln8m_oRQ",
+      "plus_code": {
+        "compound_code": "QJ43+GX Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ43+GX"
+      },
+      "price_level": 3,
+      "rating": 4.4,
+      "reference": "ChIJOZWrTUhKtUYRXmlln8m_oRQ",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 697,
+      "vicinity": "Большая Никитская улица, 13/6, стр.1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.750753,
+          "lng": 37.5961481
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7521520802915,
+            "lng": 37.5985944
+          },
+          "southwest": {
+            "lat": 55.7494541197085,
+            "lng": 37.59280479999999
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "eaea7768090f8496470742846cb332ba7547960e",
+      "name": "Starbucks",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107488969682232887183/photos\">Mikhail Krivdiuk</a>"
+          ],
+          "photo_reference": "CmRaAAAA2pdSqUUiHa8GvpALNfdu5m_1Ts7fIWS0zPY2R3nQZM1Q_UL7JoY2X4YgSqy-Tw1WolHA2Mp_Kubi9q-_jfn2emWqB6gbFH415irx63bvf7NWoIpbWOywPGNHtyLnI83JEhBVuefSnmJ7ps-n11zOaEtBGhQ8rCJ_-gQVMXWsSbD09CsbDfepxg",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJA5zPJ01KtUYRmLblosjZA8I",
+      "plus_code": {
+        "compound_code": "QH2W+8F Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQH2W+8F"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJA5zPJ01KtUYRmLblosjZA8I",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 1882,
+      "vicinity": "улица Арбат, 19, стр.1, Москва"
+    },
+
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.75578599999999,
+          "lng": 37.55687809999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7571686802915,
+            "lng": 37.5581784802915
+          },
+          "southwest": {
+            "lat": 55.75447071970851,
+            "lng": 37.5554805197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "39c23e8cd85a60941fd957b9e8d6c1c88867a4c8",
+      "name": "Costa Coffee",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 1280,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100778201553704060307/photos\">Юрий Гордеев</a>"
+          ],
+          "photo_reference": "CmRZAAAA6ghOuGc3byjZ877mdluU14K5MaYgmTUaTHuunPsEmDIlhQQFKrhh5VKpcDbQU7yvWQa4M51ohSHZvQS_dRk7-p9yGaTgfihh_Ht9OpKLB8tSCWp97KvUXlgIT8Fu4ZxuEhAZzFXD3RlkzosbB63mmq5WGhTB1a9fJqK9Xi83njcDd00r6MzNNg",
+          "width": 960
+        }
+      ],
+      "place_id": "ChIJU8eyxNFLtUYRYrVQwbXT7RQ",
+      "plus_code": {
+        "compound_code": "QH44+8Q Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQH44+8Q"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJU8eyxNFLtUYRYrVQwbXT7RQ",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 115,
+      "vicinity": "Краснопресненская набережная, 12, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7592812,
+          "lng": 37.6460293
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7606841302915,
+            "lng": 37.6473602802915
+          },
+          "southwest": {
+            "lat": 55.7579861697085,
+            "lng": 37.6446623197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "32985aba2c15d255d2845a487e01c30a8488ed21",
+      "name": "Кофемания",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1440,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100411218519394910115/photos\">Наталия Алейникова</a>"
+          ],
+          "photo_reference": "CmRaAAAA1cVjxS_QC7c3P01gXpnrDr9V4wvYUcpCrUJm3QXw5iejPq_4wBzJAOhCQd4I71RbdHe1IzdmeDrcNXerB8Z3eikAbUroBPax7gzfPG2HHekNceiogXy9VbsUWSy4EIPkEhCzOKrxpAnow4irfuu9PnQBGhRZ0BqMuBRS1Lh0d5klO1Yp09hFsA",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJg8j0xIpKtUYR6bHmEXFxF3Y",
+      "plus_code": {
+        "compound_code": "QJ5W+PC Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ5W+PC"
+      },
+      "price_level": 3,
+      "rating": 4.4,
+      "reference": "ChIJg8j0xIpKtUYR6bHmEXFxF3Y",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 914,
+      "vicinity": "улица Покровка, 18/18, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.756804,
+          "lng": 37.6015539
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7582144302915,
+            "lng": 37.6031357802915
+          },
+          "southwest": {
+            "lat": 55.7555164697085,
+            "lng": 37.6004378197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "a9393d33840131ad6b31adfbe5dd29aa7e410dc5",
+      "name": "Маяк",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2448,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105387614067381374817/photos\">Serg Romn</a>"
+          ],
+          "photo_reference": "CmRaAAAAYxq2gzyizNptSiYMKNCRH_xFvblyfcBUjGnYpEiE7GJ_L33liZLaxeJXlD1-OS7tPBeb5wNEKN1oC6nb7icBg7M2uzd6Tj5_kNydS1f4gQbrvgmGYtUmKOF-X5Vc9o2xEhAi9Vx-f8nIPCAs7L806qDJGhRMTK6DU0SI59PSLshicz9n49GNag",
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJ-_Izzk5KtUYRWVFcQOiwkeg",
+      "plus_code": {
+        "compound_code": "QJ42+PJ Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ42+PJ"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJ-_Izzk5KtUYRWVFcQOiwkeg",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 317,
+      "vicinity": "Большая Никитская улица, 19/13, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.886582,
+          "lng": 37.656989
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.8879771802915,
+            "lng": 37.65845048029149
+          },
+          "southwest": {
+            "lat": 55.8852792197085,
+            "lng": 37.65575251970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "c81eb17634c1c4745270a29c1fd28294985b4584",
+      "name": "Восточный экспресс",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102945882472421310869/photos\">Олег Неборский</a>"
+          ],
+          "photo_reference": "CmRaAAAA05BZ0L9pviEMJ56zy2qjwjdnXs3I7snKG00dy34lACtRD8yzdfosaPnETMRRCQ-PzrSfvTNBxmd_XguHzNvi32L5YT-Pt3JlICN3dJKrsaDJyQyMk9TeYOExs8Dv31fXEhAN8kgUwpIcmRr7RqkICHoCGhSs6_AgT2Ul5l5lnbzRMfAxdV72Rg",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ_V3ubisxtUYR94_T1jcSQM8",
+      "plus_code": {
+        "compound_code": "VMP4+JQ Северо-Восточный административный округ, Москва, Россия",
+        "global_code": "9G7VVMP4+JQ"
+      },
+      "price_level": 1,
+      "rating": 4,
+      "reference": "ChIJ_V3ubisxtUYR94_T1jcSQM8",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 24,
+      "vicinity": "Заревый проезд, 12, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7425907,
+          "lng": 37.61786620000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7439796802915,
+            "lng": 37.6193291302915
+          },
+          "southwest": {
+            "lat": 55.7412817197085,
+            "lng": 37.6166311697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png",
+      "id": "3a5be076328b03687f9625967657b690eb25da7c",
+      "name": "Караоке-клуб Третьяков",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1500,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116259395250559957112/photos\">Караоке-клуб Третьяков</a>"
+          ],
+          "photo_reference": "CmRaAAAAAvt4cIlR2BkEV7uZl2ZkG2rCGaHolHb2geb5JkIzHv21hCk4H4Sak-b_fcioHADA-PbkIrZiFKENOLwD8kLB9WuPavruWuntysYz8IFLhjlcCoObljsZBEUmEQt9wpgREhD7CG4NE60_OP3lVvbKJJ4EGhQkOEJe5kxZ9H-PBNGCq_21-whgNg",
+          "width": 2400
+        }
+      ],
+      "place_id": "ChIJObV35_9KtUYRelIaxoksJX0",
+      "plus_code": {
+        "compound_code": "PJV9+24 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPJV9+24"
+      },
+      "price_level": 3,
+      "rating": 4.4,
+      "reference": "ChIJObV35_9KtUYRelIaxoksJX0",
+      "scope": "GOOGLE",
+      "types": [
+        "night_club",
+        "cafe",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 122,
+      "vicinity": "Кадашевская набережная, 6/1/2 строение 3, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.743343,
+          "lng": 37.6524751
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7446255802915,
+            "lng": 37.6537502802915
+          },
+          "southwest": {
+            "lat": 55.74192761970851,
+            "lng": 37.6510523197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png",
+      "id": "ddcb770d7f94691392ce872c7ca1dc10b52f3b43",
+      "name": "Жан-Жак",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 780,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100740687209185273994/photos\">Жан-Жак</a>"
+          ],
+          "photo_reference": "CmRaAAAAdGRhUc_LqJCE3tz3sjMu6UGZieC9M_lNiNU6yrv4Lfs5_e6yxmoJvWeP-DeAifeYxd04QqevYB1-Gi3_hn19ZNv2c2Di72zSDs3E8IRGFSgrFq4uKr_qBd9CIM41Z62VEhDquVnz1VDvntpSdd_uQlgCGhRUzTh15G7a9vxHy9K4haeQX68lXQ",
+          "width": 781
+        }
+      ],
+      "place_id": "ChIJw500Q-9KtUYRVxzHLoajx88",
+      "plus_code": {
+        "compound_code": "PMV2+8X Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPMV2+8X"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJw500Q-9KtUYRVxzHLoajx88",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 454,
+      "vicinity": "Верхняя Радищевская улица, 15 стр.2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.6488966,
+          "lng": 37.5051302
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6502119302915,
+            "lng": 37.50631283029149
+          },
+          "southwest": {
+            "lat": 55.64751396970851,
+            "lng": 37.50361486970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "129eaf4396d1500f3bb9e645359f4d0264c80234",
+      "name": "Галактика",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107487943072018606711/photos\">Ahmad Alhafi</a>"
+          ],
+          "photo_reference": "CmRaAAAAuhVHr0wCd5iuW3IoTjCSibimdn-Nz1gFvaXmxS-TZVJ38Z17qwzx5LoSYEs8iMDUoFKQ9KUJhBaLaNOTt8PVLD7aX_cF6k1oyMXVXeENc33b6HttgsBwUa4Qa4U2Zj8NEhBlAsr7UyqDg7z2ByxeikKiGhS04SB10vC7Ubas5gjK1WmsOEivUA",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJu0CjM2tNtUYRHdp6tcMhkLA",
+      "plus_code": {
+        "compound_code": "JGX4+H3 Юго-Западный административный округ, Москва, Россия",
+        "global_code": "9G7VJGX4+H3"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJu0CjM2tNtUYRHdp6tcMhkLA",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 361,
+      "vicinity": "улица Миклухо-Маклая, 10 к. 2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.6650498,
+          "lng": 37.48157339999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6664263802915,
+            "lng": 37.48253053029149
+          },
+          "southwest": {
+            "lat": 55.6637284197085,
+            "lng": 37.47983256970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "01fa67f3482e3849f76adc6757482316ea4614c7",
+      "name": "Burger King",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106771043356965357260/photos\">Калинкин Сергей</a>"
+          ],
+          "photo_reference": "CmRaAAAA5RzRyQ4h8RmzPnMXpRe3QqSG5gRRjKm5nn_6x0lrcKmU8rusZtUZPlexDHOZV9N4Yg1ig3mrDIePP3lkN3CcX0-iIaeAbb-0PdVr6mHmJhGY2gvRXejtKir104KZlYa4EhBU9VjCGzbLm4bGJGbVLp4GGhQIoAhAgG8vqfGYkuDT-kf9lfDwfg",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJ8bxt5KBNtUYR9W2kyHQaJ1Y",
+      "plus_code": {
+        "compound_code": "MF8J+2J Западный административный округ, Москва, Россия",
+        "global_code": "9G7VMF8J+2J"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJ8bxt5KBNtUYR9W2kyHQaJ1Y",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 162,
+      "vicinity": "улица Покрышкина, 4, 2 этаж, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7279423,
+          "lng": 37.6121624
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7291268802915,
+            "lng": 37.6135373802915
+          },
+          "southwest": {
+            "lat": 55.7264289197085,
+            "lng": 37.6108394197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "12bcd21f9f0b94552fea81bd9262a3d3311d047e",
+      "name": "Мио",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2268,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105924436537154326063/photos\">Palch Andre</a>"
+          ],
+          "photo_reference": "CmRaAAAAqKVxA7oxIfX9qN7q3zPFXTnjajU-pgvRy5DSMmHSQaqKeFVsS9WfqKzZYxQuV822VNjZwEnJODRhLlPoFHHlnCZ6reyAmBH2fbtrrxNP3O-rONbAR_b_4GgQrPCz8O_dEhCMvXa5H_GR5wz4y5PUvs83GhT9QaFDsRAQFGGBIPItM5MbPiu0dw",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJGQ2JtA9LtUYRv81O3inm_iw",
+      "plus_code": {
+        "compound_code": "PJH6+5V Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPJH6+5V"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJGQ2JtA9LtUYRv81O3inm_iw",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 406,
+      "vicinity": "Калужская площадь, 1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.74762149999999,
+          "lng": 37.6261351
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7489495802915,
+            "lng": 37.6272731302915
+          },
+          "southwest": {
+            "lat": 55.7462516197085,
+            "lng": 37.6245751697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "5c73c1a7a9f4810571f8c2de4540ee87e63b8fa8",
+      "name": "Starbucks",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111919617575151809966/photos\">Игорь Степанов</a>"
+          ],
+          "photo_reference": "CmRaAAAAk-B9H2TJouor01-Sx4KdCLPgmwxiZlVz-ZOuyk3EAUfZYW28vfk0s6yuZyikDmeenlnyPGABHXYbQsvmRvOyIcIrhY0HsE6cjTzp6UogRmoy3vsGdgubPqEwnlGMaD9iEhCF7OCznVbCOysg2kWp3xWDGhSjurpBR8PfN5BECNaazalMchOrVQ",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJ9w1fU4xKtUYR2GvsjvdnC2M",
+      "plus_code": {
+        "compound_code": "PJXG+2F Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPJXG+2F"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJ9w1fU4xKtUYR2GvsjvdnC2M",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 534,
+      "vicinity": "улица Балчуг, 3/2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.76803409999999,
+          "lng": 37.5998165
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7693333302915,
+            "lng": 37.6010789302915
+          },
+          "southwest": {
+            "lat": 55.7666353697085,
+            "lng": 37.5983809697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "c66aa0f9530e6b3c5929792d4275956abd8eca95",
+      "name": "Старбакс",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104588032205832977794/photos\">Oleg Obal</a>"
+          ],
+          "photo_reference": "CmRaAAAAZfWrYHV-Tzt_Wv7k4JT6rghxd62l7RTDqpck8asP_YCxKGffxyWiUTjnQfml7NJrnG8WbyRTncbmHJNeWygnhOGIM6A7Okmmw2wxdTQFQPP6iG1PfkiMprw5lx419mp1EhDHa8K98nZizp116_tugpgQGhRKdQQGtKeMQh1NhLKbQx_fNJ-X2A",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJu0eN-hVKtUYRw0Kou1mcXiE",
+      "plus_code": {
+        "compound_code": "QH9X+6W Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQH9X+6W"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJu0eN-hVKtUYRw0Kou1mcXiE",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 605,
+      "vicinity": "Тверская улица, 24/2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7665958,
+          "lng": 37.6308395
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7679201802915,
+            "lng": 37.6324585802915
+          },
+          "southwest": {
+            "lat": 55.7652222197085,
+            "lng": 37.62976061970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png",
+      "id": "f2c185e75bc2a0aba1972d9c20b2bf4d512d4e8e",
+      "name": "Rock'N'Roll",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 666,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104788927610594147527/photos\">Rock&#39;N&#39;Roll</a>"
+          ],
+          "photo_reference": "CmRaAAAAYmTwPXoWxpjlFzvlG6XamCjWuT2yy5G4Os1rqhkPtF7tjJC8MOjwxwuSb_v1BZR4H9eDK-HqWp8soduEZAdRUIfeJDqdGu41FeP1LOBdYPyOTDbmy6bUkPp9rw1e4g6YEhBDw-CwnYl1F2kRmX0OrB7nGhQLtr1zwLjfX0esqzktX691S73NgA",
+          "width": 1000
+        }
+      ],
+      "place_id": "ChIJaaO0MmZKtUYRAndtPmcmSbQ",
+      "plus_code": {
+        "compound_code": "QJ8J+J8 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ8J+J8"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJaaO0MmZKtUYRAndtPmcmSbQ",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "night_club",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2699,
+      "vicinity": "улица Сретенка, 1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.96724889999999,
+          "lng": 37.4469252
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.96868278029149,
+            "lng": 37.44824343029151
+          },
+          "southwest": {
+            "lat": 55.9659848197085,
+            "lng": 37.44554546970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+      "id": "10413f7231492f731b506730a325a34ea6fb5109",
+      "name": "Хата",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1728,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102015857384237176565/photos\">Хата</a>"
+          ],
+          "photo_reference": "CmRaAAAARkT1AW4Ko8zTD7t3UH7fqzPeZhhuU3Kv32u7UqBH4AG9ukSZ155JwPDxcD9g9X0paoQcUjvF4E-YCJkbWYjJmsCSI0qmVgbHAqCqlDfKaiRQRT2I8udw47CIbbJVggzDEhCn8BlEHUHJR2dWMZ5hJeOrGhRDsIPJlGkNrACpKZQai9p0wMQjkQ",
+          "width": 2304
+        }
+      ],
+      "place_id": "ChIJHeuUogM8tUYRnSGrMvX4AsI",
+      "plus_code": {
+        "compound_code": "XC8W+VQ Химки, Московская область, Россия",
+        "global_code": "9G7VXC8W+VQ"
+      },
+      "rating": 4.3,
+      "reference": "ChIJHeuUogM8tUYRnSGrMvX4AsI",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "lodging",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 68,
+      "vicinity": "микрорайон Клязьма, вл. 11А, Химки"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.76761699999999,
+          "lng": 37.6348491
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.76892798029149,
+            "lng": 37.63617858029151
+          },
+          "southwest": {
+            "lat": 55.76623001970849,
+            "lng": 37.63348061970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "aa1015732da6573a2881d2c1624150ddfae13321",
+      "name": "\"Токио\" салон красоты",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105192808379985901513/photos\">Stanislav Samburskiy</a>"
+          ],
+          "photo_reference": "CmRaAAAAp3qUcyWc_OfY4P3kXodhvHfrR4ngMpsN6Qxw7fITwbnD423D9iExwNUEsxrTtnFGSK82B7v0LZLfEmDxe7xIXmWVPpHzrRvV26eiCeN6kO-KkSXh73NDouW3SDFKl35SEhAYq1skptVdkS4IUNyyCLn6GhTFPJ3qQK5nq61DEmSCOUOVpisSCw",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJbYD8cWZKtUYRlKDLnRa0INM",
+      "plus_code": {
+        "compound_code": "QJ9M+2W Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ9M+2W"
+      },
+      "rating": 4.3,
+      "reference": "ChIJbYD8cWZKtUYRlKDLnRa0INM",
+      "scope": "GOOGLE",
+      "types": [
+        "beauty_salon",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 21,
+      "vicinity": "Ащеулов переулок, 9, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7689821,
+          "lng": 37.5960263
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7705200802915,
+            "lng": 37.59773543029149
+          },
+          "southwest": {
+            "lat": 55.7678221197085,
+            "lng": 37.59503746970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "00102bffdf9c301bac0e1c79713b33188b232ae2",
+      "name": "Чайковский",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103005600401498013064/photos\">Игорь Казанцев</a>"
+          ],
+          "photo_reference": "CmRZAAAAQiFLhcTLDEbPAktMLvto-7CPSHeDjP90bchKo2qrOMeAVDRMuvUXqtFVQXQ0_pGDd5pIugkWq-qykja_JH0YTgi941fbKsdMjfsToFZiRGBek3BE7G20p3bBb1-yfVLuEhChi7GTWanu33K-YEBOnip9GhSZqopDCgKFxlGuoEKJnTqoCPrRzw",
+          "width": 5312
+        }
+      ],
+      "place_id": "ChIJdUJwtD5KtUYRAcRl3z6EcuI",
+      "plus_code": {
+        "compound_code": "QH9W+HC Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQH9W+HC"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJdUJwtD5KtUYRAcRl3z6EcuI",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 813,
+      "vicinity": "Триумфальная площадь, 4/31, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.8127803,
+          "lng": 37.6277348
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.8141709302915,
+            "lng": 37.62918578029149
+          },
+          "southwest": {
+            "lat": 55.8114729697085,
+            "lng": 37.62648781970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "b30218660176639f57dbc5f2038066c6090f1dd7",
+      "name": "Маяк",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 1920,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118093697455844877317/photos\">Andrey Dorokhin</a>"
+          ],
+          "photo_reference": "CmRaAAAARemDJmgzipDESHxMVSB9V1NNGXk0ZPNYUYnAxg1qDxo9jXafgdwSETPB4-TJb0FoFvxZSbGidRTgdqwSck-F_gJW7rmGh2oWvgzqXmPOJyeg-R_Ucf1oJe1Uu0cczfOyEhDxSB30BJOF5_637fyIWvUDGhQ0DJ-HfUrymvkov--KXTT41l0i2Q",
+          "width": 1080
+        }
+      ],
+      "place_id": "ChIJuSeoeAo2tUYRIyjBLK_tdQ8",
+      "plus_code": {
+        "compound_code": "RJ7H+43 Северо-Восточный административный округ, Москва, Россия",
+        "global_code": "9G7VRJ7H+43"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJuSeoeAo2tUYRIyjBLK_tdQ8",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 68,
+      "vicinity": "Звёздный бульвар, 17, стр. 3, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7441699,
+          "lng": 37.5829819
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.74554298029149,
+            "lng": 37.5845206302915
+          },
+          "southwest": {
+            "lat": 55.7428450197085,
+            "lng": 37.5818226697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "2c2cf2f6e7240d82ae6fdc3ad25e358825785a59",
+      "name": "Кафе Де Марко",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1500,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110979980516013949724/photos\">Кафе Де Марко</a>"
+          ],
+          "photo_reference": "CmRaAAAAe6FUM0S-sBq4aGx6gyFloFP2vYe-O2V8abGbHMKCc2gh5PEopEBpTuwCnv1L0nCBwevwcuKANuZHWZcOjZ7C77Crkq2LIvRIVvUd9Mr5L-7N0ah4m8VDCpYHtJvwrjOrEhCSECSJkxJGWAtaKCVIhliTGhTmwJ7rM2wxrdwO9Qrv7Gpw1z1uSQ",
+          "width": 2400
+        }
+      ],
+      "place_id": "ChIJxwT45bBLtUYR9ZVmj62Lggo",
+      "plus_code": {
+        "compound_code": "PHVM+M5 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPHVM+M5"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJxwT45bBLtUYR9ZVmj62Lggo",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "meal_delivery",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 308,
+      "vicinity": "Смоленский бульвар, 23/25, 1 этаж, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.75678019999999,
+          "lng": 37.6595898
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.75836218029149,
+            "lng": 37.6609316302915
+          },
+          "southwest": {
+            "lat": 55.7556642197085,
+            "lng": 37.65823366970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "69b71df30738534673fe163fd08527722b9adc96",
+      "name": "Starbucks",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110686628925526986705/photos\">Igor Smolkin</a>"
+          ],
+          "photo_reference": "CmRaAAAA81jLA5NBwFF9SKLtVnwo7CGsQb8K0S7_HCYEHcBrWiWe-lMtIN3QBrIfQ1Nno_jK-fX1sYsYdJyQ9bj0e1MKpxLvzZGYp7mAjZDE84riXOFFDAlYaMMAqXZ4nEkUW4paEhCX3_LPmtrpb-3Ln68qgWZrGhR8mbiJFrKxhNf8Izm12lD54uSnBw",
+          "width": 5312
+        }
+      ],
+      "place_id": "ChIJ1yexPYlKtUYRNb2BcQLocVM",
+      "plus_code": {
+        "compound_code": "QM45+PR Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQM45+PR"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJ1yexPYlKtUYRNb2BcQLocVM",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 399,
+      "vicinity": "улица Земляной Вал, 33, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7272791,
+          "lng": 37.5806911
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7287543802915,
+            "lng": 37.58207313029149
+          },
+          "southwest": {
+            "lat": 55.7260564197085,
+            "lng": 37.57937516970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "11ddd1e3fbc07fbfa16a4fac83321beaf0e15641",
+      "name": "Старбакс",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110298331558671911498/photos\">Olga Agaptseva</a>"
+          ],
+          "photo_reference": "CmRaAAAAEe80HbzaH9J5X69aoOOeRVu76tCqMlDbN3OcKl9eXVPr45NHT4jFC1kJyq9-xguo-n50ZrdPT1uzpMCF7ENkmsCJVE1wyDFzXlh5GzXMTdFZYN1oANL52_MPqo_gugMCEhD6lF7uLCmjcXiuhonSb07AGhRY_d5ZCOQO9YFt3YFGYZsJxsv1ng",
+          "width": 4144
+        }
+      ],
+      "place_id": "ChIJr1n6GJ9LtUYRo3ytSqVDiEk",
+      "plus_code": {
+        "compound_code": "PHGJ+W7 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPHGJ+W7"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJr1n6GJ9LtUYRo3ytSqVDiEk",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 439,
+      "vicinity": "Комсомольский проспект (дублер), 28, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.73783599999999,
+          "lng": 37.6020911
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7392375302915,
+            "lng": 37.6032722802915
+          },
+          "southwest": {
+            "lat": 55.7365395697085,
+            "lng": 37.6005743197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "f651a16f9bfb2aba1ccf755342efd0f59264adc7",
+      "name": "Академия",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3605,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113350833137076240553/photos\">Olga Karpova</a>"
+          ],
+          "photo_reference": "CmRaAAAAVhbyli3FyxMwbrJtaVxjQJeEVWd3su1f51ZBChCnLpx2qSjtwD06BbaWAk4BwpVAOnh1znqxf_9akYOwz9DDSRJ-aJlBSQo9Sy1sgTutFSOgppnmCL6V8GcqIbhwK0VYEhCSDOVah3ZgHrob2Qcrd0ZXGhQGldGo3l0-fhv6tyxIkr0RJpyDCA",
+          "width": 5433
+        }
+      ],
+      "place_id": "ChIJjfeYqalLtUYR9oLpvxIhaE8",
+      "plus_code": {
+        "compound_code": "PJQ2+4R Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPJQ2+4R"
+      },
+      "price_level": 3,
+      "rating": 4.4,
+      "reference": "ChIJjfeYqalLtUYR9oLpvxIhaE8",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 219,
+      "vicinity": "Бутиковский переулок, 7, Москва"
+    },
+
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.678234,
+          "lng": 37.53503009999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6794917302915,
+            "lng": 37.5362425302915
+          },
+          "southwest": {
+            "lat": 55.6767937697085,
+            "lng": 37.5335445697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "18dee54427bb3972dcda3970133a8dcb5e4c1098",
+      "name": "Нардин",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2165,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110546948865446451368/photos\">Нардин</a>"
+          ],
+          "photo_reference": "CmRaAAAAf4nPzKehQzQXeTiXYJGCiA_1-ZafIPWohuA3CE1dg3bM8Xqa87mp_c8akXt5TCpTt0Qzo6b1OTwVN7IZmuybN1g86YwsAqNfCsnxeMSpXpADRlPhiL-KIQV4uzcIiK4wEhAGyzVQTTxcB0U2103brZ1LGhTqAMZv2wJtDf5ZSXQn7LO9lSI7Kw",
+          "width": 2933
+        }
+      ],
+      "place_id": "ChIJRSH7MuVMtUYR6FDgRqHKZa4",
+      "plus_code": {
+        "compound_code": "MGHP+72 Юго-Западный административный округ, Москва, Россия",
+        "global_code": "9G7VMGHP+72"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJRSH7MuVMtUYR6FDgRqHKZa4",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "meal_delivery",
+        "cafe",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 285,
+      "vicinity": "улица Гарибальди, 3А, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.781611,
+          "lng": 37.510571
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7831219802915,
+            "lng": 37.51203613029151
+          },
+          "southwest": {
+            "lat": 55.7804240197085,
+            "lng": 37.50933816970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id": "ba8214a0abd6003462b956d1160106b916b527a9",
+      "name": "Профшинсервис",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 427,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117747675177848424883/photos\">Профшинсервис</a>"
+          ],
+          "photo_reference": "CmRaAAAAYT8UHlxiw9eOt6R_rVieeqMkNkinoWpE7rdTb2c3Iv5AEML4Sxj02LJv5qY0RkXn7PZ4F3ALDAtaBRFqaMKu0_LEUjaZ9FPgfaM0Xm7-MAFDbextq9Gd_Lxq6ROvKS32EhBo8vCyMJhy5LaJW9YsuOKeGhTFlLVmZSD3PBZe0DP0a9kxR9_mzw",
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJxUHVSqdJtUYRxNEX-VEK2fA",
+      "plus_code": {
+        "compound_code": "QGJ6+J6 Северный административный округ, Москва, Россия",
+        "global_code": "9G7VQGJ6+J6"
+      },
+      "rating": 4.2,
+      "reference": "ChIJxUHVSqdJtUYRxNEX-VEK2fA",
+      "scope": "GOOGLE",
+      "types": [
+        "car_wash",
+        "cafe",
+        "car_repair",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 119,
+      "vicinity": "улица Зорге, 7А, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7319133,
+          "lng": 37.4882868
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7332362302915,
+            "lng": 37.48978493029149
+          },
+          "southwest": {
+            "lat": 55.7305382697085,
+            "lng": 37.4870869697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "a6dc3777436f0b76ba7126a7a5de193f0650d91b",
+      "name": "Ресторан & бар Облака",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2897,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103568853918997873856/photos\">Юрий Гаврилов</a>"
+          ],
+          "photo_reference": "CmRaAAAA9fTkKuvlslXfG1eJ42ZzcngcQJ7MXjwmIkBjiM98QjG-gQTwWgqPCTZQcm4V6JEMRjtnLnaV4A3qaT4pIeB1LgA1-bQXRyY_9y8WLR2Pcm6nv7wHF2UnwBDpdBf3Ir_GEhDIPZ4ZyejdAQXK6eW2WLQyGhSpvQqcULYRVx83fRzZiuT2XGarFA",
+          "width": 4473
+        }
+      ],
+      "place_id": "ChIJe_D6S6pOtUYR3Z03mZbdxjc",
+      "plus_code": {
+        "compound_code": "PFJQ+Q8 Западный административный округ, Москва, Россия",
+        "global_code": "9G7VPFJQ+Q8"
+      },
+      "price_level": 4,
+      "rating": 4.2,
+      "reference": "ChIJe_D6S6pOtUYR3Z03mZbdxjc",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "night_club",
+        "cafe",
+        "bar",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 323,
+      "vicinity": "Кутузовский проспект, 48, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7715039,
+          "lng": 37.5929666
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.77290378029149,
+            "lng": 37.5944092302915
+          },
+          "southwest": {
+            "lat": 55.77020581970849,
+            "lng": 37.5917112697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "71de8e262a6b442d123bab49896f3dda5ebe1205",
+      "name": "Ресторан Чайхона № 1 Тимура Ланского",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1500,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102683540675074136294/photos\">Ресторан Чайхона № 1 Тимура Ланского</a>"
+          ],
+          "photo_reference": "CmRaAAAAA-Uvjwz3TxtNx-S9n1YK2y2a9mGBFRIi3vWaqoZcQahoW2Ykk7JFPTtWc7_0InJzRow7naHqZSIomiyCnxgzuB7CeJUe25xYWUMMsrlaprU6VZ4mvhqxNPJ7sRFTstINEhBICmW8_UHXSULPnsXsH9ygGhQb7CakB53SV42oao-DLhyL-f-XAg",
+          "width": 2400
+        }
+      ],
+      "place_id": "ChIJsadqZDxKtUYReDM1PrnPAko",
+      "plus_code": {
+        "compound_code": "QHCV+J5 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQHCV+J5"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJsadqZDxKtUYReDM1PrnPAko",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 669,
+      "vicinity": "1-я Тверская-Ямская улица, 7, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.70261600000001,
+          "lng": 37.7663
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.70399328029151,
+            "lng": 37.76741578029149
+          },
+          "southwest": {
+            "lat": 55.70129531970851,
+            "lng": 37.7647178197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "04f16713c69bc76c13d661b3dec934b9fd14deea",
+      "name": "Кампанелло",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 669,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106918208288421534192/photos\">Кампанелло</a>"
+          ],
+          "photo_reference": "CmRaAAAAKrCf10t1J75ZEA-aTkrusPrfp9_4p8amZEa_yWSAwIeJ8MDJ_HFomiXnx_7sJrdRbZL0H2Exsbcmsau1uVZ4wlwaeDTxY5ukuJXo8oK4cayLJ7IulpXf-s5SMAS10CDBEhA2g83XroxQ4m3yG2vMQcGIGhSDwrkEqnMpnovm8TzlTx_NwKkKrg",
+          "width": 1000
+        }
+      ],
+      "place_id": "ChIJg_D4Fqa1SkERBbkeu9KY7Io",
+      "plus_code": {
+        "compound_code": "PQ38+2G Юго-Восточный административный округ, Москва, Россия",
+        "global_code": "9G7VPQ38+2G"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJg_D4Fqa1SkERBbkeu9KY7Io",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "meal_takeaway",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 248,
+      "vicinity": "улица Зеленодольская, 43 А, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.759482,
+          "lng": 37.6130359
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.76080278029149,
+            "lng": 37.6138296802915
+          },
+          "southwest": {
+            "lat": 55.75810481970849,
+            "lng": 37.6111317197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "6394d8fb1d58bf32b431e3de4796866ec025ea28",
+      "name": "Академия",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4128,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114328071982725634354/photos\">СН ШИК</a>"
+          ],
+          "photo_reference": "CmRaAAAARdlxFLDAcwafokWZYuCXknp1xrYa8Jp6Rs0itQVi-ANvZCnvoRwVT8SWFkcha6Iv2ihMLw6AI83NIBtgKOxMKMPjHdauntgLHdd8DHMFPUpFS2P607lp_Bv3paVqmT3eEhCFGMUshHcwLusW6NIb8y9iGhSGPje7xfqtSUTnzGBBu-QYq06xew",
+          "width": 2322
+        }
+      ],
+      "place_id": "ChIJpbtmu6xLtUYRzxaAPnvsLl4",
+      "plus_code": {
+        "compound_code": "QJ57+Q6 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ57+Q6"
+      },
+      "price_level": 2,
+      "rating": 4.3,
+      "reference": "ChIJpbtmu6xLtUYRzxaAPnvsLl4",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 412,
+      "vicinity": "Камергерский переулок, 2с1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7707639,
+          "lng": 37.6092754
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7721128802915,
+            "lng": 37.6106243802915
+          },
+          "southwest": {
+            "lat": 55.7694149197085,
+            "lng": 37.60792641970851
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "12f0e728335b18d7c7c4d473f09a912be4887ae6",
+      "name": "Чайхона №1",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1440,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101126338816752317823/photos\">Чайхона №1</a>"
+          ],
+          "photo_reference": "CmRaAAAAcCBQyRXIoDUJ53UFbbbvdVSlQtoZ6REz4_nM74A0cBTmjSYJdvXVhMDkSuC7vAXMvdt1v7QRqEi0ZrJ3dUZ5iJSeOwVS-osdZu6ols5wvrIah9e6Y66h5Ch1_1A7AImYEhCUqSojq30tvyEf1jf6DVzyGhSyDZAphGbFjATGJDxr_8Awz1rhoQ",
+          "width": 2160
+        }
+      ],
+      "place_id": "ChIJBSvwGwBLtUYR9y2eoykK8q4",
+      "plus_code": {
+        "compound_code": "PJR8+VG Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPJR8+VG"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJBSvwGwBLtUYR9y2eoykK8q4",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1002,
+      "vicinity": "улица Каретный Ряд, 3, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7573705,
+          "lng": 37.616757
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7588030302915,
+            "lng": 37.61783063029149
+          },
+          "southwest": {
+            "lat": 55.7561050697085,
+            "lng": 37.6151326697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "64e45dc32a6786fc661a36aee15643b1b547496c",
+      "name": "Starbucks",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101710731597163907415/photos\">Terry Kim</a>"
+          ],
+          "photo_reference": "CmRaAAAAVfh8w4JU3IDMCHuONCsD7w5gloZQ1jfu_julVmSQLOCU3WoVCmjWBtheuyHJRnVsqdw_fu5AleYmMi0WlDWZj5eqbboy1KqGeR4WcpvPrHkXVeBgcs056ZtjIZmORjkHEhA1Zllpm-AuNt3biXSXyuBVGhS7Kcp9oTAV16GK7OCzpIcRhESDGA",
+          "width": 5312
+        }
+      ],
+      "place_id": "ChIJj_HK9qFNtUYR9WMDdvB0nhE",
+      "plus_code": {
+        "compound_code": "QJ48+WP Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ48+WP"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJj_HK9qFNtUYR9WMDdvB0nhE",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 1087,
+      "vicinity": "улица Охотный Ряд, 2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7653408,
+          "lng": 37.60782160000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.76688533029149,
+            "lng": 37.6093297802915
+          },
+          "southwest": {
+            "lat": 55.7641873697085,
+            "lng": 37.6066318197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "779d0589af275b5e04e1e6155c4d3cde429eb926",
+      "name": "АндерСон",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3264,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103527304391502882893/photos\">АндерСон</a>"
+          ],
+          "photo_reference": "CmRaAAAAbRMejk_T08zKL3LhpYdq2GFD647hzeMjuSCtMj0qKJ-g7QrBQWkS1Z___RbIzmY5Xl9B_CexT_ou9mpOVLsWzygwuIkljNIAw4hwT8lUHtW6z5wpCR794HrW_pDFH-2UEhBpwEJ8jPY7SDWifFqVL9VKGhRj4h5fGb2OZLTiVHaY6HafZdYW4Q",
+          "width": 4928
+        }
+      ],
+      "place_id": "ChIJ15jaK0FKtUYRxVrw-Nrhndo",
+      "plus_code": {
+        "compound_code": "QJ85+44 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ85+44"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJ15jaK0FKtUYRxVrw-Nrhndo",
+      "scope": "GOOGLE",
+      "types": [
+        "bakery",
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 457,
+      "vicinity": "Страстной бульвар, 4 стр.1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.75865169999999,
+          "lng": 37.6573055
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.76000253029149,
+            "lng": 37.65880388029149
+          },
+          "southwest": {
+            "lat": 55.7573045697085,
+            "lng": 37.65610591970849
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "6e2e4ce1d98fd7019e132e188b0c7809d3f8b016",
+      "name": "Джаганнат",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2448,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107201659495297999840/photos\">AlexSolnyshkov</a>"
+          ],
+          "photo_reference": "CmRaAAAAMgmM0HiqI47OmIJRuN3GziGHeNuZWofAJ2RRG2oPDYqveKdsAGJmkdy-9c3eISxqIKc8QOBR44qofDVzCrI5SB8PUgZy1oKY1yrYR6s6PRaZpcJF5Z4hf8vKAMjVmuk2EhCb6pTd9_EqGdIyecuOi2MsGhQ_feDGg2N3VeE9YysKPDZGpmNI6Q",
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJjWipbIxKtUYRHOOJKVB-bAA",
+      "plus_code": {
+        "compound_code": "QM54+FW Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQM54+FW"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJjWipbIxKtUYRHOOJKVB-bAA",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "health",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 1205,
+      "vicinity": "улица Земляной Вал, 24/30, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.756634,
+          "lng": 37.65935959999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7583132302915,
+            "lng": 37.6609063802915
+          },
+          "southwest": {
+            "lat": 55.7556152697085,
+            "lng": 37.6582084197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "a135ae5da60c2c37513bd2ab0bc26e6e0219bd99",
+      "name": "Бургер Кинг",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4608,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104902652412990902029/photos\">Люба Белова</a>"
+          ],
+          "photo_reference": "CmRaAAAA_fLY4kPhd971q0nBjg7mujceOphQhQc6cpX_BQ6B3Wcmggn5Kfy_DM1OPGAnGAE8kE9nG9Em7aXyMy73rXe3sTRcobxyY1Ro9eQ6qJ5n86aJ0OJru3BocMyF6dJQI7ZhEhCLXrglS5i6587I_PigwjB1GhQ12Rmd10Putuj02SLG8PFHq0gJWA",
+          "width": 3456
+        }
+      ],
+      "place_id": "ChIJh0hdrY1KtUYRKpqRNNcB-Ic",
+      "plus_code": {
+        "compound_code": "QM45+MP Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQM45+MP"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJh0hdrY1KtUYRKpqRNNcB-Ic",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 438,
+      "vicinity": "улица Земляной Вал, 33, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.762676,
+          "lng": 37.52912800000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7638232802915,
+            "lng": 37.5307399802915
+          },
+          "southwest": {
+            "lat": 55.7611253197085,
+            "lng": 37.5280420197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "146fba9531080dd1718897e0715efb617632251b",
+      "name": "Осетинские пироги",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3600,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104248922685187336229/photos\">Джамолиддин Ёрматов</a>"
+          ],
+          "photo_reference": "CmRaAAAAVexULNfA1xN5ay2CJqN-J6QtUBNjRYehqW1LxBw99J2hkRp225psdWG_HDn_gVqF6h52IZYfWwUWRueiegtNxmdiOSEi6Ak6biTjCxNcJvNoYFjSdp8CnJoaVMyenpf_EhDgvQ7Y8_XY95kBBlqXOB03GhTvfRiitaVXVmPf3jiYOGwQtwMkcg",
+          "width": 2160
+        }
+      ],
+      "place_id": "ChIJZ7eTahpLtUYR4jq1xhXoRUA",
+      "plus_code": {
+        "compound_code": "QG7H+3M Северный административный округ, Москва, Россия",
+        "global_code": "9G7VQG7H+3M"
+      },
+      "price_level": 2,
+      "rating": 3.7,
+      "reference": "ChIJZ7eTahpLtUYR4jq1xhXoRUA",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 46,
+      "vicinity": "2-я Магистральная улица, 16с7, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.77105899999999,
+          "lng": 37.6792981
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7723857302915,
+            "lng": 37.6807427802915
+          },
+          "southwest": {
+            "lat": 55.7696877697085,
+            "lng": 37.6780448197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "8d24124b7685173c363e76cca56bd1e1009a59cc",
+      "name": "Temple Bar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2793,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106466686748073140769/photos\">Temple Bar</a>"
+          ],
+          "photo_reference": "CmRaAAAAMYngZTCBSUMrZSlVoj44RlcDS_Af5DoyKiG-trZ0rfwS1CpUl6IVFXD5YaTp2Ou0AsWyo0oHw7QlVwFetcM0e3mV4iRL-0izdLEPgnXpWVMYE6ZB1hyqETUsNMhjjizSEhAYLZRFi8RTRKNJBsWToxksGhQiYQ-hWCTBuqx8qihz18KFmdOUUw",
+          "width": 4197
+        }
+      ],
+      "place_id": "ChIJi8L8bYJKtUYRKSs35OFfI0U",
+      "plus_code": {
+        "compound_code": "QMCH+CP Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQMCH+CP"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJi8L8bYJKtUYRKSs35OFfI0U",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "meal_delivery",
+        "cafe",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 650,
+      "vicinity": "ул. Ладожская, д. 2/37, стр.1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7446,
+          "lng": 37.56610190000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7456146802915,
+            "lng": 37.5681153802915
+          },
+          "southwest": {
+            "lat": 55.7429167197085,
+            "lng": 37.5654174197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "117c273e898cd89ce3291dbca40d581d9f4e50f7",
+      "name": "Бургер Кинг",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115250515574493682539/photos\">Александр Серяк</a>"
+          ],
+          "photo_reference": "CmRaAAAAZCD17H5pimCNIQoFlisM156UsPrOeSYtg9lYqlp6qTddfqWF32QP11prLOCSVHsYMSzKtH8UZFZ8fMF1ErzzBeYMJvWSlrTRH38KKVrghmrq-cPaLi0paEz5N29ISL2fEhASYk8Z4xKXnZn9_W8fYIRDGhSFO181TYMm0ko0nt3zOj9h6xmBeQ",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJmenShsdLtUYRdA_k_6ZFquc",
+      "plus_code": {
+        "compound_code": "PHV8+RC Западный административный округ, Москва, Россия",
+        "global_code": "9G7VPHV8+RC"
+      },
+      "price_level": 2,
+      "rating": 4,
+      "reference": "ChIJmenShsdLtUYRdA_k_6ZFquc",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 185,
+      "vicinity": "площадь Киевского Вокзала, 2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.76765529999999,
+          "lng": 37.5793928
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7690126802915,
+            "lng": 37.58070483029149
+          },
+          "southwest": {
+            "lat": 55.7663147197085,
+            "lng": 37.5780068697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "ac51a388a80252662f30c9a96f0bd02fa2cbc79b",
+      "name": "Correa's",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106205217214242983774/photos\">Sergey Plugotarenko</a>"
+          ],
+          "photo_reference": "CmRaAAAAlvDxOkp7CNih6oyOPXPBjZmzltaulPYaGgIE6H7B3ANOx42Wz7N9h2opDGwhtHXAUwS0ZcxSbiq2AO3GXLolrYC92D_SRwZLV16xb-yNPDyeqHjI8OMu03wmlnrsSpx2EhDtwMIZvMiRRoSTjexyAnvRGhR50QdXKcuV_kY1V69TUR6rdkURlQ",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJN0OMGDBKtUYRmpw7Oz5VXz4",
+      "plus_code": {
+        "compound_code": "QH9H+3Q Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQH9H+3Q"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJN0OMGDBKtUYRmpw7Oz5VXz4",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 236,
+      "vicinity": "Большая Грузинская улица, 32-34 , стр. 3, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7488671,
+          "lng": 37.539048
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7505432302915,
+            "lng": 37.5402098802915
+          },
+          "southwest": {
+            "lat": 55.7478452697085,
+            "lng": 37.5375119197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "7814c66917697df73b755304b5f68b8f8103537c",
+      "name": "Бургер Кинг",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 620,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118367257662817655786/photos\">Lish&#39;s Vlog</a>"
+          ],
+          "photo_reference": "CmRaAAAAaNstKfe4JzipqBN6FIw_JnSvhs0-3PlBPzM862B2e0waWfUzhaRwQxTmqlGroqxzFtn2YFtZ4q8zpO7Qat61OpIfan8Xcw3mtWMKZFSYBShsOo9tNNzwDiWx8lkZEuMWEhBXBA7oSkNxQ3Org7wUMgqmGhQtFa3I_rHUUen3Tx0pI-LBGthUaA",
+          "width": 1280
+        }
+      ],
+      "place_id": "ChIJy5khadxLtUYRllTB5jgtKeQ",
+      "plus_code": {
+        "compound_code": "PGXQ+GJ Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPGXQ+GJ"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJy5khadxLtUYRllTB5jgtKeQ",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 749,
+      "vicinity": "4 floor, Afimall City, Пресненская набережная, 2, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.8232982,
+          "lng": 37.4970328
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.8246622802915,
+            "lng": 37.49844188029149
+          },
+          "southwest": {
+            "lat": 55.8219643197085,
+            "lng": 37.4957439197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c476b57b09e0bee24cf4ed88cb345cdb5ad66de0",
+      "name": "Бургер Кинг",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 360,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111558461961201168899/photos\">UzPro Media</a>"
+          ],
+          "photo_reference": "CmRaAAAABAb1HKobJXmjazW3A7MYmsWm-MsKd336mK-7hHxpmf51zjfGnyMtQAWKfXnf0qVQ_lgPW1MnhxLgO786gjAEZ1epO2HAP2OS7E0F4zmstxq27ddQhy4qo5_6wd0Uy5qhEhDbjStPKc-fbUv1PeIwwTolGhTUhwp6rRY_OTjJsVd1czvUizn-Qw",
+          "width": 562
+        }
+      ],
+      "place_id": "ChIJl4R_2zxItUYRTdzwePXECaY",
+      "plus_code": {
+        "compound_code": "RFFW+8R Северный административный округ, Москва, Россия",
+        "global_code": "9G7VRFFW+8R"
+      },
+      "price_level": 2,
+      "rating": 4.1,
+      "reference": "ChIJl4R_2zxItUYRTdzwePXECaY",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1276,
+      "vicinity": "Ленинградское шоссе, 16A, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.680636,
+          "lng": 37.59560400000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.6819320302915,
+            "lng": 37.5968846802915
+          },
+          "southwest": {
+            "lat": 55.6792340697085,
+            "lng": 37.5941867197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9ca0ad75eb1627a68901c9f3d423e80e5d38a352",
+      "name": "Чайхона №1",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 750,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116324179413708914057/photos\">Просто Саша</a>"
+          ],
+          "photo_reference": "CmRaAAAAVuKAEHwRvqbcZ6Q1iE-Y-Ku25pR-e4cW1TRMO0e8L1mukxgvH-DaJ1hQZntxaO4nyAIzVFE79ZMtMNBo0WRG5ZKZMihKSmxBjKa471hBEXwmGG54UULSxeNFi7wlyCcbEhBRySvu4A_c3Z-Aqsi2gKKGGhSJ4kGVvaZULuRehbYjlBHoFyVoTw",
+          "width": 1000
+        }
+      ],
+      "place_id": "ChIJNY2S5LBMtUYRN4NGpV-Dlsc",
+      "plus_code": {
+        "compound_code": "MHJW+76 Юго-Западный административный округ, Москва, Россия",
+        "global_code": "9G7VMHJW+76"
+      },
+      "price_level": 2,
+      "rating": 4.4,
+      "reference": "ChIJNY2S5LBMtUYRN4NGpV-Dlsc",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 790,
+      "vicinity": "улица Дмитрия Ульянова, 51, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7612386,
+          "lng": 37.6376689
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7625602802915,
+            "lng": 37.6391424802915
+          },
+          "southwest": {
+            "lat": 55.7598623197085,
+            "lng": 37.6364445197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "c60a5cbae854d50be3e2e955953e55a5b3c4001b",
+      "name": "Антикафе Time Club Убежище",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3036,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106888853185873777944/photos\">Tal Vashoth</a>"
+          ],
+          "photo_reference": "CmRaAAAA5g3g80onxxRoIqPyx11g8pcMuMZ4mTy2EsnUxpRSIDtr5QgxOq-c8CW1HXaWBY5Q2Mo6yUEyNFqRMppnb3q6DBSqsdWximw-3zgDdWXfXwvhH9dNQwVp39e75_WV2MPPEhAQPYqyv3GoqcVSyH1DkggzGhSDlm_0qJaaKhUc9l5j3etW8mRAew",
+          "width": 4048
+        }
+      ],
+      "place_id": "ChIJSdKhnGBKtUYRtS63PtBYKbo",
+      "plus_code": {
+        "compound_code": "QJ6Q+F3 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VQJ6Q+F3"
+      },
+      "price_level": 2,
+      "rating": 4.5,
+      "reference": "ChIJSdKhnGBKtUYRtS63PtBYKbo",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 543,
+      "vicinity": "Архангельский переулок, 7, стр. 1, Москва"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": 55.7323102,
+          "lng": 37.6404857
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 55.7337316802915,
+            "lng": 37.6417015302915
+          },
+          "southwest": {
+            "lat": 55.73103371970851,
+            "lng": 37.6390035697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+      "id": "e0841cbd17efa6f0d2d90f445bcff58304ef58a1",
+      "name": "Кафе Дяди Сэма",
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107628337143447769506/photos\">Екатерина Нарышкина</a>"
+          ],
+          "photo_reference": "CmRaAAAAJciGolh6CX0N5wnq9XVCXSyakO25ndyj6GUSk7byYEIXTQ9iHA59Prk2d5H28TBY1yjneurDX7DbRqkOYQXR0HswajVVBdR5SS34b6XeF78Pz_Y4E2FmK3g05p-QJsByEhDpr6YOAmdZLPD3m1R1m8vuGhTwmsVeD9dZ-OvkSWrhDkJpUsXzfQ",
+          "width": 2268
+        }
+      ],
+      "place_id": "ChIJH0M6PB5LtUYRs7s2g3qSDzw",
+      "plus_code": {
+        "compound_code": "PJJR+W5 Центральный административный округ, Москва, Россия",
+        "global_code": "9G7VPJJR+W5"
+      },
+      "price_level": 2,
+      "reference": "ChIJH0M6PB5LtUYRs7s2g3qSDzw",
+      "scope": "GOOGLE",
+      "types": [
+        "cafe",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "улица Зацепский Вал, 5, Москва"
+    }
+  ],
+  "status": "OK"
+}

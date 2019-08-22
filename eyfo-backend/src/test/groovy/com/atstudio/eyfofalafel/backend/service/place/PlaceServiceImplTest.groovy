@@ -1,12 +1,15 @@
-package com.atstudio.eyfofalafel.backend.repository
+package com.atstudio.eyfofalafel.backend.service.place
 
 import com.atstudio.eyfofalafel.backend.TestDataSourceAutoConfiguration
 import com.atstudio.eyfofalafel.backend.domain.place.Place
+import com.atstudio.eyfofalafel.backend.service.files.FileStorageService
 import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter
+import com.atstudio.eyfofalafel.backend.service.place.PlaceServiceImpl
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.domain.EntityScan
+import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.context.annotation.Import
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
@@ -19,12 +22,14 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TE
 
 @RunWith(SpringRunner)
 @EnableJpaRepositories(basePackages = ["com.atstudio.eyfofalafel.backend.repository"])
-@Import([TestDataSourceAutoConfiguration])
+@Import([TestDataSourceAutoConfiguration, PlaceServiceImpl])
 @EntityScan("com.atstudio.eyfofalafel.backend.domain")
-class PlaceRepositoryTest {
+class PlaceServiceImplTest {
 
+    @MockBean
+    private FileStorageService fileStorageService
     @Autowired
-    private PlaceRepository placeRepository
+    private PlaceServiceImpl placeService;
 
     @Test
     @SqlGroup([
@@ -33,7 +38,7 @@ class PlaceRepositoryTest {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void testFindByName() {
-        List<Place> allPlaces = placeRepository.findFiltered(
+        List<Place> allPlaces = placeService.findAll(
                 ["searchText": "ШаУрМяшНа"] as PlaceFilter,
                 PageRequest.of(0, 10)
         ).getContent()
@@ -48,8 +53,24 @@ class PlaceRepositoryTest {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void testFindByDescription() {
-        List<Place> allPlaces = placeRepository.findFiltered(
+        List<Place> allPlaces = placeService.findAll(
                 ["searchText": "Описание тестовой"] as PlaceFilter,
+                PageRequest.of(0, 10)
+        ).getContent()
+
+        assert allPlaces.size() == 1
+        assert allPlaces[0].getName().contains("Тестовая фалафельная")
+    }
+
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
+            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
+    void testFindByAddress() {
+        List<Place> allPlaces = placeService.findAll(
+                ["searchText": "адрес"] as PlaceFilter,
                 PageRequest.of(0, 10)
         ).getContent()
 
@@ -65,7 +86,7 @@ class PlaceRepositoryTest {
     ])
     void testFindByTextPageable() {
         def getPage = { int page ->
-            return placeRepository.findFiltered(
+            return placeService.findAll(
                     ["searchText": "тестовая"] as PlaceFilter,
                     PageRequest.of(page, 1)
             ).getContent()

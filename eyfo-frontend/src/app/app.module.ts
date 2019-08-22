@@ -18,19 +18,8 @@ import {UiComponentsModule} from './modules/ui-components.module';
 import {ApiUrlInterceptor} from './interceptors/api-url.interceptor';
 import {LocationComponent} from './components/places/edit-place/location/location.component';
 import {FooterComponent} from './components/common/footer/footer.component';
-import {DropzoneConfigInterface, DropzoneModule} from 'ngx-dropzone-wrapper';
-import {MatIconModule, MatTooltipModule} from '@angular/material';
-
-export const DEFAULT_DROPZONE_CONFIG = (): DropzoneConfigInterface => {
-  return {
-    url: `${environment.apiUrl}files/upload-temp`,
-    maxFilesize: 10,
-    acceptedFiles: 'image/*',
-    createImageThumbnails: false,
-    previewTemplate: '<div></div>',
-    headers: LoginService.getAuthHeader()
-  };
-};
+import {DropzoneModule} from 'ngx-dropzone-wrapper';
+import {MatIconModule, MatPaginatorModule, MatTooltipModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -56,7 +45,11 @@ export const DEFAULT_DROPZONE_CONFIG = (): DropzoneConfigInterface => {
     }),
     routing,
     MatTooltipModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
+  ],
+  exports : [
+    MatPaginatorModule
   ],
   providers: [
     LoginService,
