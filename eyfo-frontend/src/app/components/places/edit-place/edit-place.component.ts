@@ -19,7 +19,6 @@ export class EditPlaceComponent implements OnInit {
   placeId: number;
   images: IImgAttachment[] = [];
   uploading: boolean;
-  progress: number;
 
   constructor(private placesService: PlacesService,
               private router: Router,
@@ -66,18 +65,13 @@ export class EditPlaceComponent implements OnInit {
     this.images = this.images.filter(img => img != removal);
   }
 
-  updateProgress(event: any) {
-    this.setProgress(event.upload.progress);
+  startUpload() {
+    this.uploading = true;
   }
 
   onImageUpload = (event) => {
-    this.setProgress(0);
+    this.uploading = false;
     this.images.push(event[1] as IImgAttachment);
-  }
-
-  setProgress(progress: number) {
-    this.uploading = progress != 0;
-    this.progress = progress;
   }
 
   getUrlWithHost = (url: string) => `${environment.serverHost}${url}`;

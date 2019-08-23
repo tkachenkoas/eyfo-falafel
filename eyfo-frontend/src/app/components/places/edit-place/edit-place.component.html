@@ -27,12 +27,12 @@
       </mat-card>
     </drag-scroll>
   </div>
-  <mat-progress-bar *ngIf="uploading" mode="determinate" value="40"></mat-progress-bar>
+  <mat-progress-bar *ngIf="uploading" mode="indeterminate"></mat-progress-bar>
   <div class="vert-space">
     <dropzone
       [config]="dzConfig"
       [message]="'Нажмите или перетащите фотографии для загрузки'"
-      (processing)="updateProgress($event)"
+      (processing)="startUpload()"
       (success)="onImageUpload($event)">
     </dropzone>
   </div>
