@@ -57,8 +57,8 @@ export class PlacesListComponent implements AfterViewInit {
 
   private refreshList(pageSize: number, pageNumber: number) {
     this.paging = {
-      pageSize: pageSize,
-      pageNumber: pageNumber
+      pageSize,
+      pageNumber
     };
     this.loadPlaces();
   }

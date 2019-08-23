@@ -87,9 +87,9 @@ for (Place place: placesToAdd) {
         sql.execute(
                 "INSERT\n " +
                         "INTO t_places\n " +
-                        "(name, description, address, latitude, longitude, price_from, price_to)\n " +
+                        "(id, name, description, address, latitude, longitude, price_from, price_to)\n " +
                         "values\n " +
-                        "( '${place.name}', '${place.description}', '${place.address}', \n" +
+                        "( nextval('t_places_id_seq'), '${place.name}', '${place.description}', '${place.address}', \n" +
                         " ${place.lat}, ${place.lng}, ${place.priceFrom}, ${place.priceTo} ) ;"
         )
         added++;
