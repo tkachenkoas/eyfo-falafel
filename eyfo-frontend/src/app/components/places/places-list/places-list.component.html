@@ -22,8 +22,15 @@
            type="search">
     <button mat-button matSuffix mat-stroked-button
             aria-label="search"
+            matTooltip="Искать"
             (click)="search()">
       <mat-icon>search</mat-icon>
+    </button>
+    <button mat-button matSuffix mat-stroked-button
+            aria-label="clear"
+            matTooltip="Очистить поиск"
+            (click)="clear()">
+      <mat-icon>clear</mat-icon>
     </button>
   </mat-form-field>
 </ng-container>
