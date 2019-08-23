@@ -19,7 +19,7 @@ import {ApiUrlInterceptor} from './interceptors/api-url.interceptor';
 import {LocationComponent} from './components/places/edit-place/location/location.component';
 import {FooterComponent} from './components/common/footer/footer.component';
 import {DropzoneModule} from 'ngx-dropzone-wrapper';
-import {MatIconModule, MatPaginatorModule, MatTooltipModule} from '@angular/material';
+import {MatIconModule, MatPaginatorModule, MatProgressBarModule, MatTooltipModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import {MatIconModule, MatPaginatorModule, MatTooltipModule} from '@angular/mate
     routing,
     MatTooltipModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressBarModule
   ],
   exports : [
     MatPaginatorModule

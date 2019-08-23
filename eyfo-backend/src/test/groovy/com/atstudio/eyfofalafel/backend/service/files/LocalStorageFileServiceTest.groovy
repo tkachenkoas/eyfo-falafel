@@ -7,16 +7,15 @@ import org.apache.commons.io.FileUtils
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import org.springframework.core.io.ClassPathResource
 
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.ResourceBundle
 
-import static org.junit.Assert.*
+import static org.apache.commons.io.IOUtils.toByteArray
+import static org.junit.Assert.assertArrayEquals
+import static org.junit.Assert.assertTrue
 
 @Slf4j
 class LocalStorageFileServiceTest {
@@ -60,6 +59,19 @@ class LocalStorageFileServiceTest {
     }
 
     @Test
+    void tempFileResized() throws FileNotFoundException {
+        Attachment storedTempFile = underTest.saveTempFile(
+                someAttachment(
+                        toByteArray(new ClassPathResource("test_img.jpg").getInputStream() as InputStream),
+                        "test_img.jpg"
+                )
+        )
+
+        underTest.readContent(storedTempFile)
+        assert storedTempFile.getContent().length < 500_000
+    }
+
+    @Test
     void fileMovedToStorage() throws FileNotFoundException {
         Attachment attachment = someAttachment()
         Attachment storedTempFile = underTest.saveTempFile(attachment)
@@ -92,10 +104,10 @@ class LocalStorageFileServiceTest {
         underTest.readContent(storedTempFile)
     }
 
-    private static Attachment someAttachment() {
+    private static Attachment someAttachment(byte[] content = "test-content".getBytes(), String name = "test.txt") {
         Attachment attachment = new Attachment()
-        attachment.setFileName("test.txt")
-        attachment.setContent("test-content".getBytes())
+        attachment.setFileName(name)
+        attachment.setContent(content)
         return attachment
     }
 

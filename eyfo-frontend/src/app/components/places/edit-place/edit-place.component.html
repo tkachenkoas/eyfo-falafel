@@ -12,7 +12,7 @@
     <location-picker [formGroup]="placeForm" formControlName="location"></location-picker>
   </div>
   <div *ngIf="images.length > 0">
-    <drag-scroll *ngIf="images" #scroll>
+    <drag-scroll>
       <mat-card *ngFor="let image of images" drag-scroll-item>
         <mat-card-header>
           <div class="align-right"
@@ -27,10 +27,12 @@
       </mat-card>
     </drag-scroll>
   </div>
+  <mat-progress-bar *ngIf="uploading" mode="determinate" value="40"></mat-progress-bar>
   <div class="vert-space">
     <dropzone
-      [config]="getDropzoneConfig()"
+      [config]="dzConfig"
       [message]="'Нажмите или перетащите фотографии для загрузки'"
+      (processing)="updateProgress($event)"
       (success)="onImageUpload($event)">
     </dropzone>
   </div>

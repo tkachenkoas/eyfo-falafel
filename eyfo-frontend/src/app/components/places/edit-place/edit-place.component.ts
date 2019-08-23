@@ -18,6 +18,8 @@ export class EditPlaceComponent implements OnInit {
   placeForm: FormGroup;
   placeId: number;
   images: IImgAttachment[] = [];
+  uploading: boolean;
+  progress: number;
 
   constructor(private placesService: PlacesService,
               private router: Router,
@@ -25,16 +27,14 @@ export class EditPlaceComponent implements OnInit {
               private formBuilder: FormBuilder) {
   }
 
-  public getDropzoneConfig = (): DropzoneConfigInterface => {
-    return {
+  dzConfig: DropzoneConfigInterface = {
       url: `${environment.apiUrl}files/upload-temp`,
       maxFilesize: 10,
       acceptedFiles: 'image/*',
       createImageThumbnails: false,
       previewTemplate: '<div></div>',
       headers: LoginService.getAuthHeader()
-    };
-  }
+  };
 
   editMode(): boolean {
     return !!this.placeId;
@@ -66,8 +66,18 @@ export class EditPlaceComponent implements OnInit {
     this.images = this.images.filter(img => img != removal);
   }
 
+  updateProgress(event: any) {
+    this.setProgress(event.upload.progress);
+  }
+
   onImageUpload = (event) => {
+    this.setProgress(0);
     this.images.push(event[1] as IImgAttachment);
+  }
+
+  setProgress(progress: number) {
+    this.uploading = progress != 0;
+    this.progress = progress;
   }
 
   getUrlWithHost = (url: string) => `${environment.serverHost}${url}`;
