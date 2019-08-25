@@ -6,7 +6,7 @@ import org.junit.runner.RunWith
 import org.springframework.mock.web.MockMultipartFile
 import org.springframework.test.context.junit4.SpringRunner
 
-import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.*
+import static com.atstudio.eyfofalafel.backend.testutil.TestRequestUtils.*
 
 @RunWith(SpringRunner)
 class FileUploadControllerIT {

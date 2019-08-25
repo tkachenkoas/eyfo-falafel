@@ -11,8 +11,7 @@ import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
 import org.springframework.test.context.junit4.SpringRunner
 
-import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.*
-import static com.jayway.restassured.RestAssured.given
+import static com.atstudio.eyfofalafel.backend.testutil.TestRequestUtils.*
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD
 
@@ -28,7 +27,7 @@ class PlaceControllerIT {
     void newPlace() throws Exception {
         PlaceRestDto newPlace = testPlace()
 
-        PlaceRestDto result = performPost(getUrlWithHost("api/places/new"), newPlace, PlaceRestDto)
+        PlaceRestDto result = performPost("api/places/new", newPlace, PlaceRestDto)
 
         assert newPlace == result
         List<PlaceRestDto> places = getPlaces()
@@ -74,8 +73,27 @@ class PlaceControllerIT {
 
     }
 
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
+            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
+    void findNearbyPlaces() {
+        def nearbyPlaces = performGet("api/places/nearby",
+                [
+                        "lat" : 55.6208,
+                        "lng" : 37.6628,
+                        "radius": 1000
+                ] as Map,
+                PlaceRestDto[]
+        ) as List
+
+        assert nearbyPlaces.size() == 2;
+    }
+
     private static List<PlaceRestDto> getPlaces(Map<String, Object> params = [:]) {
-        return rawGet(getUrlWithHost("api/places/"), params)['content'] as PlaceRestDto[]
+        return rawGet("api/places/", params)['content'] as PlaceRestDto[]
     }
 
     @Test
@@ -106,12 +124,12 @@ class PlaceControllerIT {
     void attachmentCanBeViewedAfterPlaceCreate() throws Exception {
         MockMultipartFile tempFile = testFile()
 
-        FileRestDto tempUpload = multipart(getUrlWithHost("api/files/upload-temp"), tempFile, FileRestDto)
+        FileRestDto tempUpload = multipart("api/files/upload-temp", tempFile, FileRestDto)
 
         PlaceRestDto newPlace = testPlace()
         newPlace.setAttachments([tempUpload])
 
-        PlaceRestDto savedPlace = performPost(getUrlWithHost("api/places/new"), newPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = performPost("api/places/new", newPlace, PlaceRestDto)
 
         byte[] attachContent = getFileContent(savedPlace.getAttachments()[0].getFullPath())
 

@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.ValidationException;
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 import static java.util.stream.Collectors.toList;
@@ -33,18 +35,32 @@ public class PlaceController {
     @GetMapping("/")
     public ResponseEntity<Page<PlaceRestDto>> search(
             PlaceFilter filter,
-            @RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
-            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
+            @RequestParam(name = "pageNumber", defaultValue = "0") Integer pageNumber,
+            @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize
     ) {
         Pageable paging = PageRequest.of(pageNumber, pageSize);
         Page<Place> placePage = placeService.findAll(filter, paging);
 
         Page<PlaceRestDto> restPlacesPage = new PageImpl<>(
-                placePage.stream().map(mapper::toRest).collect(toList()),
+                placePage.stream().map(mapper::toShortRest).collect(toList()),
                 placePage.getPageable(),
                 placePage.getTotalElements()
         );
         return ResponseEntity.ok(restPlacesPage);
+    }
+
+    @GetMapping("/nearby")
+    public ResponseEntity<List<PlaceRestDto>> nearby(
+            @RequestParam(name = "lat") BigDecimal lat,
+            @RequestParam(name = "lng") BigDecimal lng,
+            @RequestParam(name = "radius", defaultValue = "2000") Integer radius
+    ) {
+        List<Place> nearbyPlaces = placeService.gerNearbyPlaces(lat, lng,radius);
+        return ResponseEntity.ok(
+                nearbyPlaces.stream()
+                        .map(mapper::toShortRest)
+                        .collect(toList())
+        );
     }
 
     @PostMapping("/new")
