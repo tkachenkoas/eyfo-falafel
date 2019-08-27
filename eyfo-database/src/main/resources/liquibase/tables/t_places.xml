@@ -51,4 +51,19 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="5" author="Anton">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT count(*) FROM pg_class c WHERE c.relname = 't_places_id_seq'
+            </sqlCheck>
+        </preConditions>
+        <createSequence cycle="true"
+                        incrementBy="1"
+                        schemaName="public"
+                        sequenceName="t_places_id_seq"/>
+        <rollback>
+            <dropSequence sequenceName="t_places_id_seq"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

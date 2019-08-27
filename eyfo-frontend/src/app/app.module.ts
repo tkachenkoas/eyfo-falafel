@@ -19,7 +19,8 @@ import {ApiUrlInterceptor} from './interceptors/api-url.interceptor';
 import {LocationComponent} from './components/places/edit-place/location/location.component';
 import {FooterComponent} from './components/common/footer/footer.component';
 import {DropzoneModule} from 'ngx-dropzone-wrapper';
-import {MatIconModule, MatPaginatorModule, MatProgressBarModule, MatTooltipModule} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material';
+import { ConfirmationDialogComponent } from './components/common/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatIconModule, MatPaginatorModule, MatProgressBarModule, MatTooltipModul
     EditPlaceComponent,
     PlaceComponent,
     LocationComponent,
-    FooterComponent
+    FooterComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     UiComponentsModule,
@@ -43,14 +45,13 @@ import {MatIconModule, MatPaginatorModule, MatProgressBarModule, MatTooltipModul
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey
     }),
-    routing,
-    MatTooltipModule,
-    MatIconModule,
-    MatPaginatorModule,
-    MatProgressBarModule
+    routing
   ],
   exports : [
     MatPaginatorModule
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent
   ],
   providers: [
     LoginService,

@@ -12,6 +12,7 @@ import org.springframework.test.context.jdbc.SqlGroup
 import org.springframework.test.context.junit4.SpringRunner
 
 import static com.atstudio.eyfofalafel.backend.testutil.TestUtils.*
+import static com.jayway.restassured.RestAssured.given
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD
 
@@ -82,11 +83,19 @@ class PlaceControllerIT {
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
-    void deletePlace() throws Exception {
-        PlaceRestDto result = performPost(getUrlWithHost("api/places/new"), testPlace(), PlaceRestDto)
+    void placeDeletionRemovesPlaceAndAttachments() throws Exception {
 
-        performDelete(getUrlWithHost("api/places/${result.getId()}"))
+        FileRestDto tempUpload = multipart(getUrlWithHost("api/files/upload-temp"), testFile(), FileRestDto)
+        PlaceRestDto newPlace = testPlace()
+        newPlace.setAttachments([tempUpload])
+
+        PlaceRestDto savedPlace = performPost(getUrlWithHost("api/places/new"), newPlace, PlaceRestDto)
+
+        performDelete(getUrlWithHost("api/places/${savedPlace.getId()}"))
+
         assert (getPlaces().size() == 0)
+        assert given().get(getUrlWithHost(savedPlace.getAttachments()[0].getFullPath()))
+                       .statusCode() == 404
     }
 
     @Test

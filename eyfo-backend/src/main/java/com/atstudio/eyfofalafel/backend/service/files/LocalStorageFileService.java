@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.Random;
 
 import static com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper.normalizeSlashes;
+import static java.math.BigDecimal.valueOf;
 import static java.net.URLConnection.guessContentTypeFromName;
 import static java.net.URLConnection.guessContentTypeFromStream;
 import static org.apache.commons.io.FilenameUtils.getExtension;
@@ -32,7 +33,7 @@ public class LocalStorageFileService implements FileStorageService {
     public final static String TEMP_FOLDER = "temp";
     private String fileStorageLocation;
 
-    public static final long MAX_IMAGE_SIZE = 500_000;
+    public static final long MAX_IMAGE_SIZE = 500 * 1024;
 
     public LocalStorageFileService(String fileStorageLocation) {
         this.fileStorageLocation = fileStorageLocation;
@@ -82,10 +83,15 @@ public class LocalStorageFileService implements FileStorageService {
     private void writeResizedImageToFile(byte[] content, Path targetLocation) {
         if (content.length < MAX_IMAGE_SIZE) {
             writeContentToFile(content, targetLocation);
+            return;
         }
         BufferedImage srcImage = ImageIO.read(new ByteArrayInputStream(content));
 
-        double scaleFactor = Math.sqrt(content.length / MAX_IMAGE_SIZE);
+        double scaleFactor = Math.sqrt(
+                valueOf(content.length)
+                        .divide(valueOf(MAX_IMAGE_SIZE))
+                        .doubleValue()
+        );
 
         int trgtHeight = (int) (srcImage.getHeight() / scaleFactor);
         int trgtWidth = (int) (srcImage.getWidth() / scaleFactor);

@@ -3,6 +3,11 @@ import {IPageable, IPaging, IPlace} from '../../../models/model-interfaces';
 import {PlacesService} from '../../../services/places.service';
 import {Router} from '@angular/router';
 import {PageEvent} from '@angular/material/paginator';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import {
+  ConfirmationDialogComponent,
+  ConfirmationDialogProps
+} from "../../common/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-places-list',
@@ -19,7 +24,8 @@ export class PlacesListComponent implements AfterViewInit {
   paging: IPaging;
 
   constructor(private placeService: PlacesService,
-              private router: Router) { }
+              private router: Router,
+              public dialog: MatDialog) { }
 
   ngAfterViewInit() {
     this.loadPlaces();
@@ -42,8 +48,24 @@ export class PlacesListComponent implements AfterViewInit {
     this.router.navigate([`places/${place.id}/edit`]);
   }
 
-  deletePlace(place: IPlace) {
-    this.placeService.deletePlace(place.id).then(() => this.loadPlaces());
+  openDialog(place: IPlace): void {
+    const dialogConfig: MatDialogConfig<ConfirmationDialogProps> = {
+      width: '400px',
+      height: '200px',
+      data: {
+        header: 'Подтвердите действие',
+        message: `Точно удаляем точку "${place.name}"?`,
+        payload: place.id
+      }
+    };
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(placeId => {
+      if(placeId) {
+        this.placeService.deletePlace(placeId)
+                         .then(() => this.loadPlaces());
+      }
+    });
   }
 
   search() {

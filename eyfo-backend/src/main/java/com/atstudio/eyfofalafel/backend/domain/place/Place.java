@@ -13,7 +13,8 @@ import java.util.List;
 public class Place {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "t_places_ids")
+    @SequenceGenerator(name="t_places_ids", sequenceName="t_places_id_seq", allocationSize=5)
     @Column(name = "id")
     private Long id;
 
