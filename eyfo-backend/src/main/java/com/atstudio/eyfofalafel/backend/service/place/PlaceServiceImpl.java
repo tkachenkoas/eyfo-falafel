@@ -68,6 +68,8 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Override
     public void deleteById(Long id) {
+        Place existingPlace = findByIdOrThrow(id);
+        existingPlace.getAttachments().forEach(fileStorageService::remove);
         this.crudRepo.deleteById(id);
     }
 }

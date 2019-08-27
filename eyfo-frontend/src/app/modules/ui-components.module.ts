@@ -2,18 +2,19 @@ import {NgModule} from '@angular/core';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatFormFieldModule,
-  MatGridListModule,
-  MatInputModule,
+  MatGridListModule, MatIconModule,
+  MatInputModule, MatPaginatorModule, MatProgressBarModule,
   MatTableModule,
-  MatToolbarModule
+  MatToolbarModule, MatTooltipModule
 } from "@angular/material";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {DragScrollModule} from "ngx-drag-scroll";
 
 @NgModule({
   imports: [
+    MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
@@ -23,9 +24,14 @@ import {DragScrollModule} from "ngx-drag-scroll";
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    DragScrollModule
+    DragScrollModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatProgressBarModule
   ],
   exports: [
+    MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
@@ -35,7 +41,11 @@ import {DragScrollModule} from "ngx-drag-scroll";
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    DragScrollModule
+    DragScrollModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatProgressBarModule
   ]
 })
 export class UiComponentsModule {

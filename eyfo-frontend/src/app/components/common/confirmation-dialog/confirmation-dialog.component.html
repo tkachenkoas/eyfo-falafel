@@ -1,0 +1,10 @@
+<div mat-dialog-title>
+  {{props.header}}
+</div>
+<div mat-dialog-content>
+  {{props.message}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Нет</button>
+  <button mat-button [mat-dialog-close]="props.payload" cdkFocusInitial>Да</button>
+</div>
