@@ -12,6 +12,7 @@ import org.springframework.test.context.jdbc.SqlGroup
 import org.springframework.test.context.junit4.SpringRunner
 
 import static com.atstudio.eyfofalafel.backend.testutil.TestRequestUtils.*
+import static com.jayway.restassured.RestAssured.given
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD
 

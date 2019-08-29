@@ -66,4 +66,13 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="6" author="Anton">
+        <addColumn tableName="t_places">
+            <column name="coordinates" type="geography"/>
+        </addColumn>
+        <rollback>
+            <dropColumn tableName="t_places" columnName="coordinates"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>
