@@ -45,8 +45,8 @@ for (def jsonPlace: data['results']) {
             name: (jsonPlace['name'] as String).replaceAll("'", "-"),
             description: String.join(',', jsonPlace['types'] as List),
             address: jsonPlace['vicinity'],
-            lat: (jsonPlace.geometry.location.lat),
-            lng: (jsonPlace.geometry.location.lng),
+            lat: ((jsonPlace.geometry.location.lat) as BigDecimal).precision(5),
+            lng: ( (jsonPlace.geometry.location.lng) as BigDecimal).precision(5),
             priceFrom: (int)(jsonPlace['price_level']?:2) * 60,
             priceTo: (int)(jsonPlace['price_level']?:3) * 80
     ))
@@ -87,10 +87,10 @@ for (Place place: placesToAdd) {
         sql.execute(
                 "INSERT\n " +
                         "INTO t_places\n " +
-                        "(id, name, description, address, latitude, longitude, price_from, price_to)\n " +
+                        "(id, name, description, address, coordinates, price_from, price_to)\n " +
                         "values\n " +
                         "( nextval('t_places_id_seq'), '${place.name}', '${place.description}', '${place.address}', \n" +
-                        " ${place.lat}, ${place.lng}, ${place.priceFrom}, ${place.priceTo} ) ;"
+                        " 'SRID=4326;POINT(${place.lat} ${place.lng})',  ${place.priceFrom}, ${place.priceTo} ) ;"
         )
         added++;
     } catch (Exception e) {

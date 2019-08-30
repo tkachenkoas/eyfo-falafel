@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Liquibase testbase" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="Liquibase testbase" type="MavenRunConfiguration" factoryName="Maven" folderName="testing db">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />

@@ -73,7 +73,7 @@
 
     <changeSet id="7" author="Anton">
         <addColumn tableName="t_places">
-            <column name="coordinates" type="geography"/>
+            <column name="coordinates" type="geography(POINT,4326)"/>
         </addColumn>
         <rollback>
             <dropColumn tableName="t_places" columnName="coordinates"/>
