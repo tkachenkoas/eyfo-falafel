@@ -6,16 +6,19 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Matchers
 import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 
+import static org.mockito.ArgumentMatchers.eq
+import static org.mockito.Mockito.when
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @RunWith(SpringRunner)
@@ -44,16 +47,12 @@ class LocationControllerTest {
 
     @Test
     void testGetAddressSuggestions() {
-        Mockito.when(locationService.getAddressSuggestions(Matchers.eq("Search address")))
+        when(locationService.getAddressSuggestions(eq("Search address")))
                 .thenReturn(["Address 1", "Address 2"])
 
-        String result = mockMvc.perform(
-                get("/location/address-suggestions")
-                        .param("searchStr", "Search address")
-        ).andDo(MockMvcResultHandlers.print())
-                .andExpect(status().isOk())
-                .andReturn().getResponse().getContentAsString()
-        List<String> response = objectMapper.readValue(result, String[]);
+        List<String> response = objectMapper.readValue(
+                performGetWithParamsAndExtractResponseString("/location/address-suggestions", ["searchStr": "Search address"] as Map),
+                String[]);
 
         assert response.size() == 2
         assert response[0] == 'Address 1'
@@ -62,28 +61,54 @@ class LocationControllerTest {
 
     @Test
     void testGetLocationByAddress() {
-
         LocationRestDTO mockResponse = [
                 "address": "Final address",
                 "latitude": 50,
                 "longitude": 100
         ] as LocationRestDTO
 
-        Mockito.when(locationService.getLocationByAddress(Matchers.eq("Search address")))
+        when(locationService.getLocationByAddress(eq("Search address")))
                 .thenReturn(mockResponse)
 
-        String result = mockMvc.perform(
-                get("/location/location-by-address")
-                        .param("address", "Search address")
-        ).andDo(MockMvcResultHandlers.print())
-                .andExpect(status().isOk())
-                .andReturn().getResponse().getContentAsString()
-        LocationRestDTO response = objectMapper.readValue(result, LocationRestDTO);
+        LocationRestDTO response = objectMapper.readValue(
+                performGetWithParamsAndExtractResponseString("/location/location-by-address", ["address": "Search address"] as Map),
+                LocationRestDTO);
 
         assert response == mockResponse
     }
 
     @Test
     void testGetAddressByLocation() {
+
+        LocationRestDTO reqLocation = [
+                "latitude": 50,
+                "longitude": 100
+        ] as LocationRestDTO
+
+        when(locationService.getAddressByLocation(eq(reqLocation)))
+                .thenReturn("Target address")
+
+        LocationRestDTO response = objectMapper.readValue(
+                performGetWithParamsAndExtractResponseString("/location/address-by-location", ["lat": 50, "lng": 100] as Map),
+                LocationRestDTO);
+
+        assert response.longitude == reqLocation.longitude &&
+                response.latitude == response.latitude &&
+                response.address == "Target address"
+    }
+
+    private String performGetWithParamsAndExtractResponseString(
+            String url,
+            Map<String, Object> params
+    ) {
+        MockHttpServletRequestBuilder getBuilder = get(url);
+        for (Map.Entry<String, Object> param: params.entrySet()) {
+            getBuilder.param(param.getKey(), param.getValue() as String)
+        }
+        return mockMvc.perform(getBuilder)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse().getContentAsString()
     }
 }

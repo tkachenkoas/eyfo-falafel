@@ -1,7 +1,6 @@
 package com.atstudio.eyfofalafel.backend.controller.location;
 
 import com.atstudio.eyfofalafel.backend.service.location.LocationService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/location")
-@Slf4j
 public class LocationController {
 
     private LocationService locationService;
@@ -33,7 +31,7 @@ public class LocationController {
         );
     }
 
-    @GetMapping(value = "/address-by-location", produces = "application/json")
+    @GetMapping(value = "/address-by-location")
     public ResponseEntity<LocationRestDTO> getAddressByLocation (@RequestParam("lat") Double lat, @RequestParam("lng") Double lng) {
         LocationRestDTO location = LocationRestDTO.ofLatLng(lat,lng);
         location.setAddress(locationService.getAddressByLocation(location));
