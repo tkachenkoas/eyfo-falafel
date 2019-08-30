@@ -65,6 +65,7 @@ public class PlaceController {
 
     @PostMapping("/new")
     public ResponseEntity<PlaceRestDto> newPlace(@RequestBody PlaceRestDto place) {
+        log.info("Got create new place request: {}", place);
         Place saved = placeService.save(mapper.toEntity(place));
         return ResponseEntity.ok(mapper.toRest(saved));
     }
@@ -78,6 +79,7 @@ public class PlaceController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity removeById(@PathVariable Long id) {
+        log.info("Got delete place request: {}", id);
         placeService.deleteById(id);
         return ResponseEntity.ok().build();
     }
@@ -88,6 +90,7 @@ public class PlaceController {
         if (!Objects.equals(placeToSave.getId(), id)) {
             throw new ValidationException("Place id must be present and be equal " + id);
         }
+        log.info("Got edit place id = {} request: {}", id, placeToSave);
         return ResponseEntity.ok(mapper.toRest(
                             placeService.save(
                                     mapper.toEntity(placeToSave)

@@ -28,6 +28,7 @@ public class FileUploadController {
         Attachment tempFile = fileStorageService.saveTempFile(
                 mapper.fromMultipart(file)
         );
+        log.info("Uploaded temp file: {}; original size {} kb", tempFile, file.getBytes().length / 1024);
         return ResponseEntity.ok(
                 mapper.fromAttachment(tempFile)
         );
