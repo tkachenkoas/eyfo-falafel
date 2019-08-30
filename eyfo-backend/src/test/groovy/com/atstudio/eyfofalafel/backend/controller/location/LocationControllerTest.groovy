@@ -62,6 +62,25 @@ class LocationControllerTest {
 
     @Test
     void testGetLocationByAddress() {
+
+        LocationRestDTO mockResponse = [
+                "address": "Final address",
+                "latitude": 50,
+                "longitude": 100
+        ] as LocationRestDTO
+
+        Mockito.when(locationService.getLocationByAddress(Matchers.eq("Search address")))
+                .thenReturn(mockResponse)
+
+        String result = mockMvc.perform(
+                get("/location/location-by-address")
+                        .param("address", "Search address")
+        ).andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString()
+        LocationRestDTO response = objectMapper.readValue(result, LocationRestDTO);
+
+        assert response == mockResponse
     }
 
     @Test

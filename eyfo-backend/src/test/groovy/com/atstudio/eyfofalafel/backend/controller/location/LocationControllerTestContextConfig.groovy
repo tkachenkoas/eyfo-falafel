@@ -22,7 +22,7 @@ class LocationControllerTestContextConfig {
 
     @Bean
     LocationController locationController() {
-        return new LocationController(locationService, locationMapper())
+        return new LocationController(locationService)
     }
 
     RestObjectMapper<Location, LocationRestDTO> locationMapper() {

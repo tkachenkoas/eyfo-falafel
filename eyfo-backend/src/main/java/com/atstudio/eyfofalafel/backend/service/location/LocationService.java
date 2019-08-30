@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.service.location;
 
-import com.atstudio.eyfofalafel.backend.domain.place.Location;
+import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,8 +9,8 @@ import java.util.List;
 public interface LocationService {
 
     List<String> getAddressSuggestions(String searchStr);
-    Location getLocationByAddress(String address);
-    String getAddressByLocation(Location location);
+    LocationRestDTO getLocationByAddress(String address);
+    String getAddressByLocation(LocationRestDTO location);
 
 }
 
