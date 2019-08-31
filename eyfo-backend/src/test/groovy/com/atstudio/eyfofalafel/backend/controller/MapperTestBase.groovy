@@ -2,13 +2,19 @@ package com.atstudio.eyfofalafel.backend.controller
 
 import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO
 import com.atstudio.eyfofalafel.backend.domain.place.Location
+import com.vividsolutions.jts.geom.Coordinate
+import com.vividsolutions.jts.geom.GeometryFactory
 
 class MapperTestBase {
 
     protected Location testLocation() {
         Location location = new Location()
         location.setAddress("address")
-        location.setLatLng(10, 1)
+        location.setCoordinates(
+                new GeometryFactory().createPoint(
+                        new Coordinate(1, 10)
+                )
+        )
         return location
     }
 

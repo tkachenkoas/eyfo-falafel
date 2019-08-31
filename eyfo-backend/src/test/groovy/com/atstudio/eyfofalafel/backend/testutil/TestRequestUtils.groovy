@@ -29,7 +29,7 @@ class TestRequestUtils {
     }
 
     static String getUrlWithHost(CharSequence url) {
-        return "${getServerUrl()}/${url}"
+        return "${getServerUrl()}/${url}".toString()
     }
 
     static ResponseSpecification success() {
@@ -69,7 +69,7 @@ class TestRequestUtils {
     static <T> T performGet(CharSequence url, Map<String, Object> params = [:], Class<T> extractClass) {
         return given().spec(reqSpec())
                 .params(params)
-                .post(getUrlWithHost(getUrlWithHost(url)))
+                .post(getUrlWithHost(url))
                 .then().spec(success())
                 .extract().as(extractClass)
     }
@@ -83,7 +83,7 @@ class TestRequestUtils {
     static <T> T performPost(CharSequence url, Object body, Class<T> extractClass) {
         return given().spec(reqSpec())
                             .body(body)
-                            .post(getUrlWithHost(getUrlWithHost(url)))
+                            .post(getUrlWithHost(url))
                             .then().spec(success())
                             .extract().as(extractClass)
     }

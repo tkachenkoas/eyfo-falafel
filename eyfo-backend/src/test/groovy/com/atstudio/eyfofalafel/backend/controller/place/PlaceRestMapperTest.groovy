@@ -2,12 +2,13 @@ package com.atstudio.eyfofalafel.backend.controller.place
 
 import com.atstudio.eyfofalafel.backend.controller.MapperTestBase
 import com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper
+import com.atstudio.eyfofalafel.backend.controller.location.LocationRestMapper
 import com.atstudio.eyfofalafel.backend.domain.place.Place
 import org.junit.Test
 
 class PlaceRestMapperTest extends MapperTestBase {
 
-    private PlaceRestMapper mapper = new PlaceRestMapper(new FilesObjectMapper())
+    private PlaceRestMapper mapper = new PlaceRestMapper(new FilesObjectMapper(), new LocationRestMapper())
 
     @Test
     void toEntity() {

@@ -43,7 +43,6 @@
         </profile>
         <profile>
             <id>runTests</id>
-            <activation></activation>
             <build>
                 <plugins>
                     <plugin>
@@ -244,6 +243,17 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>27.0.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-spatial</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vividsolutions</groupId>
+            <artifactId>jts</artifactId>
+            <version>1.13</version>
         </dependency>
 
         <dependency>

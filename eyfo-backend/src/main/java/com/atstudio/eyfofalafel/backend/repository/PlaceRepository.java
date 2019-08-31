@@ -9,9 +9,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 @Repository
 public interface PlaceRepository extends PagingAndSortingRepository<Place, Long> {
 
@@ -26,5 +23,5 @@ public interface PlaceRepository extends PagingAndSortingRepository<Place, Long>
             @Param("paging") Pageable paging
     );
 
-    List<Place> findNearbyPlaces(BigDecimal lat, BigDecimal lng, Integer radius);
+    //List<Place> findNearbyPlaces(BigDecimal lat, BigDecimal lng, Integer radius);
 }

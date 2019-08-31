@@ -15,7 +15,7 @@ class FileUploadControllerIT {
     void fileCanBeViewedAfterTempUpload() throws Exception {
         MockMultipartFile tempFile = testFile()
 
-        FileRestDto tempUpload = multipart(getUrlWithHost("api/files/upload-temp"), tempFile, FileRestDto)
+        FileRestDto tempUpload = multipart("api/files/upload-temp", tempFile, FileRestDto)
         byte[] viewTempFile = getFileContent(tempUpload.getFullPath())
 
         assert viewTempFile == tempFile.getBytes()

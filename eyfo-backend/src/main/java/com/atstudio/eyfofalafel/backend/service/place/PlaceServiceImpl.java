@@ -13,7 +13,9 @@ import javax.persistence.EntityNotFoundException;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
 
 @Service
 public class PlaceServiceImpl implements PlaceService {
@@ -57,7 +59,7 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     private List<Attachment> storeAll(List<Attachment> attachments) {
-        return attachments.stream()
+        return emptyIfNull(attachments).stream()
                           .map(att -> fileStorageService.saveFileForStorage(att))
                           .collect(toList());
     }
@@ -76,6 +78,7 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Override
     public List<Place> gerNearbyPlaces(BigDecimal lat, BigDecimal lng, Integer radius) {
-        return placeRepo.findNearbyPlaces(lat, lng, radius);
+        return emptyList();
+        //return placeRepo.findNearbyPlaces(lat, lng, radius);
     }
 }

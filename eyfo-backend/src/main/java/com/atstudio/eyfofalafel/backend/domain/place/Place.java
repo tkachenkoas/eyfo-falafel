@@ -2,6 +2,7 @@ package com.atstudio.eyfofalafel.backend.domain.place;
 
 import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,6 +17,7 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "t_places_ids")
     @SequenceGenerator(name="t_places_ids", sequenceName="t_places_id_seq", allocationSize = 10)
     @Column(name = "id")
+    @EqualsAndHashCode.Exclude
     private Long id;
 
     @Column(name = "name")

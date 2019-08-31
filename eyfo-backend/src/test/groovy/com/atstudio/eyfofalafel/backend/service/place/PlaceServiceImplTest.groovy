@@ -29,7 +29,7 @@ class PlaceServiceImplTest {
     @MockBean
     private FileStorageService fileStorageService
     @Autowired
-    private PlaceServiceImpl placeService;
+    private PlaceServiceImpl placeService
 
     @Test
     @SqlGroup([
@@ -95,6 +95,4 @@ class PlaceServiceImplTest {
         assert getPage(0)[0].getName() != getPage(1)[0].getName()
         assert getPage(2).isEmpty()
     }
-
-
 }

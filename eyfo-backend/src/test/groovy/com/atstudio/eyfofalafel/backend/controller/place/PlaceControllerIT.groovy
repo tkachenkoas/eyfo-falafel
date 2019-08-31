@@ -74,7 +74,6 @@ class PlaceControllerIT {
 
     }
 
-    @Test
     @SqlGroup([
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
@@ -104,13 +103,13 @@ class PlaceControllerIT {
     ])
     void placeDeletionRemovesPlaceAndAttachments() throws Exception {
 
-        FileRestDto tempUpload = multipart(getUrlWithHost("api/files/upload-temp"), testFile(), FileRestDto)
+        FileRestDto tempUpload = multipart("api/files/upload-temp", testFile(), FileRestDto)
         PlaceRestDto newPlace = testPlace()
         newPlace.setAttachments([tempUpload])
 
-        PlaceRestDto savedPlace = performPost(getUrlWithHost("api/places/new"), newPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = performPost("api/places/new", newPlace, PlaceRestDto)
 
-        performDelete(getUrlWithHost("api/places/${savedPlace.getId()}"))
+        performDelete("api/places/${savedPlace.getId()}")
 
         assert (getPlaces().size() == 0)
         assert given().get(getUrlWithHost(savedPlace.getAttachments()[0].getFullPath()))
@@ -141,7 +140,7 @@ class PlaceControllerIT {
         return new MockMultipartFile("file", "temp_img.png", "image/png", "some file content".getBytes())
     }
 
-    private static PlaceRestDto testPlace() {
+    static PlaceRestDto testPlace() {
         PlaceRestDto place = new PlaceRestDto()
         place.setName("Test place")
         place.setPriceFrom(BigDecimal.ONE)
