@@ -90,7 +90,7 @@ for (Place place: placesToAdd) {
                         "(id, name, description, address, coordinates, price_from, price_to)\n " +
                         "values\n " +
                         "( nextval('t_places_id_seq'), '${place.name}', '${place.description}', '${place.address}', \n" +
-                        " 'SRID=4326;POINT(${place.lat} ${place.lng})',  ${place.priceFrom}, ${place.priceTo} ) ;"
+                        " 'POINT(${place.lng} ${place.lat})',  ${place.priceFrom}, ${place.priceTo} ) ;"
         )
         added++;
     } catch (Exception e) {

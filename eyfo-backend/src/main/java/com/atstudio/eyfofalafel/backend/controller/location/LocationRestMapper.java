@@ -11,7 +11,11 @@ import org.springframework.stereotype.Component;
 @Qualifier("location")
 public class LocationRestMapper extends SimpleRestObjectMapper<Location, LocationRestDTO> {
 
-    private static GeometryFactory gf = new GeometryFactory();
+    private final GeometryFactory gf;
+
+    public LocationRestMapper(GeometryFactory gf) {
+        this.gf = gf;
+    }
 
     @Override
     protected Class<Location> getEntityClass() {

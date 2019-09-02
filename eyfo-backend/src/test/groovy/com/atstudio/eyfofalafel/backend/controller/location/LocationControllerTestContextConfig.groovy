@@ -26,7 +26,7 @@ class LocationControllerTestContextConfig {
     }
 
     RestObjectMapper<Location, LocationRestDTO> locationMapper() {
-        return new LocationRestMapper();
+        return new LocationRestMapper(gf);
     }
 
 }

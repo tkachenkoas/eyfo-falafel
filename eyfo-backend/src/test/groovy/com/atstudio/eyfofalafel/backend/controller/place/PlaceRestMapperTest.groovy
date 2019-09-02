@@ -4,11 +4,15 @@ import com.atstudio.eyfofalafel.backend.controller.MapperTestBase
 import com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper
 import com.atstudio.eyfofalafel.backend.controller.location.LocationRestMapper
 import com.atstudio.eyfofalafel.backend.domain.place.Place
+import com.vividsolutions.jts.geom.GeometryFactory
 import org.junit.Test
 
 class PlaceRestMapperTest extends MapperTestBase {
 
-    private PlaceRestMapper mapper = new PlaceRestMapper(new FilesObjectMapper(), new LocationRestMapper())
+    private PlaceRestMapper mapper = new PlaceRestMapper(
+            new FilesObjectMapper(),
+            new LocationRestMapper(new GeometryFactory())
+    )
 
     @Test
     void toEntity() {

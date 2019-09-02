@@ -13,7 +13,6 @@ import javax.persistence.EntityNotFoundException;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
 
@@ -78,7 +77,6 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Override
     public List<Place> gerNearbyPlaces(BigDecimal lat, BigDecimal lng, Integer radius) {
-        return emptyList();
-        //return placeRepo.findNearbyPlaces(lat, lng, radius);
+        return placeRepo.findNearbyPlaces(lat.doubleValue(), lng.doubleValue(), radius);
     }
 }
