@@ -74,22 +74,39 @@ class PlaceControllerIT {
 
     }
 
+    @Test
     @SqlGroup([
-            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
-            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
-            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void findNearbyPlaces() {
-        def nearbyPlaces = performGet("api/places/nearby",
-                [
-                        "lat" : 55.6208,
-                        "lng" : 37.6628,
-                        "radius": 1000
-                ] as Map,
-                PlaceRestDto[]
-        ) as List
 
-        assert nearbyPlaces.size() == 2;
+        // first, let's create two places not far from each other with same longidute but different latitude
+        def testPlace = testPlace()
+
+        testPlace.location.latitude = testPlace.location.latitude + 0.1
+        performPost("api/places/new", testPlace, PlaceRestDto)
+
+        testPlace.location.latitude = testPlace.location.latitude - 0.15
+        performPost("api/places/new", testPlace, PlaceRestDto)
+
+        PlaceRestDto searchCenter = testPlace()
+        def nearbyTest = { radius, count ->
+            assert  performGet("api/places/nearby",
+                    [
+                            "lat" : searchCenter.location.latitude,
+                            "lng" : searchCenter.location.longitude,
+                            "radius": radius
+                    ] as Map,
+                    PlaceRestDto[]
+            ).size() == count
+        }
+
+        // now, let's search nearby places with radius to find both
+        nearbyTest(2000, 2)
+        // now let's shrink radius and find only one
+        nearbyTest(1000, 1)
+        // finally, let's search too close and find nothing
+        nearbyTest(500, 0)
     }
 
     private static List<PlaceRestDto> getPlaces(Map<String, Object> params = [:]) {
