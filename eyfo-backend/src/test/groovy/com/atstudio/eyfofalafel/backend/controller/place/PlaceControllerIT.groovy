@@ -118,6 +118,26 @@ class PlaceControllerIT {
         assert attachContent == tempFile.getBytes()
     }
 
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
+            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
+    void testFindNearby() {
+        def testPlace = testPlace()
+        PlaceRestDto savedPlace = performPost("api/places/new", testPlace, PlaceRestDto)
+
+        // make sure that something is found when searching nearby places
+        List<PlaceRestDto> places = rawGet("api/places/nearby",
+                [
+                        "lng" : savedPlace.location.latitude - 0.02,
+                        "lat" : savedPlace.location.longitude + 0.02,
+                        "radius": 5000
+                ] as Map
+        )['content'] as PlaceRestDto[]
+        assert places.size() == 1
+    }
+
     private static MockMultipartFile testFile() {
         return new MockMultipartFile("file", "temp_img.png", "image/png", "some file content".getBytes())
     }

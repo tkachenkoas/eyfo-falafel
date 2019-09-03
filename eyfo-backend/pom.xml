@@ -16,6 +16,10 @@
 	<name>eyfo-backend</name>
 	<description>Your personal assistant in finding a perfect falafel</description>
 
+    <properties>
+        <tomcat.port>8080</tomcat.port>
+    </properties>
+
     <profiles>
         <profile>
             <id>testProps</id>
@@ -233,6 +237,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <arguments>
+                        <argument>--server.port=${tomcat.port}</argument>
+                    </arguments>
+                </configuration>
             </plugin>
         </plugins>
 	</build>
