@@ -16,11 +16,13 @@ import {AgmCoreModule} from '@agm/core';
 import {environment} from '../environments/environment';
 import {UiComponentsModule} from './modules/ui-components.module';
 import {ApiUrlInterceptor} from './interceptors/api-url.interceptor';
-import {LocationComponent} from './components/places/edit-place/location/location.component';
+import {PlaceLocationComponent} from './components/places/edit-place/place-location/place-location.component';
 import {FooterComponent} from './components/common/footer/footer.component';
 import {DropzoneModule} from 'ngx-dropzone-wrapper';
 import {MatPaginatorModule} from '@angular/material';
 import { ConfirmationDialogComponent } from './components/common/confirmation-dialog/confirmation-dialog.component';
+import { NearbyPlacesComponent } from './components/places/nearby-places/nearby-places.component';
+import { ListHeaderComponent } from './components/places/list-header/list-header.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { ConfirmationDialogComponent } from './components/common/confirmation-di
     PlacesListComponent,
     EditPlaceComponent,
     PlaceComponent,
-    LocationComponent,
+    PlaceLocationComponent,
     FooterComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    NearbyPlacesComponent,
+    ListHeaderComponent
   ],
   imports: [
     UiComponentsModule,

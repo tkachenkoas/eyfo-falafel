@@ -1,0 +1,32 @@
+<ng-container>
+  <mat-grid-list cols="2" rowHeight="50px">
+    <mat-grid-tile>
+      <h3 class="align-left">Доступные точки</h3>
+    </mat-grid-tile>
+    <mat-grid-tile >
+      <div class="align-right">
+        <span class="hor-list">
+          <button mat-flat-button
+                  color="accent"
+                  routerLink="../list">
+            Списком
+          </button>
+        </span>
+        <span class="hor-list">
+          <button mat-flat-button
+                  color="accent"
+                  routerLink="../nearby">
+            На карте
+          </button>
+        </span>
+        <span class="hor-list">
+          <button mat-raised-button
+                  color="primary"
+                  routerLink="../new">
+            Добавить точку
+          </button>
+        </span>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>

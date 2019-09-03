@@ -6,6 +6,8 @@ import org.postgresql.Driver
 import java.sql.Connection
 import java.sql.DriverManager
 
+import static java.math.RoundingMode.HALF_DOWN
+
 Properties props = new Properties()
 
 def loadProps = { String file ->
@@ -45,8 +47,8 @@ for (def jsonPlace: data['results']) {
             name: (jsonPlace['name'] as String).replaceAll("'", "-"),
             description: String.join(',', jsonPlace['types'] as List),
             address: jsonPlace['vicinity'],
-            lat: ((jsonPlace.geometry.location.lat) as BigDecimal).precision(5),
-            lng: ( (jsonPlace.geometry.location.lng) as BigDecimal).precision(5),
+            lat: ((jsonPlace.geometry.location.lat) as BigDecimal).setScale(5, HALF_DOWN),
+            lng: ( (jsonPlace.geometry.location.lng) as BigDecimal).setScale(5, HALF_DOWN),
             priceFrom: (int)(jsonPlace['price_level']?:2) * 60,
             priceTo: (int)(jsonPlace['price_level']?:3) * 80
     ))

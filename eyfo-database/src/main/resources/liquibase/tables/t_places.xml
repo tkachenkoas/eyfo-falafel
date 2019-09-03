@@ -80,4 +80,13 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="8" author="Anton">
+        <sql>
+            UPDATE t_places p
+            SET coordinates = ST_GeogFromText(
+                CONCAT('SRID=4326;POINT(', p.longitude, ' ', p.latitude, ')')
+            );
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

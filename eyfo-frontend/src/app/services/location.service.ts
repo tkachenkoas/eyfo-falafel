@@ -3,6 +3,7 @@ import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {ILocation} from '../models/model-interfaces';
 import {LatLngLiteral} from '@agm/core';
+import {get} from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -39,16 +40,16 @@ export class LocationService {
   }
 
   requestUserLocation(): void {
-    if (!window.navigator || !window.navigator.geolocation) {
+    if (!get(window, 'navigator', 'geolocation')) {
       console.log('No navigation available');
       return;
     }
     window.navigator.geolocation.getCurrentPosition(
       position => {
         this.userLocationSubject.next(position.coords);
-        console.log(position);
       },
       error => {
+        console.log(error)
         switch (error.code) {
           case 1:
             console.log('Permission Denied');

@@ -1,0 +1,17 @@
+<places-list-header></places-list-header>
+
+<ng-container>
+  <agm-map
+    [latitude]="userLocation.latitude"
+    [longitude]="userLocation.longitude"
+    [zoom]="zoom"
+    [disableDefaultUI]="false"
+    [streetViewControl]="false"
+    (centerChange)="centerChanged($event)">
+    <agm-marker *ngFor="let place of places"
+                [latitude]="place.location.latitude"
+                [longitude]="place.location.longitude"
+                [markerDraggable]="true">
+    </agm-marker>
+  </agm-map>
+</ng-container>
