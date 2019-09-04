@@ -30,7 +30,7 @@ public class PlaceServiceImpl implements PlaceService {
     @Override
     public Page<Place> findAll(PlaceFilter filter, Pageable paging) {
         return filter.isEmpty()
-                ? placeRepo.findAll(paging)
+                ? placeRepo.findAllByOrderByLastEditDesc(paging)
                 : placeRepo.findFiltered(filter, paging);
     }
 

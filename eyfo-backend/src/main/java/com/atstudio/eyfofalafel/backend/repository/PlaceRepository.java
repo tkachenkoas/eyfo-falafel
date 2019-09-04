@@ -14,11 +14,14 @@ import java.util.List;
 @Repository
 public interface PlaceRepository extends PagingAndSortingRepository<Place, Long> {
 
+    Page<Place> findAllByOrderByLastEditDesc(Pageable paging);
+
     @Query(
            "SELECT p from Place p " +
            " WHERE ( lower(p.name) like %:#{#filter.searchText.toLowerCase()}%" +
            " OR lower(p.description) like %:#{#filter.searchText.toLowerCase()}% " +
-           " OR lower(p.location.address) like %:#{#filter.searchText.toLowerCase()}%) "
+           " OR lower(p.location.address) like %:#{#filter.searchText.toLowerCase()}%) " +
+           " ORDER BY p.lastEdit desc "
     )
     Page<Place> findFiltered(
             @Param("filter") PlaceFilter filter,

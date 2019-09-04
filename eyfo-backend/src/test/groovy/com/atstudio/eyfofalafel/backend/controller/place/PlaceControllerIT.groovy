@@ -138,22 +138,52 @@ class PlaceControllerIT {
         assert places.size() == 1
     }
 
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
+            @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
+    void lastCreatedOrEditedGoesOnTop() {
+        def first = performPost("api/places/new", testPlace("First place"), PlaceRestDto)
+        sleep(500)
+        def second = performPost("api/places/new", testPlace("Second place"), PlaceRestDto)
+
+        // last created goes first
+        assert getPlaces()[0] == second
+        sleep(500)
+        // last edited goes first
+        performPut("api/places/${first.id}", first, PlaceRestDto)
+
+        def places = getPlaces(["searchText" : "place"] as Map)
+
+        assert places[0] == first
+        assert places[1] == second
+    }
+
     private static MockMultipartFile testFile() {
         return new MockMultipartFile("file", "temp_img.png", "image/png", "some file content".getBytes())
     }
 
-    static PlaceRestDto testPlace() {
-        PlaceRestDto place = new PlaceRestDto()
-        place.setName("Test place")
-        place.setPriceFrom(BigDecimal.ONE)
-        place.setPriceTo(BigDecimal.TEN)
-        place.setDescription("Some test description")
-        LocationRestDTO location = new LocationRestDTO()
-        location.setLatitude(BigDecimal.ONE)
-        location.setLongitude(BigDecimal.TEN)
-        location.setAddress("Test street, 5")
-        place.setLocation(location)
-        return place
+    static PlaceRestDto testPlace(
+            String name = "Test place",
+            Integer priceFrom = 1,
+            Integer priceTo = 10,
+            String description = "Some test description",
+            Double latitude = 1,
+            Double longitude = 10,
+            String address = "Test street, 5"
+    ) {
+        return [
+                "name": name,
+                "priceFrom": priceFrom as BigDecimal,
+                "priceTo": priceTo as BigDecimal,
+                "description": description,
+                "location": [
+                        "latitude": latitude as BigDecimal,
+                        "longitude": longitude as BigDecimal,
+                        "address": address
+                ] as LocationRestDTO
+        ] as PlaceRestDto
     }
 
 }

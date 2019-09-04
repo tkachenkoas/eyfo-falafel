@@ -3,8 +3,6 @@ package com.atstudio.eyfofalafel.backend.service.place
 import com.atstudio.eyfofalafel.backend.TestDataSourceAutoConfiguration
 import com.atstudio.eyfofalafel.backend.domain.place.Place
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService
-import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter
-import com.atstudio.eyfofalafel.backend.service.place.PlaceServiceImpl
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired

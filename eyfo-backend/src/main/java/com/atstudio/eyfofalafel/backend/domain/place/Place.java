@@ -3,9 +3,11 @@ package com.atstudio.eyfofalafel.backend.domain.place;
 import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -34,6 +36,10 @@ public class Place {
 
     @Column(name = "price_to")
     private BigDecimal priceTo;
+
+    @Column(name = "last_edit")
+    @UpdateTimestamp
+    private LocalDateTime lastEdit;
 
     @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.EAGER)
     @JoinTable(

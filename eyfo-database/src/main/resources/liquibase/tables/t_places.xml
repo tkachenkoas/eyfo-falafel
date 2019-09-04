@@ -89,4 +89,17 @@
         </sql>
     </changeSet>
 
+    <changeSet id="9" author="Anton">
+        <addColumn tableName="t_places">
+            <column name="last_edit" type="timestamp" defaultValue="now()"/>
+        </addColumn>
+        <sql>
+            update t_places set last_edit = now()
+            where last_edit is null
+        </sql>
+        <rollback>
+            <dropColumn tableName="t_places" columnName="last_edit"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

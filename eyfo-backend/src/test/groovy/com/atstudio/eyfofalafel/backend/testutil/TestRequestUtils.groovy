@@ -88,4 +88,12 @@ class TestRequestUtils {
                             .extract().as(extractClass)
     }
 
+    static <T> T performPut(CharSequence url, Object body, Class<T> extractClass) {
+        return given().spec(reqSpec())
+                .body(body)
+                .put(getUrlWithHost(url))
+                .then().spec(success())
+                .extract().as(extractClass)
+    }
+
 }
