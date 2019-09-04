@@ -1,8 +1,9 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {LocationService} from "../../../services/location.service";
 import {ILocation, IPlace} from "../../../models/model-interfaces";
-import {debounceTime, finalize, switchMap, tap} from "rxjs/operators";
-import {LatLngLiteral} from "@agm/core";
+import {debounce, isEqual} from 'lodash';
+import {AgmInfoWindow, LatLngLiteral} from "@agm/core";
+import {PlacesService} from "../../../services/places.service";
 
 @Component({
   selector: 'app-nearby-places',
@@ -15,10 +16,15 @@ export class NearbyPlacesComponent implements AfterViewInit, OnInit {
   ZOOM_CLOSE: number = 15;
   zoom = this.ZOOM_FAR;
 
-  userLocation: ILocation = {longitude: 0, latitude: 0};
+  defaultCenter: ILocation = {longitude: 0, latitude: 0};
   places: IPlace[];
+  selectedPlace: IPlace;
 
-  constructor(private locationService: LocationService) { }
+  constructor(
+    private locationService: LocationService,
+    private placesService: PlacesService
+  ) {
+  }
 
   ngAfterViewInit(): void {
     this.locationService.requestUserLocation();
@@ -26,13 +32,19 @@ export class NearbyPlacesComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.locationService.userLocationSubject.subscribe(coords => {
-      this.userLocation = coords;
+      this.defaultCenter = coords;
       this.zoom = this.ZOOM_CLOSE;
     });
 
   }
 
-  centerChanged(coords: LatLngLiteral) {
-    console.log(event);
-  }
+  centerChanged = debounce( (coords: LatLngLiteral): void => {
+    this.placesService.findNearby({longitude: coords.lng, latitude: coords.lat})
+      .then(places => {
+        if (!isEqual(this.places, places)) {
+          this.places = places;
+        }
+      })
+  }, 1000);
+
 }

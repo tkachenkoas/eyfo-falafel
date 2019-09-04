@@ -130,8 +130,8 @@ class PlaceControllerIT {
         // make sure that something is found when searching nearby places
         List<PlaceRestDto> places = rawGet("api/places/nearby",
                 [
-                        "lng" : savedPlace.location.latitude - 0.02,
-                        "lat" : savedPlace.location.longitude + 0.02,
+                        "lng" : savedPlace.location.longitude - 0.02,
+                        "lat" : savedPlace.location.latitude + 0.02,
                         "radius": 5000
                 ] as Map
         )['content'] as PlaceRestDto[]

@@ -29,7 +29,7 @@ public interface PlaceRepository extends PagingAndSortingRepository<Place, Long>
             " SELECT p from Place p " +
             " WHERE dwithin(" +
                     " p.location.coordinates, " +
-                        "ST_GeogFromText( concat('SRID=4326;POINT (',:lat,' ',:lng,')')), " +
+                        "ST_GeogFromText( concat('SRID=4326;POINT (',:lng,' ',:lat,')')), " +
                     ":radius" +
             " ) = true"
     )

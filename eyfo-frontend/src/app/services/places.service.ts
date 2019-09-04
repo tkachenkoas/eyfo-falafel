@@ -23,12 +23,13 @@ export class PlacesService {
     return this.http.get('places/', {params}).toPromise() as Promise<IPageable<IPlace>>;
   }
 
-  public findNearby(position: GeoCoords): Promise<IPageable<IPlace>> {
+  public findNearby(position: GeoCoords): Promise<IPlace[]> {
     const params = new HttpParams()
       .set('lat', `${position.latitude}`)
       .set('lng', `${position.longitude}`);
 
-    return this.http.get('places/nearby', {params}).toPromise() as Promise<IPageable<IPlace>>;
+    return this.http.get('places/nearby', {params})
+                    .toPromise() as Promise<IPlace[]>;
   }
 
   public getPlaceById(id: number): Promise<IPlace> {

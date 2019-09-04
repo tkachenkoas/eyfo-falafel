@@ -104,7 +104,7 @@ class PlaceServiceImplTest {
     ])
     void testFindNearby() {
         def testFind = { int radius, int count ->
-            assert placeService.gerNearbyPlaces(37.66 as BigDecimal, 55.62 as BigDecimal, radius).size() == count
+            assert placeService.gerNearbyPlaces(55.62 as BigDecimal, 37.66 as BigDecimal, radius).size() == count
         }
         // find both
         testFind(1800, 2)

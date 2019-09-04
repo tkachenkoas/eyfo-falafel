@@ -70,7 +70,6 @@ export class PlaceLocationComponent implements OnInit, AfterViewInit, ControlVal
             finalize(() => this.isLoading = false),
           )
         )).subscribe(results => {
-      console.log(results);
       this.addressSuggestions = results;
     });
   }
