@@ -17,23 +17,23 @@ import {ILocation} from "../../../../models/model-interfaces";
 
 
 @Component({
-  selector: 'location-picker',
-  templateUrl: './location.component.html',
-  styleUrls: ['./location.component.css'],
+  selector: 'place-location-picker',
+  templateUrl: './place-location.component.html',
+  styleUrls: ['./place-location.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => LocationComponent),
+      useExisting: forwardRef(() => PlaceLocationComponent),
       multi: true
     },
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => LocationComponent),
+      useExisting: forwardRef(() => PlaceLocationComponent),
       multi: true
     }
   ]
 })
-export class LocationComponent implements OnInit, AfterViewInit, ControlValueAccessor, Validator {
+export class PlaceLocationComponent implements OnInit, AfterViewInit, ControlValueAccessor, Validator {
 
   ZOOM_FAR: number = 8;
   ZOOM_CLOSE: number = 15;
@@ -70,7 +70,6 @@ export class LocationComponent implements OnInit, AfterViewInit, ControlValueAcc
             finalize(() => this.isLoading = false),
           )
         )).subscribe(results => {
-      console.log(results);
       this.addressSuggestions = results;
     });
   }

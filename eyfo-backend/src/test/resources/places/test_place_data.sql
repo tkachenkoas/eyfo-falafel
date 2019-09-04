@@ -1,11 +1,11 @@
 INSERT
 INTO t_places
-(name, description, address, latitude, longitude)
+(name, description, address, coordinates)
 values
-('Тестовая фалафельная', 'Описание тестовой фалафельной', 'Адрес тестовой фалафельной', 55.62013, 37.66274);
+('Тестовая фалафельная', 'Описание тестовой фалафельной', 'Адрес тестовой фалафельной', 'POINT(37.67274 55.63013)');
 
 INSERT
 INTO t_places
-(name, description, address, latitude, longitude)
+(name, description, address, coordinates)
 values
-('Тестовая шаурмяшная', 'Информация о шаурменной', 'Локация шаурменной', 55.64, 37.67);
+('Тестовая шаурмяшная', 'Информация о шаурменной', 'Локация шаурменной', 'POINT(37.64274 55.61013)');

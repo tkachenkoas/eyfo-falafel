@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.service.location;
 
-import com.atstudio.eyfofalafel.backend.domain.place.Location;
+import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -18,32 +18,17 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public List<String> getAddressSuggestions(String searchStr) {
-        try {
-            return this.locationApi.getAddressSuggestions(searchStr);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            return null;
-        }
+        return this.locationApi.getAddressSuggestions(searchStr);
     }
 
     @Override
-    public Location getLocationByAddress(String address) {
-        try {
-            return this.locationApi.getLocationByAddress(address);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            return null;
-        }
+    public LocationRestDTO getLocationByAddress(String address) {
+        return this.locationApi.getLocationByAddress(address);
     }
 
     @Override
-    public String getAddressByLocation(Location location) {
-        try {
-            return this.locationApi.getAddressByLocation(location);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            return null;
-        }
+    public String getAddressByLocation(LocationRestDTO location) {
+        return this.locationApi.getAddressByLocation(location);
     }
 
 }

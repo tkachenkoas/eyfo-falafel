@@ -1,5 +1,8 @@
-export interface ILocation {
+export interface ILocation extends GeoCoords{
   address?: string;
+}
+
+export interface GeoCoords {
   latitude: number;
   longitude: number;
 }

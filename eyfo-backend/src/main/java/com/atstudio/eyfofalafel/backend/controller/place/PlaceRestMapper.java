@@ -1,10 +1,8 @@
 package com.atstudio.eyfofalafel.backend.controller.place;
 
-import com.atstudio.eyfofalafel.backend.controller.beanmapper.RestObjectMapper;
 import com.atstudio.eyfofalafel.backend.controller.beanmapper.SimpleRestObjectMapper;
 import com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper;
-import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO;
-import com.atstudio.eyfofalafel.backend.domain.place.Location;
+import com.atstudio.eyfofalafel.backend.controller.location.LocationRestMapper;
 import com.atstudio.eyfofalafel.backend.domain.place.Place;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -16,13 +14,12 @@ import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
 @Qualifier("place")
 public class PlaceRestMapper extends SimpleRestObjectMapper<Place, PlaceRestDto> {
 
-    private RestObjectMapper<Location, LocationRestDTO> locationMapper;
-    private FilesObjectMapper filelsMapper;
+    private final FilesObjectMapper filesMapper;
+    private final LocationRestMapper locationRestMapper;
 
-    public PlaceRestMapper(@Qualifier("location") RestObjectMapper<Location, LocationRestDTO> locationMapper,
-                           FilesObjectMapper filelsMapper) {
-        this.locationMapper = locationMapper;
-        this.filelsMapper = filelsMapper;
+    public PlaceRestMapper(FilesObjectMapper filesMapper, LocationRestMapper locationRestMapper) {
+        this.filesMapper = filesMapper;
+        this.locationRestMapper = locationRestMapper;
     }
 
     @Override
@@ -38,17 +35,29 @@ public class PlaceRestMapper extends SimpleRestObjectMapper<Place, PlaceRestDto>
     @Override
     public Place toEntity(PlaceRestDto restObject) {
         Place autoResult = super.toEntity(restObject);
-        autoResult.setAttachments(emptyIfNull(restObject.getAttachments()).stream()
-                                            .map(att -> filelsMapper.fromRestDto(att)).collect(toList()));
+        autoResult.setLocation(locationRestMapper.toEntity(restObject.getLocation()));
+        autoResult.setAttachments(
+                emptyIfNull(restObject.getAttachments()).stream()
+                .map(filesMapper::fromRestDto)
+                .collect(toList())
+        );
         return autoResult;
     }
 
     @Override
     public PlaceRestDto toRest(Place entity) {
         PlaceRestDto autoResult = super.toRest(entity);
-        autoResult.setAttachments(emptyIfNull(entity.getAttachments()).stream()
-                                        .map(att -> filelsMapper.fromAttachment(att)).collect(toList()));
+        autoResult.setLocation(locationRestMapper.toRest(entity.getLocation()));
+        autoResult.setAttachments(
+                emptyIfNull(entity.getAttachments()).stream()
+                .map(filesMapper::fromAttachment)
+                .collect(toList())
+        );
         return autoResult;
     }
 
+    @Override
+    public PlaceRestDto toShortRest(Place entity) {
+        return super.toRest(entity);
+    }
 }

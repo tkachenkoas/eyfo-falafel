@@ -25,8 +25,13 @@ public class FileUploadController {
 
     @PostMapping("/upload-temp")
     public ResponseEntity<FileRestDto> uploadTempFile(@RequestParam("file") MultipartFile file) throws Exception {
-        Attachment tempFile = fileStorageService.saveTempFile(mapper.fromMultipart(file));
-        return ResponseEntity.ok(mapper.fromAttachment(tempFile));
+        Attachment tempFile = fileStorageService.saveTempFile(
+                mapper.fromMultipart(file)
+        );
+        log.info("Uploaded temp file: {}; original size {} kb", tempFile, file.getBytes().length / 1024);
+        return ResponseEntity.ok(
+                mapper.fromAttachment(tempFile)
+        );
     }
 
 }

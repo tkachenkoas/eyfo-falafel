@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import {IImgAttachment, IPlace, IPageable, IPaging} from '../models/model-interfaces';
+import {Injectable} from '@angular/core';
+import {GeoCoords, IImgAttachment, IPageable, IPaging, IPlace} from '../models/model-interfaces';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {logAndReturn} from '../utils/logging';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -21,29 +20,24 @@ export class PlacesService {
       .set('pageNumber', `${paging.pageNumber}`)
       .set('pageSize', `${paging.pageSize}`);
 
+    return this.http.get('places/', {params}).toPromise() as Promise<IPageable<IPlace>>;
+  }
 
-    return this.http.get('places/', {params})
-      .pipe(
-        map((data: IPageable<IPlace>) => {
-          return logAndReturn(data, 'Place list');
-        })
-      ).toPromise();
+  public findNearby(position: GeoCoords): Promise<IPlace[]> {
+    const params = new HttpParams()
+      .set('lat', `${position.latitude}`)
+      .set('lng', `${position.longitude}`);
+
+    return this.http.get('places/nearby', {params})
+                    .toPromise() as Promise<IPlace[]>;
   }
 
   public getPlaceById(id: number): Promise<IPlace> {
-    return this.http.get(`places/${id}`).pipe(
-      map((data: IPlace) => {
-        return logAndReturn(data, `Place id=${id}`);
-      })
-    ).toPromise();
+    return this.http.get(`places/${id}`).toPromise();
   }
 
   public createPlace(place: IPlace): Promise<IPlace> {
-    return this.http.post('places/new', place).pipe(
-      map((data: IPlace) => {
-        return logAndReturn(data, 'Created place');
-      })
-    ).toPromise();
+    return this.http.post('places/new', place).toPromise();
   }
 
   public uploadImage(file: File): Promise<IImgAttachment> {
@@ -60,11 +54,7 @@ export class PlacesService {
   public patchPlace(place: IPlace): Promise<IPlace> {
     const {id} = place;
     if (!id || Number.isNaN(id)) { return; }
-    return this.http.put(`places/${id}`, place).pipe(
-      map((data: IPlace) => {
-        return logAndReturn(data, 'Patched place');
-      })
-    ).toPromise();
+    return this.http.put(`places/${id}`, place).toPromise();
   }
 
   deletePlace(id: number) {

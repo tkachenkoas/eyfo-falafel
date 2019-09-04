@@ -10,14 +10,14 @@ import org.springframework.web.multipart.MultipartFile
 
 import static com.jayway.restassured.RestAssured.given
 
-class TestUtils {
+class TestRequestUtils {
 
     private static String serverUrl;
 
     static String getServerUrl() {
         if (serverUrl == null) {
             Properties props = new Properties()
-            InputStream is = TestUtils.getClassLoader().getResourceAsStream("application.properties")
+            InputStream is = TestRequestUtils.getClassLoader().getResourceAsStream("application.properties")
             try {
                 props.load(is)
             } finally {
@@ -28,8 +28,8 @@ class TestUtils {
         return serverUrl
     }
 
-    static String getUrlWithHost(String url) {
-        return "${getServerUrl()}/${url}"
+    static String getUrlWithHost(CharSequence url) {
+        return "${getServerUrl()}/${url}".toString()
     }
 
     static ResponseSpecification success() {
@@ -48,7 +48,7 @@ class TestUtils {
     static <T> T multipart(String url, MultipartFile file, Class<T> extractClass) {
         return  given().contentType('multipart/form-data')
                 .multiPart("file", file.getOriginalFilename(), file.getBytes())
-                .post(url).then().spec(success())
+                .post(getUrlWithHost(url)).then().spec(success())
                 .extract().as(extractClass)
     }
 
@@ -59,26 +59,41 @@ class TestUtils {
     }
 
     static JsonPath rawGet(CharSequence url, Map<String, Object> params = [:]) {
-        return given()
-                .contentType(ContentType.JSON)
+        return given().spec(reqSpec())
                 .params(params)
-                .get(url.toString())
+                .get(getUrlWithHost(url))
                 .then().spec(success())
                 .extract().body().jsonPath()
     }
 
-    static <T> T performDelete(CharSequence url) {
-        return given()
-                .delete(url.toString())
+    static <T> T performGet(CharSequence url, Map<String, Object> params = [:], Class<T> extractClass) {
+        return given().spec(reqSpec())
+                .params(params)
+                .post(getUrlWithHost(url))
+                .then().spec(success())
+                .extract().as(extractClass)
+    }
+
+    static void performDelete(CharSequence url) {
+        given()
+                .delete(getUrlWithHost(url))
                 .then().statusCode(200)
     }
 
     static <T> T performPost(CharSequence url, Object body, Class<T> extractClass) {
         return given().spec(reqSpec())
                             .body(body)
-                            .post(url.toString())
+                            .post(getUrlWithHost(url))
                             .then().spec(success())
                             .extract().as(extractClass)
+    }
+
+    static <T> T performPut(CharSequence url, Object body, Class<T> extractClass) {
+        return given().spec(reqSpec())
+                .body(body)
+                .put(getUrlWithHost(url))
+                .then().spec(success())
+                .extract().as(extractClass)
     }
 
 }

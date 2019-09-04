@@ -16,6 +16,10 @@
 	<name>eyfo-backend</name>
 	<description>Your personal assistant in finding a perfect falafel</description>
 
+    <properties>
+        <tomcat.port>8080</tomcat.port>
+    </properties>
+
     <profiles>
         <profile>
             <id>testProps</id>
@@ -43,7 +47,6 @@
         </profile>
         <profile>
             <id>runTests</id>
-            <activation></activation>
             <build>
                 <plugins>
                     <plugin>
@@ -234,6 +237,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <arguments>
+                        <argument>--server.port=${tomcat.port}</argument>
+                    </arguments>
+                </configuration>
             </plugin>
         </plugins>
 	</build>
@@ -244,6 +252,17 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>27.0.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-spatial</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vividsolutions</groupId>
+            <artifactId>jts</artifactId>
+            <version>1.13</version>
         </dependency>
 
         <dependency>

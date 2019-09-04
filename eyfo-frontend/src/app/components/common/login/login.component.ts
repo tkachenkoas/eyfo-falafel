@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginService.authSubject.subscribe( (login) => {
                   if (login.authenticated) {
                     this.loggedIn = true;
-                    this.router.navigate(['places']);
+                    this.router.navigate(['places/list']);
                   } else {
                     this.errorMessage = login.message;
                   }

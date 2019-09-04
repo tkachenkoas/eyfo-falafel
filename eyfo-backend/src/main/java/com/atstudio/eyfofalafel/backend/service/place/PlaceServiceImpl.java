@@ -10,26 +10,28 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.collections4.CollectionUtils.emptyIfNull;
 
 @Service
 public class PlaceServiceImpl implements PlaceService {
 
-    private PlaceRepository crudRepo;
+    private PlaceRepository placeRepo;
     private FileStorageService fileStorageService;
 
-    public PlaceServiceImpl(PlaceRepository crudRepo, FileStorageService fileStorageService) {
-        this.crudRepo = crudRepo;
+    public PlaceServiceImpl(PlaceRepository placeRepo, FileStorageService fileStorageService) {
+        this.placeRepo = placeRepo;
         this.fileStorageService = fileStorageService;
     }
 
     @Override
     public Page<Place> findAll(PlaceFilter filter, Pageable paging) {
         return filter.isEmpty()
-                ? crudRepo.findAll(paging)
-                : crudRepo.findFiltered(filter, paging);
+                ? placeRepo.findAllByOrderByLastEditDesc(paging)
+                : placeRepo.findFiltered(filter, paging);
     }
 
     @Override
@@ -39,7 +41,7 @@ public class PlaceServiceImpl implements PlaceService {
 
         if (placeToSave.getId() == null) {
             placeToSave.setAttachments(newAttachments);
-            return crudRepo.save(placeToSave);
+            return placeRepo.save(placeToSave);
         }
 
         Place existingPlace = findByIdOrThrow(placeToSave.getId());
@@ -52,24 +54,29 @@ public class PlaceServiceImpl implements PlaceService {
         existingPlace.setLocation(placeToSave.getLocation());
         existingPlace.setAttachments(newAttachments);
 
-        return crudRepo.save(existingPlace);
+        return placeRepo.save(existingPlace);
     }
 
     private List<Attachment> storeAll(List<Attachment> attachments) {
-        return attachments.stream()
+        return emptyIfNull(attachments).stream()
                           .map(att -> fileStorageService.saveFileForStorage(att))
                           .collect(toList());
     }
 
     @Override
     public Place findByIdOrThrow(Long id)  {
-        return crudRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("Can't find place with id=" + id));
+        return placeRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("Can't find place with id=" + id));
     }
 
     @Override
     public void deleteById(Long id) {
         Place existingPlace = findByIdOrThrow(id);
         existingPlace.getAttachments().forEach(fileStorageService::remove);
-        this.crudRepo.deleteById(id);
+        this.placeRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Place> gerNearbyPlaces(BigDecimal lat, BigDecimal lng, Integer radius) {
+        return placeRepo.findNearbyPlaces(lat.doubleValue(), lng.doubleValue(), radius);
     }
 }

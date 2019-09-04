@@ -4,6 +4,7 @@ import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.time.FastDateFormat;
 
 import javax.annotation.PostConstruct;
 import javax.imageio.ImageIO;
@@ -16,24 +17,27 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 
 import static com.atstudio.eyfofalafel.backend.controller.files.FilesObjectMapper.normalizeSlashes;
+import static java.lang.String.join;
 import static java.math.BigDecimal.valueOf;
 import static java.net.URLConnection.guessContentTypeFromName;
 import static java.net.URLConnection.guessContentTypeFromStream;
+import static java.nio.file.Files.exists;
 import static org.apache.commons.io.FilenameUtils.getExtension;
+import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 import static org.apache.commons.lang3.StringUtils.contains;
 
 @Slf4j
 public class LocalStorageFileService implements FileStorageService {
 
-    public final static String TEMP_FOLDER = "temp";
+    final static String TEMP_FOLDER = "temp";
     private String fileStorageLocation;
 
-    public static final long MAX_IMAGE_SIZE = 500 * 1024;
+    static final long MAX_IMAGE_SIZE = 500 * 1024;
+
+    private static final FastDateFormat dateFormatter = FastDateFormat.getInstance("YYYYMMDDHH");
 
     public LocalStorageFileService(String fileStorageLocation) {
         this.fileStorageLocation = fileStorageLocation;
@@ -51,7 +55,7 @@ public class LocalStorageFileService implements FileStorageService {
 
     @Override
     public Attachment saveTempFile(Attachment file) {
-        String targetFileName = String.join(".", getRandomFilename(), getExtension(file.getFileName()).toLowerCase());
+        String targetFileName = join(".", getRandomFilename(), getExtension(file.getFileName()).toLowerCase());
 
         Path targetLocation = tempPath().resolve(targetFileName);
         if (isImage(file)) {
@@ -59,9 +63,8 @@ public class LocalStorageFileService implements FileStorageService {
         } else {
             writeContentToFile(file.getContent(), targetLocation);
         }
-
         Attachment result = Attachment.newFrom(file);
-        result.setFullPath(String.join("/", TEMP_FOLDER, targetFileName).toLowerCase());
+        result.setFullPath(join("/", TEMP_FOLDER, targetFileName).toLowerCase());
         return result;
     }
 
@@ -139,8 +142,9 @@ public class LocalStorageFileService implements FileStorageService {
     }
 
     private void removeByPath(Path filePath) {
-        if (!Files.exists(filePath)) {
+        if (!exists(filePath)) {
             log.info("File {} does not exist; will do nothing", filePath.toString());
+            return;
         }
         try {
             Files.delete(filePath);
@@ -156,14 +160,12 @@ public class LocalStorageFileService implements FileStorageService {
             file.setContent(fileContent);
         } catch (IOException e) {
             log.error(e.getMessage());
-            throw new FileNotFoundException(file.getFullPath());
+            throw new FileNotFoundException("Can't read file because it does not exist: " + file.getFullPath());
         }
     }
 
     private String getRandomFilename() {
-        String datePart = new SimpleDateFormat("YYYYMMDDHH").format(new Date());
-        String randomPart = String.format("%07d" , new Random().nextInt(1000000));
-        return String.join("_", datePart, randomPart);
+        return join("_", dateFormatter.format(new Date()), randomNumeric(7));
     }
 
     private Path tempPath() {

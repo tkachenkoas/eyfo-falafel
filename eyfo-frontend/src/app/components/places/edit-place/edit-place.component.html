@@ -9,7 +9,7 @@
     </mat-form-field>
   </div>
   <div>
-    <location-picker [formGroup]="placeForm" formControlName="location"></location-picker>
+    <place-location-picker [formGroup]="placeForm" formControlName="location"></place-location-picker>
   </div>
   <div *ngIf="images.length > 0">
     <drag-scroll>

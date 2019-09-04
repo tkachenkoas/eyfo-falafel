@@ -3,7 +3,6 @@ import {PlacesService} from '../../../services/places.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {IImgAttachment, IPlace} from '../../../models/model-interfaces';
 import {ActivatedRoute, Router} from '@angular/router';
-import {logAndReturn} from '../../../utils/logging';
 import {environment} from '../../../../environments/environment';
 import {DropzoneConfigInterface} from "ngx-dropzone-wrapper";
 import {LoginService} from "../../../services/login.service";
@@ -88,10 +87,10 @@ export class EditPlaceComponent implements OnInit {
     place.id = this.placeId;
     place.attachments = this.images;
     const saveAction: Promise<IPlace> = this.editMode()
-                                      ? this.placesService.patchPlace(logAndReturn(place, 'Create new place'))
-                                      : this.placesService.createPlace(logAndReturn(place, 'Create new place'));
+                                      ? this.placesService.patchPlace(place)
+                                      : this.placesService.createPlace(place);
     saveAction.then( () => {
-      this.router.navigate(['places']);
+      this.router.navigate(['places/list']);
     });
   }
 

@@ -3,8 +3,6 @@ package com.atstudio.eyfofalafel.backend.service.place
 import com.atstudio.eyfofalafel.backend.TestDataSourceAutoConfiguration
 import com.atstudio.eyfofalafel.backend.domain.place.Place
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService
-import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter
-import com.atstudio.eyfofalafel.backend.service.place.PlaceServiceImpl
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -29,7 +27,7 @@ class PlaceServiceImplTest {
     @MockBean
     private FileStorageService fileStorageService
     @Autowired
-    private PlaceServiceImpl placeService;
+    private PlaceServiceImpl placeService
 
     @Test
     @SqlGroup([
@@ -96,5 +94,25 @@ class PlaceServiceImplTest {
         assert getPage(2).isEmpty()
     }
 
+    @Test
+    @SqlGroup([
+            @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+            ,@Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql")
+            ,@Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
+    ])
+    void testFindNearby() {
+        def testFind = { int radius, int count ->
+            assert placeService.gerNearbyPlaces(55.62 as BigDecimal, 37.66 as BigDecimal, radius).size() == count
+        }
+        // find both
+        testFind(1800, 2)
 
+        // https://www.geodatasource.com/distance-calculator =>
+        // distance between sql test point (37.67274 55.63013) and test point (37.66 55.62) is ~1.38 km =>
+
+        // only closest
+        testFind(1400, 1)
+        // radius too small
+        testFind(1360, 0)
+    }
 }

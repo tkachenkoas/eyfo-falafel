@@ -1,0 +1,34 @@
+<places-list-header></places-list-header>
+
+<ng-container>
+  <agm-map
+    [latitude]="defaultCenter.latitude"
+    [longitude]="defaultCenter.longitude"
+    [zoom]="zoom"
+    [disableDefaultUI]="false"
+    [streetViewControl]="false"
+    (centerChange)="centerChanged($event)">
+    <agm-marker *ngFor="let place of places"
+                [latitude]="place.location.latitude"
+                [longitude]="place.location.longitude"
+                (markerClick)="this.selectedPlace = place">
+      <agm-info-window [isOpen]="!!selectedPlace && selectedPlace.id == place.id">
+        <ng-container *ngIf="!!selectedPlace">
+          <mat-card>
+            <mat-card-title>
+              {{selectedPlace.name}}
+            </mat-card-title>
+            <mat-card-subtitle>
+              <ng-container *ngIf="!!selectedPlace.priceFrom">
+                Цена: {{selectedPlace.priceFrom}} - {{selectedPlace.priceTo || '?'}}
+              </ng-container>
+            </mat-card-subtitle>
+            <mat-card-actions>
+              <a mat-button routerLink="../{{selectedPlace.id}}/edit">Редактировать</a>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</ng-container>

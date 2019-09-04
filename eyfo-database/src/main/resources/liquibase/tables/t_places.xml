@@ -2,7 +2,7 @@
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
     <changeSet author="Anton" id="1">
         <createTable tableName="t_places">
@@ -63,6 +63,51 @@
                         sequenceName="t_places_id_seq"/>
         <rollback>
             <dropSequence sequenceName="t_places_id_seq"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="6" author="Anton">
+        <alterSequence sequenceName="t_places_id_seq"
+                       incrementBy="10"/>
+    </changeSet>
+
+    <changeSet id="7" author="Anton">
+        <addColumn tableName="t_places">
+            <column name="coordinates" type="geography(POINT,4326)"/>
+        </addColumn>
+        <rollback>
+            <dropColumn tableName="t_places" columnName="coordinates"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="8" author="Anton">
+        <sql>
+            UPDATE t_places p
+            SET coordinates = ST_GeogFromText(
+                CONCAT('SRID=4326;POINT(', p.longitude, ' ', p.latitude, ')')
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="9" author="Anton">
+        <addColumn tableName="t_places">
+            <column name="last_edit" type="timestamp" defaultValue="now()"/>
+        </addColumn>
+        <sql>
+            update t_places set last_edit = now()
+            where last_edit is null
+        </sql>
+        <rollback>
+            <dropColumn tableName="t_places" columnName="last_edit"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="10" author="Anton">
+        <createIndex tableName="t_places" indexName="last_edit_nulls_last">
+            <column name="last_edit" type="timestamp" descending="true"/>
+        </createIndex>
+        <rollback>
+            <dropIndex indexName="last_edit_nulls_last" tableName="t_places"/>
         </rollback>
     </changeSet>
 
