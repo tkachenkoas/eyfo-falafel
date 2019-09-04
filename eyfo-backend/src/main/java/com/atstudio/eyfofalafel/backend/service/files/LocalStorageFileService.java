@@ -144,6 +144,7 @@ public class LocalStorageFileService implements FileStorageService {
     private void removeByPath(Path filePath) {
         if (!exists(filePath)) {
             log.info("File {} does not exist; will do nothing", filePath.toString());
+            return;
         }
         try {
             Files.delete(filePath);

@@ -2,7 +2,7 @@
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
     <changeSet author="Anton" id="1">
         <createTable tableName="t_places">
@@ -99,6 +99,15 @@
         </sql>
         <rollback>
             <dropColumn tableName="t_places" columnName="last_edit"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="10" author="Anton">
+        <createIndex tableName="t_places" indexName="last_edit_nulls_last">
+            <column name="last_edit" type="timestamp" descending="true"/>
+        </createIndex>
+        <rollback>
+            <dropIndex indexName="last_edit_nulls_last" tableName="t_places"/>
         </rollback>
     </changeSet>
 

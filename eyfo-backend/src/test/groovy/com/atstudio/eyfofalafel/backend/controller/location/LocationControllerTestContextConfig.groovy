@@ -1,8 +1,6 @@
 package com.atstudio.eyfofalafel.backend.controller.location
 
 
-import com.atstudio.eyfofalafel.backend.controller.beanmapper.RestObjectMapper
-import com.atstudio.eyfofalafel.backend.domain.place.Location
 import com.atstudio.eyfofalafel.backend.service.location.LocationService
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.boot.test.context.TestConfiguration
@@ -23,10 +21,6 @@ class LocationControllerTestContextConfig {
     @Bean
     LocationController locationController() {
         return new LocationController(locationService)
-    }
-
-    RestObjectMapper<Location, LocationRestDTO> locationMapper() {
-        return new LocationRestMapper(gf);
     }
 
 }

@@ -22,22 +22,6 @@ public class Location {
     @Column(name = "coordinates", columnDefinition = "geography(Point,4326)")
     private Point coordinates;
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Point getCoordinates() {
-        return coordinates;
-    }
-
-    public void setCoordinates(Point coordinates) {
-        this.coordinates = coordinates;
-    }
-
     @Transient
     public BigDecimal getLatitude() {
         return getCoord(Point::getY);
