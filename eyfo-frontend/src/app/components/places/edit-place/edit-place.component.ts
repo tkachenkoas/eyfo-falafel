@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../../environments/environment';
 import {DropzoneConfigInterface} from "ngx-dropzone-wrapper";
 import {LoginService} from "../../../services/login.service";
+import {getUrlWithHost} from "../../../util/http";
 
 @Component({
   selector: 'app-edit-place',
@@ -73,8 +74,6 @@ export class EditPlaceComponent implements OnInit {
     this.images.push(event[1] as IImgAttachment);
   }
 
-  getUrlWithHost = (url: string) => `${environment.serverHost}${url}`;
-
   hasErrors = (controlName: string): boolean => {
     const  control = this.frm[controlName];
     return control.touched && !control.valid;
@@ -96,5 +95,9 @@ export class EditPlaceComponent implements OnInit {
 
   get frm() {
     return this.placeForm.controls;
+  }
+
+  withHost(fullPath: string) {
+    return getUrlWithHost(fullPath);
   }
 }

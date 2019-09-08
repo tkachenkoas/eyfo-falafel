@@ -6,6 +6,7 @@ import {EditPlaceComponent} from './components/places/edit-place/edit-place.comp
 import {AuthGuardService as AuthGuard} from './services/auth-guard.service';
 import {NearbyPlacesComponent} from "./components/places/nearby-places/nearby-places.component";
 import {PlaceComponent} from "./components/places/place.component";
+import {ViewPlaceComponent} from "./components/places/view-place/view-place.component";
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
       { path: 'nearby', component: NearbyPlacesComponent },
       { path: 'new', component: EditPlaceComponent },
       { path: ':id/edit', component: EditPlaceComponent },
+      { path: ':id', component: ViewPlaceComponent },
     ]
   }
 ];

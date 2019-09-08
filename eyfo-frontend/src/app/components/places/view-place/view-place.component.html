@@ -1,0 +1,42 @@
+<ng-container *ngIf="place">
+  <h3> {{place.name}}</h3>
+  <mat-grid-list cols="5" rowHeight="300px">
+    <mat-grid-tile
+      [colspan]="2"
+      [rowspan]="1">
+      <div class="place-info">
+        <p> Адрес: {{place.location.address}}</p>
+        <p> Диапазон цен: {{place.priceFrom}} - {{place.priceTo || '?'}}</p>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="3"
+      [rowspan]="1">
+      <div class="map">
+        <agm-map
+          [latitude]="place.location.latitude"
+          [longitude]="place.location.longitude"
+          [zoom]="12"
+          [disableDefaultUI]="false"
+          [streetViewControl]="false"
+          [draggable]="false">
+          <agm-marker [latitude]="place.location.latitude"
+                      [longitude]="place.location.longitude"
+                      [markerDraggable]="false">
+          </agm-marker>
+        </agm-map>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <ng-container *ngIf="getImages().length > 0">
+    <h4>
+      Фотографии точки
+    </h4>
+    <slideshow [height]="'400px'"
+               [minHeight]="'525px'"
+               [showArrows]="true"
+               [imageUrls]="getImages()"
+               [lazyLoad]="getImages()?.length > 1">
+    </slideshow>
+  </ng-container>
+</ng-container>

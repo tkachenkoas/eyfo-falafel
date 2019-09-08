@@ -1,0 +1,10 @@
+agm-map {
+  height: 300px;
+  width: 500px;
+}
+
+.place-info {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}

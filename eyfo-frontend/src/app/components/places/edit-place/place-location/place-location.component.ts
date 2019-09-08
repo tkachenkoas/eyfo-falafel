@@ -56,6 +56,9 @@ export class PlaceLocationComponent implements OnInit, AfterViewInit, ControlVal
 
   ngOnInit() {
     this.locationService.userLocationSubject.subscribe(coords => {
+        if (this.userLocation.latitude != 0 && this.userLocation.longitude != 0) {
+          return;
+        }
         this.setCenterLocation(coords);
         this.zoom = this.ZOOM_CLOSE;
       });
