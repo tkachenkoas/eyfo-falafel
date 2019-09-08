@@ -29,12 +29,11 @@ mwnw
 /.nb-gradle/
 
 ### Configs ###
-conf/local
-conf/test
+/eyfo-backend/src/test/resources/application.properties
+conf/
 
 ### Test-resourses ###
 test/resources/*.properties
-
 
 ### Frontend ###
 node/
@@ -43,4 +42,3 @@ node_modules/
 eyfo-frontend/src/main/resources/static/
 environment-local.ts
 package-lock.json
-/eyfo-backend/src/test/resources/application.properties
