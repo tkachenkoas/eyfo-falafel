@@ -32,6 +32,9 @@ mwnw
 /eyfo-backend/src/test/resources/application.properties
 conf/
 
+### Logs ###
+**/logfile.log
+
 ### Test-resourses ###
 test/resources/*.properties
 

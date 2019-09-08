@@ -4,7 +4,7 @@ import {LoginService} from '../services/login.service';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {HttpStatus} from '../const/http';
+import {HttpStatus} from '../util/http';
 import {RestResponse} from '../models/rest-response';
 
 @Injectable()

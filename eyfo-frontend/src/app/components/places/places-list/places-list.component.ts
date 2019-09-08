@@ -1,7 +1,6 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {IPageable, IPaging, IPlace} from '../../../models/model-interfaces';
 import {PlacesService} from '../../../services/places.service';
-import {Router} from '@angular/router';
 import {PageEvent} from '@angular/material/paginator';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import {
@@ -24,7 +23,6 @@ export class PlacesListComponent implements AfterViewInit {
   paging: IPaging;
 
   constructor(private placeService: PlacesService,
-              private router: Router,
               public dialog: MatDialog) { }
 
   ngAfterViewInit() {
@@ -42,10 +40,6 @@ export class PlacesListComponent implements AfterViewInit {
                         this.places = page;
                         this.isLoadingResults = false;
                       });
-  }
-
-  editPlace(place: IPlace) {
-    this.router.navigate([`places/${place.id}/edit`]);
   }
 
   openDialog(place: IPlace): void {

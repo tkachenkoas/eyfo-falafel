@@ -23,6 +23,8 @@ import {MatPaginatorModule} from '@angular/material';
 import { ConfirmationDialogComponent } from './components/common/confirmation-dialog/confirmation-dialog.component';
 import { NearbyPlacesComponent } from './components/places/nearby-places/nearby-places.component';
 import { ListHeaderComponent } from './components/places/list-header/list-header.component';
+import { ViewPlaceComponent } from './components/places/view-place/view-place.component';
+import {SlideshowModule} from "ng-simple-slideshow";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ListHeaderComponent } from './components/places/list-header/list-header
     FooterComponent,
     ConfirmationDialogComponent,
     NearbyPlacesComponent,
-    ListHeaderComponent
+    ListHeaderComponent,
+    ViewPlaceComponent
   ],
   imports: [
     UiComponentsModule,
@@ -49,7 +52,8 @@ import { ListHeaderComponent } from './components/places/list-header/list-header
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey
     }),
-    routing
+    routing,
+    SlideshowModule
   ],
   exports : [
     MatPaginatorModule
