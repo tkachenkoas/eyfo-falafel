@@ -1,13 +1,16 @@
-package com.atstudio.eyfofalafel.backend.config.common;
+package com.atstudio.eyfofalafel.backend.config.stubs;
 
 import com.atstudio.eyfofalafel.backend.service.location.google.GoogleApi;
 import com.atstudio.eyfofalafel.backend.service.location.google.GoogleApiStub;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import java.io.File;
 
+@Configuration
 public class StubsConfig {
+
     @Bean
     @Profile("stubs")
     public GoogleApi stubGoogleApi() {

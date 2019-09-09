@@ -18,6 +18,8 @@
 
     <properties>
         <tomcat.port>8080</tomcat.port>
+        <groovy.eclipse.compiler>3.3.0-01</groovy.eclipse.compiler>
+        <lombok.version>1.18.8</lombok.version>
     </properties>
 
     <profiles>
@@ -248,37 +250,50 @@
 
 	<build>
         <finalName>eyfo-falafel-app</finalName>
-		<plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
             <plugin>
-                <groupId>org.codehaus.gmaven</groupId>
-                <artifactId>gmaven-plugin</artifactId>
-                <version>1.5</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <compilerId>groovy-eclipse-compiler</compilerId>
+                    <verbose>true</verbose>
+                    <fork>true</fork>
+                    <compilerArguments>
+                        <!-- consult Lombok docs to confirm agent class name for your version -->
+                        <javaAgentClass>lombok.launch.Agent</javaAgentClass>
+                    </compilerArguments>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
                 <dependencies>
                     <dependency>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>${lombok.version}</version>
+                    </dependency>
+                    <dependency>
                         <groupId>org.codehaus.groovy</groupId>
-                        <artifactId>groovy-all</artifactId>
-                        <version>${groovy.version}</version>
+                        <artifactId>groovy-eclipse-compiler</artifactId>
+                        <version>${groovy.eclipse.compiler}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-batch</artifactId>
+                        <version>${groovy.version}-03</version>
                     </dependency>
                 </dependencies>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generateStubs</goal>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <fileset>
-                                    <directory>${pom.basedir}/src/test/groovy</directory>
-                                    <includes>
-                                        <include>**/*.groovy</include>
-                                    </includes>
-                                </fileset>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-eclipse-compiler</artifactId>
+                <version>${groovy.eclipse.compiler}</version>
+                <extensions>true</extensions>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -314,6 +329,12 @@
             <groupId>com.vividsolutions</groupId>
             <artifactId>jts</artifactId>
             <version>1.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
