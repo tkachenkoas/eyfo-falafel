@@ -1,9 +1,12 @@
 package com.atstudio.eyfofalafel.backend.service.location.google
 
+import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.PropertyNamingStrategy
+import com.fasterxml.jackson.databind.node.ObjectNode
 import com.google.maps.model.AutocompletePrediction
 import com.google.maps.model.GeocodingResult
 import com.google.maps.model.LatLng
-import groovy.json.JsonSlurper
 
 class GoogleApiStub implements GoogleApi {
 
@@ -11,18 +14,25 @@ class GoogleApiStub implements GoogleApi {
     private final GeocodingResult[] addressGeocodings
     private final GeocodingResult[] reversedGeoCodings
 
+    private final ObjectMapper mapper
+
     GoogleApiStub(
             File autoCompleteStub,
             File geocodeStub,
-            File reverseGeocodeStub
+            File reverseGeocodeStub,
+            ObjectMapper mapper
     ) {
-        predictions = parse(autoCompleteStub)['predictions'] as AutocompletePrediction[]
-        addressGeocodings = parse(geocodeStub)['results'] as GeocodingResult[]
-        reversedGeoCodings = parse(reverseGeocodeStub)['results'] as GeocodingResult[]
+        this.mapper = mapper.copy();
+        this.mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
+
+        predictions = parse(autoCompleteStub, 'predictions', AutocompletePrediction[])
+        addressGeocodings = parse(geocodeStub, 'results', GeocodingResult[])
+        reversedGeoCodings = parse(reverseGeocodeStub, 'results', GeocodingResult[])
     }
 
-    private Object parse(File file) {
-        return new JsonSlurper().parseText(file.text)
+    private <T> T parse(File file, String field, Class<T> targetClass) {
+        JsonNode node = mapper.readValue(file.text, ObjectNode).get(field)
+        return mapper.treeToValue(node, targetClass)
     }
 
     @Override
