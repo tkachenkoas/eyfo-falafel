@@ -1,0 +1,221 @@
+{
+  "predictions": [
+    {
+      "description": "улица Кошкина, Москва, Россия",
+      "id": "b24a72f2939b9faff3c2063d2b32207a4da3476c",
+      "matched_substrings": [
+        {
+          "length": 13,
+          "offset": 0
+        }
+      ],
+      "place_id": "EjXRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjyIuKiwKFAoSCScUfKujs0pBEa2shz80WYRqEhQKEgnJsNRz_Eq1RhFMz1dXzNZEPQ",
+      "reference": "EjXRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjyIuKiwKFAoSCScUfKujs0pBEa2shz80WYRqEhQKEgnJsNRz_Eq1RhFMz1dXzNZEPQ",
+      "structured_formatting": {
+        "main_text": "улица Кошкина",
+        "main_text_matched_substrings": [
+          {
+            "length": 13,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Москва, Россия"
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "улица Кошкина"
+        },
+        {
+          "offset": 15,
+          "value": "Москва"
+        },
+        {
+          "offset": 23,
+          "value": "Россия"
+        }
+      ],
+      "types": [
+        "route",
+        "geocode"
+      ]
+    },
+    {
+      "description": "улица Кошкина, Харьков, Харьковская область, Украина",
+      "id": "c3ef3ef977c0fce941b049ecd0779a17f5e8524a",
+      "matched_substrings": [
+        {
+          "length": 13,
+          "offset": 0
+        }
+      ],
+      "place_id": "EmDRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KPQutGA0LDQuNC90LAiLiosChQKEgkZ8_xOcAonQRHjbM0BHpaphxIUChIJiw-rY5-gJ0ERCr6kGmgYTC0",
+      "reference": "EmDRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KPQutGA0LDQuNC90LAiLiosChQKEgkZ8_xOcAonQRHjbM0BHpaphxIUChIJiw-rY5-gJ0ERCr6kGmgYTC0",
+      "structured_formatting": {
+        "main_text": "улица Кошкина",
+        "main_text_matched_substrings": [
+          {
+            "length": 13,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Харьков, Харьковская область, Украина"
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "улица Кошкина"
+        },
+        {
+          "offset": 15,
+          "value": "Харьков"
+        },
+        {
+          "offset": 24,
+          "value": "Харьковская область"
+        },
+        {
+          "offset": 45,
+          "value": "Украина"
+        }
+      ],
+      "types": [
+        "route",
+        "geocode"
+      ]
+    },
+    {
+      "description": "улица Кошкина, Туапсе, Краснодарский край, Россия",
+      "id": "d9abeb5c05913d52e1e4519fbd3dca5906c39e8d",
+      "matched_substrings": [
+        {
+          "length": 13,
+          "offset": 0
+        }
+      ],
+      "place_id": "ElrRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQotGD0LDQv9GB0LUsINCa0YDQsNGB0L3QvtC00LDRgNGB0LrQuNC5INC60YDQsNC5LCDQoNC-0YHRgdC40Y8iLiosChQKEgnNxc-FmP_zQBEhyMSBpg7F8RIUChIJPQFMqAD_80ARMMrXBfoZne0",
+      "reference": "ElrRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQotGD0LDQv9GB0LUsINCa0YDQsNGB0L3QvtC00LDRgNGB0LrQuNC5INC60YDQsNC5LCDQoNC-0YHRgdC40Y8iLiosChQKEgnNxc-FmP_zQBEhyMSBpg7F8RIUChIJPQFMqAD_80ARMMrXBfoZne0",
+      "structured_formatting": {
+        "main_text": "улица Кошкина",
+        "main_text_matched_substrings": [
+          {
+            "length": 13,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Туапсе, Краснодарский край, Россия"
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "улица Кошкина"
+        },
+        {
+          "offset": 15,
+          "value": "Туапсе"
+        },
+        {
+          "offset": 23,
+          "value": "Краснодарский край"
+        },
+        {
+          "offset": 43,
+          "value": "Россия"
+        }
+      ],
+      "types": [
+        "route",
+        "geocode"
+      ]
+    },
+    {
+      "description": "улица Кошкина, Волжск, Республика Марий Эл, Россия",
+      "id": "04247b4e2e4a7048676b250cee24be90ba476731",
+      "matched_substrings": [
+        {
+          "length": 13,
+          "offset": 0
+        }
+      ],
+      "place_id": "ElvRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQktC-0LvQttGB0LosINCg0LXRgdC_0YPQsdC70LjQutCwINCc0LDRgNC40Lkg0K3Quywg0KDQvtGB0YHQuNGPIi4qLAoUChIJEwSCjgTkW0ERJ0M4xTnPkHsSFAoSCfeEeT7J5ltBEaSh0KXoQPwJ",
+      "reference": "ElvRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQktC-0LvQttGB0LosINCg0LXRgdC_0YPQsdC70LjQutCwINCc0LDRgNC40Lkg0K3Quywg0KDQvtGB0YHQuNGPIi4qLAoUChIJEwSCjgTkW0ERJ0M4xTnPkHsSFAoSCfeEeT7J5ltBEaSh0KXoQPwJ",
+      "structured_formatting": {
+        "main_text": "улица Кошкина",
+        "main_text_matched_substrings": [
+          {
+            "length": 13,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Волжск, Республика Марий Эл, Россия"
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "улица Кошкина"
+        },
+        {
+          "offset": 15,
+          "value": "Волжск"
+        },
+        {
+          "offset": 23,
+          "value": "Республика Марий Эл"
+        },
+        {
+          "offset": 44,
+          "value": "Россия"
+        }
+      ],
+      "types": [
+        "route",
+        "geocode"
+      ]
+    },
+    {
+      "description": "улица Кошкина, Переславль-Залесский, Ярославская область, Россия",
+      "id": "349eba2e363edaaadf1ea9ab54ab03199f88b9e0",
+      "matched_substrings": [
+        {
+          "length": 13,
+          "offset": 0
+        }
+      ],
+      "place_id": "EnfRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQn9C10YDQtdGB0LvQsNCy0LvRjC3Ql9Cw0LvQtdGB0YHQutC40LksINCv0YDQvtGB0LvQsNCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCg0L7RgdGB0LjRjyIuKiwKFAoSCQ2bhwS7W7NGERIrifXZT3JNEhQKEgldIVgqxluzRhFI78JUa5h7IA",
+      "reference": "EnfRg9C70LjRhtCwINCa0L7RiNC60LjQvdCwLCDQn9C10YDQtdGB0LvQsNCy0LvRjC3Ql9Cw0LvQtdGB0YHQutC40LksINCv0YDQvtGB0LvQsNCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCg0L7RgdGB0LjRjyIuKiwKFAoSCQ2bhwS7W7NGERIrifXZT3JNEhQKEgldIVgqxluzRhFI78JUa5h7IA",
+      "structured_formatting": {
+        "main_text": "улица Кошкина",
+        "main_text_matched_substrings": [
+          {
+            "length": 13,
+            "offset": 0
+          }
+        ],
+        "secondary_text": "Переславль-Залесский, Ярославская область, Россия"
+      },
+      "terms": [
+        {
+          "offset": 0,
+          "value": "улица Кошкина"
+        },
+        {
+          "offset": 15,
+          "value": "Переславль-Залесский"
+        },
+        {
+          "offset": 37,
+          "value": "Ярославская область"
+        },
+        {
+          "offset": 58,
+          "value": "Россия"
+        }
+      ],
+      "types": [
+        "route",
+        "geocode"
+      ]
+    }
+  ],
+  "status": "OK"
+}

@@ -1,8 +1,12 @@
 package com.atstudio.eyfofalafel.backend.controller.location
 
 import com.atstudio.eyfofalafel.backend.controller.ControllerExceptionHandler
-import com.atstudio.eyfofalafel.backend.service.location.LocationService
+import com.atstudio.eyfofalafel.backend.service.location.google.GoogleApi
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.google.maps.model.AutocompletePrediction
+import com.google.maps.model.GeocodingResult
+import com.google.maps.model.Geometry
+import com.google.maps.model.LatLng
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +22,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import static org.mockito.ArgumentMatchers.eq
 import static org.mockito.Mockito.when
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @RunWith(SpringRunner)
@@ -26,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class LocationControllerTest {
 
     @Autowired
-    private LocationService locationService
+    private GoogleApi googleApi
 
     @Autowired
     private LocationController locationController
@@ -38,7 +41,7 @@ class LocationControllerTest {
 
     @Before
     void setUp() {
-        Mockito.reset(locationService)
+        Mockito.reset(googleApi)
         this.mockMvc = MockMvcBuilders
                 .standaloneSetup(locationController)
                 .setControllerAdvice(new ControllerExceptionHandler())
@@ -47,8 +50,11 @@ class LocationControllerTest {
 
     @Test
     void testGetAddressSuggestions() {
-        when(locationService.getAddressSuggestions(eq("Search address")))
-                .thenReturn(["Address 1", "Address 2"])
+        when(googleApi.getPredictions(eq("Search address")))
+                .thenReturn(
+                        [prediction("Address 1"),
+                         prediction("Address 2")] as AutocompletePrediction[]
+                )
 
         List<String> response = objectMapper.readValue(
                 performGetWithParamsAndExtractResponseString("/location/address-suggestions", ["searchStr": "Search address"] as Map),
@@ -67,8 +73,14 @@ class LocationControllerTest {
                 "longitude": 100
         ] as LocationRestDTO
 
-        when(locationService.getLocationByAddress(eq("Search address")))
-                .thenReturn(mockResponse)
+        when(googleApi.getGeoCodings(eq("Search address")))
+                .thenReturn(
+                        [geocoding(
+                                mockResponse.getAddress(),
+                                mockResponse.getLatitude(),
+                                mockResponse.getLongitude()
+                        )] as GeocodingResult[]
+                )
 
         LocationRestDTO response = objectMapper.readValue(
                 performGetWithParamsAndExtractResponseString("/location/location-by-address", ["address": "Search address"] as Map),
@@ -85,16 +97,33 @@ class LocationControllerTest {
                 "longitude": 100
         ] as LocationRestDTO
 
-        when(locationService.getAddressByLocation(eq(reqLocation)))
-                .thenReturn("Target address")
+        LatLng latLng = new LatLng(reqLocation.latitude, reqLocation.longitude)
+        when(googleApi.reversedGeoCodings(eq(latLng)))
+                .thenReturn(
+                        [geocoding("Target address", 50, 100)] as GeocodingResult[]
+                )
 
         LocationRestDTO response = objectMapper.readValue(
                 performGetWithParamsAndExtractResponseString("/location/address-by-location", ["lat": 50, "lng": 100] as Map),
                 LocationRestDTO);
 
         assert response.longitude == reqLocation.longitude &&
-                response.latitude == response.latitude &&
+                response.latitude == reqLocation.latitude &&
                 response.address == "Target address"
+    }
+
+    private static AutocompletePrediction prediction(String description) {
+        return new AutocompletePrediction(description: description)
+    }
+
+    private static GeocodingResult geocoding(String address, Double lat, Double lng) {
+        def result = new GeocodingResult();
+        result.geometry = new Geometry();
+        result.geometry.location = new LatLng();
+        result.geometry.location.lat = lat
+        result.geometry.location.lng = lng
+        result.formattedAddress = address
+        return result
     }
 
     private String performGetWithParamsAndExtractResponseString(

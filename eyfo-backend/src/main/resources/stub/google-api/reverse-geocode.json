@@ -1,0 +1,906 @@
+{
+  "plus_code": {
+    "compound_code": "JMVF+G2 Южный административный округ, Москва, Россия",
+    "global_code": "9G7VJMVF+G2"
+  },
+  "results": [
+    {
+      "address_components": [
+        {
+          "long_name": "4",
+          "short_name": "4",
+          "types": [
+            "street_number"
+          ]
+        },
+        {
+          "long_name": "улица Кошкина",
+          "short_name": "ул. Кошкина",
+          "types": [
+            "route"
+          ]
+        },
+        {
+          "long_name": "Южный административный округ",
+          "short_name": "Юж. административный округ",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москворечье-сабурово",
+          "short_name": "Москворечье-сабурово",
+          "types": [
+            "administrative_area_level_3",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        },
+        {
+          "long_name": "115409",
+          "short_name": "115409",
+          "types": [
+            "postal_code"
+          ]
+        }
+      ],
+      "formatted_address": "ул. Кошкина, 4, Москва, Россия, 115409",
+      "geometry": {
+        "location": {
+          "lat": 55.643847,
+          "lng": 37.67261999999999
+        },
+        "location_type": "ROOFTOP",
+        "viewport": {
+          "northeast": {
+            "lat": 55.6451959802915,
+            "lng": 37.67396898029149
+          },
+          "southwest": {
+            "lat": 55.6424980197085,
+            "lng": 37.6712710197085
+          }
+        }
+      },
+      "place_id": "ChIJ4wstBKKzSkERJs_9Nutl5io",
+      "plus_code": {
+        "compound_code": "JMVF+G2 Южный административный округ, Москва, Россия",
+        "global_code": "9G7VJMVF+G2"
+      },
+      "types": [
+        "establishment",
+        "local_government_office",
+        "point_of_interest"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "4",
+          "short_name": "4",
+          "types": [
+            "street_number"
+          ]
+        },
+        {
+          "long_name": "улица Кошкина",
+          "short_name": "ул. Кошкина",
+          "types": [
+            "route"
+          ]
+        },
+        {
+          "long_name": "Южный административный округ",
+          "short_name": "Юж. административный округ",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москворечье-сабурово",
+          "short_name": "Москворечье-сабурово",
+          "types": [
+            "administrative_area_level_3",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        },
+        {
+          "long_name": "115409",
+          "short_name": "115409",
+          "types": [
+            "postal_code"
+          ]
+        }
+      ],
+      "formatted_address": "ул. Кошкина, 4, Москва, Россия, 115409",
+      "geometry": {
+        "location": {
+          "lat": 55.643804,
+          "lng": 37.672606
+        },
+        "location_type": "ROOFTOP",
+        "viewport": {
+          "northeast": {
+            "lat": 55.6451529802915,
+            "lng": 37.67395498029151
+          },
+          "southwest": {
+            "lat": 55.6424550197085,
+            "lng": 37.67125701970851
+          }
+        }
+      },
+      "place_id": "ChIJETyDBqKzSkERFJ6pC1n6PcU",
+      "plus_code": {
+        "compound_code": "JMVF+G2 Южный административный округ, Москва, Россия",
+        "global_code": "9G7VJMVF+G2"
+      },
+      "types": [
+        "street_address"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "4",
+          "short_name": "4",
+          "types": [
+            "street_number"
+          ]
+        },
+        {
+          "long_name": "улица Кошкина",
+          "short_name": "ул. Кошкина",
+          "types": [
+            "route"
+          ]
+        },
+        {
+          "long_name": "Южный административный округ",
+          "short_name": "Юж. административный округ",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москворечье-сабурово",
+          "short_name": "Москворечье-сабурово",
+          "types": [
+            "administrative_area_level_3",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        },
+        {
+          "long_name": "115409",
+          "short_name": "115409",
+          "types": [
+            "postal_code"
+          ]
+        }
+      ],
+      "formatted_address": "ул. Кошкина, 4, Москва, Россия, 115409",
+      "geometry": {
+        "location": {
+          "lat": 55.6436585,
+          "lng": 37.6729539
+        },
+        "location_type": "RANGE_INTERPOLATED",
+        "viewport": {
+          "northeast": {
+            "lat": 55.6450074802915,
+            "lng": 37.67430288029149
+          },
+          "southwest": {
+            "lat": 55.6423095197085,
+            "lng": 37.67160491970849
+          }
+        }
+      },
+      "place_id": "EipVbGl0c2EgS29zaGtpbmEsIDQsIE1vc2t2YSwgUnVzc2lhLCAxMTU0MDkiGhIYChQKEglPSVAPorNKQREFWqCMou7HrhAE",
+      "types": [
+        "street_address"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Каширское шоссе",
+          "short_name": "Каширское ш.",
+          "types": [
+            "route"
+          ]
+        },
+        {
+          "long_name": "Южный административный округ",
+          "short_name": "Юж. административный округ",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москворечье-сабурово",
+          "short_name": "Москворечье-сабурово",
+          "types": [
+            "administrative_area_level_3",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        },
+        {
+          "long_name": "115409",
+          "short_name": "115409",
+          "types": [
+            "postal_code"
+          ]
+        }
+      ],
+      "formatted_address": "Каширское ш., Москва, Россия, 115409",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 55.6441721,
+            "lng": 37.6728212
+          },
+          "southwest": {
+            "lat": 55.6439703,
+            "lng": 37.6721011
+          }
+        },
+        "location": {
+          "lat": 55.6439703,
+          "lng": 37.6725169
+        },
+        "location_type": "GEOMETRIC_CENTER",
+        "viewport": {
+          "northeast": {
+            "lat": 55.6454201802915,
+            "lng": 37.67381013029151
+          },
+          "southwest": {
+            "lat": 55.6427222197085,
+            "lng": 37.67111216970851
+          }
+        }
+      },
+      "place_id": "ChIJc1rhAKKzSkERiB46_8I5iRA",
+      "types": [
+        "route"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "115409",
+          "short_name": "115409",
+          "types": [
+            "postal_code"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Москва, Россия, 115409",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 55.659363,
+            "lng": 37.6912911
+          },
+          "southwest": {
+            "lat": 55.63276,
+            "lng": 37.6566001
+          }
+        },
+        "location": {
+          "lat": 55.6477953,
+          "lng": 37.6716309
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 55.659363,
+            "lng": 37.6912911
+          },
+          "southwest": {
+            "lat": 55.63276,
+            "lng": 37.6566001
+          }
+        }
+      },
+      "place_id": "ChIJ4Q7GegqzSkERIHhhMqryD0s",
+      "types": [
+        "postal_code"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "район Москворечье-Сабурово",
+          "short_name": "р-н Москворечье-Сабурово",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_2"
+          ]
+        },
+        {
+          "long_name": "Южный административный округ",
+          "short_name": "Юж. административный округ",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "р-н Москворечье-Сабурово, Москва, Россия",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 55.65848099999999,
+            "lng": 37.7294079
+          },
+          "southwest": {
+            "lat": 55.628177,
+            "lng": 37.621887
+          }
+        },
+        "location": {
+          "lat": 55.6460546,
+          "lng": 37.6493463
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 55.65848099999999,
+            "lng": 37.7294079
+          },
+          "southwest": {
+            "lat": 55.628177,
+            "lng": 37.621887
+          }
+        }
+      },
+      "place_id": "ChIJ1SUigpizSkERKDcqvx7uIn8",
+      "types": [
+        "political",
+        "sublocality",
+        "sublocality_level_2"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Москворечье-сабурово",
+          "short_name": "Москворечье-сабурово",
+          "types": [
+            "administrative_area_level_3",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Южный административный округ",
+          "short_name": "Юж. административный округ",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Москворечье-сабурово, Москва, Россия",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 55.65822499999999,
+            "lng": 37.7291582
+          },
+          "southwest": {
+            "lat": 55.6279651,
+            "lng": 37.622194
+          }
+        },
+        "location": {
+          "lat": 55.6441103,
+          "lng": 37.6561072
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 55.65822499999999,
+            "lng": 37.7291582
+          },
+          "southwest": {
+            "lat": 55.6279651,
+            "lng": 37.622194
+          }
+        }
+      },
+      "place_id": "ChIJ0bTKbaKzSkERkbHNPEo1w5c",
+      "types": [
+        "administrative_area_level_3",
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Южный административный округ",
+          "short_name": "Юж. административный округ",
+          "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Юж. административный округ, Москва, Россия",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 55.7296749,
+            "lng": 37.7938919
+          },
+          "southwest": {
+            "lat": 55.5671949,
+            "lng": 37.57405
+          }
+        },
+        "location": {
+          "lat": 55.6332383,
+          "lng": 37.66691
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 55.7296749,
+            "lng": 37.7938919
+          },
+          "southwest": {
+            "lat": 55.5671949,
+            "lng": 37.57405
+          }
+        }
+      },
+      "place_id": "ChIJF0wruJuzSkERWlNyzMHfSCo",
+      "types": [
+        "political",
+        "sublocality",
+        "sublocality_level_1"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Москва, Россия",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 56.0214609,
+            "lng": 37.9678221
+          },
+          "southwest": {
+            "lat": 55.142591,
+            "lng": 36.8032249
+          }
+        },
+        "location": {
+          "lat": 55.5464948,
+          "lng": 37.2926266
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 56.0214609,
+            "lng": 37.9678221
+          },
+          "southwest": {
+            "lat": 55.142591,
+            "lng": 36.8032249
+          }
+        }
+      },
+      "place_id": "ChIJr-dYmSzISkERysTPiPSjVws",
+      "types": [
+        "administrative_area_level_1",
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Москва, Россия",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 56.0214609,
+            "lng": 37.9678221
+          },
+          "southwest": {
+            "lat": 55.142591,
+            "lng": 36.8032249
+          }
+        },
+        "location": {
+          "lat": 55.755826,
+          "lng": 37.6172999
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 56.0214609,
+            "lng": 37.9678221
+          },
+          "southwest": {
+            "lat": 55.142591,
+            "lng": 36.8032249
+          }
+        }
+      },
+      "place_id": "ChIJybDUc_xKtUYRTM9XV8zWRD0",
+      "types": [
+        "locality",
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Москва",
+          "short_name": "Москва",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Москва, Россия",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 56.0214609,
+            "lng": 37.9678221
+          },
+          "southwest": {
+            "lat": 55.142591,
+            "lng": 36.8032249
+          }
+        },
+        "location": {
+          "lat": 55.74983659999999,
+          "lng": 37.6244581
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 56.0214609,
+            "lng": 37.9678221
+          },
+          "southwest": {
+            "lat": 55.142591,
+            "lng": 36.8032249
+          }
+        }
+      },
+      "place_id": "ChIJP5cfydBLtUYRyvGyUIpYc50",
+      "types": [
+        "administrative_area_level_2",
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Россия",
+          "short_name": "RU",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Россия",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 82.1673907,
+            "lng": -168.97788
+          },
+          "southwest": {
+            "lat": 41.185353,
+            "lng": 19.6160999
+          }
+        },
+        "location": {
+          "lat": 61.52401,
+          "lng": 105.318756
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 82.1673907,
+            "lng": -168.97788
+          },
+          "southwest": {
+            "lat": 41.185353,
+            "lng": 19.6160999
+          }
+        }
+      },
+      "place_id": "ChIJ-yRniZpWPEURE_YRZvj9CRQ",
+      "types": [
+        "country",
+        "political"
+      ]
+    }
+  ],
+  "status": "OK"
+}
