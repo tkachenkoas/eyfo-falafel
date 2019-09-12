@@ -10,6 +10,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static java.util.Optional.ofNullable;
+
 @Data
 @JsonInclude(content = JsonInclude.Include.NON_NULL)
 class PlaceRestDto {
@@ -20,6 +22,7 @@ class PlaceRestDto {
     private BigDecimal priceFrom;
     private BigDecimal priceTo;
     private List<FileRestDto> attachments;
+    private BigDecimal averageRating;
 
     @Override
     public boolean equals(Object o) {
@@ -30,9 +33,16 @@ class PlaceRestDto {
                 .append(name, restDto.name)
                 .append(description, restDto.description)
                 .append(location, restDto.location)
-                .append(priceFrom.stripTrailingZeros(), restDto.priceFrom.stripTrailingZeros())
-                .append(priceTo.stripTrailingZeros(), restDto.priceTo.stripTrailingZeros())
+                .append(strip(priceFrom), strip(restDto.priceFrom))
+                .append(strip(priceTo), strip(restDto.priceTo))
+                .append(strip(averageRating), strip(restDto.averageRating))
                 .isEquals();
+    }
+
+    private BigDecimal strip(BigDecimal source) {
+        return ofNullable(source)
+                .map(BigDecimal::stripTrailingZeros)
+                .orElse(null);
     }
 
     @Override
@@ -43,6 +53,8 @@ class PlaceRestDto {
                 .append(location)
                 .append(priceFrom)
                 .append(priceTo)
+                .append(priceTo)
+                .append(averageRating)
                 .toHashCode();
     }
 }
