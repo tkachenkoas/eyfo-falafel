@@ -22,7 +22,7 @@ class GoogleApiStub implements GoogleApi {
             File reverseGeocodeStub,
             ObjectMapper mapper
     ) {
-        this.mapper = mapper.copy();
+        this.mapper = mapper
         this.mapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
 
         predictions = parse(autoCompleteStub, 'predictions', AutocompletePrediction[])
