@@ -30,7 +30,7 @@ public class RestAuthEntryPoint implements AuthenticationEntryPoint {
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
-        log.error("Unauthorized access attempt for url " + request.getRequestURI());
+        log.warn("Unauthorized access attempt for url " + request.getRequestURI());
 
         response.getOutputStream().println(
                 objectMapper.writeValueAsString(

@@ -14,7 +14,7 @@ import static java.util.Optional.ofNullable;
 
 @Data
 @JsonInclude(content = JsonInclude.Include.NON_NULL)
-class PlaceRestDto {
+public class PlaceRestDto {
     private Long id;
     private String name;
     private String description;

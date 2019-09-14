@@ -10,5 +10,6 @@ public class ReviewRestDto {
     private Long placeId;
     private UserRestDto author;
     private Integer rating;
+    private String comment;
     private LocalDateTime creationDateTime;
 }

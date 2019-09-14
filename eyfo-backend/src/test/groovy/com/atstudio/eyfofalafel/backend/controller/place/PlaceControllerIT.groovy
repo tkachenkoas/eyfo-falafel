@@ -37,7 +37,7 @@ class PlaceControllerIT {
         assert newPlace == places.get(0)
     }
 
-    @Test
+    @Test()
     @SqlGroup([
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
@@ -74,7 +74,7 @@ class PlaceControllerIT {
 
     }
 
-    private static List<PlaceRestDto> getPlaces(Map<String, Object> params = [:]) {
+    static List<PlaceRestDto> getPlaces(Map<String, Object> params = [:]) {
         return rawGet("api/places/", params)['content'] as PlaceRestDto[]
     }
 

@@ -1,6 +1,8 @@
 package com.atstudio.eyfofalafel.backend.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,10 +13,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
+import java.security.SecureRandom;
+
 @Configuration
 @EnableWebSecurity
 @Profile("!integration-tests")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(@Value("${security.password.salt}") String salt,
+                                                 @Value("${security.password.strength}")Integer strength) {
+        return new BCryptPasswordEncoder(strength, new SecureRandom(salt.getBytes()));
+    }
 
     @Autowired
     private UserDetailsService userSecurityService;
@@ -29,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/css/**",
             "/js/**",
             "/image/**",
+            "/public/**",
             "/api/user/**",
             "/api/login",
             "/error"
