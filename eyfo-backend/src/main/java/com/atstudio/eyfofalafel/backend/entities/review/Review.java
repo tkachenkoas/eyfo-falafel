@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.entities.reviews;
+package com.atstudio.eyfofalafel.backend.entities.review;
 
 import com.atstudio.eyfofalafel.backend.entities.security.User;
 import lombok.Data;

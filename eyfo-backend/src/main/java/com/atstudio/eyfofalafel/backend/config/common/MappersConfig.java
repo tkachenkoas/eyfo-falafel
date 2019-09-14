@@ -14,7 +14,7 @@ public class MappersConfig {
 
     @Bean
     @Scope("prototype")
-    public ObjectMapper smartMapper() {
+    public ObjectMapper smartJacksonMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true);

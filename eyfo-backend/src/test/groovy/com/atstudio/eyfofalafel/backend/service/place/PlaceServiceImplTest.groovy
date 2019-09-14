@@ -1,7 +1,7 @@
 package com.atstudio.eyfofalafel.backend.service.place
 
 import com.atstudio.eyfofalafel.backend.TestDataSourceAutoConfiguration
-import com.atstudio.eyfofalafel.backend.domain.place.Place
+import com.atstudio.eyfofalafel.backend.entities.place.Place
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService
 import org.junit.Test
 import org.junit.runner.RunWith

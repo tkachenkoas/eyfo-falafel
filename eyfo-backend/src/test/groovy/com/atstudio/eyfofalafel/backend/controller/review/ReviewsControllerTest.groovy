@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.controller.reviews
+package com.atstudio.eyfofalafel.backend.controller.review
 
 import com.atstudio.eyfofalafel.backend.controller.place.PlaceRestDto
 import org.junit.Test
@@ -35,9 +35,9 @@ class ReviewsControllerTest {
 
         loaded << created
         loaded.each { rv ->
-            assert rv['placeId'] = place.getId()
-                    && rv['rating'] == review['rating']
-                    && rv['comment'] == review['comment']
+            assert rv['placeId'] == place.getId() &&
+                    rv['rating'] == review['rating'] &&
+                    rv['comment'] == review['comment']
             assert SECONDS.between(rv['creationDateTime'] as LocalDateTime, LocalDateTime.now()) < 1
         }
     }
