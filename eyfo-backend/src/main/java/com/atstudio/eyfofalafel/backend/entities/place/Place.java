@@ -1,6 +1,6 @@
-package com.atstudio.eyfofalafel.backend.domain.place;
+package com.atstudio.eyfofalafel.backend.entities.place;
 
-import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
+import com.atstudio.eyfofalafel.backend.entities.files.Attachment;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.UpdateTimestamp;

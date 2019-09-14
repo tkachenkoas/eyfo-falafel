@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.domain.place;
+package com.atstudio.eyfofalafel.backend.entities.place;
 
 import com.vividsolutions.jts.geom.Point;
 import lombok.Data;

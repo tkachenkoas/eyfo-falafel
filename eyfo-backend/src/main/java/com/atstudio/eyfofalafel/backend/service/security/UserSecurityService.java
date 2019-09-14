@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.service.security;
 
-import com.atstudio.eyfofalafel.backend.domain.security.User;
+import com.atstudio.eyfofalafel.backend.entities.security.User;
 import com.atstudio.eyfofalafel.backend.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

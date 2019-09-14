@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.repository;
 
-import com.atstudio.eyfofalafel.backend.domain.place.Place;
+import com.atstudio.eyfofalafel.backend.entities.place.Place;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

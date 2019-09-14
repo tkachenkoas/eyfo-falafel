@@ -1,7 +1,7 @@
 package com.atstudio.eyfofalafel.backend.controller.location;
 
 import com.atstudio.eyfofalafel.backend.controller.beanmapper.SimpleRestObjectMapper;
-import com.atstudio.eyfofalafel.backend.domain.place.Location;
+import com.atstudio.eyfofalafel.backend.entities.place.Location;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import org.springframework.beans.factory.annotation.Qualifier;

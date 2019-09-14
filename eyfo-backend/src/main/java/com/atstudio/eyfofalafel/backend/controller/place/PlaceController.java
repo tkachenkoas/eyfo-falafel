@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.controller.place;
 
-import com.atstudio.eyfofalafel.backend.domain.place.Place;
+import com.atstudio.eyfofalafel.backend.entities.place.Place;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
 import lombok.SneakyThrows;

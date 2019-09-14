@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.domain.security;
+package com.atstudio.eyfofalafel.backend.entities.security;
 
 import javax.persistence.*;
 import java.io.Serializable;

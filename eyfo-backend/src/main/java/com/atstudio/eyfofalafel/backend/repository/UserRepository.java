@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.repository;
 
-import com.atstudio.eyfofalafel.backend.domain.security.User;
+import com.atstudio.eyfofalafel.backend.entities.security.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

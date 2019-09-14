@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.controller.files;
 
-import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
+import com.atstudio.eyfofalafel.backend.entities.files.Attachment;
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

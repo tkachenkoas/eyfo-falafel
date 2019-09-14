@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.domain.files;
+package com.atstudio.eyfofalafel.backend.entities.files;
 
 import lombok.Data;
 

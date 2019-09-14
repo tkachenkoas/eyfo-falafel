@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.service.place;
 
-import com.atstudio.eyfofalafel.backend.domain.place.Place;
+import com.atstudio.eyfofalafel.backend.entities.place.Place;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
