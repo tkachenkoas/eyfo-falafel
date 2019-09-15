@@ -66,10 +66,10 @@ class TestRequestUtils {
                 .extract().body().jsonPath()
     }
 
-    static <T> T performGet(CharSequence url, Map<String, Object> params = [:], Class<T> extractClass) {
+    static <T> T typedGet(CharSequence url, Map<String, Object> params = [:], Class<T> extractClass) {
         return given().spec(reqSpec())
                 .params(params)
-                .post(getUrlWithHost(url))
+                .get(getUrlWithHost(url))
                 .then().spec(success())
                 .extract().as(extractClass)
     }

@@ -111,4 +111,13 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="11" author="Anton">
+        <addColumn tableName="t_places">
+            <column name="avg_rating" type="number(3,2)"/>
+        </addColumn>
+        <rollback>
+            <dropColumn tableName="t_places" columnName="avg_rating"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

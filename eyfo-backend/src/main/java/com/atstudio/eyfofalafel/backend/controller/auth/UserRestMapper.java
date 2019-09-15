@@ -13,6 +13,7 @@ public class UserRestMapper extends SimpleRestObjectMapper<User, UserRestDto> {
 
     @Autowired
     public UserRestMapper(BCryptPasswordEncoder encoder) {
+        super();
         this.encoder = encoder;
     }
 

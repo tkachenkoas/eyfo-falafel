@@ -37,6 +37,9 @@ public class Place {
     @Column(name = "price_to")
     private BigDecimal priceTo;
 
+    @Column(name = "avg_rating")
+    private BigDecimal averageRating;
+
     @Column(name = "last_edit")
     @UpdateTimestamp
     private LocalDateTime lastEdit;

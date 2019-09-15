@@ -1,6 +1,7 @@
 package com.atstudio.eyfofalafel.backend.controller.location;
 
 import com.atstudio.eyfofalafel.backend.service.location.LocationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,9 @@ import java.util.List;
 @RequestMapping(value = "/location")
 public class LocationController {
 
-    private LocationService locationService;
+    private final LocationService locationService;
 
+    @Autowired
     public LocationController(LocationService locationService) {
         this.locationService = locationService;
     }

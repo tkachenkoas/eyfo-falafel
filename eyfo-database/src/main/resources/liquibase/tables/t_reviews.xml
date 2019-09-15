@@ -25,7 +25,7 @@
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="id"
-                                 referencedTableName="t_place"/>
+                                 referencedTableName="t_places"/>
         <createIndex indexName="idx_review_place_id"
                      tableName="t_reviews">
             <column name="place_id"/>
@@ -33,6 +33,25 @@
         <rollback>
             <dropIndex tableName="t_reviews" indexName="idx_review_place_id"/>
             <dropForeignKeyConstraint baseTableName="t_reviews" constraintName="fk_place_id"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="Anton">
+        <addColumn tableName="t_reviews">
+            <column name="creation_date" type="timestamp"/>
+        </addColumn>
+        <rollback>
+            <dropColumn tableName="t_reviews" columnName="creation_date"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="Anton" id="4">
+        <sqlFile relativeToChangelogFile="true" path="../sql/t_reviews_01.sql"/>
+        <rollback>
+            <sql>
+                DROP TRIGGER IF EXISTS calculateAverageRating ON t_reviews;
+                DROP FUNCTION IF EXISTS update_place_avg_rating;
+            </sql>
         </rollback>
     </changeSet>
 
