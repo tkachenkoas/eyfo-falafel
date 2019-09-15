@@ -28,7 +28,7 @@ class PlaceControllerIT {
     void newPlace() throws Exception {
         PlaceRestDto newPlace = testPlace()
 
-        PlaceRestDto result = performPost("api/places/new", newPlace, PlaceRestDto)
+        PlaceRestDto result = typedPost("api/places/new", newPlace, PlaceRestDto)
 
         assert newPlace == result
         List<PlaceRestDto> places = getPlaces()
@@ -89,7 +89,7 @@ class PlaceControllerIT {
         PlaceRestDto newPlace = testPlace()
         newPlace.setAttachments([tempUpload])
 
-        PlaceRestDto savedPlace = performPost("api/places/new", newPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = typedPost("api/places/new", newPlace, PlaceRestDto)
 
         performDelete("api/places/${savedPlace.getId()}")
 
@@ -111,7 +111,7 @@ class PlaceControllerIT {
         PlaceRestDto newPlace = testPlace()
         newPlace.setAttachments([tempUpload])
 
-        PlaceRestDto savedPlace = performPost("api/places/new", newPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = typedPost("api/places/new", newPlace, PlaceRestDto)
 
         byte[] attachContent = getFileContent(savedPlace.getAttachments()[0].getFullPath())
 
@@ -125,7 +125,7 @@ class PlaceControllerIT {
     ])
     void testFindNearby() {
         def testPlace = testPlace()
-        PlaceRestDto savedPlace = performPost("api/places/new", testPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = typedPost("api/places/new", testPlace, PlaceRestDto)
 
         // make sure that something is found when searching nearby places
         List<PlaceRestDto> places = rawGet("api/places/nearby",
@@ -144,9 +144,9 @@ class PlaceControllerIT {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void lastCreatedOrEditedGoesOnTop() {
-        def first = performPost("api/places/new", testPlace("First place"), PlaceRestDto)
+        def first = typedPost("api/places/new", testPlace("First place"), PlaceRestDto)
         sleep(500)
-        def second = performPost("api/places/new", testPlace("Second place"), PlaceRestDto)
+        def second = typedPost("api/places/new", testPlace("Second place"), PlaceRestDto)
 
         // last created goes first
         assert getPlaces()[0] == second

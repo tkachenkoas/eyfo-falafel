@@ -17,16 +17,6 @@ public class UserRestMapper extends SimpleRestObjectMapper<User, UserRestDto> {
     }
 
     @Override
-    protected Class<User> getEntityClass() {
-        return User.class;
-    }
-
-    @Override
-    protected Class<UserRestDto> getRestDtoClass() {
-        return UserRestDto.class;
-    }
-
-    @Override
     public User toEntity(UserRestDto restObject) {
         User result = super.toEntity(restObject);
         result.setPassword(encoder.encode(restObject.getPassword()));

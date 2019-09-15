@@ -9,8 +9,7 @@ import java.time.LocalDateTime
 
 import static com.atstudio.eyfofalafel.backend.controller.place.PlaceControllerIT.places
 import static com.atstudio.eyfofalafel.backend.controller.place.PlaceControllerIT.testPlace
-import static com.atstudio.eyfofalafel.backend.testutil.TestRequestUtils.performGet
-import static com.atstudio.eyfofalafel.backend.testutil.TestRequestUtils.performPost
+import static com.atstudio.eyfofalafel.backend.testutil.TestRequestUtils.*
 import static java.time.temporal.ChronoUnit.SECONDS
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD
@@ -24,16 +23,16 @@ class ReviewsControllerTest {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void newReviewCanBeAddedAndRetrieved() {
-        PlaceRestDto place = performPost("api/places/new", testPlace(), PlaceRestDto)
+        PlaceRestDto place = typedPost("api/places/new", testPlace(), PlaceRestDto)
 
         def review = testReview()
-        ReviewRestDto created = performPost("api/places/${place.getId()}/reviews/new", review, ReviewRestDto)
+        def createdReview = rawPost("api/places/${place.getId()}/reviews/new", review)
 
-        def loaded = performGet("api/places/${place.getId()}/reviews", ReviewRestDto[]) as List
+        def loaded = rawGet("api/places/${place.getId()}/reviews") as List
 
         assert loaded.size() == 1
 
-        loaded << created
+        loaded << createdReview
         loaded.each { rv ->
             assert rv['placeId'] == place.getId() &&
                     rv['rating'] == review['rating'] &&
@@ -49,15 +48,15 @@ class ReviewsControllerTest {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void placeRatingIsAlteredAfterAddingReviews() {
-        performPost("api/places/new", testPlace(), PlaceRestDto)
+        rawPost("api/places/new", testPlace())
 
         PlaceRestDto existingPlace = getPlaces()[0]
         assert existingPlace.getAverageRating() == null
 
-        performPost("api/places/${existingPlace.getId()}/reviews/new", testReview(5), ReviewRestDto)
+        rawPost("api/places/${existingPlace.getId()}/reviews/new", testReview(5))
         assert getPlaces()[0].getAverageRating() == 5
 
-        performPost("api/places/${existingPlace.getId()}/reviews/new", testReview(4), ReviewRestDto)
+        rawPost("api/places/${existingPlace.getId()}/reviews/new", testReview(4))
         assert getPlaces()[0].getAverageRating() == 4.5
     }
 

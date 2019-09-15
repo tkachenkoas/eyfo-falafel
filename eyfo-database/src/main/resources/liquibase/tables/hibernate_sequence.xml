@@ -15,7 +15,7 @@
 
     <changeSet id="2" author="Anton">
         <alterSequence sequenceName="hibernate_sequence"
-                        incrementBy="10"/>
+                        incrementBy="50"/>
         <rollback>
             <alterSequence sequenceName="hibernate_sequence"
                            incrementBy="1"/>

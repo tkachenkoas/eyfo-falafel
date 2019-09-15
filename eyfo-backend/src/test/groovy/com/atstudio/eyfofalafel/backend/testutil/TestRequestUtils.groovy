@@ -80,12 +80,20 @@ class TestRequestUtils {
                 .then().statusCode(200)
     }
 
-    static <T> T performPost(CharSequence url, Object body, Class<T> extractClass) {
+    static <T> T typedPost(CharSequence url, Object body, Class<T> extractClass) {
         return given().spec(reqSpec())
                             .body(body)
                             .post(getUrlWithHost(url))
                             .then().spec(success())
                             .extract().as(extractClass)
+    }
+
+    static JsonPath rawPost(CharSequence url, Object body) {
+        return given().spec(reqSpec())
+                .body(body)
+                .post(getUrlWithHost(url))
+                .then().spec(success())
+                .extract().body().jsonPath()
     }
 
     static <T> T performPut(CharSequence url, Object body, Class<T> extractClass) {

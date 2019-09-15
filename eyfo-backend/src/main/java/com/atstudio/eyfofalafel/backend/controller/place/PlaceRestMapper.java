@@ -23,16 +23,6 @@ public class PlaceRestMapper extends SimpleRestObjectMapper<Place, PlaceRestDto>
     }
 
     @Override
-    protected Class<Place> getEntityClass() {
-        return Place.class;
-    }
-
-    @Override
-    protected Class<PlaceRestDto> getRestDtoClass() {
-        return PlaceRestDto.class;
-    }
-
-    @Override
     public Place toEntity(PlaceRestDto restObject) {
         Place autoResult = super.toEntity(restObject);
         autoResult.setLocation(locationRestMapper.toEntity(restObject.getLocation()));

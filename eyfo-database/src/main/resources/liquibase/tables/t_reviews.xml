@@ -8,7 +8,6 @@
         <createTable tableName="t_reviews">
             <column name="id" type="number(19)"/>
             <column name="place_id" type="number(19)"/>
-            <column name="author_id" type="number(19)"/>
             <column name="name" type="varchar2(128)"/>
             <column name="rating" type="number(3)"/>
             <column name="comment" type="varchar2(1000)"/>
@@ -28,25 +27,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="t_place"/>
         <createIndex indexName="idx_review_place_id"
-                     tableName="t_reviews">
-            <column name="place_id"/>
-        </createIndex>
-        <rollback>
-            <dropIndex tableName="t_reviews" indexName="idx_review_place_id"/>
-            <dropForeignKeyConstraint baseTableName="t_reviews" constraintName="fk_place_id"/>
-        </rollback>
-    </changeSet>
-
-    <changeSet author="Anton" id="3">
-        <addForeignKeyConstraint baseColumnNames="author_id"
-                                 baseTableName="t_reviews"
-                                 constraintName="fk_author_id"
-                                 initiallyDeferred="true"
-                                 onDelete="CASCADE"
-                                 onUpdate="RESTRICT"
-                                 referencedColumnNames="id"
-                                 referencedTableName="t_user"/>
-        <createIndex indexName="idx_review_user_id"
                      tableName="t_reviews">
             <column name="place_id"/>
         </createIndex>

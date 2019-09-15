@@ -1,6 +1,5 @@
 package com.atstudio.eyfofalafel.backend.entities.review;
 
-import com.atstudio.eyfofalafel.backend.entities.security.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,16 +13,13 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "t_reviews_id")
-    @SequenceGenerator(name="t_reviews_id", sequenceName="hibernate_sequence", allocationSize = 10)
+    @SequenceGenerator(name="t_reviews_id", sequenceName="hibernate_sequence", allocationSize = 1)
     @Column(name = "id")
     @EqualsAndHashCode.Exclude
     private Long id;
 
     @Column(name = "place_id")
     private Long placeId;
-
-    @Column(name = "author_id")
-    private User author;
 
     @Column(name = "rating")
     private Integer rating;
