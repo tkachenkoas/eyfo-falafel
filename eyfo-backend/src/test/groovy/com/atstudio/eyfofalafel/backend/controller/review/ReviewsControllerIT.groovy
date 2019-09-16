@@ -20,7 +20,7 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TE
 
 @RunWith(SpringRunner)
 @Import(TestDataSourceAutoConfiguration)
-class ReviewsControllerTest {
+class ReviewsControllerIT {
 
     @Test
     @SqlGroup([
@@ -59,10 +59,10 @@ class ReviewsControllerTest {
         assert existingPlace['averageRating'] == null
 
         rawPost("api/places/${existingPlace.getId()}/reviews/new", testReview(5))
-        assert getPlaces()[0]['averageRating'] == 5
+        assert getPlaces(["searchText" : existingPlace.getName()] as Map)[0]['averageRating'] == 5
 
         rawPost("api/places/${existingPlace.getId()}/reviews/new", testReview(4))
-        assert getPlaces()[0]['averageRating'] == 4.5
+        assert getPlaces(["searchText" : existingPlace.getName()] as Map)[0]['averageRating'] == 4.5
     }
 
     static Object testReview(Integer rating = 5, String text = 'Some review text') {

@@ -1,9 +1,14 @@
 package com.atstudio.eyfofalafel.backend.config.common;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.SystemUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -13,13 +18,24 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 @Configuration
 public class UrlRoutingConfig extends WebMvcConfigurationSupport {
 
+    @Autowired
+    @Qualifier("smart")
+    private ObjectMapper objectMapper;
+
     @Override
     protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
         return new ApiAwareRequestMappingHandlerMapping();
+    }
+
+    @Override
+    protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new MappingJackson2HttpMessageConverter(objectMapper));
+        super.configureMessageConverters(converters);
     }
 
     private static class ApiAwareRequestMappingHandlerMapping extends RequestMappingHandlerMapping {

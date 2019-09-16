@@ -21,7 +21,7 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TE
 @RunWith(SpringRunner)
 @EnableJpaRepositories(basePackages = ["com.atstudio.eyfofalafel.backend.repository"])
 @Import([TestDataSourceAutoConfiguration, PlaceServiceImpl])
-@EntityScan("com.atstudio.eyfofalafel.backend.domain")
+@EntityScan("com.atstudio.eyfofalafel.backend.entities")
 class PlaceServiceImplTest {
 
     @MockBean

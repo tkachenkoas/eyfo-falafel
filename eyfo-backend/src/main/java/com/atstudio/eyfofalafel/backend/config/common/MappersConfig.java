@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Scope;
 public class MappersConfig {
 
     @Bean
+    @Qualifier("smart")
     @Scope("prototype")
     public ObjectMapper smartJacksonMapper() {
         ObjectMapper mapper = new ObjectMapper();

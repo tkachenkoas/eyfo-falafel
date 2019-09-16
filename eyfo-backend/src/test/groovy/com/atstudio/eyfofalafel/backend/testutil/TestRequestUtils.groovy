@@ -1,6 +1,5 @@
 package com.atstudio.eyfofalafel.backend.testutil
 
-import com.jayway.restassured.path.json.JsonPath
 import com.jayway.restassured.builder.RequestSpecBuilder
 import com.jayway.restassured.builder.ResponseSpecBuilder
 import com.jayway.restassured.http.ContentType
@@ -58,12 +57,12 @@ class TestRequestUtils {
                 .then().extract().asByteArray()
     }
 
-    static JsonPath rawGet(CharSequence url, Map<String, Object> params = [:]) {
+    static Object rawGet(CharSequence url, Map<String, Object> params = [:]) {
         return given().spec(reqSpec())
                 .params(params)
                 .get(getUrlWithHost(url))
                 .then().spec(success())
-                .extract().body().jsonPath()
+                .extract().as(Object)
     }
 
     static <T> T typedGet(CharSequence url, Map<String, Object> params = [:], Class<T> extractClass) {
@@ -88,15 +87,15 @@ class TestRequestUtils {
                             .extract().as(extractClass)
     }
 
-    static JsonPath rawPost(CharSequence url, Object body) {
+    static Object rawPost(CharSequence url, Object body) {
         return given().spec(reqSpec())
                 .body(body)
                 .post(getUrlWithHost(url))
                 .then().spec(success())
-                .extract().body().jsonPath()
+                .extract().as(Object)
     }
 
-    static <T> T performPut(CharSequence url, Object body, Class<T> extractClass) {
+    static <T> T typedPut(CharSequence url, Object body, Class<T> extractClass) {
         return given().spec(reqSpec())
                 .body(body)
                 .put(getUrlWithHost(url))

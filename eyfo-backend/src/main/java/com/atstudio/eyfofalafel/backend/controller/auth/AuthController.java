@@ -32,7 +32,9 @@ public class AuthController {
     @GetMapping("/checkSession")
     public ResponseEntity checkSession() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (!(principal instanceof UserDetails)) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        if (!(principal instanceof UserDetails)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
 
         log.info("Check session for user " + ((UserDetails) principal).getUsername());
         return ResponseEntity.ok().build();

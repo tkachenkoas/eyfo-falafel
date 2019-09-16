@@ -86,7 +86,13 @@ class LocationControllerTest {
                 performGetWithParamsAndExtractResponseString("/location/location-by-address", ["address": "Search address"] as Map),
                 LocationRestDTO);
 
-        assert response == mockResponse
+        assert sameLocation(response, mockResponse)
+    }
+
+    static boolean sameLocation(LocationRestDTO expected, Object actual) {
+        return actual['address'] == expected.getAddress() &&
+                actual['latitude'] == expected.getLatitude() &&
+                actual['longitude'] == expected.getLongitude()
     }
 
     @Test
