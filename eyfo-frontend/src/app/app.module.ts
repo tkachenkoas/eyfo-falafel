@@ -24,7 +24,8 @@ import { ConfirmationDialogComponent } from './components/common/confirmation-di
 import { NearbyPlacesComponent } from './components/places/nearby-places/nearby-places.component';
 import { ListHeaderComponent } from './components/places/list-header/list-header.component';
 import { ViewPlaceComponent } from './components/places/view-place/view-place.component';
-import {SlideshowModule} from "ng-simple-slideshow";
+import {NgImageSliderModule} from "ng-image-slider";
+import {RatingModule} from "ng-starrating";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {SlideshowModule} from "ng-simple-slideshow";
     ViewPlaceComponent
   ],
   imports: [
+    NgImageSliderModule,
     UiComponentsModule,
     HttpClientModule,
     BrowserModule,
@@ -53,7 +55,7 @@ import {SlideshowModule} from "ng-simple-slideshow";
       apiKey: environment.googleMapsApiKey
     }),
     routing,
-    SlideshowModule
+    RatingModule
   ],
   exports : [
     MatPaginatorModule

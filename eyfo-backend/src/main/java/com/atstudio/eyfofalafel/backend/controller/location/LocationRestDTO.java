@@ -1,6 +1,5 @@
 package com.atstudio.eyfofalafel.backend.controller.location;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -8,7 +7,6 @@ import java.math.BigDecimal;
 import static java.math.BigDecimal.valueOf;
 
 @Data
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class LocationRestDTO {
 
     private String address;

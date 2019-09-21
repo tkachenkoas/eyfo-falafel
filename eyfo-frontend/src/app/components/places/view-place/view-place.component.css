@@ -1,10 +1,26 @@
 agm-map {
-  height: 300px;
+  height: 200px;
   width: 500px;
 }
 
-.place-info {
-  position: absolute;
-  left: 20px;
-  top: 20px;
+ng-image-slider {
+  width: 500px;
+}
+
+div.new-review-form {
+  width: 100%;
+}
+
+::ng-deep textarea {
+  width: 100%;
+  height: 70px;
+}
+
+star-rating, star-rating.div {
+  display: inline-block !important;
+  margin-left: 10px;
+}
+
+::ng-deep .mat-grid-tile .mat-figure {
+  justify-content: start !important;
 }

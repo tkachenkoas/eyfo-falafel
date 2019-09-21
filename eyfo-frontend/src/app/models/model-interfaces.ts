@@ -14,6 +14,15 @@ export interface IPlace {
   priceFrom?: number;
   priceTo?: number;
   attachments?: IImgAttachment[];
+  averageRating: number;
+}
+
+export interface IReview {
+  id: number;
+  placeId: number;
+  rating: number;
+  comment: string;
+  creationDateTime: Date;
 }
 
 export interface IImgAttachment {

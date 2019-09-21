@@ -33,11 +33,11 @@ export class PlacesService {
   }
 
   public getPlaceById(id: number): Promise<IPlace> {
-    return this.http.get(`places/${id}`).toPromise();
+    return this.http.get(`places/${id}`).toPromise() as Promise<IPlace>;
   }
 
   public createPlace(place: IPlace): Promise<IPlace> {
-    return this.http.post('places/new', place).toPromise();
+    return this.http.post('places/new', place).toPromise() as Promise<IPlace>;
   }
 
   public uploadImage(file: File): Promise<IImgAttachment> {
@@ -54,7 +54,7 @@ export class PlacesService {
   public patchPlace(place: IPlace): Promise<IPlace> {
     const {id} = place;
     if (!id || Number.isNaN(id)) { return; }
-    return this.http.put(`places/${id}`, place).toPromise();
+    return this.http.put(`places/${id}`, place).toPromise() as Promise<IPlace>;
   }
 
   deletePlace(id: number) {
