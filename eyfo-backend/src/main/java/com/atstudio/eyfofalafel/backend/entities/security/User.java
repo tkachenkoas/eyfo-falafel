@@ -1,5 +1,6 @@
-package com.atstudio.eyfofalafel.backend.domain.security;
+package com.atstudio.eyfofalafel.backend.entities.security;
 
+import lombok.Data;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "t_user")
+@Data
 public class User implements UserDetails {
     private static final long serialVersionUID = -3169225765424796303L;
 
@@ -58,6 +60,10 @@ public class User implements UserDetails {
         return userName;
     }
 
+    public String getUserName() {
+        return getUsername();
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -78,15 +84,4 @@ public class User implements UserDetails {
         return true;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
 }

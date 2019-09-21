@@ -1,30 +1,21 @@
 package com.atstudio.eyfofalafel.backend.controller.location;
 
 import com.atstudio.eyfofalafel.backend.controller.beanmapper.SimpleRestObjectMapper;
-import com.atstudio.eyfofalafel.backend.domain.place.Location;
+import com.atstudio.eyfofalafel.backend.entities.place.Location;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("location")
 public class LocationRestMapper extends SimpleRestObjectMapper<Location, LocationRestDTO> {
 
     private final GeometryFactory gf;
 
+    @Autowired
     public LocationRestMapper(GeometryFactory gf) {
+        super();
         this.gf = gf;
-    }
-
-    @Override
-    protected Class<Location> getEntityClass() {
-        return Location.class;
-    }
-
-    @Override
-    protected Class<LocationRestDTO> getRestDtoClass() {
-        return LocationRestDTO.class;
     }
 
     @Override

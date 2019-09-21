@@ -1,7 +1,6 @@
 package com.atstudio.eyfofalafel.backend.service.files
 
-import com.atstudio.eyfofalafel.backend.domain.files.Attachment
-import com.atstudio.eyfofalafel.backend.service.files.LocalStorageFileService
+import com.atstudio.eyfofalafel.backend.entities.files.Attachment
 import lombok.extern.slf4j.Slf4j
 import org.apache.commons.io.FileUtils
 import org.junit.After

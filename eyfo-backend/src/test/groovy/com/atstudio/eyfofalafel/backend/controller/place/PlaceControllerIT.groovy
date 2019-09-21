@@ -11,6 +11,7 @@ import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
 import org.springframework.test.context.junit4.SpringRunner
 
+import static com.atstudio.eyfofalafel.backend.controller.location.LocationControllerTest.sameLocation
 import static com.atstudio.eyfofalafel.backend.testutil.TestRequestUtils.*
 import static com.jayway.restassured.RestAssured.given
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TEST_METHOD
@@ -28,16 +29,16 @@ class PlaceControllerIT {
     void newPlace() throws Exception {
         PlaceRestDto newPlace = testPlace()
 
-        PlaceRestDto result = performPost("api/places/new", newPlace, PlaceRestDto)
+        PlaceRestDto result = typedPost("api/places/new", newPlace, PlaceRestDto)
 
-        assert newPlace == result
+        assert samePlace(newPlace, result)
         List<PlaceRestDto> places = getPlaces()
 
         assert places.size() == 1
-        assert newPlace == places.get(0)
+        assert samePlace(newPlace, places[0])
     }
 
-    @Test
+    @Test()
     @SqlGroup([
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/clean_db.sql"),
             @Sql(executionPhase = BEFORE_TEST_METHOD, scripts = "classpath:/places/test_place_data.sql"),
@@ -74,7 +75,7 @@ class PlaceControllerIT {
 
     }
 
-    private static List<PlaceRestDto> getPlaces(Map<String, Object> params = [:]) {
+    static List<PlaceRestDto> getPlaces(Map<String, Object> params = [:]) {
         return rawGet("api/places/", params)['content'] as PlaceRestDto[]
     }
 
@@ -89,7 +90,7 @@ class PlaceControllerIT {
         PlaceRestDto newPlace = testPlace()
         newPlace.setAttachments([tempUpload])
 
-        PlaceRestDto savedPlace = performPost("api/places/new", newPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = typedPost("api/places/new", newPlace, PlaceRestDto)
 
         performDelete("api/places/${savedPlace.getId()}")
 
@@ -111,7 +112,7 @@ class PlaceControllerIT {
         PlaceRestDto newPlace = testPlace()
         newPlace.setAttachments([tempUpload])
 
-        PlaceRestDto savedPlace = performPost("api/places/new", newPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = typedPost("api/places/new", newPlace, PlaceRestDto)
 
         byte[] attachContent = getFileContent(savedPlace.getAttachments()[0].getFullPath())
 
@@ -125,7 +126,7 @@ class PlaceControllerIT {
     ])
     void testFindNearby() {
         def testPlace = testPlace()
-        PlaceRestDto savedPlace = performPost("api/places/new", testPlace, PlaceRestDto)
+        PlaceRestDto savedPlace = typedPost("api/places/new", testPlace, PlaceRestDto)
 
         // make sure that something is found when searching nearby places
         List<PlaceRestDto> places = rawGet("api/places/nearby",
@@ -144,24 +145,34 @@ class PlaceControllerIT {
             @Sql(executionPhase = AFTER_TEST_METHOD, scripts = "classpath:/clean_db.sql")
     ])
     void lastCreatedOrEditedGoesOnTop() {
-        def first = performPost("api/places/new", testPlace("First place"), PlaceRestDto)
+        def first = typedPost("api/places/new", testPlace("First place"), PlaceRestDto)
         sleep(500)
-        def second = performPost("api/places/new", testPlace("Second place"), PlaceRestDto)
+        def second = typedPost("api/places/new", testPlace("Second place"), PlaceRestDto)
 
         // last created goes first
-        assert getPlaces()[0] == second
+        assert samePlace(getPlaces()[0], second)
         sleep(500)
         // last edited goes first
-        performPut("api/places/${first.id}", first, PlaceRestDto)
+        typedPut("api/places/${first.id}", first, PlaceRestDto)
 
         def places = getPlaces(["searchText" : "place"] as Map)
 
-        assert places[0] == first
-        assert places[1] == second
+        assert samePlace(places[0], first)
+        assert samePlace(places[1], second)
     }
 
     private static MockMultipartFile testFile() {
         return new MockMultipartFile("file", "temp_img.png", "image/png", "some file content".getBytes())
+    }
+
+    static boolean samePlace(PlaceRestDto expected, Object actual) {
+        return expected.getName() == actual['name'] &&
+                expected.getAverageRating() == actual['averageRating'] &&
+                sameLocation(expected.getLocation(), actual['location']) &&
+                expected.getAttachments() as Set == actual['attachments'] as Set &&
+                expected.getPriceFrom() == actual['priceFrom'] &&
+                expected.getPriceTo() == actual['priceTo'] &&
+                expected.getDescription() == actual['description']
     }
 
     static PlaceRestDto testPlace(

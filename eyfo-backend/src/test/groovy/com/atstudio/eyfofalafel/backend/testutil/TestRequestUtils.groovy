@@ -1,6 +1,5 @@
 package com.atstudio.eyfofalafel.backend.testutil
 
-import com.jayway.restassured.path.json.JsonPath
 import com.jayway.restassured.builder.RequestSpecBuilder
 import com.jayway.restassured.builder.ResponseSpecBuilder
 import com.jayway.restassured.http.ContentType
@@ -58,18 +57,18 @@ class TestRequestUtils {
                 .then().extract().asByteArray()
     }
 
-    static JsonPath rawGet(CharSequence url, Map<String, Object> params = [:]) {
+    static Object rawGet(CharSequence url, Map<String, Object> params = [:]) {
         return given().spec(reqSpec())
                 .params(params)
                 .get(getUrlWithHost(url))
                 .then().spec(success())
-                .extract().body().jsonPath()
+                .extract().as(Object)
     }
 
-    static <T> T performGet(CharSequence url, Map<String, Object> params = [:], Class<T> extractClass) {
+    static <T> T typedGet(CharSequence url, Map<String, Object> params = [:], Class<T> extractClass) {
         return given().spec(reqSpec())
                 .params(params)
-                .post(getUrlWithHost(url))
+                .get(getUrlWithHost(url))
                 .then().spec(success())
                 .extract().as(extractClass)
     }
@@ -80,7 +79,7 @@ class TestRequestUtils {
                 .then().statusCode(200)
     }
 
-    static <T> T performPost(CharSequence url, Object body, Class<T> extractClass) {
+    static <T> T typedPost(CharSequence url, Object body, Class<T> extractClass) {
         return given().spec(reqSpec())
                             .body(body)
                             .post(getUrlWithHost(url))
@@ -88,7 +87,15 @@ class TestRequestUtils {
                             .extract().as(extractClass)
     }
 
-    static <T> T performPut(CharSequence url, Object body, Class<T> extractClass) {
+    static Object rawPost(CharSequence url, Object body) {
+        return given().spec(reqSpec())
+                .body(body)
+                .post(getUrlWithHost(url))
+                .then().spec(success())
+                .extract().as(Object)
+    }
+
+    static <T> T typedPut(CharSequence url, Object body, Class<T> extractClass) {
         return given().spec(reqSpec())
                 .body(body)
                 .put(getUrlWithHost(url))

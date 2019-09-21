@@ -1,11 +1,15 @@
 package com.atstudio.eyfofalafel.backend.controller.location
 
-import com.atstudio.eyfofalafel.backend.controller.MapperTestBase
-import com.atstudio.eyfofalafel.backend.domain.place.Location
+
+import com.atstudio.eyfofalafel.backend.entities.place.Location
 import com.vividsolutions.jts.geom.GeometryFactory
 import org.junit.Test
 
-class LocationRestMapperTest extends MapperTestBase {
+import static com.atstudio.eyfofalafel.backend.controller.MapperHelper.assertLocationsEquality
+import static com.atstudio.eyfofalafel.backend.controller.MapperHelper.testLocation
+import static com.atstudio.eyfofalafel.backend.controller.MapperHelper.testLocationDto
+
+class LocationRestMapperTest {
 
     private LocationRestMapper mapper = new LocationRestMapper(new GeometryFactory())
 

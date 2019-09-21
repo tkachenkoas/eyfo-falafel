@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.controller.files;
 
-import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
+import com.atstudio.eyfofalafel.backend.entities.files.Attachment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 

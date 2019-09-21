@@ -1,6 +1,6 @@
-package com.atstudio.eyfofalafel.backend.domain.place;
+package com.atstudio.eyfofalafel.backend.entities.place;
 
-import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
+import com.atstudio.eyfofalafel.backend.entities.files.Attachment;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -36,6 +36,9 @@ public class Place {
 
     @Column(name = "price_to")
     private BigDecimal priceTo;
+
+    @Column(name = "avg_rating")
+    private BigDecimal averageRating;
 
     @Column(name = "last_edit")
     @UpdateTimestamp

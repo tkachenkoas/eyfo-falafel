@@ -1,4 +1,4 @@
-package com.atstudio.eyfofalafel.backend.domain.security;
+package com.atstudio.eyfofalafel.backend.entities.security;
 
 import org.springframework.security.core.GrantedAuthority;
 

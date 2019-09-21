@@ -1,22 +1,45 @@
 <ng-container *ngIf="place">
   <h3> {{place.name}}</h3>
-  <mat-grid-list cols="5" rowHeight="300px">
+  <mat-grid-list cols="6" rowHeight="40px">
     <mat-grid-tile
-      [colspan]="2"
+        [colspan]="3"
+        [rowspan]="1">
+      <h4>Локация, общая информация</h4>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="3"
       [rowspan]="1">
-      <div class="place-info">
+      <h4>
+        Фотографии точки
+      </h4>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      [colspan]="3"
+      [rowspan]="2">
+      <div>
         <p> Адрес: {{place.location.address}}</p>
         <p> Диапазон цен: {{place.priceFrom}} - {{place.priceTo || '?'}}</p>
       </div>
     </mat-grid-tile>
     <mat-grid-tile
       [colspan]="3"
-      [rowspan]="1">
-      <div class="map">
+      [rowspan]="6">
+      <div *ngIf="getImages().length > 0" style="width: 100%">
+        <ng-image-slider
+          [images]="getImages()"
+          [imageSize]="{width: 300, height: 300}"
+        ></ng-image-slider>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="3"
+      [rowspan]="6">
+      <div>
         <agm-map
           [latitude]="place.location.latitude"
           [longitude]="place.location.longitude"
-          [zoom]="12"
+          [zoom]="14"
           [disableDefaultUI]="false"
           [streetViewControl]="false"
           [draggable]="false">
@@ -27,16 +50,67 @@
         </agm-map>
       </div>
     </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="6"
+      [rowspan]="1">
+      <h4>
+        Отзывы ({{this.reviews?.length}})
+        <span *ngIf="reviews?.length > 0">, средний рейтинг {{this.getAvgRating()}}</span>
+      </h4>
+    </mat-grid-tile>
+    <mat-grid-tile *ngFor="let review of reviews"
+      [colspan]="6"
+      [rowspan]="2">
+      <div>
+        <div>
+          <span>Добавлен {{review.creationDateTime | date: 'medium'}}</span>
+          <span class="hor-filler">
+            Рейтинг:
+            <star-rating
+              [readonly]="true"
+              [value]="review.rating"
+              checkedcolor="red"
+              uncheckedcolor="gray"
+              size="24px">
+          </star-rating>
+          </span>
+        </div>
+        <div>
+          {{review.comment}}
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]="6"
+      [rowspan]="6">
+      <div class="new-review-form">
+        <h5>Добавить отзыв</h5>
+        <textarea matInput [(ngModel)]="newReview.comment"
+                  placeholder="Комментарий отзыва">
+        </textarea>
+        <div>
+          <span>Рейтинг:</span>
+          <star-rating
+            [readonly]="false"
+            [value]="newReview.rating || 0"
+            checkedcolor="red"
+            uncheckedcolor="gray"
+            size="24px"
+            (rate)="onReviewRate($event)">
+          </star-rating>
+        </div>
+        <ng-container>
+          <button mat-raised-button
+                  color="primary"
+                  (click)="addReview()">
+            Добавить отзыв
+          </button>
+          <span *ngIf="this.submittedReview && !this.newReviewValid()" class="hor-space">
+            Нужно написать комментарий и поставить рейтинг
+          </span>
+        </ng-container>
+      </div>
+    </mat-grid-tile>
   </mat-grid-list>
-  <ng-container *ngIf="getImages().length > 0">
-    <h4>
-      Фотографии точки
-    </h4>
-    <slideshow [height]="'400px'"
-               [minHeight]="'525px'"
-               [showArrows]="true"
-               [imageUrls]="getImages()"
-               [lazyLoad]="getImages()?.length > 1">
-    </slideshow>
-  </ng-container>
+
 </ng-container>

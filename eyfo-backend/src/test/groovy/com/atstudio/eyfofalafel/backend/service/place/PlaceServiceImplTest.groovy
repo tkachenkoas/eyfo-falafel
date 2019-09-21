@@ -1,7 +1,7 @@
 package com.atstudio.eyfofalafel.backend.service.place
 
 import com.atstudio.eyfofalafel.backend.TestDataSourceAutoConfiguration
-import com.atstudio.eyfofalafel.backend.domain.place.Place
+import com.atstudio.eyfofalafel.backend.entities.place.Place
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,7 +21,7 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TE
 @RunWith(SpringRunner)
 @EnableJpaRepositories(basePackages = ["com.atstudio.eyfofalafel.backend.repository"])
 @Import([TestDataSourceAutoConfiguration, PlaceServiceImpl])
-@EntityScan("com.atstudio.eyfofalafel.backend.domain")
+@EntityScan("com.atstudio.eyfofalafel.backend.entities")
 class PlaceServiceImplTest {
 
     @MockBean

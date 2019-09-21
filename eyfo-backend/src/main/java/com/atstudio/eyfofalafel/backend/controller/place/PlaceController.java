@@ -1,10 +1,11 @@
 package com.atstudio.eyfofalafel.backend.controller.place;
 
-import com.atstudio.eyfofalafel.backend.domain.place.Place;
+import com.atstudio.eyfofalafel.backend.entities.place.Place;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceFilter;
 import com.atstudio.eyfofalafel.backend.service.place.PlaceService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -24,9 +25,10 @@ import static java.util.stream.Collectors.toList;
 @Slf4j
 public class PlaceController {
 
-    private PlaceService placeService;
-    private PlaceRestMapper mapper;
+    private final PlaceService placeService;
+    private final PlaceRestMapper mapper;
 
+    @Autowired
     public PlaceController(PlaceService placeService, PlaceRestMapper mapper) {
         this.placeService = placeService;
         this.mapper = mapper;

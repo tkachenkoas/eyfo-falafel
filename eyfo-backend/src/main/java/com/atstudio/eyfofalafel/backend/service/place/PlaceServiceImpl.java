@@ -1,7 +1,7 @@
 package com.atstudio.eyfofalafel.backend.service.place;
 
-import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
-import com.atstudio.eyfofalafel.backend.domain.place.Place;
+import com.atstudio.eyfofalafel.backend.entities.files.Attachment;
+import com.atstudio.eyfofalafel.backend.entities.place.Place;
 import com.atstudio.eyfofalafel.backend.repository.PlaceRepository;
 import com.atstudio.eyfofalafel.backend.service.files.FileStorageService;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,6 @@
 package com.atstudio.eyfofalafel.backend.service.files;
 
-import com.atstudio.eyfofalafel.backend.domain.files.Attachment;
+import com.atstudio.eyfofalafel.backend.entities.files.Attachment;
 
 import java.io.FileNotFoundException;
 

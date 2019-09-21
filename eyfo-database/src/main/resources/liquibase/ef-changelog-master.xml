@@ -11,5 +11,6 @@
     <include file="/tables/t_locations.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_attachments.xml" relativeToChangelogFile="true"/>
     <include file="/tables/t_places_attachments.xml" relativeToChangelogFile="true"/>
+    <include file="/tables/t_reviews.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

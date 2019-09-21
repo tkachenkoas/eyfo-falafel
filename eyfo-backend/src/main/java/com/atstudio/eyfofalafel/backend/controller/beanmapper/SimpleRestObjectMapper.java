@@ -2,14 +2,28 @@ package com.atstudio.eyfofalafel.backend.controller.beanmapper;
 
 import org.modelmapper.ModelMapper;
 
+import static org.springframework.core.GenericTypeResolver.resolveTypeArguments;
+
 public abstract class SimpleRestObjectMapper<E, R> implements RestObjectMapper <E, R> {
 
-    protected abstract Class<E> getEntityClass();
-    protected abstract Class<R> getRestDtoClass();
+    private final Class<E> entityClass;
+    private final Class<R> restDtoClass;
+    private final ModelMapper mapper = new ModelMapper();
 
-    private ModelMapper mapper = new ModelMapper();
+    protected SimpleRestObjectMapper() {
+        Class[] generics = resolveTypeArguments(getClass(), SimpleRestObjectMapper.class);
+        entityClass = generics[0];
+        restDtoClass = generics[1];
+    }
 
-    protected <T> T map(Object source, Class<T> targetClass) {
+    private Class<E> getEntityClass() {
+        return entityClass;
+    };
+    private Class<R> getRestDtoClass() {
+        return restDtoClass;
+    };
+
+    protected final <T> T map(Object source, Class<T> targetClass) {
         return mapper.map(source, targetClass);
     }
 
