@@ -3,9 +3,9 @@ package com.atstudio.eyfofalafel.backend.config.stubs;
 import com.atstudio.eyfofalafel.backend.service.location.google.GoogleApi;
 import com.atstudio.eyfofalafel.backend.service.location.google.GoogleApiStub;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 import java.io.File;
 
@@ -13,7 +13,7 @@ import java.io.File;
 public class StubsConfig {
 
     @Bean
-    @Profile("stubs")
+    @ConditionalOnMissingBean(GoogleApi.class)
     public GoogleApi stubGoogleApi(ObjectMapper mapper) {
         return new GoogleApiStub(
                 getFile("stub/google-api/place-autocomplete.json"),
