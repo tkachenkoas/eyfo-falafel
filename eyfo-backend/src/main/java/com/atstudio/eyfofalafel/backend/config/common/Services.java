@@ -7,9 +7,9 @@ import com.google.maps.GeoApiContext;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.PrecisionModel;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class Services {
@@ -22,7 +22,7 @@ public class Services {
     }
 
     @Bean
-    @Profile("!stubs")
+    @ConditionalOnExpression("T(org.apache.commons.lang3.StringUtils).isNotBlank('${GOOGLE_API_KEY}')")
     public GoogleApi remoteGoogleApi(@Value("${GOOGLE_API_KEY}") String apiKey) {
         return new StaticWrapperGoogleApiImpl(
                 new GeoApiContext.Builder().apiKey(apiKey).maxRetries(3).build()

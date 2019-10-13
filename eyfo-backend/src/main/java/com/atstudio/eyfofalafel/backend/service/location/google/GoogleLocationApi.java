@@ -4,6 +4,7 @@ import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO;
 import com.atstudio.eyfofalafel.backend.service.location.LocationApi;
 import com.google.maps.model.AutocompletePrediction;
 import com.google.maps.model.GeocodingResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class GoogleLocationApi implements LocationApi {
     private final GoogleApi googleApi;
     private final LocationObjectFactory factory;
 
+    @Autowired
     public GoogleLocationApi(GoogleApi googleApi, LocationObjectFactory factory) {
         this.googleApi = googleApi;
         this.factory = factory;

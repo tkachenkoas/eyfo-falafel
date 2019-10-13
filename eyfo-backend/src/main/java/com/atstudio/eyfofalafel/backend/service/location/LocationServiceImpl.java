@@ -1,6 +1,7 @@
 package com.atstudio.eyfofalafel.backend.service.location;
 
 import com.atstudio.eyfofalafel.backend.controller.location.LocationRestDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public class LocationServiceImpl implements LocationService {
 
     private LocationApi locationApi;
 
+    @Autowired
     public LocationServiceImpl(LocationApi locationApi) {
         this.locationApi = locationApi;
     }

@@ -33,7 +33,7 @@ mwnw
 conf/
 
 ### Logs ###
-**/logfile.log
+**/logfile.log*
 
 ### Test-resourses ###
 test/resources/*.properties
