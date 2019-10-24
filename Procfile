@@ -1,1 +1,0 @@
-web: java -Dserver.port=$PORT -jar eyfo-backend/target/eyfo-falafel-app.jar
