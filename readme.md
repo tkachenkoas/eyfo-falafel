@@ -129,7 +129,7 @@ _mvn clean verify -PtestProps,runTests -pl :eyfo-backend_
 3. Build frontend
 _cd eyfo-frontend/_  
 _npm run prepare-packages_  
-_npm run staging_  
+_npm run build-local_  
 
 4. 'Package local app jar' -> to get an executable spring-boot jar in /target folder. Frontend is included    
 _mvn clean verify -Plocal,packFrontend -DskipTests -pl :eyfo-backend_
