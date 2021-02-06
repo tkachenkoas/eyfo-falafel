@@ -6,9 +6,6 @@ Eyfo-falafel ('Where is falafel?') is a simple hobby project of a client-server 
 and rating places that serve my favourite 'fast-food' - falafel. At some point mobile app clients may be added, but for now it's only backend with a web
 client for admin portal with minimum security.
 
-If you want to explore it in live mode, https://95.181.198.73:8443/ is the dev 
-server (contact me for login and password)
-
 ### Technology stack
 * Backend: spring boot 2.1.* with java 8, bits of groovy
 * Frontend: angular 8 & typescript
